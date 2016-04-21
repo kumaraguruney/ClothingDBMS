@@ -26,7 +26,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:ClothingDatabase %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]" DeleteCommand="DELETE FROM [Employee] WHERE [Employee_ID] = @Employee_ID" InsertCommand="INSERT INTO [Employee] ([Employee_Name], [Address], [Contact_Number], [Date_of_Birth]) VALUES (@Employee_Name, @Address, @Contact_Number, @Date_of_Birth)" UpdateCommand="UPDATE [Employee] SET [Employee_Name] = @Employee_Name, [Address] = @Address, [Contact_Number] = @Contact_Number, [Date_of_Birth] = @Date_of_Birth WHERE [Employee_ID] = @Employee_ID">
+        <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]" DeleteCommand="DELETE FROM [Employee] WHERE [Employee_ID] = @Employee_ID" InsertCommand="INSERT INTO [Employee] ([Employee_Name], [Address], [Contact_Number], [Date_of_Birth]) VALUES (@Employee_Name, @Address, @Contact_Number, @Date_of_Birth)" UpdateCommand="UPDATE [Employee] SET [Employee_Name] = @Employee_Name, [Address] = @Address, [Contact_Number] = @Contact_Number, [Date_of_Birth] = @Date_of_Birth WHERE [Employee_ID] = @Employee_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Employee_ID" Type="Byte" />
             </DeleteParameters>
