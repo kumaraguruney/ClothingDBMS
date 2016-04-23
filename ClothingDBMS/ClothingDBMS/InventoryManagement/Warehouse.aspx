@@ -25,7 +25,7 @@
           <div align="center">
                 <br />
                 <asp:Label ID="lblAllocates" runat="server" Text="Warehouse Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddAllocates" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                <%--<asp:Button ID="btnaddAllocates" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>--%>
                 <br /> <br />
                 <asp:Panel ID="PanelgvAllocates" runat="server">
                     <asp:GridView ID="gvAllocates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWarehouse" AutoGenerateColumns="False" DataKeyNames="Warehouse_ID">
@@ -47,7 +47,7 @@
                     <br />
                     <asp:Label ID="lblIncludesWarehouseAddress" Width="200px" Text="Warehouse Address:" runat="server" />
                     <asp:TextBox ID="WarehouseAddressTextBox" runat="server" Width="199px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="dropEmployee" ErrorMessage="(*) Must be Provided" ForeColor="Red" ValidationGroup="addAllocatesValidation"></asp:RequiredFieldValidator>
+                    
                     <br />
                     <br />
                     <asp:Label ID="lblIncludesContactNumber" runat="server" Text="Contact Number:" Width="200px" />
@@ -57,7 +57,7 @@
                     <br />
                     <br />
                     <asp:Button ID="btnSaveWarehouse" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveWarehouse_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelAllocates" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
+                    <%--<asp:Button ID="btnCancelAllocates" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>--%>
                     </asp:Panel>
         </div>
     </form>
