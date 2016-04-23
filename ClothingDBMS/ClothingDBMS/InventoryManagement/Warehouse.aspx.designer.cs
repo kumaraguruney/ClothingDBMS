@@ -49,6 +49,15 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Panel PanelgvAllocates;
         
         /// <summary>
+        /// btnaddAllocates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnaddAllocates;
+        
+        /// <summary>
         /// gvAllocates control.
         /// </summary>
         /// <remarks>
@@ -130,15 +139,6 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.TextBox ContactNumberTextBox;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// btnSaveWarehouse control.
         /// </summary>
         /// <remarks>
@@ -146,5 +146,14 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveWarehouse;
+        
+        /// <summary>
+        /// btnCancelAllocates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelAllocates;
     }
 }

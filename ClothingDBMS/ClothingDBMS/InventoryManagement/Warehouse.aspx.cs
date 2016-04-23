@@ -14,9 +14,22 @@ namespace ClothingDBMS.InventoryManagement
 
         }
 
+
+        protected void btnaddAllocates_Click(object sender, EventArgs e)
+        {
+            PaneladdAllocates.Visible = true;
+            PanelgvAllocates.Visible = false;
+        }
+
         protected void btnSaveWarehouse_Click(object sender, EventArgs e)
         {
+    
+        }
 
+        protected void btnCancelAllocates_Click(object sender, EventArgs e)
+        {
+            PaneladdAllocates.Visible = false;
+            PanelgvAllocates.Visible = true;
         }
     }
 }
