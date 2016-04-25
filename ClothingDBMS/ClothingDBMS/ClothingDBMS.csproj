@@ -104,6 +104,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ProcurementManagement\Goods_Receipt.aspx" />
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.cs">
+      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.designer.cs">
+      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>
