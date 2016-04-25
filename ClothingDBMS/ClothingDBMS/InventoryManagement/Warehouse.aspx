@@ -12,7 +12,7 @@
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Production Management - Home</a></li>
+        <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
