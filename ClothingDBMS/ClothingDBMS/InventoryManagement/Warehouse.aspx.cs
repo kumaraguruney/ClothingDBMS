@@ -23,7 +23,16 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void btnSaveWarehouse_Click(object sender, EventArgs e)
         {
-    
+            SqlWarehouse.InsertParameters["Warehouse_Name"].DefaultValue = WarehouseNameTextBox.Text.ToUpper().Trim();
+            SqlWarehouse.InsertParameters["Warehouse_Address"].DefaultValue = WarehouseAddressTextBox.Text.ToUpper().Trim();
+            SqlWarehouse.InsertParameters["contact_number"].DefaultValue = ContactNumberTextBox.Text.ToUpper().Trim();
+            SqlWarehouse.Insert();
+            gvAllocates.DataBind();
+            PaneladdAllocates.Visible = false;
+            PanelgvAllocates.Visible = true;
+            WarehouseAddressTextBox.Text = string.Empty;
+            WarehouseNameTextBox.Text = string.Empty;
+            ContactNumberTextBox.Text = string.Empty;
         }
 
         protected void btnCancelAllocates_Click(object sender, EventArgs e)
