@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
+    <Content Include="InventoryManagement\Inventory.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -136,6 +137,13 @@
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>
