@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="InventoryManagement\Inventory.aspx" />
@@ -106,6 +107,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ProcurementManagement\Goods_Receipt.aspx" />
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
@@ -124,6 +126,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InventoryManagement\stockmovement.aspx.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -137,13 +146,6 @@
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InventoryManagement\Inventory.aspx.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InventoryManagement\Inventory.aspx.designer.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>

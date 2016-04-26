@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductionManagement.ProductionManagement {
+namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class RawMaterial {
+    public partial class Goods_Receipt {
         
         /// <summary>
         /// form1 control.
@@ -22,174 +22,246 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlRawmaterial control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawmaterial;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
-        /// SqlCodeColor control.
+        /// lblGoodsReceipt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlCodeColor;
+        protected global::System.Web.UI.WebControls.Label lblGoodsReceipt;
         
         /// <summary>
-        /// lbRawmaterialHeader control.
+        /// btnAddGoodsReceipt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRawmaterialHeader;
+        protected global::System.Web.UI.WebControls.Button btnAddGoodsReceipt;
         
         /// <summary>
-        /// btaddRawmaterial control.
+        /// pnlGoodsReceipt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btaddRawmaterial;
+        protected global::System.Web.UI.WebControls.Panel pnlGoodsReceipt;
         
         /// <summary>
-        /// PanelgvRawmaterial control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvRawmaterial;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// gvRawmaterial control.
+        /// pnlAddGoodsReceipt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvRawmaterial;
+        protected global::System.Web.UI.WebControls.Panel pnlAddGoodsReceipt;
         
         /// <summary>
-        /// PaneladdRawMaterial control.
+        /// lblAddGoodsTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdRawMaterial;
+        protected global::System.Web.UI.WebControls.Label lblAddGoodsTitle;
         
         /// <summary>
-        /// lbRawmaterialaddTitle control.
+        /// lblPurchaseOrderID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRawmaterialaddTitle;
+        protected global::System.Web.UI.WebControls.Label lblPurchaseOrderID;
         
         /// <summary>
-        /// lbRawmaterialName control.
+        /// txtPurchaseOrderID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRawmaterialName;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchaseOrderID;
         
         /// <summary>
-        /// txtRawmaterialName control.
+        /// lblReceiptDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRawmaterialName;
+        protected global::System.Web.UI.WebControls.Label lblReceiptDate;
         
         /// <summary>
-        /// rfvRawmaterialName control.
+        /// txtReceiptDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialName;
+        protected global::System.Web.UI.WebControls.TextBox txtReceiptDate;
         
         /// <summary>
-        /// lblRawmaterialColor control.
+        /// lblSupplierName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRawmaterialColor;
+        protected global::System.Web.UI.WebControls.Label lblSupplierName;
         
         /// <summary>
-        /// dropRawmaterialcolor control.
+        /// txtSupplierName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropRawmaterialcolor;
+        protected global::System.Web.UI.WebControls.TextBox txtSupplierName;
         
         /// <summary>
-        /// rfvRawmaterialColor control.
+        /// lblDeliverLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialColor;
+        protected global::System.Web.UI.WebControls.Label lblDeliverLocation;
         
         /// <summary>
-        /// lblRawmaterialDescription control.
+        /// txtDeliveryLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRawmaterialDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtDeliveryLocation;
         
         /// <summary>
-        /// txtRawmaterialDescription control.
+        /// lblItemCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRawmaterialDescription;
+        protected global::System.Web.UI.WebControls.Label lblItemCode;
         
         /// <summary>
-        /// rfvRawmaterialDescription control.
+        /// txtItemCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtItemCode;
         
         /// <summary>
-        /// btnSaveRawmaterial control.
+        /// lblDeliveredQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveRawmaterial;
+        protected global::System.Web.UI.WebControls.Label lblDeliveredQty;
         
         /// <summary>
-        /// btnCancelRawmaterial control.
+        /// txtDeliveredQty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelRawmaterial;
+        protected global::System.Web.UI.WebControls.TextBox txtDeliveredQty;
+        
+        /// <summary>
+        /// lblOrderedQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOrderedQty;
+        
+        /// <summary>
+        /// txtOrderedQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOrderedQty;
+        
+        /// <summary>
+        /// lblUnitPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnitPrice;
+        
+        /// <summary>
+        /// txtUnitPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUnitPrice;
+        
+        /// <summary>
+        /// lblTotalPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPrice;
+        
+        /// <summary>
+        /// txtTotalPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotalPrice;
+        
+        /// <summary>
+        /// btnAddGoodsReceiptDB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddGoodsReceiptDB;
+        
+        /// <summary>
+        /// btnCancelAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelAdd;
     }
 }
