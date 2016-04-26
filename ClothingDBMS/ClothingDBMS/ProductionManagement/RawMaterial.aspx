@@ -42,7 +42,7 @@
                 <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
-
+        <asp:SqlDataSource ID="SqlCodeColor" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'COLOR') ORDER BY Code_Type"></asp:SqlDataSource>
             <div align="center">
                 <br />
                 <asp:Label ID="lbRawmaterialHeader" runat="server" Text="Raw Material - Management" Font-Bold="true"></asp:Label> <br /> <br />
@@ -51,7 +51,7 @@
                 <asp:Panel ID="PanelgvRawmaterial" runat="server">
                     <asp:GridView ID="gvRawmaterial" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRawmaterial" AutoGenerateColumns="False" DataKeyNames="RawMaterial_ID">
                         <Columns>
-                            <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
+                            <asp:CommandField ShowEditButton="True" HeaderText="Edit"/>
                             <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" InsertVisible="False" ReadOnly="True" Visible="true" SortExpression="RawMaterial_ID" />
                             <asp:BoundField DataField="RawMaterial_Name" HeaderText="RawMaterial_Name" SortExpression="RawMaterial_Name" />
                             <asp:BoundField DataField="RawMaterial_Color" HeaderText="RawMaterial_Color" SortExpression="RawMaterial_Color" />
