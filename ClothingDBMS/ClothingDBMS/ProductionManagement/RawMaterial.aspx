@@ -26,15 +26,19 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlRawmaterial" runat="server" ConnectionString="<%$ ConnectionStrings:ClothingDatabase %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_Name]" DeleteCommand="DELETE FROM [RawMaterial] WHERE [RawMaterial_ID] = @RawMaterial_ID" InsertCommand="INSERT INTO [RawMaterial] ([RawMaterial_Name]) VALUES (@RawMaterial_Name)" UpdateCommand="UPDATE [RawMaterial] SET [RawMaterial_Name] = @RawMaterial_Name WHERE [RawMaterial_ID] = @RawMaterial_ID">
+        <asp:SqlDataSource ID="SqlRawmaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_Name]" DeleteCommand="DELETE FROM [RawMaterial] WHERE [RawMaterial_ID] = @RawMaterial_ID" InsertCommand="INSERT INTO [RawMaterial] ([RawMaterial_Name], [RawMaterial_Color], [RawMaterial_Description]) VALUES (@RawMaterial_Name, @RawMaterial_Color, @RawMaterial_Description)" UpdateCommand="UPDATE [RawMaterial] SET [RawMaterial_Name] = @RawMaterial_Name, [RawMaterial_Color] = @RawMaterial_Color, [RawMaterial_Description] = @RawMaterial_Description WHERE [RawMaterial_ID] = @RawMaterial_ID">
             <DeleteParameters>
                 <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="RawMaterial_Name" Type="String" />
+                <asp:Parameter Name="RawMaterial_Color" Type="String" />
+                <asp:Parameter Name="RawMaterial_Description" Type="String" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="RawMaterial_Name" Type="String" />
+                <asp:Parameter Name="RawMaterial_Color" Type="String" />
+                <asp:Parameter Name="RawMaterial_Description" Type="String" />
                 <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
@@ -48,8 +52,10 @@
                     <asp:GridView ID="gvRawmaterial" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRawmaterial" AutoGenerateColumns="False" DataKeyNames="RawMaterial_ID">
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
-                            <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial ID" InsertVisible="False" ReadOnly="True" Visible="true" SortExpression="RawMaterial_ID" />
-                            <asp:BoundField DataField="RawMaterial_Name" HeaderText="RawMaterial Name" SortExpression="RawMaterial_Name" />
+                            <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" InsertVisible="False" ReadOnly="True" Visible="true" SortExpression="RawMaterial_ID" />
+                            <asp:BoundField DataField="RawMaterial_Name" HeaderText="RawMaterial_Name" SortExpression="RawMaterial_Name" />
+                            <asp:BoundField DataField="RawMaterial_Color" HeaderText="RawMaterial_Color" SortExpression="RawMaterial_Color" />
+                            <asp:BoundField DataField="RawMaterial_Description" HeaderText="RawMaterial_Description" SortExpression="RawMaterial_Description" />
                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
@@ -63,7 +69,14 @@
                 <asp:Label ID="lbRawmaterialaddTitle" Text="Add Raw Material into Database" runat="server" /><br /> <br />
                     <asp:Label ID="lbRawmaterialName" Text="Raw Material Name: " runat="server" />
                     <asp:TextBox ID="txtRawmaterialName" ValidationGroup="addRawmaterailValidation" runat="server" ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvRawmaterialName" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="txtRawmaterialName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br /><br />
+                    <asp:RequiredFieldValidator ID="rfvRawmaterialName" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="txtRawmaterialName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:Label ID="lblRawmaterialColor" Text="Raw Material Color: " runat="server" />
+                    <asp:TextBox ID="txtRawmaterialColor" ValidationGroup="addRawmaterailValidation" runat="server" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvRawmaterialColor" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="txtRawmaterialColor" ErrorMessage="(*) Must have some Color" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:Label ID="lblRawmaterialDescription" Text="Raw Material Color: " runat="server" />
+                    <asp:TextBox ID="txtRawmaterialDescription" ValidationGroup="addRawmaterailValidation" runat="server" ></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvRawmaterialDescription" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="txtRawmaterialDescription" ErrorMessage="(*) Must have some Description" ForeColor="Red"></asp:RequiredFieldValidator><br />
+
                     <asp:Button ID="btnSaveRawmaterial" ValidationGroup="addRawmaterailValidation" runat="server" Text="Save" OnClick="btnSaveRawmaterial_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelRawmaterial" runat="server" Text="Cancel" OnClick="btnCancelRawmaterial_Click"/>
                     </asp:Panel>

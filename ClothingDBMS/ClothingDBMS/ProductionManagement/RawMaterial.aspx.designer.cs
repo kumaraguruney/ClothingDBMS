@@ -112,6 +112,60 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialName;
         
         /// <summary>
+        /// lblRawmaterialColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRawmaterialColor;
+        
+        /// <summary>
+        /// txtRawmaterialColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRawmaterialColor;
+        
+        /// <summary>
+        /// rfvRawmaterialColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialColor;
+        
+        /// <summary>
+        /// lblRawmaterialDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRawmaterialDescription;
+        
+        /// <summary>
+        /// txtRawmaterialDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRawmaterialDescription;
+        
+        /// <summary>
+        /// rfvRawmaterialDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialDescription;
+        
+        /// <summary>
         /// btnSaveRawmaterial control.
         /// </summary>
         /// <remarks>
