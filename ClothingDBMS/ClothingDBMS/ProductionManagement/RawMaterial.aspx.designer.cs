@@ -130,13 +130,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblRawmaterialColor;
         
         /// <summary>
-        /// txtRawmaterialColor control.
+        /// dropRawmaterialcolor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRawmaterialColor;
+        protected global::System.Web.UI.WebControls.DropDownList dropRawmaterialcolor;
         
         /// <summary>
         /// rfvRawmaterialColor control.
