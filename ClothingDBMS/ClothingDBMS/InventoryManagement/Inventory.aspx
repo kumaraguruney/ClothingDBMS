@@ -42,7 +42,7 @@
              
                 <br /> <br />
                 <asp:Panel ID="PanelgvInventory" runat="server">
-                     <asp:Button ID="btnaddInventory" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                     <asp:Button ID="btnaddInventory" runat="server" Text="Add" OnClick="btnaddInventory_Click"/>
                     <asp:GridView ID="gvInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
                             <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" InsertVisible="False" />
@@ -72,21 +72,11 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Button ID="btnSaveInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveWarehouse_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelInventory" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
+                    <asp:Button ID="btnSaveInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveInventory_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelInventory" runat="server" Text="Cancel" OnClick="btnCancelInventory_Click"/>
                    
                     </asp:Panel>
         </div>
-    </form>
-    <form id="form3" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
     </form>
 </body>
 </html>
