@@ -96,9 +96,11 @@
   <ItemGroup>
     <Content Include="Code.aspx" />
     <Content Include="Index.aspx" />
-    <Content Include="InventoryManagement\stockmovement.aspx" />
-    <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="InventoryManagement\Inventory.aspx" />
+    <Content Include="InventoryManagement\stockmovement.aspx" />
+    <Content Include="InventoryManagement\StockUpdate.aspx" />
+    <Content Include="InventoryManagement\Warehouse.aspx" />
+    <Content Include="InventoryManagement\WebForm1.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -148,12 +150,26 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InventoryManagement\Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InventoryManagement\stockmovement.aspx.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InventoryManagement\stockmovement.aspx.designer.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\StockUpdate.aspx.cs">
+      <DependentUpon>StockUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\StockUpdate.aspx.designer.cs">
+      <DependentUpon>StockUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>

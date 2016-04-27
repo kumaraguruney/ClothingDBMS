@@ -10,7 +10,7 @@
 namespace ClothingDBMS.InventoryManagement {
     
     
-    public partial class Inventory {
+    public partial class WebForm1 {
         
         /// <summary>
         /// form2 control.
@@ -31,6 +31,24 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlInventory;
         
         /// <summary>
+        /// SqlProductInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProductInventory;
+        
+        /// <summary>
+        /// SqlRMInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRMInventory;
+        
+        /// <summary>
         /// lblAllocates control.
         /// </summary>
         /// <remarks>
@@ -40,31 +58,31 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblAllocates;
         
         /// <summary>
-        /// PanelgvInventory control.
+        /// PanelgvAllocates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvInventory;
+        protected global::System.Web.UI.WebControls.Panel PanelgvAllocates;
         
         /// <summary>
-        /// btnaddInventory control.
+        /// btnaddAllocates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddInventory;
+        protected global::System.Web.UI.WebControls.Button btnaddAllocates;
         
         /// <summary>
-        /// gvInventory control.
+        /// gvAllocates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInventory;
+        protected global::System.Web.UI.WebControls.GridView gvAllocates;
         
         /// <summary>
         /// PaneladdInventory control.
