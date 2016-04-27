@@ -13,6 +13,7 @@
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="index.aspx">Home</a></li>
+        <li><a href="Code.aspx">Code</a>
         <li><a href="ProductionManagement/Default.aspx">Production Management</a></li>
       </ul>
     </div>
