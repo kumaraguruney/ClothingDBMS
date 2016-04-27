@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Customer.aspx.cs" Inherits="SalesManagement.Sales.Customer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Customer.aspx.cs" Inherits="Sales.Sales.Customer" %>
 
 <!DOCTYPE html>
 
@@ -25,54 +25,35 @@
     <div align="center">
         <br/>
         <asp:Label ID="lblCustomer" runat="server" Text="Customer Management" Font-Bold="true"></asp:Label>
-    <asp:SqlDataSource ID="SqlDataSourceCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CUSTOMER]" DeleteCommand="DELETE FROM [CUSTOMER] WHERE [Customer_Id] = @Customer_Id" InsertCommand="INSERT INTO [CUSTOMER] ([Customer_Name], [Address], [City], [State], [Zipcode], [Email], [Phone], [Fax]) VALUES (@Customer_Name, @Address, @City, @State, @Zipcode, @Email, @Phone, @Fax)" UpdateCommand="UPDATE [CUSTOMER] SET [Customer_Name] = @Customer_Name, [Address] = @Address, [City] = @City, [State] = @State, [Zipcode] = @Zipcode, [Email] = @Email, [Phone] = @Phone, [Fax] = @Fax WHERE [Customer_Id] = @Customer_Id">
-        <DeleteParameters>
-            <asp:Parameter Name="Customer_Id" Type="Int16" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="Customer_Name" Type="String" />
-            <asp:Parameter Name="Address" Type="String" />
-            <asp:Parameter Name="City" Type="String" />
-            <asp:Parameter Name="State" Type="String" />
-            <asp:Parameter Name="Zipcode" Type="Int16" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Phone" Type="Int16" />
-            <asp:Parameter Name="Fax" Type="Int16" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="Customer_Name" Type="String" />
-            <asp:Parameter Name="Address" Type="String" />
-            <asp:Parameter Name="City" Type="String" />
-            <asp:Parameter Name="State" Type="String" />
-            <asp:Parameter Name="Zipcode" Type="Int16" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="Phone" Type="Int16" />
-            <asp:Parameter Name="Fax" Type="Int16" />
-            <asp:Parameter Name="Customer_Id" Type="Int16" />
-        </UpdateParameters>
+    <asp:SqlDataSource ID="SqlDataSourceCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [CUSTOMER]">
         </asp:SqlDataSource>
         
-        <asp:Panel ID="panelAddCustomer" Visible="false" runat="server" Height="134px">
+        <asp:Panel ID="panelAddCustomer" Visible="false" runat="server" Height="266px">
         
         <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
         <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" /> 
             <br/>
-            Customer Name: <asp:TextBox ID="Customer_Name" runat="server" style="margin-top: 0px"></asp:TextBox>
-            Address: <asp:TextBox ID="Address" runat="server" style="margin-top: 0px"></asp:TextBox>
-            City: <asp:TextBox ID="City" runat="server" style="margin-top: 0px"></asp:TextBox>
-            <br/>
-            State: <asp:TextBox ID="State" runat="server" style="margin-top: 0px"></asp:TextBox>
-            Zip Code: <asp:TextBox ID="Zipcode" runat="server" style="margin-top: 0px"></asp:TextBox>
-            Email: <asp:TextBox ID="Email" runat="server" style="margin-top: 0px"></asp:TextBox>
-            <br/>
-            Phone No: <asp:TextBox ID="Phone" runat="server" style="margin-top: 0px"></asp:TextBox>
-            Fax: <asp:TextBox ID="Fax" runat="server" style="margin-top: 0px"></asp:TextBox>
+            <asp:Label ID="lbCusttomerName" Width="150" Text="Customer Name: " runat="server" />
+            <asp:TextBox ID="Customer_Name" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="lbAddress" Width="150" Text="Address: " runat="server" />
+            <asp:TextBox ID="Address" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="lbCity" Width="150" Text="City: " runat="server" />
+            <asp:TextBox ID="City" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="lbState" Width="150" Text="State: " runat="server" />
+            <asp:TextBox ID="State" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="lbZipcode" Width="150" Text="Zip Code: " runat="server" />
+            <asp:TextBox ID="Zipcode" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="lbEmail" Width="150" Text="Email Id: " runat="server" />
+            <asp:TextBox ID="Email" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="lbEmployeeName" Width="150" Text="Phone No: " runat="server" />
+            <asp:TextBox ID="Phone" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+            <asp:Label ID="Label1" Width="150" Text="Fax: " runat="server" />
+            <asp:TextBox ID="Fax" runat="server" style="margin-top: 0px"></asp:TextBox><br />
         </asp:Panel>
         <asp:Panel ID="panelSaveCustomer" Visible="true" runat="server" Height="51px">
             <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
             <asp:GridView ID="CustomerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="Customer_Id" DataSourceID="SqlDataSourceCustomer" Height="219px" style="margin-top: 57px" Width="712px" AllowSorting="True">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" ReadOnly="True" SortExpression="Customer_Id" InsertVisible="False" />
                 <asp:BoundField DataField="Customer_Name" HeaderText="Customer_Name" SortExpression="Customer_Name" />
                 <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />

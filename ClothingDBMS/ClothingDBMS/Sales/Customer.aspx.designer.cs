@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesManagement.Sales {
+namespace Sales.Sales {
     
     
     public partial class Customer {
@@ -67,6 +67,15 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
+        /// lbCusttomerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCusttomerName;
+        
+        /// <summary>
         /// Customer_Name control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace SalesManagement.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Customer_Name;
+        
+        /// <summary>
+        /// lbAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbAddress;
         
         /// <summary>
         /// Address control.
@@ -85,6 +103,15 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.TextBox Address;
         
         /// <summary>
+        /// lbCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbCity;
+        
+        /// <summary>
         /// City control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace SalesManagement.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox City;
+        
+        /// <summary>
+        /// lbState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbState;
         
         /// <summary>
         /// State control.
@@ -103,6 +139,15 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.TextBox State;
         
         /// <summary>
+        /// lbZipcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbZipcode;
+        
+        /// <summary>
         /// Zipcode control.
         /// </summary>
         /// <remarks>
@@ -110,6 +155,15 @@ namespace SalesManagement.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Zipcode;
+        
+        /// <summary>
+        /// lbEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbEmail;
         
         /// <summary>
         /// Email control.
@@ -121,6 +175,15 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.TextBox Email;
         
         /// <summary>
+        /// lbEmployeeName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbEmployeeName;
+        
+        /// <summary>
         /// Phone control.
         /// </summary>
         /// <remarks>
@@ -128,6 +191,15 @@ namespace SalesManagement.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Phone;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Fax control.
