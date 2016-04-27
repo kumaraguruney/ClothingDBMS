@@ -24,11 +24,15 @@ namespace ProductionManagement.ProductionManagement
         protected void btnSaveRawmaterial_Click(object sender, EventArgs e)
         {
             SqlRawmaterial.InsertParameters["Rawmaterial_Name"].DefaultValue = txtRawmaterialName.Text.ToUpper().Trim();
+            SqlRawmaterial.InsertParameters["Rawmaterial_Color"].DefaultValue = dropRawmaterialcolor.SelectedValue;
+            SqlRawmaterial.InsertParameters["Rawmaterial_Description"].DefaultValue = txtRawmaterialDescription.Text.ToUpper().Trim();
             SqlRawmaterial.Insert();
             gvRawmaterial.DataBind();
             PaneladdRawMaterial.Visible = false;
             PanelgvRawmaterial.Visible = true;
             txtRawmaterialName.Text = string.Empty;
+            txtRawmaterialDescription.Text = string.Empty;
+            dropRawmaterialcolor.SelectedIndex = -1;
         }
 
         protected void btnCancelRawmaterial_Click(object sender, EventArgs e)

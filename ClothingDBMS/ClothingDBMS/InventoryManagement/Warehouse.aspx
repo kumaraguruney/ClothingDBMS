@@ -41,7 +41,7 @@
                 <asp:Label ID="lblAllocates" runat="server" Text="Warehouse Details" Font-Bold="True"></asp:Label> <br /> <br />
              
                 <br /> <br />
-                <asp:Panel ID="PanelgvAllocates" runat="server">
+                <asp:Panel ID="PanelgvWarehouse" runat="server">
                      <asp:Button ID="btnaddAllocates" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
                     <asp:GridView ID="gvAllocates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWarehouse" AutoGenerateColumns="False" DataKeyNames="Warehouse_ID">
                         <Columns>

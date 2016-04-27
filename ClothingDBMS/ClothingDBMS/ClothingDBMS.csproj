@@ -98,6 +98,7 @@
     <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
+    <Content Include="InventoryManagement\Inventory.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -153,13 +154,6 @@
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.cs">
-      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.designer.cs">
-      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>

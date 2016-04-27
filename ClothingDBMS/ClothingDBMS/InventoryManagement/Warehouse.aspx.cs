@@ -18,7 +18,7 @@ namespace ClothingDBMS.InventoryManagement
         protected void btnaddAllocates_Click(object sender, EventArgs e)
         {
             PaneladdAllocates.Visible = true;
-            PanelgvAllocates.Visible = false;
+            PanelgvWarehouse.Visible = false;
         }
 
         protected void btnSaveWarehouse_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace ClothingDBMS.InventoryManagement
             SqlWarehouse.Insert();
             gvAllocates.DataBind();
             PaneladdAllocates.Visible = false;
-            PanelgvAllocates.Visible = true;
+            PanelgvWarehouse.Visible = true;
             WarehouseAddressTextBox.Text = string.Empty;
             WarehouseNameTextBox.Text = string.Empty;
             ContactNumberTextBox.Text = string.Empty;
@@ -38,7 +38,7 @@ namespace ClothingDBMS.InventoryManagement
         protected void btnCancelAllocates_Click(object sender, EventArgs e)
         {
             PaneladdAllocates.Visible = false;
-            PanelgvAllocates.Visible = true;
+            PanelgvWarehouse.Visible = true;
         }
     }
 }
