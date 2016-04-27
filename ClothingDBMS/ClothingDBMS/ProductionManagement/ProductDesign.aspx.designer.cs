@@ -31,6 +31,33 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
         
         /// <summary>
+        /// SqlCodeSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlCodeSize;
+        
+        /// <summary>
+        /// SqlCodeColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlCodeColor;
+        
+        /// <summary>
+        /// SqlProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
+        
+        /// <summary>
         /// lbProductDesignHeader control.
         /// </summary>
         /// <remarks>
@@ -94,13 +121,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lbProductDesignName;
         
         /// <summary>
-        /// txtProductDesignName control.
+        /// dropProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductDesignName;
+        protected global::System.Web.UI.WebControls.DropDownList dropProductName;
         
         /// <summary>
         /// rfvProductDesignName control.
@@ -112,24 +139,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductDesignName;
         
         /// <summary>
-        /// lbProductDesignSection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignSection;
-        
-        /// <summary>
-        /// txtProductDesignSection control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductDesignSection;
-        
-        /// <summary>
         /// lblProductDesignSize control.
         /// </summary>
         /// <remarks>
@@ -139,13 +148,22 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblProductDesignSize;
         
         /// <summary>
-        /// txtProductDesignSize control.
+        /// dropProductSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductDesignSize;
+        protected global::System.Web.UI.WebControls.DropDownList dropProductSize;
+        
+        /// <summary>
+        /// rfvdropsize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropsize;
         
         /// <summary>
         /// lblProductDesignColor control.
@@ -157,13 +175,40 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblProductDesignColor;
         
         /// <summary>
-        /// txtProductDesignColor control.
+        /// dropProductColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductDesignColor;
+        protected global::System.Web.UI.WebControls.DropDownList dropProductColor;
+        
+        /// <summary>
+        /// rfvdropColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropColor;
+        
+        /// <summary>
+        /// lbProductDesignDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbProductDesignDescription;
+        
+        /// <summary>
+        /// txtProductDesignDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtProductDesignDescription;
         
         /// <summary>
         /// btnSaveProductDesign control.
