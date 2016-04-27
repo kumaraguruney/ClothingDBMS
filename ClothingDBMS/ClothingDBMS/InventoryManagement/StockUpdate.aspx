@@ -37,9 +37,9 @@
                 <asp:Label ID="lblAllocates" runat="server" Text="Stock Update Details" Font-Bold="True"></asp:Label> <br /> <br />
              
                 <br /> <br />
-                <asp:Panel ID="PanelgvInventory" runat="server">
-                     <asp:Button ID="btnaddInventory" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
-                    <asp:GridView ID="gvInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlStockUpdate" AutoGenerateColumns="False" DataKeyNames="StockUpdate_ID">
+                <asp:Panel ID="PanelgvStockUpdate" runat="server">
+                     <asp:Button ID="btnaddStockUpdate" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                    <asp:GridView ID="gvStockUpdate" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlStockUpdate" AutoGenerateColumns="False" DataKeyNames="StockUpdate_ID">
                         <Columns>
                             <asp:BoundField DataField="StockUpdate_ID" HeaderText="StockUpdate_ID" ReadOnly="True" SortExpression="StockUpdate_ID" InsertVisible="False" />
                             <asp:BoundField DataField="StockMovement_ID" HeaderText="StockMovement_ID" SortExpression="StockMovement_ID" />
@@ -48,9 +48,9 @@
                     </asp:GridView>
                    </asp:Panel>
 
-                <asp:Panel ID="PaneladdInventory" Visible="false" runat="server">
+                <asp:Panel ID="PaneladdStockUpdate" Visible="false" runat="server">
                 <asp:Label ID="lblAllocatesInventoryDetails" Text="Enter Stock Update Details" runat="server" /><br /> <br />
-                    <asp:Label ID="lblAllocatesStockUpdateID" runat="server" Text="StockUpdate ID:" Width="200px" />
+                    <asp:Label ID="lblAllocatesStockUpdateID" runat="server" Text="Stock Update ID:" Width="200px" />
                     <asp:TextBox ID="StockUpdateTextBox" runat="server" Width="199px"></asp:TextBox>
                         
                     <br />
@@ -61,8 +61,8 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Button ID="btnSaveInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveWarehouse_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelInventory" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
+                    <asp:Button ID="btnSaveStockUpdate" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveWarehouse_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelStockUpdate" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
                    
                     </asp:Panel>
         </div>

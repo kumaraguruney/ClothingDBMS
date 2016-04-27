@@ -40,40 +40,40 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblAllocates;
         
         /// <summary>
-        /// PanelgvInventory control.
+        /// PanelgvStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvInventory;
+        protected global::System.Web.UI.WebControls.Panel PanelgvStockUpdate;
         
         /// <summary>
-        /// btnaddInventory control.
+        /// btnaddStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddInventory;
+        protected global::System.Web.UI.WebControls.Button btnaddStockUpdate;
         
         /// <summary>
-        /// gvInventory control.
+        /// gvStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInventory;
+        protected global::System.Web.UI.WebControls.GridView gvStockUpdate;
         
         /// <summary>
-        /// PaneladdInventory control.
+        /// PaneladdStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdInventory;
+        protected global::System.Web.UI.WebControls.Panel PaneladdStockUpdate;
         
         /// <summary>
         /// lblAllocatesInventoryDetails control.
@@ -121,22 +121,22 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.TextBox StockMovementTextBox;
         
         /// <summary>
-        /// btnSaveInventory control.
+        /// btnSaveStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveInventory;
+        protected global::System.Web.UI.WebControls.Button btnSaveStockUpdate;
         
         /// <summary>
-        /// btnCancelInventory control.
+        /// btnCancelStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelInventory;
+        protected global::System.Web.UI.WebControls.Button btnCancelStockUpdate;
         
         /// <summary>
         /// form3 control.

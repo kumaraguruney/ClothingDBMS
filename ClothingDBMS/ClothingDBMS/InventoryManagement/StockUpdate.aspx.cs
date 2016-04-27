@@ -13,30 +13,30 @@ namespace ClothingDBMS.InventoryManagement
         {
 
         }
-        protected void btnaddInventory_Click(object sender, EventArgs e)
+        protected void btnaddStockUpdate_Click(object sender, EventArgs e)
         {
-            PaneladdInventory.Visible = true;
-            PanelgvInventory.Visible = false;
+            PaneladdStockUpdate.Visible = true;
+            PanelgvStockUpdate.Visible = false;
         }
 
-        protected void btnSaveInventory_Click(object sender, EventArgs e)
+        protected void btnSaveStockUpdate_Click(object sender, EventArgs e)
         {
-            SqlStockUpdate.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
-            SqlStockUpdate.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDTextBox.Text.ToUpper().Trim();
-            SqlStockUpdate.InsertParameters["Quantity"].DefaultValue = QuantityTextBox.Text.ToUpper().Trim();
+            SqlStockUpdate.InsertParameters["Stock_Update_ID"].DefaultValue = StockUpdateTextBox.Text.ToUpper().Trim();
+            SqlStockUpdate.InsertParameters["Stock_Movement_ID"].DefaultValue = StockMovementTextBox.Text.ToUpper().Trim();
+            //SqlStockUpdate.InsertParameters["Quantity"].DefaultValue = QuantityTextBox.Text.ToUpper().Trim();
             SqlStockUpdate.Insert();
-            gvInventory.DataBind();
-            PaneladdInventory.Visible = false;
-            PanelgvInventory.Visible = true;
-            InventoryTextBox.Text = string.Empty;
-            WarehouseIDTextBox.Text = string.Empty;
-            QuantityTextBox.Text = string.Empty;
+            gvStockUpdate.DataBind();
+            PaneladdStockUpdate.Visible = false;
+            PanelgvStockUpdate.Visible = true;
+            StockUpdateTextBox.Text = string.Empty;
+            StockMovementTextBox.Text = string.Empty;
+            //QuantityTextBox.Text = string.Empty;
         }
 
-        protected void btnCancelInventory_Click(object sender, EventArgs e)
+        protected void btnCancelStockUpdate_Click(object sender, EventArgs e)
         {
-            PaneladdInventory.Visible = false;
-            PanelgvInventory.Visible = true;
+            PaneladdStockUpdate.Visible = false;
+            PanelgvStockUpdate.Visible = true;
         }
     }
 }
