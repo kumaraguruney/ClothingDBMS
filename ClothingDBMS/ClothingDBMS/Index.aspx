@@ -15,6 +15,9 @@
         <li><a href="index.aspx">Home</a></li>
         <li><a href="Code.aspx">Code</a>
         <li><a href="ProductionManagement/Default.aspx">Production Management</a></li>
+        <li><a href="SalesManagement/Default.aspx">Sales Management</a></li>
+        <li><a href="ProcurementManagement/Default.aspx">Procurement Management</a></li>
+        <li><a href="InventoryManagement/Default.aspx">Inventory Management</a></li>
       </ul>
     </div>
   </nav>

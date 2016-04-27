@@ -21,14 +21,14 @@ namespace SalesManagement.Sales
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            SqlDataSourceCustomer.InsertParameters["Customer_Name"].DefaultValue = Customer_Name.TextToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["Address"].DefaultValue = Address.Text.ToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["City"].DefaultValue = City.Text.ToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["State"].DefaultValue = State.Text.ToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["Zipcode"].DefaultValue = Zipcode.Text.ToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["Email"].DefaultValue = Email.Text.ToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["Phone"].DefaultValue = Phone.Text.ToUpper().Trim();
-            SqlDataSourceCustomer.InsertParameters["Fax"].DefaultValue = Fax.Text.ToUpper().Trim();
+            SqlDataSourceCustomer.InsertParameters["Customer_Name"].DefaultValue = Customer_Name.Text;
+            SqlDataSourceCustomer.InsertParameters["Address"].DefaultValue = Address.Text;
+            SqlDataSourceCustomer.InsertParameters["City"].DefaultValue = City.Text;
+            SqlDataSourceCustomer.InsertParameters["State"].DefaultValue = State.Text;
+            SqlDataSourceCustomer.InsertParameters["Zipcode"].DefaultValue = Zipcode.Text;
+            SqlDataSourceCustomer.InsertParameters["Email"].DefaultValue = Email.Text;
+            SqlDataSourceCustomer.InsertParameters["Phone"].DefaultValue = Phone.Text;
+            SqlDataSourceCustomer.InsertParameters["Fax"].DefaultValue = Fax.Text;
             SqlDataSourceCustomer.Insert();
             CustomerGridView.DataBind();
             panelAddCustomer.Visible = false;
