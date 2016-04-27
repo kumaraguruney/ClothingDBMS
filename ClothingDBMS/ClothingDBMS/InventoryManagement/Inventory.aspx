@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="ClothingDBMS.InventoryManagement.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="ClothingDBMS.InventoryManagement.Inventory" %>
 
 <!DOCTYPE html>
 
@@ -36,54 +36,14 @@
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlProductInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProductInventory] ORDER BY [Inventory_ID]" DeleteCommand="DELETE FROM [ProductInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [ProductInventory] ([Entry_ID], [Inventory_ID], [Product_ID], [Product_SKU], [Design_ID], [Manufactured_Date], [Created_Date]) VALUES (@Entry_ID, @Inventory_ID, @Product_ID, @Product_SKU, @Design_ID, @Manufactured_Date, @Created_Date)" UpdateCommand="UPDATE [ProductInventory] SET [Inventory_ID] = @Inventory_ID, [Product_ID] = @Product_ID, [Product_SKU] = @Product_SKU, [Design_ID] = @Design_ID, [Manufactured_Date] = @Manufactured_Date, [Created_Date] = @Created_Date WHERE [Entry_ID] = @Entry_ID">
-            <DeleteParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
-                <asp:Parameter Name="Inventory_ID" Type="Int16" />
-                <asp:Parameter Name="Product_ID" Type="Int16" />
-                <asp:Parameter Name="Product_SKU" Type="Int32" />
-                <asp:Parameter Name="Design_ID" Type="Int16" />
-                <asp:Parameter Name="Manufactured_Date" Type="DateTime" />
-                <asp:Parameter Name="Created_Date" Type="DateTime" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Inventory_ID" Type="Int16" />
-                <asp:Parameter Name="Product_ID" Type="Int16" />
-<asp:Parameter Name="Product_SKU" Type="Int32"></asp:Parameter>
-                <asp:Parameter Name="Design_ID" Type="Int16" />
-                <asp:Parameter Name="Manufactured_Date" Type="DateTime" />
-                <asp:Parameter Name="Created_Date" Type="DateTime" />
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlRMInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RMInventory] ORDER BY [Inventory_ID]" DeleteCommand="DELETE FROM [RMInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [RMInventory] ([Entry_ID], [Inventory_ID], [RM_ID], [Procurement_Date]) VALUES (@Entry_ID, @Inventory_ID, @RM_ID, @Procurement_Date)" UpdateCommand="UPDATE [RMInventory] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID, [Procurement_Date] = @Procurement_Date WHERE [Entry_ID] = @Entry_ID">
-            <DeleteParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
-                <asp:Parameter Name="Inventory_ID" Type="Int16" />
-                <asp:Parameter Name="RM_ID" Type="Int16" />
-                <asp:Parameter Name="Procurement_Date" Type="DateTime" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Inventory_ID" Type="Int16" />
-                <asp:Parameter Name="RM_ID" Type="Int16" />
-                <asp:Parameter Name="Procurement_Date" Type="DateTime" />
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
           <div align="center">
                 <br />
                 <asp:Label ID="lblAllocates" runat="server" Text="Inventory Details" Font-Bold="True"></asp:Label> <br /> <br />
              
                 <br /> <br />
-                <asp:Panel ID="PanelgvAllocates" runat="server">
-                     <asp:Button ID="btnaddAllocates" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
-                    <asp:GridView ID="gvAllocates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
+                <asp:Panel ID="PanelgvInventory" runat="server">
+                     <asp:Button ID="btnaddInventory" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                    <asp:GridView ID="gvInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
                             <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" InsertVisible="False" />
                             <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
