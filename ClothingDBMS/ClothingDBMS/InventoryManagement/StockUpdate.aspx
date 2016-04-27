@@ -38,7 +38,7 @@
              
                 <br /> <br />
                 <asp:Panel ID="PanelgvStockUpdate" runat="server">
-                     <asp:Button ID="btnaddStockUpdate" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                     <asp:Button ID="btnaddStockUpdate" runat="server" Text="Add" OnClick="btnaddStockUpdate_Click"/>
                     <asp:GridView ID="gvStockUpdate" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlStockUpdate" AutoGenerateColumns="False" DataKeyNames="StockUpdate_ID">
                         <Columns>
                             <asp:BoundField DataField="StockUpdate_ID" HeaderText="StockUpdate_ID" ReadOnly="True" SortExpression="StockUpdate_ID" InsertVisible="False" />
@@ -61,26 +61,12 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Button ID="btnSaveStockUpdate" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveWarehouse_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelStockUpdate" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
+                    <asp:Button ID="btnSaveStockUpdate" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveStockUpdate_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelStockUpdate" runat="server" Text="Cancel" OnClick="btnCancelStockUpdate_Click"/>
                    
                     </asp:Panel>
         </div>
     </form>
-    <form id="form3" runat="server">
-    <div>
     
-    </div>
-    </form>
-    <form id="form4" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
 </body>
 </html>

@@ -25,8 +25,8 @@
                 <asp:Parameter Name="StockMovement_ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="From_Warehouse_ID" Type="String" />
-                <asp:Parameter Name="To_Warehouse_ID" Type="String" />
+                <asp:Parameter Name="From_Warehouse_ID" Type="Int32" />
+                <asp:Parameter Name="To_Warehouse_ID" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="From_Warehouse_ID" Type="Int32" />
@@ -43,7 +43,6 @@
                      <asp:Button ID="btnaddstockmovement" runat="server" Text="Add" OnClick="btnaddstockmovement_Click"/>
                     <asp:GridView ID="gvStockMovement" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlStockMovement" AutoGenerateColumns="False" DataKeyNames="StockMovement_ID">
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="StockMovement_ID" HeaderText="StockMovement_ID" ReadOnly="True" SortExpression="StockMovement_ID" InsertVisible="False" />
                             <asp:BoundField DataField="From_Warehouse_ID" HeaderText="From_Warehouse_ID" SortExpression="From_Warehouse_ID" />
                              <asp:BoundField DataField="To_Warehouse_ID" HeaderText="To_Warehouse_ID" SortExpression="To_Warehouse_ID" />
