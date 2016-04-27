@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sales.Sales {
+namespace SalesManagement.Sales {
     
     
     public partial class Customer {
