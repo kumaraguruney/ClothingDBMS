@@ -10,7 +10,7 @@
 namespace ProductionManagement.ProductionManagement {
     
     
-    public partial class ProductDesign {
+    public partial class Product {
         
         /// <summary>
         /// form1 control.
@@ -22,13 +22,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlDesign control.
+        /// SqlProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
         /// SqlCodeSize control.
@@ -49,103 +49,103 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlCodeColor;
         
         /// <summary>
-        /// SqlProduct control.
+        /// SqlDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
         
         /// <summary>
-        /// lbProductDesignHeader control.
+        /// lbProductHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignHeader;
+        protected global::System.Web.UI.WebControls.Label lbProductHeader;
         
         /// <summary>
-        /// btaddProductdesign control.
+        /// btnaddProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btaddProductdesign;
+        protected global::System.Web.UI.WebControls.Button btnaddProduct;
         
         /// <summary>
-        /// PanelgvProductDesign control.
+        /// PanelgvProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvProductDesign;
+        protected global::System.Web.UI.WebControls.Panel PanelgvProduct;
         
         /// <summary>
-        /// gvProductDesign control.
+        /// gvProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProductDesign;
+        protected global::System.Web.UI.WebControls.GridView gvProduct;
         
         /// <summary>
-        /// PaneladdProductdesign control.
+        /// PaneladdProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdProductdesign;
+        protected global::System.Web.UI.WebControls.Panel PaneladdProduct;
         
         /// <summary>
-        /// lbProductdesignaddTitle control.
+        /// lbProductaddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductdesignaddTitle;
+        protected global::System.Web.UI.WebControls.Label lbProductaddTitle;
         
         /// <summary>
-        /// lbProductDesignName control.
+        /// lbProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignName;
+        protected global::System.Web.UI.WebControls.Label lbProductName;
         
         /// <summary>
-        /// dropProductName control.
+        /// dropDesignName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProductName;
+        protected global::System.Web.UI.WebControls.DropDownList dropDesignName;
         
         /// <summary>
-        /// rfvProductDesignName control.
+        /// rfvProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductDesignName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductName;
         
         /// <summary>
-        /// lblProductDesignSize control.
+        /// lblProductSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductDesignSize;
+        protected global::System.Web.UI.WebControls.Label lblProductSize;
         
         /// <summary>
         /// dropProductSize control.
@@ -166,13 +166,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropsize;
         
         /// <summary>
-        /// lblProductDesignColor control.
+        /// lblProductColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductDesignColor;
+        protected global::System.Web.UI.WebControls.Label lblProductColor;
         
         /// <summary>
         /// dropProductColor control.
@@ -193,22 +193,22 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropColor;
         
         /// <summary>
-        /// lbProductDesignDescription control.
+        /// lbProductDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignDescription;
+        protected global::System.Web.UI.WebControls.Label lbProductDescription;
         
         /// <summary>
-        /// txtProductDesignDescription control.
+        /// txtProductDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductDesignDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtProductDescription;
         
         /// <summary>
         /// btnSaveProductDesign control.

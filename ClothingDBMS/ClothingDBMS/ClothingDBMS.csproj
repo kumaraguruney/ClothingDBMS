@@ -119,7 +119,7 @@
     <Content Include="ProductionManagement\Includes.aspx" />
     <Content Include="ProductionManagement\Machinery.aspx" />
     <Content Include="ProductionManagement\Design.aspx" />
-    <Content Include="ProductionManagement\ProductDesign.aspx" />
+    <Content Include="ProductionManagement\Product.aspx" />
     <Content Include="ProductionManagement\RawMaterial.aspx" />
     <Content Include="ProductionManagement\Require.aspx" />
     <Content Include="ProductionManagement\Workorder.aspx" />
@@ -234,12 +234,12 @@
     <Compile Include="ProductionManagement\Design.aspx.designer.cs">
       <DependentUpon>Design.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProductionManagement\ProductDesign.aspx.cs">
-      <DependentUpon>ProductDesign.aspx</DependentUpon>
+    <Compile Include="ProductionManagement\Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductionManagement\ProductDesign.aspx.designer.cs">
-      <DependentUpon>ProductDesign.aspx</DependentUpon>
+    <Compile Include="ProductionManagement\Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\RawMaterial.aspx.cs">
       <DependentUpon>RawMaterial.aspx</DependentUpon>
