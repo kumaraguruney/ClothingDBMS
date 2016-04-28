@@ -114,6 +114,7 @@
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
+    <Content Include="ProductionManagement\Default.aspx" />
     <Content Include="ProductionManagement\Employee.aspx" />
     <Content Include="ProductionManagement\Includes.aspx" />
     <Content Include="ProductionManagement\Machinery.aspx" />
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="ProductionManagement\Allocates.aspx.designer.cs">
       <DependentUpon>Allocates.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductionManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\Employee.aspx.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
