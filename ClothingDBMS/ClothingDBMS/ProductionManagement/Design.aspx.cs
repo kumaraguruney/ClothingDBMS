@@ -14,7 +14,7 @@ namespace ProductionManagement.ProductionManagement
 
         }
 
-        protected void btaddDesign_Click(object sender, EventArgs e)
+        protected void btnaddDesign_Click(object sender, EventArgs e)
         {
             PaneladdDesign.Visible = true;
             PanelgvDesign.Visible = false;
@@ -22,9 +22,9 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnSaveDesign_Click(object sender, EventArgs e)
         {
-            SqlDesign.InsertParameters["Product_Name"].DefaultValue = txtDesignName.Text.ToUpper().Trim();
-            SqlDesign.InsertParameters["Product_Is_Active"].DefaultValue = rbDesignActive.SelectedValue;
-            SqlDesign.InsertParameters["Product_Section"].DefaultValue = dropSection.SelectedValue;
+            SqlDesign.InsertParameters["Design_Name"].DefaultValue = txtDesignName.Text.ToUpper().Trim();
+            SqlDesign.InsertParameters["Design_Is_Active"].DefaultValue = rbDesignActive.SelectedValue;
+            SqlDesign.InsertParameters["Design_Section"].DefaultValue = dropSection.SelectedValue;
             SqlDesign.Insert();
             gvDesign.DataBind();
             PaneladdDesign.Visible = false;

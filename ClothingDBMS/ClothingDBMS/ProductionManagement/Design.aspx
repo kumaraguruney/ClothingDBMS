@@ -26,20 +26,20 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlDesign" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Design.Design_ID, Design.Design_Is_Active, Design.Design_Name, Design.Design_Section, Code.Code_Description FROM Design LEFT OUTER JOIN Code ON Code.Code_ID = Design.Design_Section ORDER BY Design.Design_Name" DeleteCommand="DELETE FROM [Product] WHERE [Product_ID] = @Product_ID" InsertCommand="INSERT INTO [Product] ([Product_Is_Active], [Product_Name], [Product_Section]) VALUES (@Product_Is_Active, @Product_Name, @Product_Section)" UpdateCommand="UPDATE [Product] SET [Product_Is_Active] = @Product_Is_Active, [Product_Name] = @Product_Name, [Product_Section] = @Product_Section WHERE [Product_ID] = @Product_ID">
+        <asp:SqlDataSource ID="SqlDesign" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Design.Design_ID, Design.Design_Is_Active, Design.Design_Name, Design.Design_Section, Code.Code_Description FROM Design LEFT OUTER JOIN Code ON Code.Code_ID = Design.Design_Section ORDER BY Design.Design_Name" DeleteCommand="DELETE FROM [Design] WHERE [Design_ID] = @Design_ID" InsertCommand="INSERT INTO [Design] ([Design_Is_Active], [Design_Name], [Design_Section]) VALUES (@Design_Is_Active, @Design_Name, @Design_Section)" UpdateCommand="UPDATE [Design] SET [Design_Is_Active] = @Design_Is_Active, [Design_Name] = @Design_Name, [Design_Section] = @Design_Section WHERE [Design_ID] = @Design_ID">
             <DeleteParameters>
-                <asp:Parameter Name="Product_ID" />
+                <asp:Parameter Name="Design_ID" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Product_Is_Active" />
-                <asp:Parameter Name="Product_Name" />
-                <asp:Parameter Name="Product_Section" />
+                <asp:Parameter Name="Design_Is_Active" />
+                <asp:Parameter Name="Design_Name" />
+                <asp:Parameter Name="Design_Section" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Product_Is_Active" />
-                <asp:Parameter Name="Product_Name" Type="String" />
-                <asp:Parameter Name="Product_Section" Type="Int16" />
-                <asp:Parameter Name="Product_ID" Type="Int16" />
+                <asp:Parameter Name="Design_Is_Active" />
+                <asp:Parameter Name="Design_Name" Type="String" />
+                <asp:Parameter Name="Design_Section" Type="Int16" />
+                <asp:Parameter Name="Design_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
@@ -57,12 +57,12 @@
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
-                            <asp:BoundField DataField="Design_ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Product_ID" />
-                            <asp:CheckBoxField DataField="Design_Is_Active" HeaderText="Active" ItemStyle-HorizontalAlign="Center" SortExpression="Product_Is_Active">
+                            <asp:BoundField DataField="Design_ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Design_ID" />
+                            <asp:CheckBoxField DataField="Design_Is_Active" HeaderText="Active" ItemStyle-HorizontalAlign="Center" SortExpression="Design_Is_Active">
                             <ItemStyle HorizontalAlign="Center" />
                             </asp:CheckBoxField>
-                            <asp:BoundField DataField="Design_Name" HeaderText="Product Name" SortExpression="Product_Name" />
-                            <asp:TemplateField HeaderText="Design Section" SortExpression="Product_Section">
+                            <asp:BoundField DataField="Design_Name" HeaderText="Design Name" SortExpression="Design_Name" />
+                            <asp:TemplateField HeaderText="Section" SortExpression="Design_Section">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="dropSection" runat="server" DataSourceID="SqlSection" DataTextField="Code_Description" DataValueField="Code_ID" SelectedValue='<%# Bind("Design_Section") %>'>
                                     </asp:DropDownList>
@@ -86,18 +86,18 @@
                 <asp:Panel ID="PaneladdDesign" Visible="false" runat="server">
                 <asp:Label ID="lblDesignaddTitle" Text="Add Design into Database" runat="server" /><br /> <br />
                     <asp:Label ID="lblDesignActive" Text="Design Active: " width="150"  runat="server" />
-                    <asp:RadioButtonList ID="rbDesignActive" width="250" RepeatDirection="Horizontal" CssClass="inline" TextAlign="Right" runat="server">
+                    <asp:RadioButtonList ID="rbDesignActive" width="250" RepeatDirection="Horizontal" CssClass="in-line" TextAlign="Right" runat="server">
                         <asp:ListItem Value="true" Text="Active"></asp:ListItem>
                         <asp:ListItem Value="false" Text="In-Active"></asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvDesignActive" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="rbProductActive" ErrorMessage="(*) Must be selected" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RequiredFieldValidator ID="rfvDesignActive" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="rbDesignActive" ErrorMessage="(*) Must be selected" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:Label ID="lblDesignName" Text="Design Name: " width="150" runat="server" />
                     <asp:TextBox ID="txtDesignName" width="250" ValidationGroup="addDesignValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvDesignName" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="txtDesignName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:Label ID="lblDesignSection" Text="Product Section: " width="150" runat="server" ></asp:Label>
                     <asp:DropDownList ID="dropSection" runat="server" DataSourceID="SqlSection" width="250" DataTextField="Code_Description" DataValueField="Code_ID"></asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvdropSection" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="dropSection" ErrorMessage="(*) Must have Section" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br />
-                    <asp:Button ID="btnSaveDesign" ValidationGroup="addProductValidation" runat="server" Text="Save" OnClick="btnSaveDesign_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnSaveDesign" ValidationGroup="addDesignValidation" runat="server" Text="Save" OnClick="btnSaveDesign_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelDesign" runat="server" Text="Cancel" OnClick="btnCancelDesign_Click"/>
                     </asp:Panel>
         </div>
