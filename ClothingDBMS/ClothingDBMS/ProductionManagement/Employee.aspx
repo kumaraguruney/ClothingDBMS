@@ -48,10 +48,11 @@
             <div align="center">
                 <br />
                 <asp:Label ID="lbEmployeeHeader" runat="server" Text="Employee- Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddEmployee" runat="server" Text="Add" OnClick="btnaddEmployee_Click"/>
-                <br /> <br />
+                
                 <asp:Panel ID="PanelgvEmployee" runat="server">
-                    <asp:GridView ID="gvEmployee" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlEmployee" AutoGenerateColumns="False" DataKeyNames="Employee_ID">
+                    <asp:Button ID="btnaddEmployee" runat="server" OnClick="btnaddEmployee_Click" Text="Add" /><br /> <br />
+                    <asp:GridView ID="gvEmployee" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlEmployee" AutoGenerateColumns="False" DataKeyNames="Employee_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                        <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
                             <asp:BoundField DataField="Employee_ID" HeaderText="Employee_ID" ReadOnly="True" SortExpression="Employee_ID" />
@@ -65,7 +66,15 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
+                        <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                    </asp:Panel>
                 <asp:Panel ID="PaneladdEmployee" Visible="false" runat="server">
@@ -78,7 +87,7 @@
                     <asp:Label ID="lblEmployeeContactNumber" Width="150" Text="Contact Number: " runat="server"></asp:Label>
                     <asp:TextBox ID="txtEmployeeContactNumber" runat="server"></asp:TextBox><br />
                     <asp:Label ID="lblEmployeeDOB" Width="150" Text="Date of Birth: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtEmployeeDOB" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="txtEmployeeDOB" runat="server"></asp:TextBox><asp:Calendar ID="calDateofBirth" OnSelectionChanged="calDateofBirth_SelectionChanged" runat="server"></asp:Calendar><br />
                     <br /> <br />
                     <asp:Button ID="btnSaveEmployee" ValidationGroup="addEmployeeValidation" runat="server" Text="Save" OnClick="btnSaveEmployee_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelEmployee" runat="server" Text="Cancel" OnClick="btnCancelEmployee_Click"/>

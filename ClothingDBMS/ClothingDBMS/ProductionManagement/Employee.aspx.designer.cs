@@ -40,15 +40,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lbEmployeeHeader;
         
         /// <summary>
-        /// btnaddEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddEmployee;
-        
-        /// <summary>
         /// PanelgvEmployee control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelgvEmployee;
+        
+        /// <summary>
+        /// btnaddEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnaddEmployee;
         
         /// <summary>
         /// gvEmployee control.
@@ -164,6 +164,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeDOB;
+        
+        /// <summary>
+        /// calDateofBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calDateofBirth;
         
         /// <summary>
         /// btnSaveEmployee control.

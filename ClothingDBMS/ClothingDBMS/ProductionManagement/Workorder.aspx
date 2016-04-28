@@ -50,9 +50,10 @@
 <div align="center">
                 <br />
                 <asp:Label ID="lbWorkOrderHeader" runat="server" Text="Work Order - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddWorkOrder" runat="server" Text="Add" OnClick="btnaddWorkOrder_Click"/>
-                <br /> <br />
+                
                 <asp:Panel ID="PanelgvWorkOrder" runat="server">
+                    <asp:Button ID="btnaddWorkOrder" runat="server" Text="Add" OnClick="btnaddWorkOrder_Click"/>
+                <br /> <br />
                     <asp:GridView ID="gvWorkOrder" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWorkorder" AutoGenerateColumns="False" DataKeyNames="WorkOrder_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>

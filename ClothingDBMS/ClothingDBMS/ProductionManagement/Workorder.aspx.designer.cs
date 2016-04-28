@@ -49,15 +49,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lbWorkOrderHeader;
         
         /// <summary>
-        /// btnaddWorkOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddWorkOrder;
-        
-        /// <summary>
         /// PanelgvWorkOrder control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelgvWorkOrder;
+        
+        /// <summary>
+        /// btnaddWorkOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnaddWorkOrder;
         
         /// <summary>
         /// gvWorkOrder control.
