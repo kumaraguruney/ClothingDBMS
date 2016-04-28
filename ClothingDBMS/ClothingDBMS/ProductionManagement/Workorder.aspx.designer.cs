@@ -31,13 +31,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlWorkorder;
         
         /// <summary>
-        /// SqlDesign control.
+        /// SqlProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
         /// lbWorkOrderHeader control.
@@ -103,13 +103,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblRequireDesign;
         
         /// <summary>
-        /// dropDesign control.
+        /// dropaddProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDesign;
+        protected global::System.Web.UI.WebControls.DropDownList dropaddProduct;
         
         /// <summary>
         /// rfvdropDesign control.
@@ -164,6 +164,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWorkorderDueDate;
+        
+        /// <summary>
+        /// calWorkorderdue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calWorkorderdue;
         
         /// <summary>
         /// lblWorkorderSubmittedBy control.
