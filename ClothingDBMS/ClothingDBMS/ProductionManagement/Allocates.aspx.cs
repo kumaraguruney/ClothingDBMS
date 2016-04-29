@@ -40,6 +40,9 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdAllocates.Visible = false;
             PanelgvAllocates.Visible = true;
+            dropEmployee.SelectedIndex = -1;
+            dropWorkschedule.SelectedIndex = -1;
+            txtAllocatesTime.Text = string.Empty;
         }
 
         protected void btnAllocatesfilter_Click(object sender, EventArgs e)

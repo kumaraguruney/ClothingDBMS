@@ -229,6 +229,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvIncludesHofOperation;
         
         /// <summary>
+        /// revIncludesHofOperation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revIncludesHofOperation;
+        
+        /// <summary>
         /// btnSaveIncludes control.
         /// </summary>
         /// <remarks>

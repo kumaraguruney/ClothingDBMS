@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -83,12 +82,13 @@
             <asp:SqlDataSource ID="SqlSection" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'SECT') ORDER BY Code_Description"></asp:SqlDataSource>
 
 
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbDesignHeader" runat="server" Text="Design - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddDesign" runat="server" Text="Add" OnClick="btnaddDesign_Click"/>
-                <br /> <br />
                 <asp:Panel ID="PanelgvDesign" runat="server">
+                <asp:Button ID="btnaddDesign" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddDesign_Click"/>
+                <br /> <br />
+                
                     <asp:GridView ID="gvDesign" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDesign" AutoGenerateColumns="False" DataKeyNames="Design_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
@@ -121,21 +121,28 @@
                    </asp:Panel>
                 <asp:Panel ID="PaneladdDesign" Visible="false" runat="server">
                 <asp:Label ID="lblDesignaddTitle" Text="Add Design into Database" runat="server" /><br /> <br />
+                    <div class="form-inline">
                     <asp:Label ID="lblDesignActive" Text="Design Active: " width="150"  runat="server" />
-                    <asp:RadioButtonList ID="rbDesignActive" width="250" RepeatDirection="Horizontal" CssClass="in-line" TextAlign="Right" runat="server">
-                        <asp:ListItem Value="true" Text="Active"></asp:ListItem>
-                        <asp:ListItem Value="false" Text="In-Active"></asp:ListItem>
-                    </asp:RadioButtonList>
+                    <asp:RadioButtonList ID="rbDesignActive" width="250" RepeatDirection="Horizontal" CssClass="radio" TextAlign="Right" runat="server">
+                        <asp:ListItem Value="true" Text="Active &nbsp;"></asp:ListItem>
+                        <asp:ListItem Value="false" Text="In-Active "></asp:ListItem>
+                    </asp:RadioButtonList><br/>
                     <asp:RequiredFieldValidator ID="rfvDesignActive" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="rbDesignActive" ErrorMessage="(*) Must be selected" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                        </div>
                     <asp:Label ID="lblDesignName" Text="Design Name: " width="150" runat="server" />
                     <asp:TextBox ID="txtDesignName" width="250" ValidationGroup="addDesignValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvDesignName" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="txtDesignName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RegularExpressionValidator ValidationGroup="addDesignValidation" ID="revDesignName" runat="server" ControlToValidate="txtDesignName"
+                                 ErrorMessage=" * max 28 characters" ForeColor="Red" ValidationExpression="[a-zA-Z- ]{1,28}$"></asp:RegularExpressionValidator><br />
                     <asp:Label ID="lblDesignSection" Text="Product Section: " width="150" runat="server" ></asp:Label>
-                    <asp:DropDownList ID="dropSection" runat="server" DataSourceID="SqlSection" width="250" DataTextField="Code_Description" DataValueField="Code_ID"></asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvdropSection" width="350" ValidationGroup="addDesignValidation" runat="server" ControlToValidate="dropSection" ErrorMessage="(*) Must have Section" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br />
-                    <asp:Button ID="btnSaveDesign" ValidationGroup="addDesignValidation" runat="server" Text="Save" OnClick="btnSaveDesign_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelDesign" runat="server" Text="Cancel" OnClick="btnCancelDesign_Click"/>
+                    <asp:DropDownList ID="dropSection" runat="server" AppendDataBoundItems="true" EnableViewState="false" DataSourceID="SqlSection" width="250" DataTextField="Code_Description" DataValueField="Code_ID">
+                         <asp:ListItem Text="-- Section --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvdropSection" width="350" ValidationGroup="addDesignValidation" InitialValue="-1" runat="server" ControlToValidate="dropSection" ErrorMessage="(*) Must have Section" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br />
+                    <asp:Button ID="btnSaveDesign" CssClass="bg-primary" ValidationGroup="addDesignValidation" runat="server" Text="Save" OnClick="btnSaveDesign_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelDesign" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelDesign_Click"/>
                     </asp:Panel>
+
         </div>
     </form>
 </body>

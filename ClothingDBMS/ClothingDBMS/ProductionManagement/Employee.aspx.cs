@@ -40,6 +40,10 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdEmployee.Visible = false;
             PanelgvEmployee.Visible = true;
+            txtEmployeeName.Text = string.Empty;
+            txtEmployeeAddress.Text = string.Empty;
+            txtEmployeeContactNumber.Text = string.Empty;
+            txtEmployeeDOB.Text = string.Empty;
         }
 
         protected void calDateofBirth_SelectionChanged(object sender, EventArgs e)

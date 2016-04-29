@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -78,7 +77,7 @@
                 <asp:Parameter Name="Allocates_ID" Type="Byte" />
             </UpdateParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlAllocatesdrop" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Allocates.Workschedule_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM Allocates LEFT OUTER JOIN Workschedule ON Workschedule.Workschedule_ID = Allocates.Workschedule_ID LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Allocates.Employee_ID ORDER BY Name"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlAllocatesdrop" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT distinct Allocates.Workschedule_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM Allocates LEFT OUTER JOIN Workschedule ON Workschedule.Workschedule_ID = Allocates.Workschedule_ID LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Allocates.Employee_ID ORDER BY Name"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkScheduled_Date, Workschedule.WorkScheduled_To_End, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY Name"></asp:SqlDataSource>
             <div style="margin-top:100px;" align="center">
@@ -134,15 +133,22 @@
                 <asp:Panel ID="PaneladdAllocates" Visible="false" runat="server">
                 <asp:Label ID="lblAllocatesaddTitle" Text=" Allocate Employee to a Work Schedule in the Database" runat="server" /><br /> <br />
                     <asp:Label ID="lblAllocatesEmployee" Width="200" Text="Employee: " runat="server" />
-                    <asp:DropDownList ID="dropEmployee" Width="300" runat="server" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID"></asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvWorkschedule" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="dropEmployee" ErrorMessage="(*) One Employee should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:DropDownList ID="dropEmployee" Width="300" runat="server" AppendDataBoundItems="true" EnableViewState="false" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID">
+                        <asp:ListItem Text="-- Select an Employee --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvWorkschedule" InitialValue="-1" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="dropEmployee" ErrorMessage="(*) One Employee should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblIncludesWorkscheduleID" Width="200" Text="Workschedule: " runat="server" />
-                    <asp:DropDownList ID="dropWorkschedule" Width="300" runat="server" DataSourceID="SqlWorkSchedule" DataTextField="Name" DataValueField="Workschedule_ID"></asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvdropWorkschedule" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="dropWorkschedule" ErrorMessage="(*) One Employee should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:DropDownList ID="dropWorkschedule" Width="300" AppendDataBoundItems="true" EnableViewState="false" runat="server" DataSourceID="SqlWorkSchedule" DataTextField="Name" DataValueField="Workschedule_ID">
+                        <asp:ListItem Text="-- Select a WorkSchedule --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvdropWorkschedule" ValidationGroup="addAllocatesValidation" InitialValue="-1" runat="server" ControlToValidate="dropWorkschedule" ErrorMessage="(*) One Employee should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br />
                      <asp:Label ID="lblAllocatesTime" Width="200" Text="Hours of Operation: " runat="server" />
                     <asp:TextBox ID="txtAllocatesTime" Width="300" ValidationGroup="addAllocatesValidation" runat="server" ></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="txtAllocatesTime" ErrorMessage="(*) Must have some hours" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br /> <br />
+                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="txtAllocatesTime" ErrorMessage="(*) Must have some hours" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RegularExpressionValidator ValidationGroup="addAllocatesValidation" ID="revAllocatesTime" runat="server" ControlToValidate="txtAllocatesTime"
+                                 ErrorMessage=" (*) eg: 8.00 or 3.00" ForeColor="Red" ValidationExpression="^\d+.\d{0,2}$"></asp:RegularExpressionValidator>
+						<br /> <br />
                     <asp:Button ID="btnSaveAllocates" CssClass="bg-primary" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveAllocates_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelAllocates" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
                     </asp:Panel>

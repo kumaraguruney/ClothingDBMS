@@ -38,6 +38,9 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdDesign.Visible = false;
             PanelgvDesign.Visible = true;
+            txtDesignName.Text = string.Empty;
+            rbDesignActive.SelectedIndex = -1;
+            dropSection.SelectedIndex = -1;
         }
     }
 }

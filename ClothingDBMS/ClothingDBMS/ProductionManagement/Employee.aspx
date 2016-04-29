@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -91,11 +90,11 @@
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
-                            <asp:BoundField DataField="Employee_ID" HeaderText="Employee_ID" ReadOnly="True" SortExpression="Employee_ID" />
-                            <asp:BoundField DataField="Employee_Name" HeaderText="Employee_Name" SortExpression="Employee_Name" />
+                            <asp:BoundField DataField="Employee_ID" HeaderText="ID" ReadOnly="True" SortExpression="Employee_ID" />
+                            <asp:BoundField DataField="Employee_Name" HeaderText="Name" SortExpression="Employee_Name" />
                              <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                            <asp:BoundField DataField="Contact_Number" HeaderText="Contact_Number" SortExpression="Contact_Number" />
-                            <asp:BoundField DataField="Date_of_Birth" HeaderText="Date_of_Birth" SortExpression="Date_of_Birth" />
+                            <asp:BoundField DataField="Contact_Number" HeaderText="Contact Number" SortExpression="Contact_Number" />
+                            <asp:BoundField DataField="Date_of_Birth" HeaderText="DOB dd-MM-YYYY" SortExpression="Date_of_Birth" />
                              <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
@@ -118,12 +117,17 @@
                     <asp:Label ID="lbEmployeeName" Width="150" Text="Employee Name: " runat="server" />
                     <asp:TextBox ID="txtEmployeeName" Width="250"  ValidationGroup="addEmployeeValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvEmployeeName" ValidationGroup="addEmployeeValidation" runat="server" ControlToValidate="txtEmployeeName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator ValidationGroup="addEmployeeValidation" ID="revEmployeeName" runat="server" ControlToValidate="txtEmployeeName"
+                                 ErrorMessage=" * max 24 characters" ForeColor="Red" ValidationExpression="[a-zA-Z- ]{1,24}$"></asp:RegularExpressionValidator><br />
                     <asp:Label ID="lblEmployeeAddress" Width="150" Text="Address: " runat="server"></asp:Label>
                     <asp:TextBox ID="txtEmployeeAddress" Width="250" runat="server"></asp:TextBox><br />
+                    <asp:RegularExpressionValidator ValidationGroup="addEmployeeValidation" ID="revEmployeeAddress" runat="server" ControlToValidate="txtEmployeeAddress"
+                                 ErrorMessage=" * max 50 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,50}$"></asp:RegularExpressionValidator><br />
                     <asp:Label ID="lblEmployeeContactNumber" Width="150" Text="Contact Number: " runat="server"></asp:Label>
                     <asp:TextBox ID="txtEmployeeContactNumber" Width="250" runat="server"></asp:TextBox><br />
+                    <asp:RegularExpressionValidator ID="revEmployeeContactNumber" runat="server" ControlToValidate="txtEmployeeContactNumber" ErrorMessage=" * min 4 to max 12 digit numbers only" ForeColor="Red" SetFocusOnError="true" ValidationExpression="^(\(|\d| |-|\)){4,12}$" ValidationGroup="addEmployeeValidation"></asp:RegularExpressionValidator><br />
                     <asp:Label ID="lblEmployeeDOB" Width="150" Text="Date of Birth: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtEmployeeDOB" ReadOnly="true" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgEmployeeDOB" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgEmployeeDOB_Click" Width="25px" />
+                    <asp:TextBox ID="txtEmployeeDOB" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgEmployeeDOB" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgEmployeeDOB_Click" Width="25px" />
                     <asp:Panel ID="calpanel" runat="server" Visible="false">
                         <asp:Calendar ID="calDateofBirth" runat="server" OnSelectionChanged="calDateofBirth_SelectionChanged"></asp:Calendar>
                         <br />

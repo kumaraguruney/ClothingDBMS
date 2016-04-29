@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -109,18 +108,26 @@
                    </asp:Panel>
                 <asp:Panel ID="PaneladdMachinery" Visible="false" runat="server">
                 <asp:Label ID="lbMachineryaddTitle" Text="Add Machinery into Database" runat="server" /><br /> <br />
+                    <div class="form-inline">
                     <asp:Label ID="lblMachineActive" Text="Machine Active: " width="150"  runat="server" />
-                    <asp:RadioButtonList ID="rbMachineActive" width="250" RepeatDirection="Horizontal" CssClass="in-line" TextAlign="Right" runat="server">
-                        <asp:ListItem Value="true" Text="Active"></asp:ListItem>
+                    <asp:RadioButtonList ID="rbMachineActive" width="250" RepeatDirection="Horizontal" CssClass="radio" TextAlign="Right" runat="server">
+                        <asp:ListItem Value="true" Text="Active &nbsp"></asp:ListItem>
                         <asp:ListItem Value="false" Text="In-Active"></asp:ListItem>
                     </asp:RadioButtonList>
+                        </div>
                     <asp:RequiredFieldValidator ID="rfvMachineActive" width="350" ValidationGroup="addMachineryValidation" runat="server" ControlToValidate="rbMachineActive" ErrorMessage="(*) Must be selected" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     
-                    <asp:Label ID="lbMachineryName" Text="Machine Name: " runat="server" />
-                    <asp:TextBox ID="txtMachineryName" ValidationGroup="addMachineryValidation" runat="server" ></asp:TextBox><br />
+                    <asp:Label ID="lbMachineryName" Width="150" Text="Machine Name: " runat="server" />
+                    <asp:TextBox ID="txtMachineryName" Width="250" ValidationGroup="addMachineryValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvMachineryName" ValidationGroup="addMachineryValidation" runat="server" ControlToValidate="txtMachineryName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator ValidationGroup="addMachineryValidation" ID="revMachineryName" runat="server" ControlToValidate="txtMachineryName"
+                                 ErrorMessage=" * max 20 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,20}$"></asp:RegularExpressionValidator><br />
+
                     <asp:Label ID="lblMachineDOC" Width="150" Text="Date of Commission: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtMachineDOC" ValidationGroup="addMachineryValidation" runat="server"></asp:TextBox><asp:Calendar ID="calMachineDOC" OnSelectionChanged="calMachineDOC_SelectionChanged" runat="server"></asp:Calendar><br />
+                    <asp:TextBox ID="txtMachineDOC" Width="230" ValidationGroup="addMachineryValidation" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="coeMachineDOC" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeMachineDOC_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                    <asp:Calendar ID="calMachineDOC" OnSelectionChanged="calMachineDOC_SelectionChanged" runat="server"></asp:Calendar><br />
+                        </asp:Panel>
                     <asp:RequiredFieldValidator ID="rfvMachineDOC" ValidationGroup="addMachineryValidation" runat="server" ControlToValidate="txtMachineDOC" ErrorMessage="(*) Must have a Date of Commission" ForeColor="Red"></asp:RequiredFieldValidator><br /><br />
                     <asp:Button ID="btnSaveMachinery" ValidationGroup="addMachineryValidation" runat="server" Text="Save" OnClick="btnSaveMachinery_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelMachinery" runat="server" Text="Cancel" OnClick="btnCancelMachinery_Click"/>

@@ -42,6 +42,12 @@ namespace ProductionManagement.ProductionManagement
         protected void calMachineDOC_SelectionChanged(object sender, EventArgs e)
         {
             txtMachineDOC.Text = calMachineDOC.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void coeMachineDOC_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
         }
     }
 }

@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -137,15 +136,21 @@
                 <asp:Panel ID="PaneladdIncludesMachinery" Visible="false" runat="server">
                 <asp:Label ID="lblIncludesMachineryaddTitle" Text=" Allocate Machine for Work Schedule Database" runat="server" /><br /> <br />
                     <asp:Label ID="lblIncludesWorkSchedule" Width="200" Text="Work Schedule: " runat="server" />
-                    <asp:DropDownList ID="dropaddWorkschedule" Width="300" runat="server" DataSourceID="SqlWorkSchedule" DataTextField="Name" DataValueField="Workschedule_ID"></asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvWorkschedule" ValidationGroup="addWorkscheduleValidation" runat="server" ControlToValidate="dropaddWorkschedule" ErrorMessage="(*) Must have one Work Schedule should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:DropDownList ID="dropaddWorkschedule" Width="300" runat="server" AppendDataBoundItems="true" EnableViewState="false" DataSourceID="SqlWorkSchedule" DataTextField="Name" DataValueField="Workschedule_ID">
+                        <asp:ListItem Text="-- Select a WorkSchedule --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvWorkschedule" ValidationGroup="addWorkscheduleValidation" InitialValue="-1" runat="server" ControlToValidate="dropaddWorkschedule" ErrorMessage="(*) Must have one Work Schedule should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblIncludesMachineID" Width="200" Text="Machine: " runat="server" />
-                    <asp:DropDownList ID="dropaddMachines" Width="300" runat="server" DataSourceID="SqlMachines" DataTextField="Machine_Name" DataValueField="Machine_ID"></asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvdropMachines" ValidationGroup="addWorkscheduleValidation" runat="server" ControlToValidate="dropaddMachines" ErrorMessage="(*) Must have one Machine should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:DropDownList ID="dropaddMachines" Width="300" runat="server" DataSourceID="SqlMachines" DataTextField="Machine_Name" DataValueField="Machine_ID">
+                        <asp:ListItem Text="-- Select a Machine --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvdropMachines" ValidationGroup="addWorkscheduleValidation" InitialValue="-1" runat="server" ControlToValidate="dropaddMachines" ErrorMessage="(*) Must have one Machine should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br />
                     <asp:Label ID="lblIncludesHofOperation" Width="200" Text="Hours of Operation: " runat="server" />
                     <asp:TextBox ID="txtIncludesHofOperation" Width="300" ValidationGroup="addWorkscheduleValidation" runat="server" ></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="rfvIncludesHofOperation" ValidationGroup="addWorkscheduleValidation" runat="server" ControlToValidate="txtIncludesHofOperation" ErrorMessage="(*) Must have some hours" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br />
+                    <asp:RequiredFieldValidator ID="rfvIncludesHofOperation" ValidationGroup="addWorkscheduleValidation" runat="server" ControlToValidate="txtIncludesHofOperation" ErrorMessage="(*) Must have some hours" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator ValidationGroup="addWorkscheduleValidation" ID="revIncludesHofOperation" runat="server" ControlToValidate="txtIncludesHofOperation"
+                                 ErrorMessage=" (*) eg: can take only numbers 8 or 3" ForeColor="Red" ValidationExpression="^\d$"></asp:RegularExpressionValidator> <br />
                     <asp:Button ID="btnSaveIncludes" ValidationGroup="addWorkscheduleValidation" runat="server" Text="Save" OnClick="btnSaveIncludes_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelIncludes" runat="server" Text="Cancel" OnClick="btnCancelIncludes_Click"/>
                     </asp:Panel>

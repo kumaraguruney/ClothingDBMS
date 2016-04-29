@@ -229,6 +229,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAllocatesTime;
         
         /// <summary>
+        /// revAllocatesTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAllocatesTime;
+        
+        /// <summary>
         /// btnSaveAllocates control.
         /// </summary>
         /// <remarks>

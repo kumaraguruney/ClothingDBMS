@@ -39,6 +39,9 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdIncludesMachinery.Visible = false;
             PanelgvIncludes.Visible = true;
+            dropaddMachines.SelectedIndex = -1;
+            dropaddWorkschedule.SelectedIndex = -1;
+            txtIncludesHofOperation.Text = string.Empty;
         }
 
         protected void btnIncludesfilter_Click(object sender, EventArgs e)

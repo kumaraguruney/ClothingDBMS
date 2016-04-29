@@ -112,6 +112,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmployeeName;
         
         /// <summary>
+        /// revEmployeeName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmployeeName;
+        
+        /// <summary>
         /// lblEmployeeAddress control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeAddress;
         
         /// <summary>
+        /// revEmployeeAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmployeeAddress;
+        
+        /// <summary>
         /// lblEmployeeContactNumber control.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeContactNumber;
+        
+        /// <summary>
+        /// revEmployeeContactNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmployeeContactNumber;
         
         /// <summary>
         /// lblEmployeeDOB control.
