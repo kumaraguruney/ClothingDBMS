@@ -5,27 +5,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Includes Management</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Kumaraguru" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../css/the-big-picture.css" rel="stylesheet" />
+    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- ============ Google fonts ============ -->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
+        type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
+        rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Production Management - Home</a></li>
-        <li><a href="Allocates.aspx">Allocates Management</a></li>
-          <li><a href="Employee.aspx">Employee Management</a></li>
-          <li><a href="Includes.aspx">Includes Management</a></li>
-          <li><a href="Machinery.aspx">Machinery Management</a></li>
-          <li><a href="Product.aspx">Product Management</a></li>
-          <li><a href="ProductDesign.aspx">Product Design Management</a></li>
-          <li><a href="Rawmaterial.aspx">Rawmaterial Management</a></li>
-          <li><a href="Require.aspx">Require Management</a></li>
-          <li><a href="Workorder.aspx">WorkOrder Management</a></li>
-          <li><a href="WorkSchedule.aspx">WorkSchedule Management</a></li>
-      </ul>
+            <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
+                    <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
+                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
+                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
+                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
+                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
+                    <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
+                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
+                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
+                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
+                    <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </nav>
+        
         <asp:SqlDataSource ID="SqlIncludes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Includes.Includes_ID, Includes.Machine_ID, Includes.Workschedule_ID, Includes.Hours_Of_Operation, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_Date, Workschedule.WorkScheduled_To_End, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Machinery.Machine_Name FROM Includes LEFT OUTER JOIN Workschedule ON Includes.Workschedule_ID = Workschedule.Workschedule_ID LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Machinery ON Machinery.Machine_ID = Includes.Machine_ID ORDER BY Name" DeleteCommand="DELETE FROM [Includes] WHERE [Includes_ID] = @Includes_ID" InsertCommand="INSERT INTO [Includes] ([Machine_ID], [Workschedule_ID], [Hours_Of_Operation]) VALUES (@Machine_ID, @Workschedule_ID, @Hours_Of_Operation)" UpdateCommand="UPDATE [Includes] SET [Machine_ID] = @Machine_ID, [Workschedule_ID] = @Workschedule_ID, [Hours_Of_Operation] = @Hours_Of_Operation WHERE [Includes_ID] = @Includes_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Includes_ID" Type="Byte" />
@@ -46,7 +83,7 @@
         <asp:SqlDataSource ID="SqlMachines" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Machinery] ORDER BY [Machine_Name]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_Date, Workschedule.WorkScheduled_To_End, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name"></asp:SqlDataSource>
             <div align="center">
-                <br />
+                <br /><br /><br /><br /><br /> 
                 <asp:Label ID="lblIncludes" runat="server" Text="Assign Machines to the Work Schedule" Font-Bold="true"></asp:Label> <br /> <br />
                
                 <asp:Panel ID="PanelgvIncludes" runat="server">
@@ -113,6 +150,25 @@
                     <asp:Button ID="btnCancelIncludes" runat="server" Text="Cancel" OnClick="btnCancelIncludes_Click"/>
                     </asp:Panel>
         </div>
+
+    <script src="../js/jquery.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.easing.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.flexslider-min.js"></script>
+    <script src="../js/jquery.fancybox.pack.js"></script>
+    <script src="../js/wow.js" type="text/javascript"></script>
+    <script src="../js/retina.min.js"></script>
+    <script src="../js/modernizr.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="text/javascript">
+        //WOW Scroll Spy
+        var wow = new WOW({
+            //disabled for mobile
+            mobile: false
+        });
+        wow.init();
+    </script>
+
     </form>
 </body>
 </html>
