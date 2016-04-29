@@ -124,7 +124,7 @@
                                  ErrorMessage=" * max 20 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,20}$"></asp:RegularExpressionValidator><br />
 
                     <asp:Label ID="lblMachineDOC" Width="150" Text="Date of Commission: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtMachineDOC" Width="230" ValidationGroup="addMachineryValidation" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="coeMachineDOC" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeMachineDOC_Click" Width="25px" />
+                    <asp:TextBox ID="txtMachineDOC" ReadOnly="true" Width="230" ValidationGroup="addMachineryValidation" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="coeMachineDOC" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeMachineDOC_Click" Width="25px" />
                     <asp:Panel ID="calpanel" runat="server" Visible="false">
                     <asp:Calendar ID="calMachineDOC" OnSelectionChanged="calMachineDOC_SelectionChanged" runat="server"></asp:Calendar><br />
                         </asp:Panel>

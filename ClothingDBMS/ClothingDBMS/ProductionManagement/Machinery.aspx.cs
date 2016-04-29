@@ -31,12 +31,17 @@ namespace ProductionManagement.ProductionManagement
             PaneladdMachinery.Visible = false;
             PanelgvMachinery.Visible = true;
             txtMachineryName.Text = string.Empty;
+            txtMachineDOC.Text = string.Empty;
+            rbMachineActive.SelectedIndex = -1;
         }
 
         protected void btnCancelMachinery_Click(object sender, EventArgs e)
         {
             PaneladdMachinery.Visible = false;
             PanelgvMachinery.Visible = true;
+            txtMachineryName.Text = string.Empty;
+            txtMachineDOC.Text = string.Empty;
+            rbMachineActive.SelectedIndex = -1;
         }
 
         protected void calMachineDOC_SelectionChanged(object sender, EventArgs e)
