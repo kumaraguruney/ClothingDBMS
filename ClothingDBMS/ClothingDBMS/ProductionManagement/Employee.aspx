@@ -116,20 +116,23 @@
                 <asp:Panel ID="PaneladdEmployee" Visible="false" runat="server">
                 <asp:Label ID="lbEmployeeaddTitle" Text="Add Employee into Database" runat="server" /><br /> <br />
                     <asp:Label ID="lbEmployeeName" Width="150" Text="Employee Name: " runat="server" />
-                    <asp:TextBox ID="txtEmployeeName" ValidationGroup="addEmployeeValidation" runat="server" ></asp:TextBox><br />
+                    <asp:TextBox ID="txtEmployeeName" Width="250"  ValidationGroup="addEmployeeValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvEmployeeName" ValidationGroup="addEmployeeValidation" runat="server" ControlToValidate="txtEmployeeName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblEmployeeAddress" Width="150" Text="Address: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtEmployeeAddress" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="txtEmployeeAddress" Width="250" runat="server"></asp:TextBox><br />
                     <asp:Label ID="lblEmployeeContactNumber" Width="150" Text="Contact Number: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtEmployeeContactNumber" runat="server"></asp:TextBox><br />
-                    <asp:Label ID="lblEmployeeDOB" Width="140" Text="Date of Birth: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtEmployeeDOB" ReadOnly="true" runat="server"></asp:TextBox><asp:ImageButton ID="calimgEmployeeDOB" ImageUrl="~/img/calender.png" runat="server" OnClick="calimgEmployeeDOB_Click" />
-                    <asp:Panel ID="calpanel" Visible="false" runat="server" >
-                    <asp:Calendar ID="calDateofBirth" OnSelectionChanged="calDateofBirth_SelectionChanged" runat="server"></asp:Calendar><br />
-                        </asp:Panel>
-                    <br /> <br />
-                    <asp:Button ID="btnSaveEmployee" CssClass="bg-primary" ValidationGroup="addEmployeeValidation" runat="server" Text="Save" OnClick="btnSaveEmployee_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelEmployee" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelEmployee_Click"/>
+                    <asp:TextBox ID="txtEmployeeContactNumber" Width="250" runat="server"></asp:TextBox><br />
+                    <asp:Label ID="lblEmployeeDOB" Width="150" Text="Date of Birth: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtEmployeeDOB" ReadOnly="true" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgEmployeeDOB" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgEmployeeDOB_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calDateofBirth" runat="server" OnSelectionChanged="calDateofBirth_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+                    <br />
+                    <br />
+                    <asp:Button ID="btnSaveEmployee" CssClass="bg-primary" runat="server" Text="Save" OnClick="btnSaveEmployee_Click" ValidationGroup="addEmployeeValidation"/>
+                    &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelEmployee" runat="server" CssClass="bg-primary" OnClick="btnCancelEmployee_Click" Text="Cancel" />
                     </asp:Panel>
         </div>
     </form>
