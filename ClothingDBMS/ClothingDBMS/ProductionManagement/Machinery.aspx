@@ -78,11 +78,11 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbMachineryHeader" runat="server" Text="Machinery - Management" Font-Bold="true"></asp:Label> <br /> <br />
                 <asp:Panel ID="PanelgvMachinery" runat="server">
-                <asp:Button ID="btaddMachinery" runat="server" Text="Add" OnClick="btaddMachinery_Click"/>
+                <asp:Button ID="btaddMachinery" runat="server" CssClass="bg-primary" Text="Add" OnClick="btaddMachinery_Click"/>
                 <br /> <br />
                 
                     <asp:GridView ID="gvMachinery" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlMachinery" AutoGenerateColumns="False" DataKeyNames="Machine_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
@@ -124,13 +124,13 @@
                                  ErrorMessage=" * max 20 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,20}$"></asp:RegularExpressionValidator><br />
 
                     <asp:Label ID="lblMachineDOC" Width="150" Text="Date of Commission: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtMachineDOC" ReadOnly="true" Width="230" ValidationGroup="addMachineryValidation" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="coeMachineDOC" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeMachineDOC_Click" Width="25px" />
+                    <asp:TextBox ID="txtMachineDOC" ReadOnly="true" Width="230" ValidationGroup="addMachineryValidation" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="coeMachineDOC" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeMachineDOC_Click" Width="25px" /><br />
                     <asp:Panel ID="calpanel" runat="server" Visible="false">
                     <asp:Calendar ID="calMachineDOC" OnSelectionChanged="calMachineDOC_SelectionChanged" runat="server"></asp:Calendar><br />
                         </asp:Panel>
                     <asp:RequiredFieldValidator ID="rfvMachineDOC" ValidationGroup="addMachineryValidation" runat="server" ControlToValidate="txtMachineDOC" ErrorMessage="(*) Must have a Date of Commission" ForeColor="Red"></asp:RequiredFieldValidator><br /><br />
-                    <asp:Button ID="btnSaveMachinery" ValidationGroup="addMachineryValidation" runat="server" Text="Save" OnClick="btnSaveMachinery_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelMachinery" runat="server" Text="Cancel" OnClick="btnCancelMachinery_Click"/>
+                    <asp:Button ID="btnSaveMachinery" CssClass="bg-primary" ValidationGroup="addMachineryValidation" runat="server" Text="Save" OnClick="btnSaveMachinery_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelMachinery" runat="server" CssClass="bg-primary" Text="Cancel" OnClick="btnCancelMachinery_Click"/>
                     </asp:Panel>
         </div>
     </form>

@@ -43,11 +43,21 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdWorkorder.Visible = false;
             PanelgvWorkOrder.Visible = true;
+            txtProductQuantity.Text = string.Empty;
+            txtWorkorderDueDate.Text = string.Empty;
+            txtWorkorderSubmittedBy.Text = string.Empty;
+            dropaddProduct.SelectedIndex = -1;
         }
 
         protected void calWorkorderdue_SelectionChanged(object sender, EventArgs e)
         {
             txtWorkorderDueDate.Text = calWorkorderdue.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void coeWorkorderDueDate_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
         }
     }
 }

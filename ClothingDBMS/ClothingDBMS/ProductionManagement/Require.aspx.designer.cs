@@ -229,6 +229,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRawmaterialQty;
         
         /// <summary>
+        /// revRawmaterialQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revRawmaterialQty;
+        
+        /// <summary>
         /// btnSaveProductRequire control.
         /// </summary>
         /// <remarks>

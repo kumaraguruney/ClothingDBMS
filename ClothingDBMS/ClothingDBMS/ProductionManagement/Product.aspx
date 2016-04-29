@@ -39,7 +39,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -47,7 +47,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -86,10 +85,10 @@
         <asp:SqlDataSource ID="SqlCodeColor" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'COLOR')"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDesign" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Design.Design_ID, Design.Design_Is_Active, Design.Design_Name + ', ' + Code.Code_Description AS Name, Design.Design_Section FROM Design LEFT OUTER JOIN Code ON Design.Design_Section = Code.Code_ID WHERE (Design.Design_Is_Active = 'true') ORDER BY Design.Design_Name"></asp:SqlDataSource>
 
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbProductHeader" runat="server" Text="Product - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddProduct" runat="server" Text="Add" OnClick="btnaddProduct_Click"/>
+                <asp:Button ID="btnaddProduct" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddProduct_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvProduct" runat="server">
                     <asp:GridView ID="gvProduct" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProduct" AutoGenerateColumns="False" DataKeyNames="Product_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
@@ -145,20 +144,28 @@
                 <asp:Panel ID="PaneladdProduct" Visible="false" runat="server">
                 <asp:Label ID="lbProductaddTitle" Text="Add Product to Database" runat="server" /><br /> <br />
                     <div class="form-group form-horizontal col-md-8" >
-                        <asp:Label ID="lbProductName" Width="200" align="right" Text="Design Name: " runat="server" />
-                        <asp:DropDownList ID="dropDesignName" Width="200" runat="server" DataSourceID="SqlDesign" DataTextField="Name" DataValueField="Design_ID"/><br />
-                        <asp:RequiredFieldValidator ID="rfvProductName" ValidationGroup="addProductValidation" runat="server" ControlToValidate="dropDesignName" ErrorMessage="(*) Must have Design Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:Label ID="lbDesignName" Width="200" align="right" Text="Design Name: " runat="server" />
+                        <asp:DropDownList ID="dropDesignName" Width="200" runat="server" AppendDataBoundItems="true" EnableViewState="false" DataSourceID="SqlDesign" DataTextField="Name" DataValueField="Design_ID">
+                            <asp:ListItem Text="-- Select a Design --" Value="-1"></asp:ListItem>
+                        </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvProductName" ValidationGroup="addProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropDesignName" ErrorMessage="(*) Must have Design Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
                         <asp:Label ID="lblProductSize" Width="200"  align="right" Text="Size: " runat="server" />
-                        <asp:DropDownList ID="dropProductSize" runat="server" Width="200" DataSourceID="SqlCodeSize" DataTextField="Code_Description" DataValueField="Code_ID" /><br />
-                        <asp:RequiredFieldValidator ID="rfvdropsize" ValidationGroup="addProductValidation" runat="server" ControlToValidate="dropProductSize" ErrorMessage="(*) Must have a Size" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:DropDownList ID="dropProductSize" AppendDataBoundItems="true" EnableViewState="false" runat="server" Width="200" DataSourceID="SqlCodeSize" DataTextField="Code_Description" DataValueField="Code_ID" >
+                            <asp:ListItem Text="-- Size --" Value="-1"></asp:ListItem>
+                        </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvdropsize" ValidationGroup="addProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropProductSize" ErrorMessage="(*) Must have a Size" ForeColor="Red"></asp:RequiredFieldValidator><br />
                         <asp:Label ID="lblProductColor" Width="200" align="right" Text="Color: " runat="server" />
-                        <asp:DropDownList ID="dropProductColor" runat="server" Width="200" DataSourceID="SqlCodeColor" DataTextField="Code_Description" DataValueField="Code_ID" /><br />
-                        <asp:RequiredFieldValidator ID="rfvdropColor" ValidationGroup="addProductValidation" runat="server" ControlToValidate="dropProductColor" ErrorMessage="(*) Must have a Color" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:DropDownList ID="dropProductColor" runat="server" AppendDataBoundItems="true" EnableViewState="false" Width="200" DataSourceID="SqlCodeColor" DataTextField="Code_Description" DataValueField="Code_ID" >
+                            <asp:ListItem Text="-- Color --" Value="-1"></asp:ListItem>
+                        </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvdropColor" ValidationGroup="addProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropProductColor" ErrorMessage="(*) Must have a Color" ForeColor="Red"></asp:RequiredFieldValidator><br />
                         <asp:Label ID="lbProductDescription" align="right" Width="200" Text="Description: " runat="server" />
                         <asp:TextBox ID="txtProductDescription" Width="200"  ValidationGroup="addProductValidation" runat="server" ></asp:TextBox><br />
+                        <asp:RegularExpressionValidator ValidationGroup="addProductValidation" ID="revProductDescription" runat="server" ControlToValidate="txtProductDescription"
+                                 ErrorMessage=" * max 50 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,50}$"></asp:RegularExpressionValidator><br />
                         <br /> <br />
-                        <asp:Button ID="btnSaveProductDesign" ValidationGroup="addProductValidation" runat="server" Text="Save" OnClick="btnSaveProduct_Click"/> &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelProductDesign" runat="server" Text="Cancel" OnClick="btnCancelProduct_Click"/>
+                        <asp:Button ID="btnSaveProductDesign" CssClass="bg-primary" ValidationGroup="addProductValidation" runat="server" Text="Save" OnClick="btnSaveProduct_Click"/> &nbsp;&nbsp;
+                        <asp:Button ID="btnCancelProductDesign" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelProduct_Click"/>
                     </div>
                     </asp:Panel>
         </div>

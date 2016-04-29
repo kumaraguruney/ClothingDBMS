@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -83,12 +82,12 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
-<div align="center">
+<div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbWorkOrderHeader" runat="server" Text="Work Order - Management" Font-Bold="true"></asp:Label> <br /> <br />
                 
                 <asp:Panel ID="PanelgvWorkOrder" runat="server">
-                    <asp:Button ID="btnaddWorkOrder" runat="server" Text="Add" OnClick="btnaddWorkOrder_Click"/>
+                    <asp:Button ID="btnaddWorkOrder" CssClass="bg-primary" runat="server" Text="Add" OnClick="btnaddWorkOrder_Click"/>
                 <br /> <br />
                     <asp:GridView ID="gvWorkOrder" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWorkorder" AutoGenerateColumns="False" DataKeyNames="WorkOrder_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
@@ -128,21 +127,32 @@
                 <asp:Panel ID="PaneladdWorkorder" Visible="false" runat="server">
                 <asp:Label ID="lblWorkorderaddTitle" Text="Add Workorder into Database" runat="server" /><br /> <br />
                     <asp:Label ID="lblRequireDesign" Width="150" Text="Product: " runat="server" />
-                    <asp:DropDownList ID="dropaddProduct" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
+                    <asp:DropDownList ID="dropaddProduct" Width="250" AppendDataBoundItems="true" EnableViewState="false" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
+                        <asp:ListItem Text="-- Product --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvdropDesign" ValidationGroup="addWorkorderValidation" runat="server" ControlToValidate="dropaddProduct" ErrorMessage="(*) Must have one Design Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:RequiredFieldValidator ID="rfvdropDesign" InitialValue="-1" ValidationGroup="addWorkorderValidation" runat="server" ControlToValidate="dropaddProduct" ErrorMessage="(*) Must have one Design Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblProductQuantity" Width="150" Text="Product Quantity: " runat="server" />
-                    <asp:TextBox ID="txtProductQuantity" ValidationGroup="addWorkorderValidation" runat="server" ></asp:TextBox><br />
+                    <asp:TextBox ID="txtProductQuantity" Width="250" ValidationGroup="addWorkorderValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvProductQuantity" ValidationGroup="addWorkorderValidation" runat="server" ControlToValidate="txtProductQuantity" ErrorMessage="(*) Must have Quantity" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator ValidationGroup="addWorkorderValidation" ID="revProductQuantity" runat="server" ControlToValidate="txtProductQuantity"
+                                 ErrorMessage=" (*) eg: can take only numbers 80 or 100" ForeColor="Red" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator> <br />
+                        <br />
                     <asp:Label ID="lblWorkorderDueDate" Width="150" Text="Due Date: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtWorkorderDueDate" runat="server"></asp:TextBox><asp:Calendar ID="calWorkorderdue" OnSelectionChanged="calWorkorderdue_SelectionChanged" runat="server"></asp:Calendar>
+                    <asp:TextBox ID="txtWorkorderDueDate" ReadOnly="true" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="coeWorkorderDueDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeWorkorderDueDate_Click" Width="25px" /><br />
+                    <asp:RequiredFieldValidator ID="rfvtxtWorkorderDueDate" ValidationGroup="addWorkorderValidation" runat="server" ControlToValidate="txtWorkorderDueDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                     <asp:Panel ID="calpanel" runat="server" Visible="false">
+                    <asp:Calendar ID="calWorkorderdue" OnSelectionChanged="calWorkorderdue_SelectionChanged" runat="server"></asp:Calendar>
+                         </asp:Panel>
                     <br />
                     <asp:Label ID="lblWorkorderSubmittedBy" Width="150" Text="Submitted By: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtWorkorderSubmittedBy" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="txtWorkorderSubmittedBy" Width="250" runat="server"></asp:TextBox><br />
                      <asp:RequiredFieldValidator ID="rfvWorkorderSubmittedBy" ValidationGroup="addWorkorderValidation" runat="server" ControlToValidate="txtWorkorderSubmittedBy" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:RegularExpressionValidator ValidationGroup="addWorkorderValidation" ID="revWorkorderSubmittedBy" runat="server" ControlToValidate="txtWorkorderSubmittedBy"
+                                 ErrorMessage=" * max 20 characters" ForeColor="Red" ValidationExpression="[a-zA-Z- ]{1,20}$"></asp:RegularExpressionValidator><br />
+
                     <br /> <br />
-                    <asp:Button ID="btnSaveWorkOrder" ValidationGroup="addEmployeeValidation" runat="server" Text="Save" OnClick="btnSaveWorkOrder_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelWorkOrder" runat="server" Text="Cancel" OnClick="btnCancelWorkOrder_Click"/>
+                    <asp:Button ID="btnSaveWorkOrder" CssClass="bg-primary" ValidationGroup="addEmployeeValidation" runat="server" Text="Save" OnClick="btnSaveWorkOrder_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelWorkOrder" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelWorkOrder_Click"/>
                     </asp:Panel>
         </div>
     </form>

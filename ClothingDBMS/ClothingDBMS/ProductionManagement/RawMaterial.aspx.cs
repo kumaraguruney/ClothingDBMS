@@ -39,6 +39,9 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdRawMaterial.Visible = false;
             PanelgvRawmaterial.Visible = true;
+            txtRawmaterialName.Text = string.Empty;
+            txtRawmaterialDescription.Text = string.Empty;
+            dropRawmaterialcolor.SelectedIndex = -1;
         }
     }
 }

@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -79,12 +78,13 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlCodeColor" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'COLOR') ORDER BY Code_Type"></asp:SqlDataSource>
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbRawmaterialHeader" runat="server" Text="Raw Material - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btaddRawmaterial" runat="server" Text="Add" OnClick="btaddRawmaterial_Click"/>
-                <br /> <br />
                 <asp:Panel ID="PanelgvRawmaterial" runat="server">
+                <asp:Button ID="btaddRawmaterial" runat="server" CssClass="bg-primary" Text="Add" OnClick="btaddRawmaterial_Click"/>
+                <br /> <br />
+                
                     <asp:GridView ID="gvRawmaterial" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRawmaterial" AutoGenerateColumns="False" DataKeyNames="RawMaterial_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
@@ -123,16 +123,22 @@
                     <asp:Label ID="lbRawmaterialName" Width="150" Text="Raw Material Name: " runat="server" />
                     <asp:TextBox ID="txtRawmaterialName" Width="200" ValidationGroup="addRawmaterailValidation" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvRawmaterialName" Width="300" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="txtRawmaterialName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                     <asp:RegularExpressionValidator ValidationGroup="addRawmaterailValidation" ID="revRawmaterialName" runat="server" ControlToValidate="txtRawmaterialName"
+                                 ErrorMessage=" * max 25 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,25}$"></asp:RegularExpressionValidator><br />
+                        <br />
                     <asp:Label ID="lblRawmaterialColor" Width="150" Text="Raw Material Color: " runat="server" />
-                    <asp:DropDownList ID="dropRawmaterialcolor" Width="200" runat="server" DataSourceID="SqlCodeColor" DataTextField="Code_Description" DataValueField="Code_ID">
+                    <asp:DropDownList ID="dropRawmaterialcolor" AppendDataBoundItems="true" EnableViewState="false" Width="200" runat="server" DataSourceID="SqlCodeColor" DataTextField="Code_Description" DataValueField="Code_ID">
+                        <asp:ListItem Text="-- Color --" Value="-1"></asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rfvRawmaterialColor" Width="300" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="dropRawmaterialcolor" ErrorMessage="(*) Must have some Color" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:RequiredFieldValidator ID="rfvRawmaterialColor" InitialValue="-1" Width="300" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="dropRawmaterialcolor" ErrorMessage="(*) Must have some Color" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblRawmaterialDescription" Width="150" Text="Raw Material Description: " runat="server" />
                     <asp:TextBox ID="txtRawmaterialDescription" Width="200" ValidationGroup="addRawmaterailValidation" runat="server" ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfvRawmaterialDescription" Width="300" ValidationGroup="addRawmaterailValidation" runat="server" ControlToValidate="txtRawmaterialDescription" ErrorMessage="(*) Must have some Description" ForeColor="Red"></asp:RequiredFieldValidator><br />
-
-                    <asp:Button ID="btnSaveRawmaterial" ValidationGroup="addRawmaterailValidation" runat="server" Text="Save" OnClick="btnSaveRawmaterial_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelRawmaterial" runat="server" Text="Cancel" OnClick="btnCancelRawmaterial_Click"/>
+                    <asp:RegularExpressionValidator ValidationGroup="addRawmaterailValidation" ID="revRawmaterialDescription" runat="server" ControlToValidate="txtRawmaterialDescription"
+                                 ErrorMessage=" * max 15 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,15}$"></asp:RegularExpressionValidator><br />
+                        <br />
+                    <asp:Button ID="btnSaveRawmaterial" CssClass="bg-primary" ValidationGroup="addRawmaterailValidation" runat="server" Text="Save" OnClick="btnSaveRawmaterial_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelRawmaterial" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelRawmaterial_Click"/>
                     </asp:Panel>
         </div>
     </form>

@@ -41,6 +41,9 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdProductRequire.Visible = false;
             PanelgvProductRequire.Visible = true;
+            txtRawmaterialQty.Text = string.Empty;
+            dropProduct.SelectedIndex = -1;
+            dropRawmaterial.SelectedIndex = -1;
         }
 
         protected void btnProductRequirefilter_Click(object sender, EventArgs e)

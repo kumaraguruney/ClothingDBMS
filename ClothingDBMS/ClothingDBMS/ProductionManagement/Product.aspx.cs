@@ -24,6 +24,10 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdProduct.Visible = false;
             PanelgvProduct.Visible = true;
+            txtProductDescription.Text = string.Empty;
+            dropProductColor.SelectedIndex = -1;
+            dropProductSize.SelectedIndex = -1;
+            dropDesignName.SelectedIndex = -1;
         }
 
         protected void btnSaveProduct_Click(object sender, EventArgs e)

@@ -148,6 +148,24 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.TextBox txtWorkscheduleStartDate;
         
         /// <summary>
+        /// coeWorkscheduleStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton coeWorkscheduleStartDate;
+        
+        /// <summary>
+        /// cal1panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel cal1panel;
+        
+        /// <summary>
         /// calWorkscheduleStartDate control.
         /// </summary>
         /// <remarks>
@@ -182,6 +200,24 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWorkscheduleEndDate;
+        
+        /// <summary>
+        /// coeWorkscheduleEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton coeWorkscheduleEndDate;
+        
+        /// <summary>
+        /// cal2panel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel cal2panel;
         
         /// <summary>
         /// calWorkscheduleEndDate control.

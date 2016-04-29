@@ -112,13 +112,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lbProductaddTitle;
         
         /// <summary>
-        /// lbProductName control.
+        /// lbDesignName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductName;
+        protected global::System.Web.UI.WebControls.Label lbDesignName;
         
         /// <summary>
         /// dropDesignName control.
@@ -209,6 +209,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductDescription;
+        
+        /// <summary>
+        /// revProductDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revProductDescription;
         
         /// <summary>
         /// btnSaveProductDesign control.

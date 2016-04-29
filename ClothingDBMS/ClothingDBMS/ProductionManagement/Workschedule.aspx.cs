@@ -36,6 +36,10 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdWorkSchedule.Visible = false;
             PanelgvWorkSchedule.Visible = true;
+            dropaddWorkOrder.SelectedIndex = -1;
+            dropaddScheduledBy.SelectedIndex = -1;
+            txtWorkscheduleStartDate.Text = string.Empty;
+            txtWorkscheduleEndDate.Text = string.Empty;
         }
 
         protected void btaddWorkSchedule_Click(object sender, EventArgs e)
@@ -47,11 +51,23 @@ namespace ProductionManagement.ProductionManagement
         protected void calWorkscheduleStartDate_SelectionChanged(object sender, EventArgs e)
         {
             txtWorkscheduleStartDate.Text = calWorkscheduleStartDate.SelectedDate.ToShortDateString();
+            cal1panel.Visible = false;
         }
 
         protected void calWorkscheduleEndDate_SelectionChanged(object sender, EventArgs e)
         {
             txtWorkscheduleEndDate.Text = calWorkscheduleEndDate.SelectedDate.ToShortDateString();
+            cal2panel.Visible = true;
+        }
+
+        protected void coeWorkscheduleStartDate_Click(object sender, ImageClickEventArgs e)
+        {
+            cal1panel.Visible = true;
+        }
+
+        protected void coeWorkscheduleEndDate_Click(object sender, ImageClickEventArgs e)
+        {
+            cal2panel.Visible = false;
         }
     }
 }

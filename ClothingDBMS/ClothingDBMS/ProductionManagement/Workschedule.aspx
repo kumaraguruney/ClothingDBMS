@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -83,12 +82,12 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lblWorkSchedule" runat="server" Text="Work Schedule - Management" Font-Bold="true"></asp:Label> <br /> <br />
                 
                 <asp:Panel ID="PanelgvWorkSchedule" runat="server">
-                    <asp:Button ID="btaddWorkSchedule" runat="server" Text="Add" OnClick="btaddWorkSchedule_Click"/>
+                    <asp:Button ID="btaddWorkSchedule" CssClass="bg-primary" runat="server" Text="Add" OnClick="btaddWorkSchedule_Click"/>
                 <br /> <br />
                     <asp:GridView ID="gvWorkSchedule" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWorkSchedule" AutoGenerateColumns="False" DataKeyNames="Workschedule_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
@@ -134,28 +133,36 @@
                    </asp:Panel>
                 <asp:Panel ID="PaneladdWorkSchedule" Visible="false" runat="server">
                 <asp:Label ID="lbProductaddWorkSchedule" Text="Add Work Schedule into Database" runat="server" /><br /> <br />
-                    <asp:Label ID="lblWorkOrderName" Width="250" Text=" Work Order: " runat="server" />
-                    <asp:DropDownList ID="dropaddWorkOrder" runat="server" Width="250" DataSourceID="SqlWorkOrder" DataTextField="Name" DataValueField="WorkOrder_ID">
+                    <asp:Label ID="lblWorkOrderName" Width="150" Text=" Work Order: " runat="server" />
+                    <asp:DropDownList ID="dropaddWorkOrder" AppendDataBoundItems="true" EnableViewState="false" runat="server" Width="250" DataSourceID="SqlWorkOrder" DataTextField="Name" DataValueField="WorkOrder_ID">
+                        <asp:ListItem Text="-- Work Order--" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvdropWorkOrder" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddWorkOrder" ErrorMessage="(*) Must have one WorkOrder Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:RequiredFieldValidator ID="rfvdropWorkOrder" InitialValue="-1" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddWorkOrder" ErrorMessage="(*) Must have one WorkOrder Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br />
-                    <asp:Label ID="lblWorkscheduleStartDate" Width="250" Text="Work Schedule Start Date: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtWorkscheduleStartDate" Width="250" runat="server"></asp:TextBox><asp:Calendar ID="calWorkscheduleStartDate" OnSelectionChanged="calWorkscheduleStartDate_SelectionChanged" runat="server"></asp:Calendar>
+                    <asp:Label ID="lblWorkscheduleStartDate" Width="150" Text="Work Schedule Start Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtWorkscheduleStartDate" ReadOnly="true" Width="230" runat="server"></asp:TextBox> &nbsp;<asp:ImageButton ID="coeWorkscheduleStartDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeWorkscheduleStartDate_Click" Width="25px" /><br />
+                    <asp:Panel ID="cal1panel" runat="server" Visible="false">
+                    <asp:Calendar ID="calWorkscheduleStartDate" OnSelectionChanged="calWorkscheduleStartDate_SelectionChanged" runat="server"></asp:Calendar>
                     <br />
+                        </asp:Panel>
                     <asp:RequiredFieldValidator ID="rfvWorkscheduleStartDate" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="txtWorkscheduleStartDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br />
-                    <asp:Label ID="lblWorkscheduleEndDate" Width="250" Text="Work Schedule End Date: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtWorkscheduleEndDate" Width="250" runat="server"></asp:TextBox><asp:Calendar ID="calWorkscheduleEndDate" OnSelectionChanged="calWorkscheduleEndDate_SelectionChanged" runat="server"></asp:Calendar>
+                    <asp:Label ID="lblWorkscheduleEndDate" Width="150" Text="Work Schedule End Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtWorkscheduleEndDate" ReadOnly="true" Width="230" runat="server"></asp:TextBox> &nbsp;<asp:ImageButton ID="coeWorkscheduleEndDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeWorkscheduleEndDate_Click" Width="25px" /><br />
+                    <asp:Panel ID="cal2panel" runat="server" Visible="false">
+                    <asp:Calendar ID="calWorkscheduleEndDate" OnSelectionChanged="calWorkscheduleEndDate_SelectionChanged" runat="server"></asp:Calendar>
                     <br />
+                        </asp:Panel>
                     <asp:RequiredFieldValidator ID="rfvWorkscheduleEndDate" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="txtWorkscheduleEndDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br />
-                    <asp:Label ID="lblWorkScheduledBy" Width="250" Text="Scheduled By: " runat="server"></asp:Label>
-                    <asp:DropDownList ID="dropaddScheduledBy" runat="server" Width="250" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID">
+                    <asp:Label ID="lblWorkScheduledBy" Width="150" Text="Scheduled By: " runat="server"></asp:Label>
+                    <asp:DropDownList ID="dropaddScheduledBy" AppendDataBoundItems="true" EnableViewState="true" runat="server" Width="250" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID">
+                    <asp:ListItem Text="-- ScheduledBy --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br /><br />
-                     <asp:RequiredFieldValidator ID="rfvWorkScheduledBy" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddScheduledBy" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                     <asp:RequiredFieldValidator ID="rfvWorkScheduledBy" InitialValue="-1" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddScheduledBy" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br /> <br />
-                    <asp:Button ID="btnSaveWorkSchedule" ValidationGroup="addWorkScheduleValidation" runat="server" Text="Save" OnClick="btnSaveWorkSchedule_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelWorkSchedule" runat="server" Text="Cancel" OnClick="btnCancelWorkSchedule_Click"/>
+                    <asp:Button ID="btnSaveWorkSchedule" CssClass="bg-primary" ValidationGroup="addWorkScheduleValidation" runat="server" Text="Save" OnClick="btnSaveWorkSchedule_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelWorkSchedule" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelWorkSchedule_Click"/>
                     </asp:Panel>
         </div>
     </form>

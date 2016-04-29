@@ -38,7 +38,7 @@
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="#">Naveen Textile Limited</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -46,7 +46,6 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="../Index.aspx">Home</a> </li>
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
                     <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
                     <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
@@ -83,7 +82,7 @@
         
         <asp:SqlDataSource ID="SqlRawmaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT RawMaterial.RawMaterial_ID, RawMaterial.RawMaterial_Name + ',' + Code.Code_Description + ', ' + RawMaterial.RawMaterial_Description AS RawMaterial_Name FROM RawMaterial LEFT OUTER JOIN Code ON Code.Code_ID = RawMaterial.RawMaterial_Color"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Product.Design_ID, Product.Size, Product.Color, Product.Product_Description, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbRequireHeader" runat="server" Text="Product Requirement - Management" Font-Bold="true"></asp:Label> <br /> <br />
                 
@@ -91,8 +90,8 @@
                     <asp:Label ID="lblRequiresFilter" runat="server" Text="Please Select a Design and Click Filter: " Font-Bold="true"></asp:Label>
                 <asp:DropDownList ID="droprequire" width="300" DataSourceID="SqlRequireDrop" AppendDataBoundItems="true" DataTextField="Product_Name"  DataValueField="Product_ID" runat="server">
                 <asp:ListItem Text="--- Please Select a Design ---" Value="-1"></asp:ListItem>
-                </asp:DropDownList> &nbsp; &nbsp; <asp:Button ID="btnProductRequirefilter" runat="server" Text="Filter" OnClick="btnProductRequirefilter_Click"/> &nbsp; &nbsp; <asp:Button ID="btnProductRequireClear" runat="server" Text="Clear" OnClick="btnProductRequireClear_Click"/> &nbsp;&nbsp;
-                <asp:Button ID="btaddProductRequire" runat="server" Text="Add" OnClick="btaddProductRequire_Click"/>
+                </asp:DropDownList> &nbsp; &nbsp; <asp:Button ID="btnProductRequirefilter" CssClass="bg-primary" runat="server" Text="Filter" OnClick="btnProductRequirefilter_Click"/> &nbsp; &nbsp; <asp:Button ID="btnProductRequireClear" runat="server" Text="Clear" CssClass="bg-primary" OnClick="btnProductRequireClear_Click"/> &nbsp;&nbsp;
+                <asp:Button ID="btaddProductRequire" runat="server" CssClass="bg-primary" Text="Add" OnClick="btaddProductRequire_Click"/>
                 <br /> <br />
                     <asp:GridView ID="gvProductRequire" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRequires" AutoGenerateColumns="False" DataKeyNames="Require_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" >
                         <AlternatingRowStyle BackColor="#CCCCCC" />
@@ -140,18 +139,23 @@
                 <asp:Label ID="lbProductRequireaddTitle" Text="Add Required Raw Material(s) for particular Design into Database" runat="server" /><br /> <br />
                     <div class="form-group form-horizontal col-md-8" >
                     <asp:Label ID="lblRequireProduct" Width="200" Text="Product: " runat="server" />
-                    <asp:DropDownList ID="dropProduct" runat="server" width="350" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
+                    <asp:DropDownList ID="dropProduct" runat="server" AppendDataBoundItems="true" EnableViewState="false" width="350" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
+                        <asp:ListItem Text="-- Select a Product --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvdropProduct" ValidationGroup="addProductRequireValidation" runat="server" ControlToValidate="dropProduct" ErrorMessage="(*) Must have one Design Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:RequiredFieldValidator ID="rfvdropProduct" ValidationGroup="addProductRequireValidation" InitialValue="-1" runat="server" ControlToValidate="dropProduct" ErrorMessage="(*) Must have one Design Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblRequireRawmaterial" Width="200" Text="Raw Material : " runat="server" />
-                    <asp:DropDownList ID="dropRawmaterial"  width="350" runat="server" DataSourceID="SqlRawmaterial" DataTextField="Rawmaterial_Name" DataValueField="Rawmaterial_ID"></asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvProductRequiredRM" ValidationGroup="addProductRequireValidation" runat="server" ControlToValidate="dropRawmaterial" ErrorMessage="(*) Must have one Raw Material Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <asp:DropDownList ID="dropRawmaterial" AppendDataBoundItems="true" EnableViewState="false" width="350" runat="server" DataSourceID="SqlRawmaterial" DataTextField="Rawmaterial_Name" DataValueField="Rawmaterial_ID">
+                        <asp:ListItem Text="-- Raw Material --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvProductRequiredRM" InitialValue="-1" ValidationGroup="addProductRequireValidation" runat="server" ControlToValidate="dropRawmaterial" ErrorMessage="(*) Must have one Raw Material Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <asp:Label ID="lblRawmaterialQty" Width="200" Text="RawMaterial Quantity: " runat="server" />
                     <asp:TextBox ID="txtRawmaterialQty" width="350" ValidationGroup="addProductRequireValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvRawmaterialQty" width="350" ValidationGroup="addProductRequireValidation" runat="server" ControlToValidate="txtRawmaterialQty" ErrorMessage="(*) Must have Quantity filled" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                         <asp:RegularExpressionValidator ValidationGroup="addProductRequireValidation" ID="revRawmaterialQty" runat="server" ControlToValidate="txtRawmaterialQty"
+                                 ErrorMessage=" (*) eg: can take only numbers 80 or 100" ForeColor="Red" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator> <br />
                         <br /> <br />
-                    <asp:Button ID="btnSaveProductRequire" ValidationGroup="addProductRequireValidation" runat="server" Text="Save" OnClick="btnSaveProductRequire_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelProductRequire" runat="server" Text="Cancel" OnClick="btnCancelProductRequire_Click"/>
+                    <asp:Button ID="btnSaveProductRequire" CssClass="bg-primary" ValidationGroup="addProductRequireValidation" runat="server" Text="Save" OnClick="btnSaveProductRequire_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelProductRequire" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelProductRequire_Click"/>
                         </div>
                     </asp:Panel>
         </div>
