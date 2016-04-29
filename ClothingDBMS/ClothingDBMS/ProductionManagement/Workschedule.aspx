@@ -26,16 +26,23 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlWorkOrder" runat="server" ConnectionString="<%$ ConnectionStrings:ClothingDatabase %>" SelectCommand="SELECT WorkOrder.WorkOrder_ID, WorkOrder.CreatedDate, WorkOrder.DueDate, WorkOrder.Submitted_By, WorkOrder.Product_Quantity, WorkOrder.Design_ID, ProductDesign.Design_Name FROM WorkOrder LEFT OUTER JOIN ProductDesign ON ProductDesign.Design_ID = WorkOrder.Design_ID ORDER BY ProductDesign.Design_Name"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:ClothingDatabase %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, WorkOrder.Design_ID, ProductDesign.Design_Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON WorkOrder.WorkOrder_ID = Workschedule.WorkOrder_ID LEFT OUTER JOIN ProductDesign ON ProductDesign.Design_ID = WorkOrder.Design_ID ORDER BY Workschedule.WorkOrder_ID" DeleteCommand="DELETE FROM [Workschedule] WHERE [Workschedule_ID] = @Workschedule_ID" InsertCommand="INSERT INTO [Workschedule] ([WorkOrder_ID]) VALUES (@WorkOrder_ID)" UpdateCommand="UPDATE [Workschedule] SET [WorkOrder_ID] = @WorkOrder_ID WHERE [Workschedule_ID] = @Workschedule_ID">
+        <asp:SqlDataSource ID="SqlWorkOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT WorkOrder.WorkOrder_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM WorkOrder LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY WorkOrder.Product_ID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_Date, Workschedule.WorkScheduled_To_End, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name" DeleteCommand="DELETE FROM [Workschedule] WHERE [Workschedule_ID] = @Workschedule_ID" InsertCommand="INSERT INTO [Workschedule] ([WorkOrder_ID], [WorkScheduled_Date], [WorkScheduled_To_End], [WorkScheduled_By]) VALUES (@WorkOrder_ID, @WorkScheduled_Date, @WorkScheduled_To_End, @WorkScheduled_By)" UpdateCommand="UPDATE [Workschedule] SET [WorkOrder_ID] = @WorkOrder_ID, [WorkScheduled_Date] = @WorkScheduled_Date, [WorkScheduled_To_End] = @WorkScheduled_To_End, [WorkScheduled_By] = @WorkScheduled_By WHERE [Workschedule_ID] = @Workschedule_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Workschedule_ID" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="WorkOrder_ID" Type="Int16" />
+                <asp:Parameter Name="WorkScheduled_Date" Type="DateTime" />
+                <asp:Parameter Name="WorkScheduled_To_End" Type="DateTime" />
+                <asp:Parameter Name="WorkScheduled_By" Type="Byte" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="WorkOrder_ID" Type="Int16" />
+                <asp:Parameter Name="WorkScheduled_Date" Type="DateTime" />
+                <asp:Parameter Name="WorkScheduled_To_End" Type="DateTime" />
+                <asp:Parameter Name="WorkScheduled_By" Type="Byte" />
                 <asp:Parameter Name="Workschedule_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
@@ -43,37 +50,73 @@
             <div align="center">
                 <br />
                 <asp:Label ID="lblWorkSchedule" runat="server" Text="Work Schedule - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btaddWorkSchedule" runat="server" Text="Add" OnClick="btaddWorkSchedule_Click"/>
-                <br /> <br />
+                
                 <asp:Panel ID="PanelgvWorkSchedule" runat="server">
-                    <asp:GridView ID="gvWorkSchedule" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWorkSchedule" AutoGenerateColumns="False" DataKeyNames="Workschedule_ID">
+                    <asp:Button ID="btaddWorkSchedule" runat="server" Text="Add" OnClick="btaddWorkSchedule_Click"/>
+                <br /> <br />
+                    <asp:GridView ID="gvWorkSchedule" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWorkSchedule" AutoGenerateColumns="False" DataKeyNames="Workschedule_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                        <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
-                            <asp:CommandField ShowEditButton="True" HeaderText="Edit"/>
+                            <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
                             <asp:BoundField DataField="Workschedule_ID" HeaderText="Workschedule ID" InsertVisible="False" ReadOnly="True" SortExpression="Workschedule_ID" />
-                            <asp:TemplateField HeaderText="WorkOrder ID" SortExpression="WorkOrder_ID">
+                            <asp:TemplateField HeaderText="WorkOrder " SortExpression="Name">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="dropWorkOrder" SelectedValue='<%# Bind("WorkOrder_ID") %>' runat="server" DataSourceID="SqlWorkOrder" DataTextField="Design_Name" DataValueField="WorkOrder_ID"/>
+                                    <asp:DropDownList ID="dropWorkOrder" runat="server" DataSourceID="SqlWorkOrder" DataTextField="Name" DataValueField="WorkOrder_ID" SelectedValue='<%# Bind("WorkOrder_ID") %>'>
+                                    </asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblWorkOrderID" runat="server" Text='<%# Bind("WorkOrder_ID") %>'></asp:Label>
+                                    <asp:Label ID="lblWorkOrder" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="Design_Name" HeaderText="Design Name" SortExpression="Design_Name" ReadOnly="true" />
+                            <asp:BoundField DataField="WorkScheduled_Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Start Date" SortExpression="WorkScheduled_Date" />
+                            <asp:BoundField DataField="WorkScheduled_To_End" DataFormatString="{0:MM/dd/yyyy}" HeaderText="End Date" SortExpression="WorkScheduled_To_End" />
+                            <asp:TemplateField HeaderText="WorkScheduled_By" SortExpression="WorkScheduled By">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="dropEmployee" runat="server" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID" SelectedValue='<%# Bind("WorkScheduled_By") %>'>
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblWorkScheduledBy" runat="server" Text='<%# Bind("Employee_Name") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
-                        <EditRowStyle BackColor="Yellow"/>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <EditRowStyle BackColor="Yellow" />
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                    </asp:Panel>
                 <asp:Panel ID="PaneladdWorkSchedule" Visible="false" runat="server">
                 <asp:Label ID="lbProductaddWorkSchedule" Text="Add Work Schedule into Database" runat="server" /><br /> <br />
-                    <asp:Label ID="lblWorkOrderName" Text=" Work Order: " runat="server" />
-                    <asp:DropDownList ID="dropWorkOrder" runat="server" DataSourceID="SqlWorkOrder" DataTextField="Design_Name" DataValueField="WorkOrder_ID">
+                    <asp:Label ID="lblWorkOrderName" Width="250" Text=" Work Order: " runat="server" />
+                    <asp:DropDownList ID="dropaddWorkOrder" runat="server" Width="250" DataSourceID="SqlWorkOrder" DataTextField="Name" DataValueField="WorkOrder_ID">
                     </asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvdropWorkOrder" ValidationGroup="addWorkorderValidation" runat="server" ControlToValidate="dropWorkOrder" ErrorMessage="(*) Must have one WorkOrder Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:RequiredFieldValidator ID="rfvdropWorkOrder" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddWorkOrder" ErrorMessage="(*) Must have one WorkOrder Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <br />
+                    <asp:Label ID="lblWorkscheduleStartDate" Width="250" Text="Work Schedule Start Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtWorkscheduleStartDate" Width="250" runat="server"></asp:TextBox><asp:Calendar ID="calWorkscheduleStartDate" OnSelectionChanged="calWorkscheduleStartDate_SelectionChanged" runat="server"></asp:Calendar>
+                    <br />
+                    <asp:RequiredFieldValidator ID="rfvWorkscheduleStartDate" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="txtWorkscheduleStartDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <br />
+                    <asp:Label ID="lblWorkscheduleEndDate" Width="250" Text="Work Schedule End Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtWorkscheduleEndDate" Width="250" runat="server"></asp:TextBox><asp:Calendar ID="calWorkscheduleEndDate" OnSelectionChanged="calWorkscheduleEndDate_SelectionChanged" runat="server"></asp:Calendar>
+                    <br />
+                    <asp:RequiredFieldValidator ID="rfvWorkscheduleEndDate" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="txtWorkscheduleEndDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    <br />
+                    <asp:Label ID="lblWorkScheduledBy" Width="250" Text="Scheduled By: " runat="server"></asp:Label>
+                    <asp:DropDownList ID="dropaddScheduledBy" runat="server" Width="250" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID">
+                    </asp:DropDownList><br /><br />
+                     <asp:RequiredFieldValidator ID="rfvWorkScheduledBy" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddScheduledBy" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br /> <br />
                     <asp:Button ID="btnSaveWorkSchedule" ValidationGroup="addWorkScheduleValidation" runat="server" Text="Save" OnClick="btnSaveWorkSchedule_Click"/> &nbsp;&nbsp;
                     <asp:Button ID="btnCancelWorkSchedule" runat="server" Text="Cancel" OnClick="btnCancelWorkSchedule_Click"/>

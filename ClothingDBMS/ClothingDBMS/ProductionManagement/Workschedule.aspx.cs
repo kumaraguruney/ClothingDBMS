@@ -16,12 +16,20 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnSaveWorkSchedule_Click(object sender, EventArgs e)
         {
-            SqlWorkSchedule.InsertParameters["WorkOrder_ID"].DefaultValue = dropWorkOrder.SelectedValue;
+            DateTime StartDate = DateTime.ParseExact(txtWorkscheduleStartDate.Text, "dd-MM-yyyy", null);
+            DateTime EndDate = DateTime.ParseExact(txtWorkscheduleEndDate.Text, "dd-MM-yyyy", null);
+            SqlWorkSchedule.InsertParameters["WorkOrder_ID"].DefaultValue = dropaddWorkOrder.SelectedValue;
+            SqlWorkSchedule.InsertParameters["WorkScheduled_Date"].DefaultValue = StartDate.ToString();
+            SqlWorkSchedule.InsertParameters["WorkScheduled_To_End"].DefaultValue = EndDate.ToString();
+            SqlWorkSchedule.InsertParameters["WorkScheduled_By"].DefaultValue = dropaddScheduledBy.SelectedValue;
             SqlWorkSchedule.Insert();
             gvWorkSchedule.DataBind();
             PaneladdWorkSchedule.Visible = false;
             PanelgvWorkSchedule.Visible = true;
-            dropWorkOrder.SelectedIndex = 0;
+            dropaddWorkOrder.SelectedIndex = -1;
+            dropaddScheduledBy.SelectedIndex = -1;
+            txtWorkscheduleStartDate.Text = string.Empty;
+            txtWorkscheduleEndDate.Text = string.Empty;
         }
 
         protected void btnCancelWorkSchedule_Click(object sender, EventArgs e)
@@ -34,6 +42,16 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdWorkSchedule.Visible = true;
             PanelgvWorkSchedule.Visible = false;
+        }
+
+        protected void calWorkscheduleStartDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtWorkscheduleStartDate.Text = calWorkscheduleStartDate.SelectedDate.ToShortDateString();
+        }
+
+        protected void calWorkscheduleEndDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtWorkscheduleEndDate.Text = calWorkscheduleEndDate.SelectedDate.ToShortDateString();
         }
     }
 }

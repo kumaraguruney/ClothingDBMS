@@ -31,6 +31,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlWorkOrder;
         
         /// <summary>
+        /// SqlEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlEmployee;
+        
+        /// <summary>
         /// SqlWorkSchedule control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblWorkSchedule;
         
         /// <summary>
-        /// btaddWorkSchedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btaddWorkSchedule;
-        
-        /// <summary>
         /// PanelgvWorkSchedule control.
         /// </summary>
         /// <remarks>
@@ -65,6 +65,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelgvWorkSchedule;
+        
+        /// <summary>
+        /// btaddWorkSchedule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btaddWorkSchedule;
         
         /// <summary>
         /// gvWorkSchedule control.
@@ -103,13 +112,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblWorkOrderName;
         
         /// <summary>
-        /// dropWorkOrder control.
+        /// dropaddWorkOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropWorkOrder;
+        protected global::System.Web.UI.WebControls.DropDownList dropaddWorkOrder;
         
         /// <summary>
         /// rfvdropWorkOrder control.
@@ -119,6 +128,105 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropWorkOrder;
+        
+        /// <summary>
+        /// lblWorkscheduleStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWorkscheduleStartDate;
+        
+        /// <summary>
+        /// txtWorkscheduleStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtWorkscheduleStartDate;
+        
+        /// <summary>
+        /// calWorkscheduleStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calWorkscheduleStartDate;
+        
+        /// <summary>
+        /// rfvWorkscheduleStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkscheduleStartDate;
+        
+        /// <summary>
+        /// lblWorkscheduleEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWorkscheduleEndDate;
+        
+        /// <summary>
+        /// txtWorkscheduleEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtWorkscheduleEndDate;
+        
+        /// <summary>
+        /// calWorkscheduleEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calWorkscheduleEndDate;
+        
+        /// <summary>
+        /// rfvWorkscheduleEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkscheduleEndDate;
+        
+        /// <summary>
+        /// lblWorkScheduledBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWorkScheduledBy;
+        
+        /// <summary>
+        /// dropaddScheduledBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropaddScheduledBy;
+        
+        /// <summary>
+        /// rfvWorkScheduledBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkScheduledBy;
         
         /// <summary>
         /// btnSaveWorkSchedule control.
