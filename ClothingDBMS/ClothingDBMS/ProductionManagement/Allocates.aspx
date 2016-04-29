@@ -81,22 +81,22 @@
         <asp:SqlDataSource ID="SqlAllocatesdrop" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Allocates.Workschedule_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM Allocates LEFT OUTER JOIN Workschedule ON Workschedule.Workschedule_ID = Allocates.Workschedule_ID LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Allocates.Employee_ID ORDER BY Name"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkScheduled_Date, Workschedule.WorkScheduled_To_End, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY Name"></asp:SqlDataSource>
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lblAllocates" runat="server" Text="Employee Allocates to Work Schedule" Font-Bold="true"></asp:Label> <br /> <br />
                  <asp:Panel ID="PanelgvAllocates" runat="server">
                       <asp:Label ID="lblAllocatesFilter" runat="server" Text="Please Select a WorkSchedule and Click Filter: " Font-Bold="true"></asp:Label>
                 <asp:DropDownList ID="dropAllocatesSearch" width="300" DataSourceID="SqlAllocatesdrop" AppendDataBoundItems="true" DataTextField="Name"  DataValueField="WorkSchedule_ID" runat="server">
                 <asp:ListItem Text="--- Please Select a Work Schedule ---" Value="-1"></asp:ListItem>
-                </asp:DropDownList> &nbsp; &nbsp; <asp:Button ID="btnAllocatesfilter" runat="server" Text="Filter" OnClick="btnAllocatesfilter_Click"/> &nbsp; &nbsp; <asp:Button ID="btnAllocatesClear" runat="server" Text="Clear" OnClick="btnAllocatesClear_Click"/> &nbsp;&nbsp;
-                 <asp:Button ID="btnaddAllocates" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                </asp:DropDownList> &nbsp; &nbsp; <asp:Button ID="btnAllocatesfilter" runat="server" Text="Filter" CssClass="bg-primary" OnClick="btnAllocatesfilter_Click"/> &nbsp; &nbsp; <asp:Button ID="btnAllocatesClear" runat="server" Text="Clear" CssClass="bg-primary" OnClick="btnAllocatesClear_Click"/> &nbsp;&nbsp;
+                 <asp:Button ID="btnaddAllocates" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddAllocates_Click"/>
                 <br /> <br />
 
                     <asp:GridView ID="gvAllocates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlAllocates" AutoGenerateColumns="False" DataKeyNames="Allocates_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
-                            <asp:BoundField DataField="Allocates_ID" HeaderText="Allocates_ID" ReadOnly="True" SortExpression="Allocates_ID" />
+                            <asp:BoundField DataField="Allocates_ID" HeaderText="Allocates ID" ReadOnly="True" SortExpression="Allocates_ID" />
                             <asp:TemplateField HeaderText="Workschedule" SortExpression="Name">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="dropWorkSchedule" runat="server" DataSourceID="SqlWorkSchedule" DataTextField="Name" DataValueField="WorkSchedule_ID" SelectedValue='<%# Bind("WorkSchedule_ID") %>'/>
@@ -143,8 +143,8 @@
                      <asp:Label ID="lblAllocatesTime" Width="200" Text="Hours of Operation: " runat="server" />
                     <asp:TextBox ID="txtAllocatesTime" Width="300" ValidationGroup="addAllocatesValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="txtAllocatesTime" ErrorMessage="(*) Must have some hours" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br /> <br />
-                    <asp:Button ID="btnSaveAllocates" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveAllocates_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelAllocates" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
+                    <asp:Button ID="btnSaveAllocates" CssClass="bg-primary" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveAllocates_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelAllocates" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelAllocates_Click"/>
                     </asp:Panel>
         </div>
     </form>

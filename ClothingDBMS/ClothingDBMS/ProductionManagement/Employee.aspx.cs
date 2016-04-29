@@ -45,6 +45,12 @@ namespace ProductionManagement.ProductionManagement
         protected void calDateofBirth_SelectionChanged(object sender, EventArgs e)
         {
             txtEmployeeDOB.Text = calDateofBirth.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void calimgEmployeeDOB_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
         }
     }
 }

@@ -81,12 +81,12 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbEmployeeHeader" runat="server" Text="Employee- Management" Font-Bold="true"></asp:Label> <br /> <br />
                 
                 <asp:Panel ID="PanelgvEmployee" runat="server">
-                    <asp:Button ID="btnaddEmployee" runat="server" OnClick="btnaddEmployee_Click" Text="Add" /><br /> <br />
+                    <asp:Button ID="btnaddEmployee" runat="server" CssClass="bg-primary" OnClick="btnaddEmployee_Click" Text="Add" /><br /> <br />
                     <asp:GridView ID="gvEmployee" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlEmployee" AutoGenerateColumns="False" DataKeyNames="Employee_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
@@ -122,11 +122,14 @@
                     <asp:TextBox ID="txtEmployeeAddress" runat="server"></asp:TextBox><br />
                     <asp:Label ID="lblEmployeeContactNumber" Width="150" Text="Contact Number: " runat="server"></asp:Label>
                     <asp:TextBox ID="txtEmployeeContactNumber" runat="server"></asp:TextBox><br />
-                    <asp:Label ID="lblEmployeeDOB" Width="150" Text="Date of Birth: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtEmployeeDOB" runat="server"></asp:TextBox><asp:Calendar ID="calDateofBirth" OnSelectionChanged="calDateofBirth_SelectionChanged" runat="server"></asp:Calendar><br />
+                    <asp:Label ID="lblEmployeeDOB" Width="140" Text="Date of Birth: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtEmployeeDOB" ReadOnly="true" runat="server"></asp:TextBox><asp:ImageButton ID="calimgEmployeeDOB" ImageUrl="~/img/calender.png" runat="server" OnClick="calimgEmployeeDOB_Click" />
+                    <asp:Panel ID="calpanel" Visible="false" runat="server" >
+                    <asp:Calendar ID="calDateofBirth" OnSelectionChanged="calDateofBirth_SelectionChanged" runat="server"></asp:Calendar><br />
+                        </asp:Panel>
                     <br /> <br />
-                    <asp:Button ID="btnSaveEmployee" ValidationGroup="addEmployeeValidation" runat="server" Text="Save" OnClick="btnSaveEmployee_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelEmployee" runat="server" Text="Cancel" OnClick="btnCancelEmployee_Click"/>
+                    <asp:Button ID="btnSaveEmployee" CssClass="bg-primary" ValidationGroup="addEmployeeValidation" runat="server" Text="Save" OnClick="btnSaveEmployee_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelEmployee" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelEmployee_Click"/>
                     </asp:Panel>
         </div>
     </form>

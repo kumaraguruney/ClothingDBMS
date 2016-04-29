@@ -111,6 +111,7 @@
     <Content Include="img\banner.jpg" />
     <Content Include="img\bg-overlay.png" />
     <Content Include="img\blank.gif" />
+    <Content Include="img\calender.png" />
     <Content Include="img\down-arrow.png" />
     <Content Include="img\fancybox_loading%402x.gif" />
     <Content Include="img\fancybox_loading.gif" />
