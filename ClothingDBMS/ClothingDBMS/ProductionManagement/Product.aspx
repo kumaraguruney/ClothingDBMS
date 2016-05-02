@@ -1,75 +1,133 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Product.aspx.cs" Inherits="ProductionManagement.ProductionManagement.Product" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Product Management</title>
+    <title>Product Design - Management</title>
+<meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Kumaraguru" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../css/the-big-picture.css" rel="stylesheet" />
+    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- ============ Google fonts ============ -->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
+        type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
+        rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Production Management - Home</a></li>
-        <li><a href="Allocates.aspx">Allocates Management</a></li>
-          <li><a href="Employee.aspx">Employee Management</a></li>
-          <li><a href="Includes.aspx">Includes Management</a></li>
-          <li><a href="Machinery.aspx">Machinery Management</a></li>
-          <li><a href="Product.aspx">Product Management</a></li>
-          <li><a href="ProductDesign.aspx">Product Design Management</a></li>
-          <li><a href="Rawmaterial.aspx">Rawmaterial Management</a></li>
-          <li><a href="Require.aspx">Require Management</a></li>
-          <li><a href="Workorder.aspx">WorkOrder Management</a></li>
-          <li><a href="WorkSchedule.aspx">WorkSchedule Management</a></li>
-      </ul>
+            <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
+                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
+                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
+                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
+                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
+                    <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
+                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
+                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
+                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
+                    <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </nav>
-        <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Product.Product_Is_Active, Product.Product_Name, Product.Product_Section, Code.Code_Description FROM Product LEFT OUTER JOIN Code ON Code.Code_ID = Product.Product_Section ORDER BY Product.Product_Name" DeleteCommand="DELETE FROM [Product] WHERE [Product_ID] = @Product_ID" InsertCommand="INSERT INTO [Product] ([Product_Is_Active], [Product_Name], [Product_Section]) VALUES (@Product_Is_Active, @Product_Name, @Product_Section)" UpdateCommand="UPDATE [Product] SET [Product_Is_Active] = @Product_Is_Active, [Product_Name] = @Product_Name, [Product_Section] = @Product_Section WHERE [Product_ID] = @Product_ID">
+        <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Design_ID, Product.Product_ID, Product.Size, Product.Color, Product.Product_Description, Code.Code_Description AS Product_Size, Code_1.Code_Description AS Product_Color, Design.Design_Name + ', ' + Code_2.Code_Description AS Name FROM Product LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS Code_1 ON Code_1.Code_ID = Product.Color LEFT OUTER JOIN Design ON Product.Design_ID = Design.Design_ID LEFT OUTER JOIN Code AS Code_2 ON Code_2.Code_ID = Design.Design_Section ORDER BY Design.Design_Name" DeleteCommand="DELETE FROM [Product] WHERE [Product_ID] = @Product_ID" InsertCommand="INSERT INTO [Product] ([Design_ID], [Size], [Color], [Product_Description]) VALUES (@Design_ID, @Size, @Color, @Product_Description)" UpdateCommand="UPDATE [Product] SET [Design_ID] = @Design_ID, [Size] = @Size, [Color] = @Color, [Product_Description] = @Product_Description WHERE [Product_ID] = @Product_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Product_ID" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Product_Is_Active" Type="Boolean" />
-                <asp:Parameter Name="Product_Name" Type="String" />
-                <asp:Parameter Name="Product_Section" Type="Int16" />
+                <asp:Parameter Name="Design_ID" Type="Int16" />
+                <asp:Parameter Name="Size" Type="Int16" />
+                <asp:Parameter Name="Color" Type="Int16" />
+                <asp:Parameter Name="Product_Description" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Product_Is_Active" Type="Boolean" />
-                <asp:Parameter Name="Product_Name" Type="String" />
-                <asp:Parameter Name="Product_Section" Type="Int16" />
+                <asp:Parameter Name="Design_ID" Type="Int16" />
+                <asp:Parameter Name="Size" Type="Int16" />
+                <asp:Parameter Name="Color" Type="Int16" />
+                <asp:Parameter Name="Product_Description" Type="String" />
                 <asp:Parameter Name="Product_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
+        <asp:SqlDataSource ID="SqlCodeSize" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'SIZE')"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlCodeColor" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'COLOR')"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDesign" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Design.Design_ID, Design.Design_Is_Active, Design.Design_Name + ', ' + Code.Code_Description AS Name, Design.Design_Section FROM Design LEFT OUTER JOIN Code ON Design.Design_Section = Code.Code_ID WHERE (Design.Design_Is_Active = 'true') ORDER BY Design.Design_Name"></asp:SqlDataSource>
 
-            <asp:SqlDataSource ID="SqlSection" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Code_ID, Code_Type, Code_Description FROM Code WHERE (Code_Type = 'SECT') ORDER BY Code_Description"></asp:SqlDataSource>
-
-
-            <div align="center">
+            <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbProductHeader" runat="server" Text="Product - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                <asp:Button ID="btaddProduct" runat="server" Text="Add" OnClick="btaddProduct_Click"/>
+                <asp:Button ID="btnaddProduct" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddProduct_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvProduct" runat="server">
                     <asp:GridView ID="gvProduct" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProduct" AutoGenerateColumns="False" DataKeyNames="Product_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
-                            <asp:BoundField DataField="Product_ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="Product_ID" />
-                            <asp:CheckBoxField DataField="Product_Is_Active" HeaderText="Active" ItemStyle-HorizontalAlign="Center" SortExpression="Product_Is_Active">
-                            <ItemStyle HorizontalAlign="Center" />
-                            </asp:CheckBoxField>
-                            <asp:BoundField DataField="Product_Name" HeaderText="Product Name" SortExpression="Product_Name" />
-                            <asp:TemplateField HeaderText="Product Section" SortExpression="Product_Section">
+                            <asp:BoundField DataField="Product_ID" HeaderText="Product ID" InsertVisible="False" ReadOnly="True" SortExpression="Product_ID" />
+                            <asp:TemplateField HeaderText="Design Name" SortExpression="Name">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="dropSection" runat="server" DataSourceID="SqlSection" DataTextField="Code_Description" DataValueField="Code_ID" SelectedValue='<%# Bind("Product_Section") %>'>
+                                    <asp:DropDownList ID="dropDesignName" runat="server" DataSourceID="SqlDesign" DataTextField="Name" DataValueField="Design_ID" SelectedValue='<%# Bind("Design_ID") %>'>
                                     </asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="lblProduct_Section" runat="server" Text='<%# Bind("Code_Description") %>'></asp:Label>
+                                    <asp:Label ID="lblDesignName" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                 </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Size" SortExpression="Product_Size">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="dropSize" runat="server" DataSourceID="SqlCodeSize" DataTextField="Code_Description" DataValueField="Code_ID" SelectedValue='<%# Bind("Size") %>'>
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblSize" runat="server" Text='<%# Bind("Product_Size") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Color" SortExpression="Product_Color">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="dropColor" runat="server" DataSourceID="SqlCodeColor" DataTextField="Code_Description" DataValueField="Code_ID" SelectedValue='<%# Bind("Color") %>'>
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="lblColor" runat="server" Text='<%# Bind("Product_Color") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="Product_Description" HeaderText="Product Description" SortExpression="Product_Description" />
+                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
+                                 <ItemTemplate>
+                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
+                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
@@ -84,21 +142,31 @@
                     </asp:GridView>
                    </asp:Panel>
                 <asp:Panel ID="PaneladdProduct" Visible="false" runat="server">
-                <asp:Label ID="lbProductaddTitle" Text="Add Product into Database" runat="server" /><br /> <br />
-                    <asp:Label ID="lblProductActive" Text="Product Active: " width="150"  runat="server" />
-                    <asp:RadioButtonList ID="rbProductActive" width="250" RepeatDirection="Horizontal" CssClass="inline" TextAlign="Right" runat="server">
-                        <asp:ListItem Value="true" Text="Active"></asp:ListItem>
-                        <asp:ListItem Value="false" Text="In-Active"></asp:ListItem>
-                    </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="rfvProductActive" width="350" ValidationGroup="addProductValidation" runat="server" ControlToValidate="rbProductActive" ErrorMessage="(*) Must be selected" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
-                    <asp:Label ID="lbProductName" Text="Product Name: " width="150" runat="server" />
-                    <asp:TextBox ID="txtProductName" width="250" ValidationGroup="addProductValidation" runat="server" ></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvProductName" width="350" ValidationGroup="addProductValidation" runat="server" ControlToValidate="txtProductName" ErrorMessage="(*) Must have some Name" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
-                    <asp:Label ID="lblProductSection" Text="Product Section: " width="150" runat="server" ></asp:Label>
-                    <asp:DropDownList ID="dropSection" runat="server" DataSourceID="SqlSection" width="250" DataTextField="Code_Description" DataValueField="Code_ID"></asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rfvdropSection" width="350" ValidationGroup="addProductValidation" runat="server" ControlToValidate="dropSection" ErrorMessage="(*) Must have Section" ForeColor="Red"></asp:RequiredFieldValidator><br /> <br />
-                    <asp:Button ID="btnSaveProduct" ValidationGroup="addProductValidation" runat="server" Text="Save" OnClick="btnSaveProduct_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelProduct" runat="server" Text="Cancel" OnClick="btnCancelProduct_Click"/>
+                <asp:Label ID="lbProductaddTitle" Text="Add Product to Database" runat="server" /><br /> <br />
+                    <div class="form-group form-horizontal col-md-8" >
+                        <asp:Label ID="lbDesignName" Width="200" align="right" Text="Design Name: " runat="server" />
+                        <asp:DropDownList ID="dropDesignName" Width="200" runat="server" AppendDataBoundItems="true" EnableViewState="false" DataSourceID="SqlDesign" DataTextField="Name" DataValueField="Design_ID">
+                            <asp:ListItem Text="-- Select a Design --" Value="-1"></asp:ListItem>
+                        </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvProductName" ValidationGroup="addProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropDesignName" ErrorMessage="(*) Must have Design Name" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:Label ID="lblProductSize" Width="200"  align="right" Text="Size: " runat="server" />
+                        <asp:DropDownList ID="dropProductSize" AppendDataBoundItems="true" EnableViewState="false" runat="server" Width="200" DataSourceID="SqlCodeSize" DataTextField="Code_Description" DataValueField="Code_ID" >
+                            <asp:ListItem Text="-- Size --" Value="-1"></asp:ListItem>
+                        </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvdropsize" ValidationGroup="addProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropProductSize" ErrorMessage="(*) Must have a Size" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:Label ID="lblProductColor" Width="200" align="right" Text="Color: " runat="server" />
+                        <asp:DropDownList ID="dropProductColor" runat="server" AppendDataBoundItems="true" EnableViewState="false" Width="200" DataSourceID="SqlCodeColor" DataTextField="Code_Description" DataValueField="Code_ID" >
+                            <asp:ListItem Text="-- Color --" Value="-1"></asp:ListItem>
+                        </asp:DropDownList><br />
+                        <asp:RequiredFieldValidator ID="rfvdropColor" ValidationGroup="addProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropProductColor" ErrorMessage="(*) Must have a Color" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                        <asp:Label ID="lbProductDescription" align="right" Width="200" Text="Description: " runat="server" />
+                        <asp:TextBox ID="txtProductDescription" Width="200"  ValidationGroup="addProductValidation" runat="server" ></asp:TextBox><br />
+                        <asp:RegularExpressionValidator ValidationGroup="addProductValidation" ID="revProductDescription" runat="server" ControlToValidate="txtProductDescription"
+                                 ErrorMessage=" * max 50 characters" ForeColor="Red" ValidationExpression="[a-zA-Z0-9- ]{1,50}$"></asp:RegularExpressionValidator><br />
+                        <br /> <br />
+                        <asp:Button ID="btnSaveProductDesign" CssClass="bg-primary" ValidationGroup="addProductValidation" runat="server" Text="Save" OnClick="btnSaveProduct_Click"/> &nbsp;&nbsp;
+                        <asp:Button ID="btnCancelProductDesign" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelProduct_Click"/>
+                    </div>
                     </asp:Panel>
         </div>
     </form>

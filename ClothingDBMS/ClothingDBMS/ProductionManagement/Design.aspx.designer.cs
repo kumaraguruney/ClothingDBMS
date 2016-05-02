@@ -10,7 +10,7 @@
 namespace ProductionManagement.ProductionManagement {
     
     
-    public partial class ProductDesign {
+    public partial class Design {
         
         /// <summary>
         /// form1 control.
@@ -31,201 +31,174 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
         
         /// <summary>
-        /// SqlCodeSize control.
+        /// SqlSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlCodeSize;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlSection;
         
         /// <summary>
-        /// SqlCodeColor control.
+        /// lbDesignHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlCodeColor;
+        protected global::System.Web.UI.WebControls.Label lbDesignHeader;
         
         /// <summary>
-        /// SqlProduct control.
+        /// PanelgvDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
+        protected global::System.Web.UI.WebControls.Panel PanelgvDesign;
         
         /// <summary>
-        /// lbProductDesignHeader control.
+        /// btnaddDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignHeader;
+        protected global::System.Web.UI.WebControls.Button btnaddDesign;
         
         /// <summary>
-        /// btaddProductdesign control.
+        /// gvDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btaddProductdesign;
+        protected global::System.Web.UI.WebControls.GridView gvDesign;
         
         /// <summary>
-        /// PanelgvProductDesign control.
+        /// PaneladdDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvProductDesign;
+        protected global::System.Web.UI.WebControls.Panel PaneladdDesign;
         
         /// <summary>
-        /// gvProductDesign control.
+        /// lblDesignaddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProductDesign;
+        protected global::System.Web.UI.WebControls.Label lblDesignaddTitle;
         
         /// <summary>
-        /// PaneladdProductdesign control.
+        /// lblDesignActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdProductdesign;
+        protected global::System.Web.UI.WebControls.Label lblDesignActive;
         
         /// <summary>
-        /// lbProductdesignaddTitle control.
+        /// rbDesignActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductdesignaddTitle;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbDesignActive;
         
         /// <summary>
-        /// lbProductDesignName control.
+        /// rfvDesignActive control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesignActive;
         
         /// <summary>
-        /// dropProductName control.
+        /// lblDesignName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProductName;
+        protected global::System.Web.UI.WebControls.Label lblDesignName;
         
         /// <summary>
-        /// rfvProductDesignName control.
+        /// txtDesignName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductDesignName;
+        protected global::System.Web.UI.WebControls.TextBox txtDesignName;
         
         /// <summary>
-        /// lblProductDesignSize control.
+        /// rfvDesignName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductDesignSize;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDesignName;
         
         /// <summary>
-        /// dropProductSize control.
+        /// revDesignName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProductSize;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revDesignName;
         
         /// <summary>
-        /// rfvdropsize control.
+        /// lblDesignSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropsize;
+        protected global::System.Web.UI.WebControls.Label lblDesignSection;
         
         /// <summary>
-        /// lblProductDesignColor control.
+        /// dropSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductDesignColor;
+        protected global::System.Web.UI.WebControls.DropDownList dropSection;
         
         /// <summary>
-        /// dropProductColor control.
+        /// rfvdropSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProductColor;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropSection;
         
         /// <summary>
-        /// rfvdropColor control.
+        /// btnSaveDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropColor;
+        protected global::System.Web.UI.WebControls.Button btnSaveDesign;
         
         /// <summary>
-        /// lbProductDesignDescription control.
+        /// btnCancelDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProductDesignDescription;
-        
-        /// <summary>
-        /// txtProductDesignDescription control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductDesignDescription;
-        
-        /// <summary>
-        /// btnSaveProductDesign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveProductDesign;
-        
-        /// <summary>
-        /// btnCancelProductDesign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelProductDesign;
+        protected global::System.Web.UI.WebControls.Button btnCancelDesign;
     }
 }

@@ -40,15 +40,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lbEmployeeHeader;
         
         /// <summary>
-        /// btnaddEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddEmployee;
-        
-        /// <summary>
         /// PanelgvEmployee control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelgvEmployee;
+        
+        /// <summary>
+        /// btnaddEmployee control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnaddEmployee;
         
         /// <summary>
         /// gvEmployee control.
@@ -112,6 +112,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvEmployeeName;
         
         /// <summary>
+        /// revEmployeeName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmployeeName;
+        
+        /// <summary>
         /// lblEmployeeAddress control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeAddress;
+        
+        /// <summary>
+        /// revEmployeeAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmployeeAddress;
         
         /// <summary>
         /// lblEmployeeContactNumber control.
@@ -148,6 +166,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeContactNumber;
         
         /// <summary>
+        /// revEmployeeContactNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revEmployeeContactNumber;
+        
+        /// <summary>
         /// lblEmployeeDOB control.
         /// </summary>
         /// <remarks>
@@ -164,6 +191,33 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmployeeDOB;
+        
+        /// <summary>
+        /// calimgEmployeeDOB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton calimgEmployeeDOB;
+        
+        /// <summary>
+        /// calpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel calpanel;
+        
+        /// <summary>
+        /// calDateofBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calDateofBirth;
         
         /// <summary>
         /// btnSaveEmployee control.

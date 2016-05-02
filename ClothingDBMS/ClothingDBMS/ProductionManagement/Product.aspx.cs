@@ -14,30 +14,41 @@ namespace ProductionManagement.ProductionManagement
 
         }
 
-        protected void btaddProduct_Click(object sender, EventArgs e)
+        protected void btnaddProduct_Click(object sender, EventArgs e)
         {
             PaneladdProduct.Visible = true;
             PanelgvProduct.Visible = false;
-        }
-
-        protected void btnSaveProduct_Click(object sender, EventArgs e)
-        {
-            SqlProduct.InsertParameters["Product_Name"].DefaultValue = txtProductName.Text.ToUpper().Trim();
-            SqlProduct.InsertParameters["Product_Is_Active"].DefaultValue = rbProductActive.SelectedValue;
-            SqlProduct.InsertParameters["Product_Section"].DefaultValue = dropSection.SelectedValue;
-            SqlProduct.Insert();
-            gvProduct.DataBind();
-            PaneladdProduct.Visible = false;
-            PanelgvProduct.Visible = true;
-            txtProductName.Text = string.Empty;
-            rbProductActive.SelectedIndex = -1;
-            dropSection.SelectedIndex = -1;
         }
 
         protected void btnCancelProduct_Click(object sender, EventArgs e)
         {
             PaneladdProduct.Visible = false;
             PanelgvProduct.Visible = true;
+            txtProductDescription.Text = string.Empty;
+            dropProductColor.SelectedIndex = -1;
+            dropProductSize.SelectedIndex = -1;
+            dropDesignName.SelectedIndex = -1;
+        }
+
+        protected void btnSaveProduct_Click(object sender, EventArgs e)
+        {
+            SqlProduct.InsertParameters["Design_ID"].DefaultValue = dropDesignName.SelectedValue;
+            if (txtProductDescription.Text != null)
+                SqlProduct.InsertParameters["Product_Description"].DefaultValue = txtProductDescription.Text.ToUpper().Trim();
+            else
+                SqlProduct.InsertParameters["Product_Description"].DefaultValue = null;
+            SqlProduct.InsertParameters["Size"].DefaultValue = dropProductSize.SelectedValue;
+            SqlProduct.InsertParameters["Color"].DefaultValue = dropProductColor.SelectedValue;
+            
+            SqlProduct.Insert();
+            gvProduct.DataBind();
+            PaneladdProduct.Visible = false;
+            PanelgvProduct.Visible = true;
+            
+            txtProductDescription.Text = string.Empty;
+            dropProductColor.SelectedIndex = -1;
+            dropProductSize.SelectedIndex = -1;
+            dropDesignName.SelectedIndex = -1;
         }
     }
 }

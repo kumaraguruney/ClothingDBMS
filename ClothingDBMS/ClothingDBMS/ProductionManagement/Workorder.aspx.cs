@@ -23,11 +23,11 @@ namespace ProductionManagement.ProductionManagement
         protected void btnSaveWorkOrder_Click(object sender, EventArgs e)
         {
             DateTime dt = DateTime.Now;
-            SqlWorkorder.InsertParameters["Design_ID"].DefaultValue = dropDesign.SelectedValue;
+            SqlWorkorder.InsertParameters["Product_ID"].DefaultValue = dropaddProduct.SelectedValue;
             SqlWorkorder.InsertParameters["Product_Quantity"].DefaultValue = txtProductQuantity.Text;
-            DateTime DueDate = DateTime.ParseExact(txtWorkorderDueDate.Text, "MM/dd/yyyy", null);
+            DateTime DueDate = DateTime.ParseExact(txtWorkorderDueDate.Text, "dd-MM-yyyy", null);
             SqlWorkorder.InsertParameters["DueDate"].DefaultValue = DueDate.ToString();
-            SqlWorkorder.InsertParameters["Submitted_By"].DefaultValue = txtWorkorderSubmittedBy.Text;
+            SqlWorkorder.InsertParameters["Submitted_By"].DefaultValue = txtWorkorderSubmittedBy.Text.ToUpper();
             SqlWorkorder.InsertParameters["CreatedDate"].DefaultValue = dt.ToString();
             SqlWorkorder.Insert();
             gvWorkOrder.DataBind();
@@ -36,13 +36,28 @@ namespace ProductionManagement.ProductionManagement
             txtProductQuantity.Text = string.Empty;
             txtWorkorderDueDate.Text = string.Empty;
             txtWorkorderSubmittedBy.Text = string.Empty;
-            dropDesign.SelectedIndex = 0 ;
+            dropaddProduct.SelectedIndex = -1 ;
         }
 
         protected void btnCancelWorkOrder_Click(object sender, EventArgs e)
         {
             PaneladdWorkorder.Visible = false;
             PanelgvWorkOrder.Visible = true;
+            txtProductQuantity.Text = string.Empty;
+            txtWorkorderDueDate.Text = string.Empty;
+            txtWorkorderSubmittedBy.Text = string.Empty;
+            dropaddProduct.SelectedIndex = -1;
+        }
+
+        protected void calWorkorderdue_SelectionChanged(object sender, EventArgs e)
+        {
+            txtWorkorderDueDate.Text = calWorkorderdue.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void coeWorkorderDueDate_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
         }
     }
 }
