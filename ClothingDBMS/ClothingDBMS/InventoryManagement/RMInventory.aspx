@@ -15,6 +15,8 @@
         <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
           <li><a href="Inventory.aspx">Inventory Details</a></li>
+          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
+          <li><a href="RMInventory.aspx">RMInventory</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
@@ -41,7 +43,7 @@
                 <br />
                 <asp:Label ID="lblProductInventory" runat="server" Text="RM Inventory Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvRMInventory" runat="server" style="margin-top: 0px">
-                     <asp:Button ID="btnaddRMInventory" runat="server" Text="Add" OnClick="btnaddInventory_Click"/>
+                     <asp:Button ID="btnaddRMInventory" runat="server" Text="Add" OnClick="btnaddRMInventory_Click"/>
                     <asp:GridView ID="gvProductInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRMInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -73,8 +75,8 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Button ID="btnSaveRMInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveInventory_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelRMInventory" runat="server" Text="Cancel" OnClick="btnCancelInventory_Click"/>
+                    <asp:Button ID="btnSaveRMInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveRMInventory_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelRMInventory" runat="server" Text="Cancel" OnClick="btnCancelRMInventory_Click"/>
                    
                     </asp:Panel>
     
