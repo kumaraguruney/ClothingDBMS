@@ -100,10 +100,6 @@
                     <asp:Button ID="btnCancelProductInventory" runat="server" Text="Cancel" OnClick="btnCancelInventory_Click"/>
                    
                     </asp:Panel>
-        </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
     
     </div>
     </form>
