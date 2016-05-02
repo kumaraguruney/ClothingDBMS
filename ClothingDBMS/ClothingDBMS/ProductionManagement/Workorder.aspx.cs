@@ -25,7 +25,7 @@ namespace ProductionManagement.ProductionManagement
             DateTime dt = DateTime.Now;
             SqlWorkorder.InsertParameters["Product_ID"].DefaultValue = dropaddProduct.SelectedValue;
             SqlWorkorder.InsertParameters["Product_Quantity"].DefaultValue = txtProductQuantity.Text;
-            DateTime DueDate = DateTime.ParseExact(txtWorkorderDueDate.Text, "MM-dd-yyyy", null);
+            DateTime DueDate = DateTime.ParseExact(txtWorkorderDueDate.Text, "dd-MM-yyyy", null);
             SqlWorkorder.InsertParameters["DueDate"].DefaultValue = DueDate.ToString();
             SqlWorkorder.InsertParameters["Submitted_By"].DefaultValue = txtWorkorderSubmittedBy.Text.ToUpper();
             SqlWorkorder.InsertParameters["CreatedDate"].DefaultValue = dt.ToString();

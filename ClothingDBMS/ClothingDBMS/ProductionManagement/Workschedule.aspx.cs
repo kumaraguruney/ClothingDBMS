@@ -16,8 +16,8 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnSaveWorkSchedule_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = DateTime.ParseExact(txtWorkscheduleStartDate.Text, "MM-dd-yyyy", null);
-            DateTime EndDate = DateTime.ParseExact(txtWorkscheduleEndDate.Text, "MM-dd-yyyy", null);
+            DateTime StartDate = DateTime.ParseExact(txtWorkscheduleStartDate.Text, "dd-MM-yyyy", null);
+            DateTime EndDate = DateTime.ParseExact(txtWorkscheduleEndDate.Text, "dd-MM-yyyy", null);
             SqlWorkSchedule.InsertParameters["WorkOrder_ID"].DefaultValue = dropaddWorkOrder.SelectedValue;
             SqlWorkSchedule.InsertParameters["WorkScheduled_Date"].DefaultValue = StartDate.ToString();
             SqlWorkSchedule.InsertParameters["WorkScheduled_To_End"].DefaultValue = EndDate.ToString();
