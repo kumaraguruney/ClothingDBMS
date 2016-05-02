@@ -33,6 +33,30 @@
             </UpdateParameters>
         </asp:SqlDataSource>
           <div align="center">
+        <asp:SqlDataSource ID="SqlStockUpdate0" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [StockUpdate] ORDER BY [StockMovement_ID]" DeleteCommand="DELETE FROM [StockUpdate] WHERE [StockUpdate_ID] = @StockUpdate_ID" InsertCommand="INSERT INTO [StockUpdate] ([StockMovement_ID]) VALUES (@StockMovement_ID)" UpdateCommand="UPDATE [StockUpdate] SET [StockMovement_ID] = @StockMovement_ID WHERE [StockUpdate_ID] = @StockUpdate_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="StockUpdate_ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="StockMovement_ID" Type="Int32" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="StockMovement_ID" Type="Int32" />
+                <asp:Parameter Name="StockUpdate_ID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlStockUpdate1" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [StockUpdate] ORDER BY [StockMovement_ID]" DeleteCommand="DELETE FROM [StockUpdate] WHERE [StockUpdate_ID] = @StockUpdate_ID" InsertCommand="INSERT INTO [StockUpdate] ([StockMovement_ID]) VALUES (@StockMovement_ID)" UpdateCommand="UPDATE [StockUpdate] SET [StockMovement_ID] = @StockMovement_ID WHERE [StockUpdate_ID] = @StockUpdate_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="StockUpdate_ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="StockMovement_ID" Type="Int32" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="StockMovement_ID" Type="Int32" />
+                <asp:Parameter Name="StockUpdate_ID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
                 <br />
                 <asp:Label ID="lblAllocates" runat="server" Text="Stock Update Details" Font-Bold="True"></asp:Label> <br /> <br />
              
@@ -59,6 +83,8 @@
                     <asp:TextBox ID="StockMovementTextBox" runat="server" Width="199px"></asp:TextBox>
                     
                     <br />
+                    <asp:RadioButton ID="ProductStockUpdate" runat="server" />
+                    <asp:RadioButton ID="RMStockUpdate" runat="server" />
                     <br />
                     <br />
                     <asp:Button ID="btnSaveStockUpdate" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveStockUpdate_Click"/> &nbsp;&nbsp;

@@ -31,6 +31,24 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlStockUpdate;
         
         /// <summary>
+        /// SqlStockUpdate0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockUpdate0;
+        
+        /// <summary>
+        /// SqlStockUpdate1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockUpdate1;
+        
+        /// <summary>
         /// lblAllocates control.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,24 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StockMovementTextBox;
+        
+        /// <summary>
+        /// ProductStockUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton ProductStockUpdate;
+        
+        /// <summary>
+        /// RMStockUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RMStockUpdate;
         
         /// <summary>
         /// btnSaveStockUpdate control.

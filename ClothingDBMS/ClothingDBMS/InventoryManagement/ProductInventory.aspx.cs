@@ -44,5 +44,25 @@ namespace ClothingDBMS.InventoryManagement
             PaneladdProductInventory.Visible = false;
             PanelgvProductInventory.Visible = true;
         }
+        protected void calManufacturedDate_SelectionChanged(object sender, EventArgs e)
+        {
+            ManufacturedDateTextBox.Text = calManufacturedDate.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void calimgManufacturedDate_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
+        }
+        protected void calCreatedDate_SelectionChanged(object sender, EventArgs e)
+        {
+            CreatedDateTextBox.Text = calCreatedDate.SelectedDate.ToShortDateString();
+            Panel1.Visible = false;
+        }
+
+        protected void calimgCreatedDate_Click(object sender, ImageClickEventArgs e)
+        {
+            Panel1.Visible = true;
+        }
     }
 }
