@@ -37,8 +37,6 @@
           <div align="center">
                 <br />
                 <asp:Label ID="lblStockMovement" runat="server" Text="Stock Movement" Font-Bold="True"></asp:Label> <br /> <br />
-             
-                <br /> <br />
                 <asp:Panel ID="PanelgvStockMovement" runat="server">
                      <asp:Button ID="btnaddstockmovement" runat="server" Text="Add" OnClick="btnaddstockmovement_Click"/>
                     <asp:GridView ID="gvStockMovement" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlStockMovement" AutoGenerateColumns="False" DataKeyNames="StockMovement_ID">
