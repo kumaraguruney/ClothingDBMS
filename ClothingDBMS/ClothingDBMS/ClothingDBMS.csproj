@@ -94,8 +94,92 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Code.aspx" />
+    <Content Include="css\animate.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\font-icon.css" />
+    <Content Include="css\jquery.fancybox.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\the-big-picture.css" />
+    <Content Include="fonts\elegant-theme-line.svg" />
+    <Content Include="fonts\flexslider-icon.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="img\banner.jpg" />
+    <Content Include="img\bg-overlay.png" />
+    <Content Include="img\blank.gif" />
+    <Content Include="img\calender.png" />
+    <Content Include="img\down-arrow.png" />
+    <Content Include="img\fancybox_loading%402x.gif" />
+    <Content Include="img\fancybox_loading.gif" />
+    <Content Include="img\fancybox_overlay.png" />
+    <Content Include="img\fancybox_sprite%402x.png" />
+    <Content Include="img\fancybox_sprite.png" />
+    <Content Include="img\imac.png" />
+    <Content Include="img\inspiration-geometry.png" />
+    <Content Include="img\intro-img1.jpg" />
+    <Content Include="img\intro-img2.jpg" />
+    <Content Include="img\intro-img3.jpg" />
+    <Content Include="img\intro-img4.jpg" />
+    <Content Include="img\intro-img6.jpg" />
+    <Content Include="img\logo%402x.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\polygon.png" />
+    <Content Include="img\project_12_big.jpg" />
+    <Content Include="img\project_1_big.jpg" />
+    <Content Include="img\project_2_big.jpg" />
+    <Content Include="img\project_3_big.jpg" />
+    <Content Include="img\project_8_big.jpg" />
+    <Content Include="img\project_9_big.jpg" />
+    <Content Include="img\slider\banner3.jpg" />
+    <Content Include="img\slider\banner4.jpg" />
+    <Content Include="img\slider\banner5.jpg" />
+    <Content Include="img\slider\bg1.jpg" />
+    <Content Include="img\slider\bg2.jpg" />
+    <Content Include="img\slider\bg3.jpg" />
+    <Content Include="img\slider\one.jpg" />
+    <Content Include="img\slider\slide1-1.png" />
+    <Content Include="img\slide_bg.png" />
+    <Content Include="img\team-1.png" />
+    <Content Include="img\team-2.png" />
+    <Content Include="img\team-3.png" />
+    <Content Include="img\work-1.jpg" />
+    <Content Include="img\work-10.jpg" />
+    <Content Include="img\work-11.jpg" />
+    <Content Include="img\work-12.jpg" />
+    <Content Include="img\work-2.jpg" />
+    <Content Include="img\work-3.jpg" />
+    <Content Include="img\work-4.jpg" />
+    <Content Include="img\work-5.jpg" />
+    <Content Include="img\work-6.jpg" />
+    <Content Include="img\work-7.jpg" />
+    <Content Include="img\work-8.jpg" />
+    <Content Include="img\work-9.jpg" />
+    <Content Include="Index.aspx" />
+    <Content Include="InventoryManagement\Inventory.aspx" />
+    <Content Include="InventoryManagement\ProductInventory.aspx" />
+    <Content Include="InventoryManagement\RMInventory.aspx" />
+    <Content Include="InventoryManagement\stockmovement.aspx" />
+    <Content Include="InventoryManagement\StockUpdate.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="packages.config" />
+    <Content Include="fonts\elegant-theme-line.eot" />
+    <Content Include="fonts\elegant-theme-line.ttf" />
+    <Content Include="fonts\elegant-theme-line.woff" />
+    <Content Include="fonts\flexslider-icon.eot" />
+    <Content Include="fonts\flexslider-icon.ttf" />
+    <Content Include="fonts\flexslider-icon.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -104,6 +188,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ProcurementManagement\Goods_Receipt.aspx" />
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProcurementManagement\Purchase_Order.aspx" />
@@ -112,17 +197,73 @@
     <Content Include="ProductionManagement\Employee.aspx" />
     <Content Include="ProductionManagement\Includes.aspx" />
     <Content Include="ProductionManagement\Machinery.aspx" />
+    <Content Include="ProductionManagement\Design.aspx" />
     <Content Include="ProductionManagement\Product.aspx" />
-    <Content Include="ProductionManagement\ProductDesign.aspx" />
     <Content Include="ProductionManagement\RawMaterial.aspx" />
     <Content Include="ProductionManagement\Require.aspx" />
     <Content Include="ProductionManagement\Workorder.aspx" />
     <Content Include="ProductionManagement\Workschedule.aspx" />
+    <Content Include="SalesManagement\Customer.aspx" />
+    <Content Include="SalesManagement\Default.aspx" />
+    <Content Include="SalesManagement\Invoice.aspx" />
+    <Content Include="SalesManagement\Payment.aspx" />
+    <Content Include="SalesManagement\Quotation.aspx" />
+    <Content Include="SalesManagement\SalesOrder.aspx" />
+    <Content Include="SalesManagement\Shipment.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code.aspx.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Code.aspx.designer.cs">
+      <DependentUpon>Code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\Inventory.aspx.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\Inventory.aspx.designer.cs">
+      <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\ProductInventory.aspx.cs">
+      <DependentUpon>ProductInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\ProductInventory.aspx.designer.cs">
+      <DependentUpon>ProductInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\RMInventory.aspx.cs">
+      <DependentUpon>RMInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\RMInventory.aspx.designer.cs">
+      <DependentUpon>RMInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\stockmovement.aspx.cs">
+      <DependentUpon>stockmovement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\stockmovement.aspx.designer.cs">
+      <DependentUpon>stockmovement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\StockUpdate.aspx.cs">
+      <DependentUpon>StockUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\StockUpdate.aspx.designer.cs">
+      <DependentUpon>StockUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,19 +327,19 @@
     <Compile Include="ProductionManagement\Machinery.aspx.designer.cs">
       <DependentUpon>Machinery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductionManagement\Design.aspx.cs">
+      <DependentUpon>Design.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductionManagement\Design.aspx.designer.cs">
+      <DependentUpon>Design.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductionManagement\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductionManagement\Product.aspx.designer.cs">
       <DependentUpon>Product.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductionManagement\ProductDesign.aspx.cs">
-      <DependentUpon>ProductDesign.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductionManagement\ProductDesign.aspx.designer.cs">
-      <DependentUpon>ProductDesign.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\RawMaterial.aspx.cs">
       <DependentUpon>RawMaterial.aspx</DependentUpon>
@@ -229,6 +370,55 @@
       <DependentUpon>Workschedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesManagement\Customer.aspx.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Customer.aspx.designer.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Quotation.aspx.cs">
+      <DependentUpon>Quotation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Quotation.aspx.designer.cs">
+      <DependentUpon>Quotation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\SalesOrder.aspx.cs">
+      <DependentUpon>SalesOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\SalesOrder.aspx.designer.cs">
+      <DependentUpon>SalesOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Shipment.aspx.cs">
+      <DependentUpon>Shipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Shipment.aspx.designer.cs">
+      <DependentUpon>Shipment.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

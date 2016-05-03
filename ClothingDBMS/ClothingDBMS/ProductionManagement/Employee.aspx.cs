@@ -25,7 +25,7 @@ namespace ProductionManagement.ProductionManagement
             SqlEmployee.InsertParameters["Employee_Name"].DefaultValue = txtEmployeeName.Text.ToUpper().Trim();
             SqlEmployee.InsertParameters["Address"].DefaultValue = txtEmployeeAddress.Text.ToUpper().Trim();
             SqlEmployee.InsertParameters["Contact_Number"].DefaultValue = txtEmployeeContactNumber.Text.ToUpper().Trim();
-            SqlEmployee.InsertParameters["Date_of_Birth"].DefaultValue = txtEmployeeDOB.Text.ToUpper().Trim();
+            SqlEmployee.InsertParameters["Date_of_Birth"].DefaultValue = txtEmployeeDOB.Text.Trim();
             SqlEmployee.Insert();
             gvEmployee.DataBind();
             PaneladdEmployee.Visible = false;
@@ -40,6 +40,21 @@ namespace ProductionManagement.ProductionManagement
         {
             PaneladdEmployee.Visible = false;
             PanelgvEmployee.Visible = true;
+            txtEmployeeName.Text = string.Empty;
+            txtEmployeeAddress.Text = string.Empty;
+            txtEmployeeContactNumber.Text = string.Empty;
+            txtEmployeeDOB.Text = string.Empty;
+        }
+
+        protected void calDateofBirth_SelectionChanged(object sender, EventArgs e)
+        {
+            txtEmployeeDOB.Text = calDateofBirth.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void calimgEmployeeDOB_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
         }
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductionManagement.ProductionManagement
+namespace ClothingDBMS.ProductionManagement
 {
 
 

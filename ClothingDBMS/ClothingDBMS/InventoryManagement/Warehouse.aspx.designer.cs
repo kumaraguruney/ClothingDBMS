@@ -40,13 +40,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblAllocates;
         
         /// <summary>
-        /// PanelgvAllocates control.
+        /// PanelgvWarehouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvAllocates;
+        protected global::System.Web.UI.WebControls.Panel PanelgvWarehouse;
         
         /// <summary>
         /// btnaddAllocates control.

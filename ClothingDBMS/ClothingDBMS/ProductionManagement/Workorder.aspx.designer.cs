@@ -31,13 +31,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlWorkorder;
         
         /// <summary>
-        /// SqlDesign control.
+        /// SqlProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
         /// lbWorkOrderHeader control.
@@ -49,15 +49,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lbWorkOrderHeader;
         
         /// <summary>
-        /// btnaddWorkOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddWorkOrder;
-        
-        /// <summary>
         /// PanelgvWorkOrder control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelgvWorkOrder;
+        
+        /// <summary>
+        /// btnaddWorkOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnaddWorkOrder;
         
         /// <summary>
         /// gvWorkOrder control.
@@ -103,13 +103,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Label lblRequireDesign;
         
         /// <summary>
-        /// dropDesign control.
+        /// dropaddProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropDesign;
+        protected global::System.Web.UI.WebControls.DropDownList dropaddProduct;
         
         /// <summary>
         /// rfvdropDesign control.
@@ -148,6 +148,15 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductQuantity;
         
         /// <summary>
+        /// revProductQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revProductQuantity;
+        
+        /// <summary>
         /// lblWorkorderDueDate control.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,42 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWorkorderDueDate;
+        
+        /// <summary>
+        /// coeWorkorderDueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton coeWorkorderDueDate;
+        
+        /// <summary>
+        /// rfvtxtWorkorderDueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtWorkorderDueDate;
+        
+        /// <summary>
+        /// calpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel calpanel;
+        
+        /// <summary>
+        /// calWorkorderdue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calWorkorderdue;
         
         /// <summary>
         /// lblWorkorderSubmittedBy control.
@@ -191,6 +236,15 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkorderSubmittedBy;
+        
+        /// <summary>
+        /// revWorkorderSubmittedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revWorkorderSubmittedBy;
         
         /// <summary>
         /// btnSaveWorkOrder control.

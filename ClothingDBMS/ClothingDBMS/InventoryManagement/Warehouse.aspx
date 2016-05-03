@@ -12,9 +12,11 @@
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Production Management - Home</a></li>
+        <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
           <li><a href="Inventory.aspx">Inventory Details</a></li>
+          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
+          <li><a href="RMInventory.aspx">RMInventory</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
@@ -41,7 +43,7 @@
                 <asp:Label ID="lblAllocates" runat="server" Text="Warehouse Details" Font-Bold="True"></asp:Label> <br /> <br />
              
                 <br /> <br />
-                <asp:Panel ID="PanelgvAllocates" runat="server">
+                <asp:Panel ID="PanelgvWarehouse" runat="server">
                      <asp:Button ID="btnaddAllocates" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
                     <asp:GridView ID="gvAllocates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlWarehouse" AutoGenerateColumns="False" DataKeyNames="Warehouse_ID">
                         <Columns>

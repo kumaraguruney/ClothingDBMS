@@ -18,18 +18,27 @@ namespace ClothingDBMS.InventoryManagement
         protected void btnaddAllocates_Click(object sender, EventArgs e)
         {
             PaneladdAllocates.Visible = true;
-            PanelgvAllocates.Visible = false;
+            PanelgvWarehouse.Visible = false;
         }
 
         protected void btnSaveWarehouse_Click(object sender, EventArgs e)
         {
-    
+            SqlWarehouse.InsertParameters["Warehouse_Name"].DefaultValue = WarehouseNameTextBox.Text.ToUpper().Trim();
+            SqlWarehouse.InsertParameters["Warehouse_Address"].DefaultValue = WarehouseAddressTextBox.Text.ToUpper().Trim();
+            SqlWarehouse.InsertParameters["contact_number"].DefaultValue = ContactNumberTextBox.Text.ToUpper().Trim();
+            SqlWarehouse.Insert();
+            gvAllocates.DataBind();
+            PaneladdAllocates.Visible = false;
+            PanelgvWarehouse.Visible = true;
+            WarehouseAddressTextBox.Text = string.Empty;
+            WarehouseNameTextBox.Text = string.Empty;
+            ContactNumberTextBox.Text = string.Empty;
         }
 
         protected void btnCancelAllocates_Click(object sender, EventArgs e)
         {
             PaneladdAllocates.Visible = false;
-            PanelgvAllocates.Visible = true;
+            PanelgvWarehouse.Visible = true;
         }
     }
 }

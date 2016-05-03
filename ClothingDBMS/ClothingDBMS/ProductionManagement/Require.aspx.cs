@@ -22,53 +22,48 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnSaveProductRequire_Click(object sender, EventArgs e)
         {
-            if (dropDesign.SelectedValue != "-1")
-                SqlRequires.InsertParameters["Design_ID"].DefaultValue = dropDesign.SelectedValue;
-            else
-                SetFocus(dropDesign);
-            if (dropRawmaterial1.SelectedValue != "-1")
-                SqlRequires.InsertParameters["Rawmaterial1_ID"].DefaultValue = dropRawmaterial1.SelectedValue;
-            else
-                SetFocus(dropRawmaterial1);
-            if (txtProductRequireRawmaterial1Qty.Text != null)
-                SqlRequires.InsertParameters["Rawmaterial1_Quantity"].DefaultValue = txtProductRequireRawmaterial1Qty.Text;
-            else
-                SetFocus(txtProductRequireRawmaterial1Qty);
-            if (dropRawmaterial2.SelectedValue != "-1")
-                SqlRequires.InsertParameters["Rawmaterial2_ID"].DefaultValue = dropRawmaterial2.SelectedValue;
-            else
-                SqlRequires.InsertParameters["Rawmaterial2_ID"].DefaultValue = null;
-            if (txtProductRequiredRawmaterial2Qty.Text != null)
-                SqlRequires.InsertParameters["Rawmaterial2_Quantity"].DefaultValue = txtProductRequiredRawmaterial2Qty.Text;
-            else
-                SqlRequires.InsertParameters["Rawmaterial2_Quantity"].DefaultValue = null;
-            if (txtProductRequiredRawmaterial3Qty.Text != null)
-                SqlRequires.InsertParameters["Rawmaterial3_Quantity"].DefaultValue = txtProductRequiredRawmaterial3Qty.Text;
-            else
-                SqlRequires.InsertParameters["Rawmaterial3_Quantity"].DefaultValue = null;
-            if (txtProductRequiredRawmaterial4Qty.Text != null)
-                SqlRequires.InsertParameters["Rawmaterial4_Quantity"].DefaultValue = txtProductRequiredRawmaterial4Qty.Text;
-            else
-                SqlRequires.InsertParameters["Rawmaterial4_Quantity"].DefaultValue = null;
+            SqlRequires.InsertParameters["Product_ID"].DefaultValue = dropProduct.SelectedValue;
+            SqlRequires.InsertParameters["RawMaterial_ID"].DefaultValue = dropRawmaterial.SelectedValue;
+            SqlRequires.InsertParameters["RawMaterial_Quantity"].DefaultValue = txtRawmaterialQty.Text;
+            
             SqlRequires.Insert();
             gvProductRequire.DataBind();
+            SqlRequireDrop.DataBind();
             PaneladdProductRequire.Visible = false;
             PanelgvProductRequire.Visible = true;
-            txtProductRequireRawmaterial1Qty.Text = string.Empty;
-            txtProductRequiredRawmaterial2Qty.Text = string.Empty;
-            txtProductRequiredRawmaterial3Qty.Text = string.Empty;
-            txtProductRequiredRawmaterial4Qty.Text = string.Empty;
-            dropDesign.SelectedIndex = 0;
-            dropRawmaterial1.SelectedIndex = 0;
-            dropRawmaterial2.SelectedIndex = 0;
-            dropRawmaterial3.SelectedIndex = 0;
-            dropRawmaterial4.SelectedIndex = 0;
+            txtRawmaterialQty.Text = string.Empty;
+            dropProduct.SelectedIndex = -1;
+            dropRawmaterial.SelectedIndex = -1;
+            
         }
 
         protected void btnCancelProductRequire_Click(object sender, EventArgs e)
         {
             PaneladdProductRequire.Visible = false;
             PanelgvProductRequire.Visible = true;
+            txtRawmaterialQty.Text = string.Empty;
+            dropProduct.SelectedIndex = -1;
+            dropRawmaterial.SelectedIndex = -1;
+        }
+
+        protected void btnProductRequirefilter_Click(object sender, EventArgs e)
+        {
+            if(droprequire.SelectedValue != "-1")
+                SqlRequires.SelectCommand = "SELECT Require.Require_ID, Require.Product_ID, Require.RawMaterial_ID, Require.RawMaterial_Quantity, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name, RawMaterial.RawMaterial_Name + ', ' + code_2.Code_Description + ', ' + ISNULL(RawMaterial.RawMaterial_Description, ' ') AS Rawmaterial_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section LEFT OUTER JOIN RawMaterial ON Require.RawMaterial_ID = Require.RawMaterial_ID LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = RawMaterial.RawMaterial_Color where Require.Product_ID ='" + droprequire.SelectedValue+"'";
+            else
+                SqlRequires.SelectCommand = "SELECT Require.Require_ID, Require.Product_ID, Require.RawMaterial_ID, Require.RawMaterial_Quantity, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name, RawMaterial.RawMaterial_Name + ', ' + code_2.Code_Description + ', ' + ISNULL(RawMaterial.RawMaterial_Description, ' ') AS Rawmaterial_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section LEFT OUTER JOIN RawMaterial ON Require.RawMaterial_ID = Require.RawMaterial_ID LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = RawMaterial.RawMaterial_Color ORDER BY Design.Design_Name";
+            SqlRequires.DataBind();
+            SqlRequireDrop.DataBind();
+            gvProductRequire.DataBind();
+        }
+
+        protected void btnProductRequireClear_Click(object sender, EventArgs e)
+        {
+            SqlRequires.SelectCommand = "SELECT Require.Require_ID, Require.Product_ID, Require.RawMaterial_ID, Require.RawMaterial_Quantity, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name, RawMaterial.RawMaterial_Name + ', ' + code_2.Code_Description + ', ' + ISNULL(RawMaterial.RawMaterial_Description, ' ') AS Rawmaterial_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section LEFT OUTER JOIN RawMaterial ON Require.RawMaterial_ID = Require.RawMaterial_ID LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = RawMaterial.RawMaterial_Color ORDER BY Design.Design_Name";
+            SqlRequires.DataBind();
+            gvProductRequire.DataBind();
+            SqlRequireDrop.DataBind();
+            droprequire.SelectedIndex = -1;
         }
     }
 }
