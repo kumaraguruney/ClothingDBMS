@@ -67,14 +67,14 @@
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="CreatedDate" Type="DateTime" />
-                <asp:Parameter Name="DueDate" Type="DateTime" />
+                <asp:Parameter Name="DueDate" Type="String" />
                 <asp:Parameter Name="Submitted_By" Type="String" />
                 <asp:Parameter Name="Product_Quantity" Type="Int32" />
                 <asp:Parameter Name="Product_ID" Type="Int16" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="CreatedDate" Type="DateTime" />
-                <asp:Parameter Name="DueDate" Type="DateTime" />
+                <asp:Parameter Name="DueDate" Type="String" />
                 <asp:Parameter Name="Submitted_By" Type="String" />
                 <asp:Parameter Name="Product_Quantity" Type="Int32" />
                 <asp:Parameter Name="Product_ID" Type="Int16" />

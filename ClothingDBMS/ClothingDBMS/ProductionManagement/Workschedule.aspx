@@ -69,14 +69,14 @@
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="WorkOrder_ID" Type="Int16" />
-                <asp:Parameter Name="WorkScheduled_Date" Type="DateTime" />
-                <asp:Parameter Name="WorkScheduled_To_End" Type="DateTime" />
+                <asp:Parameter Name="WorkScheduled_Date" Type="String" />
+                <asp:Parameter Name="WorkScheduled_To_End" Type="String" />
                 <asp:Parameter Name="WorkScheduled_By" Type="Byte" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="WorkOrder_ID" Type="Int16" />
-                <asp:Parameter Name="WorkScheduled_Date" Type="DateTime" />
-                <asp:Parameter Name="WorkScheduled_To_End" Type="DateTime" />
+                <asp:Parameter Name="WorkScheduled_Date" Type="String" />
+                <asp:Parameter Name="WorkScheduled_To_End" Type="String" />
                 <asp:Parameter Name="WorkScheduled_By" Type="Byte" />
                 <asp:Parameter Name="Workschedule_ID" Type="Int16" />
             </UpdateParameters>
