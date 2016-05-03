@@ -94,13 +94,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbPurchase_OrderName;
         
         /// <summary>
-        /// txtPurchase_OrderName control.
+        /// txtPurchase_Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchase_OrderName;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchase_Date;
         
         /// <summary>
         /// lblPurchase_OrderAddress control.
@@ -112,13 +112,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lblPurchase_OrderAddress;
         
         /// <summary>
-        /// txtPurchase_OrderAddress control.
+        /// txtQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchase_OrderAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
         
         /// <summary>
         /// btnSavePurchase_Order control.
