@@ -16,8 +16,8 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnSaveWorkSchedule_Click(object sender, EventArgs e)
         {
-            DateTime StartDate = DateTime.ParseExact(txtWorkscheduleStartDate.Text, "dd-MM-yyyy", null);
-            DateTime EndDate = DateTime.ParseExact(txtWorkscheduleEndDate.Text, "dd-MM-yyyy", null);
+            DateTime StartDate = DateTime.ParseExact(txtWorkscheduleStartDate.Text, "MM-dd-yyyy", null);
+            DateTime EndDate = DateTime.ParseExact(txtWorkscheduleEndDate.Text, "MM-dd-yyyy", null);
             SqlWorkSchedule.InsertParameters["WorkOrder_ID"].DefaultValue = dropaddWorkOrder.SelectedValue;
             SqlWorkSchedule.InsertParameters["WorkScheduled_Date"].DefaultValue = StartDate.ToString();
             SqlWorkSchedule.InsertParameters["WorkScheduled_To_End"].DefaultValue = EndDate.ToString();
@@ -57,7 +57,7 @@ namespace ProductionManagement.ProductionManagement
         protected void calWorkscheduleEndDate_SelectionChanged(object sender, EventArgs e)
         {
             txtWorkscheduleEndDate.Text = calWorkscheduleEndDate.SelectedDate.ToShortDateString();
-            cal2panel.Visible = true;
+            cal2panel.Visible = false;
         }
 
         protected void coeWorkscheduleStartDate_Click(object sender, ImageClickEventArgs e)
@@ -67,7 +67,7 @@ namespace ProductionManagement.ProductionManagement
 
         protected void coeWorkscheduleEndDate_Click(object sender, ImageClickEventArgs e)
         {
-            cal2panel.Visible = false;
+            cal2panel.Visible = true;
         }
     }
 }
