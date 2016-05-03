@@ -161,10 +161,10 @@
     <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\Inventory.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
+    <Content Include="InventoryManagement\RMInventory.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\StockUpdate.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
-    <Content Include="InventoryManagement\WebForm1.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\elegant-theme-line.eot" />
     <Content Include="fonts\elegant-theme-line.ttf" />
@@ -241,6 +241,13 @@
     </Compile>
     <Compile Include="InventoryManagement\ProductInventory.aspx.designer.cs">
       <DependentUpon>ProductInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\RMInventory.aspx.cs">
+      <DependentUpon>RMInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\RMInventory.aspx.designer.cs">
+      <DependentUpon>RMInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\stockmovement.aspx.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>

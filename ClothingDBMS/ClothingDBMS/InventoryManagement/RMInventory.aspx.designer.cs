@@ -10,132 +10,150 @@
 namespace ClothingDBMS.InventoryManagement {
     
     
-    public partial class stockmovement {
+    public partial class RMInventory {
         
         /// <summary>
-        /// form1 control.
+        /// form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SqlStockMovement control.
+        /// SqlRMInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockMovement;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRMInventory;
         
         /// <summary>
-        /// lblStockMovement control.
+        /// lblProductInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStockMovement;
+        protected global::System.Web.UI.WebControls.Label lblProductInventory;
         
         /// <summary>
-        /// PanelgvStockMovement control.
+        /// PanelgvRMInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvStockMovement;
+        protected global::System.Web.UI.WebControls.Panel PanelgvRMInventory;
         
         /// <summary>
-        /// btnaddstockmovement control.
+        /// btnaddRMInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddstockmovement;
+        protected global::System.Web.UI.WebControls.Button btnaddRMInventory;
         
         /// <summary>
-        /// gvStockMovement control.
+        /// gvProductInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvStockMovement;
+        protected global::System.Web.UI.WebControls.GridView gvProductInventory;
         
         /// <summary>
-        /// PaneladdStockMovement control.
+        /// PaneladdRMInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdStockMovement;
+        protected global::System.Web.UI.WebControls.Panel PaneladdRMInventory;
         
         /// <summary>
-        /// lblAllocatesWarehouseDetails control.
+        /// lblRMInventoryDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllocatesWarehouseDetails;
+        protected global::System.Web.UI.WebControls.Label lblRMInventoryDetails;
         
         /// <summary>
-        /// lblStockMovementFromWarehouse control.
+        /// lblRMInventoryID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStockMovementFromWarehouse;
+        protected global::System.Web.UI.WebControls.Label lblRMInventoryID;
         
         /// <summary>
-        /// fromWhereHouseTextbox control.
+        /// RMInventoryTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fromWhereHouseTextbox;
+        protected global::System.Web.UI.WebControls.TextBox RMInventoryTextBox;
         
         /// <summary>
-        /// lblStockMovementToWarehouse control.
+        /// lblRMID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStockMovementToWarehouse;
+        protected global::System.Web.UI.WebControls.Label lblRMID;
         
         /// <summary>
-        /// ToWarehouseTextBox control.
+        /// RMIDTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ToWarehouseTextBox;
+        protected global::System.Web.UI.WebControls.TextBox RMIDTextBox;
         
         /// <summary>
-        /// btnSaveStockMovement control.
+        /// lblProcurementDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveStockMovement;
+        protected global::System.Web.UI.WebControls.Label lblProcurementDate;
         
         /// <summary>
-        /// btnCancelStockMovement control.
+        /// ProcurementDateTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelStockMovement;
+        protected global::System.Web.UI.WebControls.TextBox ProcurementDateTextBox;
+        
+        /// <summary>
+        /// btnSaveRMInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveRMInventory;
+        
+        /// <summary>
+        /// btnCancelRMInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelRMInventory;
     }
 }

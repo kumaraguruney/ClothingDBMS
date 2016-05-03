@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important}</style>
 </head>
 <body>
     <form id="form2" runat="server">
@@ -15,6 +17,8 @@
         <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
           <li><a href="Inventory.aspx">Inventory Details</a></li>
+          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
+          <li><a href="RMInventory.aspx">RMInventory</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
@@ -47,7 +51,7 @@
                 <br />
                 <asp:Label ID="lblProductInventory" runat="server" Text="Product Inventory Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvProductInventory" runat="server" style="margin-top: 0px">
-                     <asp:Button ID="btnaddProductInventory" runat="server" Text="Add" OnClick="btnaddInventory_Click"/>
+                     <asp:Button ID="btnaddProductInventory" runat="server" Text="Add" OnClick="btnaddProductInventory_Click"/>
                     <asp:GridView ID="gvProductInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProductInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -80,14 +84,20 @@
                     
                     <br />
                     <br />
-                    <asp:Label ID="lblManufacturedDate" runat="server" Text="Manufactured Date:" Width="200px" />
-                    <asp:TextBox ID="ManufacturedDateTextBox" runat="server" Width="199px"></asp:TextBox>
-                    
+                     <asp:Label ID="lblManufacturedDate" Width="150" Text="Manufactured Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="ManufacturedDateTextBox" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgManufacturedDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgManufacturedDate_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calManufacturedDate" runat="server" OnSelectionChanged="calManufacturedDate_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
                     <br />
                     <br />
-                    <asp:Label ID="lblCreatedDate" runat="server" Text="Created Date:" Width="200px" />
-                    <asp:TextBox ID="CreatedDateTextBox" runat="server" Width="199px"></asp:TextBox>
-                    
+                     <asp:Label ID="lblCreatedDate" Width="150" Text="Created Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="CreatedDateTextBox" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgCreatedDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgCreatedDate_Click" Width="25px" />
+                    <asp:Panel ID="Panel1" runat="server" Visible="false">
+                        <asp:Calendar ID="calCreatedDate" runat="server" OnSelectionChanged="calCreatedDate_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
                     <br />
                     <br />
                     <asp:Label ID="lblProductSKU" runat="server" Text="Product SKU:" Width="200px" />
@@ -96,14 +106,10 @@
                     <br />
                     <br />
                     <br />
-                    <asp:Button ID="btnSaveProductInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveInventory_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelProductInventory" runat="server" Text="Cancel" OnClick="btnCancelInventory_Click"/>
+                    <asp:Button ID="btnSaveProductInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveProductInventory_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelProductInventory" runat="server" Text="Cancel" OnClick="btnCancelProductInventory_Click"/>
                    
                     </asp:Panel>
-        </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
     
     </div>
     </form>
