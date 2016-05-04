@@ -22,13 +22,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Provides control.
+        /// SqlProvides control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Provides;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProvides;
         
         /// <summary>
         /// lbProvidesHeader control.
@@ -40,6 +40,15 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbProvidesHeader;
         
         /// <summary>
+        /// PanelgvProvides control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelgvProvides;
+        
+        /// <summary>
         /// btnaddProvides control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Button btnaddProvides;
         
         /// <summary>
-        /// PanelgvSupplies control.
+        /// gvProvides control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
+        protected global::System.Web.UI.WebControls.GridView gvProvides;
         
         /// <summary>
         /// PaneladdProvides control.
@@ -76,22 +85,58 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbProvidesaddTitle;
         
         /// <summary>
-        /// lbPrvd_id control.
+        /// lbPrvd_id0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrvd_id;
+        protected global::System.Web.UI.WebControls.Label lbPrvd_id0;
         
         /// <summary>
-        /// txtPrvd_id control.
+        /// txtPrvd_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrvd_id;
+        protected global::System.Web.UI.WebControls.TextBox txtPrvd_ID;
+        
+        /// <summary>
+        /// lbQuotation_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbQuotation_ID;
+        
+        /// <summary>
+        /// txtQuotation_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQuotation_ID;
+        
+        /// <summary>
+        /// lbRawMaterial_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
+        
+        /// <summary>
+        /// txtRawMaterial_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRawMaterial_ID;
         
         /// <summary>
         /// rfvPrvd_id control.
@@ -119,15 +164,6 @@ namespace ClothingDBMS.ProcurementManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelSupplies;
-        
-        /// <summary>
-        /// gvSupplies control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSupplies;
         
         /// <summary>
         /// form3 control.
