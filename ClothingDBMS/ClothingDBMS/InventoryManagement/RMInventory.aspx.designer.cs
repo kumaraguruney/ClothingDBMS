@@ -148,6 +148,33 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.TextBox ProcurementDateTextBox;
         
         /// <summary>
+        /// calimgProcurementDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton calimgProcurementDate;
+        
+        /// <summary>
+        /// calpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel calpanel;
+        
+        /// <summary>
+        /// calProcurementDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calProcurementDate;
+        
+        /// <summary>
         /// lblQuantity control.
         /// </summary>
         /// <remarks>

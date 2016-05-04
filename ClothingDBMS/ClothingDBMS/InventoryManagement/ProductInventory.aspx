@@ -63,7 +63,6 @@
                      <asp:Button ID="btnaddProductInventory" runat="server" Text="Add" OnClick="btnaddProductInventory_Click"/>
                     <asp:GridView ID="gvProductInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProductInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" />
                             <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
                              <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" SortExpression="Product_ID" />

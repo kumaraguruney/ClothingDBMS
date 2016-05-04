@@ -77,8 +77,11 @@
                     <br />
                     <br />
                     <asp:Label ID="lblProcurementDate" runat="server" Text="Procurement Date:" Width="200px" />
-                    <asp:TextBox ID="ProcurementDateTextBox" runat="server" Width="199px"></asp:TextBox>
-                    
+                    <asp:TextBox ID="ProcurementDateTextBox" runat="server" Width="199px"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgProcurementDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgProcurementDate_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calProcurementDate" runat="server" OnSelectionChanged="calProcurement_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
                     <br />
                     <br />
                     <asp:Label ID="lblQuantity" runat="server" Text="Quantity:" Width="200px" />
