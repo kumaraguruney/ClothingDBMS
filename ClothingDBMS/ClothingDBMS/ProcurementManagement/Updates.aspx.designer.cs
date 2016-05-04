@@ -10,7 +10,7 @@
 namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class Tracks {
+    public partial class WebForm3 {
         
         /// <summary>
         /// form2 control.
@@ -22,31 +22,31 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Track control.
+        /// Updates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Track;
+        protected global::System.Web.UI.WebControls.SqlDataSource Updates;
         
         /// <summary>
-        /// lbOrdersHeader control.
+        /// lbUpdatesHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbOrdersHeader;
+        protected global::System.Web.UI.WebControls.Label lbUpdatesHeader;
         
         /// <summary>
-        /// btnaddTracks control.
+        /// btnaddUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddTracks;
+        protected global::System.Web.UI.WebControls.Button btnaddUpdates;
         
         /// <summary>
         /// PanelgvSupplies control.
@@ -58,22 +58,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
         
         /// <summary>
-        /// PaneladdTracks control.
+        /// PaneladdUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdTracks;
+        protected global::System.Web.UI.WebControls.Panel PaneladdUpdates;
         
         /// <summary>
-        /// lbTracksaddTitle control.
+        /// lbUpdatesaddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTracksaddTitle;
+        protected global::System.Web.UI.WebControls.Label lbUpdatesaddTitle;
         
         /// <summary>
         /// lbPrvd_id control.
@@ -85,40 +85,40 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbPrvd_id;
         
         /// <summary>
-        /// txtTrack_id control.
+        /// txtPurchase_Order_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTrack_id;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchase_Order_id;
         
         /// <summary>
-        /// rfvTrack_id control.
+        /// rfvPrvd_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTrack_id;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
         
         /// <summary>
-        /// btnSaveOrders control.
+        /// btnSaveUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveOrders;
+        protected global::System.Web.UI.WebControls.Button btnSaveUpdates;
         
         /// <summary>
-        /// btnCancelOrders control.
+        /// btnCancelUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelOrders;
+        protected global::System.Web.UI.WebControls.Button btnCancelUpdates;
         
         /// <summary>
         /// gvSupplies control.
@@ -137,15 +137,6 @@ namespace ClothingDBMS.ProcurementManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form3;
-        
-        /// <summary>
-        /// form4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form4;
         
         /// <summary>
         /// form1 control.

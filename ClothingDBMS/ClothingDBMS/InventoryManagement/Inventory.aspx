@@ -22,35 +22,36 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Inventory] ORDER BY [Inventory_ID]" DeleteCommand="DELETE FROM [Inventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [Inventory] ([Inventory_ID], [Warehouse_ID], [Quantity]) VALUES (@Inventory_ID, @Warehouse_ID, @Quantity)" UpdateCommand="UPDATE [Inventory] SET [Inventory_ID] = @Inventory_ID, [Warehouse_ID] = @Warehouse_ID, [Quantity] = @Quantity WHERE [Entry_ID] = @Entry_ID">
+        <asp:SqlDataSource ID="SqlInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Inventory] ORDER BY [Inventory_ID]" DeleteCommand="DELETE FROM [Inventory] WHERE [Inventory_ID] = @Inventory_ID" InsertCommand="INSERT INTO [Inventory] ([Inventory_Name], [Warehouse_ID], [Area]) VALUES (@Inventory_Name, @Warehouse_ID, @Area)" UpdateCommand="UPDATE [Inventory] SET [Inventory_Name] = @Inventory_Name, [Warehouse_ID] = @Warehouse_ID, [Area] = @Area WHERE [Inventory_ID] = @Inventory_ID">
             <DeleteParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
+                <asp:Parameter Name="Inventory_ID" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Inventory_ID" Type="Int16" />
+                <asp:Parameter Name="Inventory_Name" Type="String" />
                 <asp:Parameter Name="Warehouse_ID" Type="Byte" />
-                <asp:Parameter Name="Quantity" Type="Int16" />
+                <asp:Parameter Name="Area" Type="Int16" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Inventory_ID" Type="Int16" />
+                <asp:Parameter Name="Inventory_Name" Type="String" />
                 <asp:Parameter Name="Warehouse_ID" Type="Byte" />
-                <asp:Parameter Name="Quantity" Type="Int16" />
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
+                <asp:Parameter Name="Area" Type="Int16" />
+                <asp:Parameter Name="Inventory_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
           <div align="center">
+        <asp:SqlDataSource ID="SqlWarehouse" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Warehouse] ORDER BY [Warehouse_Name]">
+        </asp:SqlDataSource>
                 <br />
                 <asp:Label ID="lblAllocates" runat="server" Text="Inventory Details" Font-Bold="True"></asp:Label> <br /> <br />
-             
-                <br /> <br />
                 <asp:Panel ID="PanelgvInventory" runat="server">
                      <asp:Button ID="btnaddInventory" runat="server" Text="Add" OnClick="btnaddInventory_Click"/>
-                    <asp:GridView ID="gvInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
+                    <asp:GridView ID="gvInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlInventory" AutoGenerateColumns="False" DataKeyNames="Inventory_ID">
                         <Columns>
-                            <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" InsertVisible="False" />
-                            <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
-                             <asp:BoundField DataField="Warehouse_ID" HeaderText="Warehouse_ID" SortExpression="Warehouse_ID" />
-                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                            <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" ReadOnly="True" SortExpression="Inventory_ID" InsertVisible="False" />
+                            <asp:BoundField DataField="Inventory_Name" HeaderText="Inventory_Name" SortExpression="Inventory_Name" />
+                            <asp:BoundField DataField="Warehouse_ID" HeaderText="Warehouse_ID" SortExpression="Warehouse_ID" />
+                             <asp:BoundField DataField="Area" HeaderText="Area" SortExpression="Area" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
@@ -58,18 +59,18 @@
 
                 <asp:Panel ID="PaneladdInventory" Visible="false" runat="server">
                 <asp:Label ID="lblAllocatesInventoryDetails" Text="Enter Inventory Details" runat="server" /><br /> <br />
-                    <asp:Label ID="lblAllocatesInventoryID" runat="server" Text="Inventory ID:" Width="200px" />
-                    <asp:TextBox ID="InventoryTextBox" runat="server" Width="199px"></asp:TextBox>
-                        
-                    <br />
                     <br />
                     <asp:Label ID="lblIncludesWarehouseID" Width="200px" Text="Warehouse ID:" runat="server" />
-                    <asp:TextBox ID="WarehouseIDTextBox" runat="server" Width="199px"></asp:TextBox>
-                    
+                    <asp:DropDownList ID="WarehouseIDDropDownList" runat="server" DataSourceID="SqlWarehouse" DataTextField="Warehouse_Name" DataValueField="Warehouse_ID" style="margin-left: 0px" Width="186px">
+                    </asp:DropDownList>
                     <br />
                     <br />
-                    <asp:Label ID="lblIncludesQuantity" runat="server" Text="Quantity:" Width="200px" />
-                    <asp:TextBox ID="QuantityTextBox" runat="server" Width="199px"></asp:TextBox>
+                    <asp:Label ID="lblInventoryName" runat="server" Text="Inventory Name:" Width="200px" />
+                    <asp:TextBox ID="InventoryNameTextBox" runat="server" Width="199px"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Label ID="lblArea" runat="server" Text="Area:" Width="200px" />
+                    <asp:TextBox ID="AreaTextBox" runat="server" Width="199px"></asp:TextBox>
                     
                     <br />
                     <br />

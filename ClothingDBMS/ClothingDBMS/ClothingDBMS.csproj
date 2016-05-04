@@ -161,7 +161,9 @@
     <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\Inventory.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
+    <Content Include="InventoryManagement\ProductStockUpdate.aspx" />
     <Content Include="InventoryManagement\RMInventory.aspx" />
+    <Content Include="InventoryManagement\RMStockUpdate.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\StockUpdate.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
@@ -196,6 +198,7 @@
     <Content Include="ProcurementManagement\provides.aspx" />
     <Content Include="ProcurementManagement\Orders.aspx" />
     <Content Include="ProcurementManagement\Tracks.aspx" />
+    <Content Include="ProcurementManagement\Updates.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
     <Content Include="ProductionManagement\Default.aspx" />
     <Content Include="ProductionManagement\Employee.aspx" />
@@ -247,12 +250,26 @@
     <Compile Include="InventoryManagement\ProductInventory.aspx.designer.cs">
       <DependentUpon>ProductInventory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InventoryManagement\ProductStockUpdate.aspx.cs">
+      <DependentUpon>ProductStockUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\ProductStockUpdate.aspx.designer.cs">
+      <DependentUpon>ProductStockUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InventoryManagement\RMInventory.aspx.cs">
       <DependentUpon>RMInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InventoryManagement\RMInventory.aspx.designer.cs">
       <DependentUpon>RMInventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\RMStockUpdate.aspx.cs">
+      <DependentUpon>RMStockUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\RMStockUpdate.aspx.designer.cs">
+      <DependentUpon>RMStockUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\stockmovement.aspx.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>
@@ -323,6 +340,13 @@
     </Compile>
     <Compile Include="ProcurementManagement\Tracks.aspx.designer.cs">
       <DependentUpon>Tracks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcurementManagement\Updates.aspx.cs">
+      <DependentUpon>Updates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\Updates.aspx.designer.cs">
+      <DependentUpon>Updates.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\Allocates.aspx.cs">
       <DependentUpon>Allocates.aspx</DependentUpon>

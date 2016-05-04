@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClothingDBMS.ProcurementManagement {
+namespace ClothingDBMS.InventoryManagement {
     
     
-    public partial class Tracks {
+    public partial class RMStockUpdate {
         
         /// <summary>
         /// form2 control.
@@ -22,138 +22,165 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Track control.
+        /// SqlRMStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Track;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRMStockUpdate;
         
         /// <summary>
-        /// lbOrdersHeader control.
+        /// SqlStockMovement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbOrdersHeader;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockMovement;
         
         /// <summary>
-        /// btnaddTracks control.
+        /// SqlRMInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddTracks;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRMInventory;
         
         /// <summary>
-        /// PanelgvSupplies control.
+        /// SqlRawMaterial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
         
         /// <summary>
-        /// PaneladdTracks control.
+        /// lblRMStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdTracks;
+        protected global::System.Web.UI.WebControls.Label lblRMStockUpdate;
         
         /// <summary>
-        /// lbTracksaddTitle control.
+        /// PanelgvRMStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTracksaddTitle;
+        protected global::System.Web.UI.WebControls.Panel PanelgvRMStockUpdate;
         
         /// <summary>
-        /// lbPrvd_id control.
+        /// btnaddRMStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrvd_id;
+        protected global::System.Web.UI.WebControls.Button btnaddRMStockUpdate;
         
         /// <summary>
-        /// txtTrack_id control.
+        /// gvRMStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTrack_id;
+        protected global::System.Web.UI.WebControls.GridView gvRMStockUpdate;
         
         /// <summary>
-        /// rfvTrack_id control.
+        /// PaneladdRMStockUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTrack_id;
+        protected global::System.Web.UI.WebControls.Panel PaneladdRMStockUpdate;
         
         /// <summary>
-        /// btnSaveOrders control.
+        /// lblRMStockUpdateDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveOrders;
+        protected global::System.Web.UI.WebControls.Label lblRMStockUpdateDetails;
         
         /// <summary>
-        /// btnCancelOrders control.
+        /// lblIncludesStockMovementID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelOrders;
+        protected global::System.Web.UI.WebControls.Label lblIncludesStockMovementID;
         
         /// <summary>
-        /// gvSupplies control.
+        /// StockMovementIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSupplies;
+        protected global::System.Web.UI.WebControls.DropDownList StockMovementIDDropDownList;
         
         /// <summary>
-        /// form3 control.
+        /// lblRMID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form3;
+        protected global::System.Web.UI.WebControls.Label lblRMID;
         
         /// <summary>
-        /// form4 control.
+        /// RMIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form4;
+        protected global::System.Web.UI.WebControls.DropDownList RMIDDropDownList;
         
         /// <summary>
-        /// form1 control.
+        /// lblEntryID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblEntryID;
+        
+        /// <summary>
+        /// EntryIDDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EntryIDDropDownList;
+        
+        /// <summary>
+        /// btnSaveRMStockUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveRMStockUpdate;
+        
+        /// <summary>
+        /// btnCancelRMStockUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelRMStockUpdate;
     }
 }

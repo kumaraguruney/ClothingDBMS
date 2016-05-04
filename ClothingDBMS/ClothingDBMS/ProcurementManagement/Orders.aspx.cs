@@ -13,30 +13,30 @@ namespace ClothingDBMS.ProcurementManagement
         {
 
         }
-        protected void btnaddOrders_Click(object sender, EventArgs e)
+        protected void btnaddUpdates_Click(object sender, EventArgs e)
         {
-            PaneladdOrders.Visible = true;
-            PanelgvOrders.Visible = false;
+            PaneladdUpdates.Visible = true;
+            PanelgvUpdates.Visible = false;
         }
 
-        protected void btnCancelOrders_Click(object sender, EventArgs e)
+        protected void btnCancelUpdates_Click(object sender, EventArgs e)
         {
-            PaneladdOrders.Visible = false;
-            PanelgvOrders.Visible = true;
+            PaneladdUpdates.Visible = false;
+            PanelgvUpdates.Visible = true;
 
         }
 
-        protected void btnSaveOrders_Click(object sender, EventArgs e)
+        protected void btnSaveUpdates_Click(object sender, EventArgs e)
         {
-            SqlOrders.InsertParameters["Name"].DefaultValue = txtOrdersName.Text.ToUpper().Trim();
-            SqlOrders.InsertParameters["Address"].DefaultValue = txtOrdersAddress.Text.ToUpper().Trim();
+            SqlUpdates.InsertParameters["Name"].DefaultValue = txtUpdatesName.Text.ToUpper().Trim();
+            SqlUpdates.InsertParameters["Address"].DefaultValue = txtUpdatesAddress.Text.ToUpper().Trim();
 
-            SqlOrders.Insert();
-            gvOrders.DataBind();
-            PaneladdOrders.Visible = false;
-            PanelgvOrders.Visible = true;
-            txtOrdersName.Text = string.Empty;
-            txtOrdersAddress.Text = string.Empty;
+            SqlUpdates.Insert();
+            gvUpdates.DataBind();
+            PaneladdUpdates.Visible = false;
+            PanelgvUpdates.Visible = true;
+            txtUpdatesName.Text = string.Empty;
+            txtUpdatesAddress.Text = string.Empty;
 
         }
     }
