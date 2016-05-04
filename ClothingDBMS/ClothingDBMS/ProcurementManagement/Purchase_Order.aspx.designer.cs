@@ -67,13 +67,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.GridView gvPurchase_Order;
         
         /// <summary>
-        /// PanelPurchase control.
+        /// pnlAddPurchase_Order control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelPurchase;
+        protected global::System.Web.UI.WebControls.Panel pnlAddPurchase_Order;
         
         /// <summary>
         /// lbPurchase_OrderaddTitle control.
@@ -85,13 +85,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbPurchase_OrderaddTitle;
         
         /// <summary>
-        /// lbPurchase_OrderName control.
+        /// lblPurchase_Date control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPurchase_OrderName;
+        protected global::System.Web.UI.WebControls.Label lblPurchase_Date;
         
         /// <summary>
         /// txtPurchase_Date control.
@@ -103,13 +103,67 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.TextBox txtPurchase_Date;
         
         /// <summary>
-        /// lblPurchase_OrderAddress control.
+        /// lblSupplier_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPurchase_OrderAddress;
+        protected global::System.Web.UI.WebControls.Label lblSupplier_Name;
+        
+        /// <summary>
+        /// DropDownSupplier_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSupplier_Name;
+        
+        /// <summary>
+        /// lblSupplier_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSupplier_ID;
+        
+        /// <summary>
+        /// DropDownSupplier_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSupplier_ID;
+        
+        /// <summary>
+        /// lblRawMaterial_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRawMaterial_ID;
+        
+        /// <summary>
+        /// DropDownRawMaterial_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRawMaterial_ID;
+        
+        /// <summary>
+        /// lblQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuantity;
         
         /// <summary>
         /// txtQuantity control.
@@ -119,6 +173,60 @@ namespace ClothingDBMS.ProcurementManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtQuantity;
+        
+        /// <summary>
+        /// lblUnit_Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUnit_Price;
+        
+        /// <summary>
+        /// txtUnit_Price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUnit_Price;
+        
+        /// <summary>
+        /// lblTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
+        
+        /// <summary>
+        /// txtTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
+        
+        /// <summary>
+        /// lblShipping_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblShipping_Address;
+        
+        /// <summary>
+        /// txtShipping_Address control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtShipping_Address;
         
         /// <summary>
         /// btnSavePurchase_Order control.

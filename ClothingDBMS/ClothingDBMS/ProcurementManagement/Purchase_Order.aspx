@@ -77,21 +77,51 @@
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>
-                <asp:Panel ID="PanelPurchase" Visible="false" runat="server">
-                <asp:Label ID="lbPurchase_OrderaddTitle" Text="Add Purchase_Order into Database" runat="server" /><br /> <br />
-                    <asp:Label ID="lbPurchase_OrderName" Width="150px" Text="Purchase_Date: " runat="server" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPurchase_Date" runat="server" ValidationGroup="addPurchase_OrderValidation"></asp:TextBox>
+                <asp:Panel ID="pnlAddPurchase_Order" Visible="false" runat="server">
+                <asp:Label ID="lbPurchase_OrderaddTitle" Text="Add Purchase_Order into Database" runat="server" />
                     <br />
                     <br />
-                    <asp:Label ID="lblPurchase_OrderAddress" runat="server" Text="Quantity: " Width="150px"></asp:Label>
-                    <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblPurchase_Date" Width="149px" Text="Purchase_Date: " runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtPurchase_Date" runat="server" ValidationGroup="addPurchase_OrderValidation" Width="274px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier Name: " Width="259px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:DropDownList ID="DropDownSupplier_Name" runat="server" Height="28px" Width="300px">
+                    </asp:DropDownList>
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+                    <asp:Label ID="lblSupplier_ID" runat="server" Text="Supplier_ID " Width="149px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:DropDownList ID="DropDownSupplier_ID" runat="server" Height="28px" Width="300px">
+                    </asp:DropDownList>
+                    <br />
+                    <asp:Label ID="lblRawMaterial_ID" runat="server" Text="RawMaterial_ID" Width="149px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="DropDownRawMaterial_ID" runat="server" Height="28px" Width="300px">
+                    </asp:DropDownList>
+                    <br />
+                    <asp:Label ID="lblQuantity" runat="server" Text="Quantity: " Width="150px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtQuantity" runat="server" Height="33px" Width="300px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblUnit_Price" runat="server" Text="Unit_Price: " Width="150px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtUnit_Price" runat="server" Height="33px" Width="300px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblTotal" runat="server" Text="Total: " Width="150px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtTotal" runat="server" Height="33px" Width="300px"></asp:TextBox>
+                    <br />
+                    <asp:Label ID="lblShipping_Address" runat="server" Text="Shipping Address: " Width="237px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtShipping_Address" runat="server" Height="33px" Width="300px"></asp:TextBox>
                     <br />
                     <br />
                     <br />
                     <br />
                     <br />
-                    <asp:Button ID="btnSavePurchase_Order" runat="server" Text="Save" OnClick="btnSavePurchase_Order_Click" ValidationGroup="addPurchase_OrderValidation"/>
+                    <asp:Button ID="btnSavePurchase_Order" runat="server" OnClick="btnSavePurchase_Order_Click" Text="Save" ValidationGroup="addPurchase_OrderValidation" />
                     &nbsp;&nbsp;
                     <asp:Button ID="btnCancelPurchase_Order" runat="server" OnClick="btnCancelPurchase_Order_Click" Text="Cancel" />
                     </asp:Panel>
