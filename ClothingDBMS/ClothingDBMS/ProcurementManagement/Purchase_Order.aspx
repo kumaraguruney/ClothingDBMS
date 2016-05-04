@@ -62,6 +62,7 @@
                 <asp:Panel ID="PanelgvPurchase_Order" runat="server">
                     <asp:GridView ID="gvPurchase_Order" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlPurchase_Order" AutoGenerateColumns="False" DataKeyNames="purchase_order_id">
                         <Columns>
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" ReadOnly="True" SortExpression="purchase_order_id" InsertVisible="False" />
                             <asp:BoundField DataField="Purchase_date" HeaderText="Purchase_date" SortExpression="Purchase_date" />
                              <asp:BoundField DataField="supplier_name" HeaderText="supplier_name" SortExpression="supplier_name" />
