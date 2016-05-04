@@ -94,6 +94,31 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\ClothingDBMS.dll" />
+    <Content Include="bin\ClothingDBMS.pdb" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.ApplicationInsights.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
     <Content Include="Code.aspx" />
     <Content Include="css\animate.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -165,7 +190,6 @@
     <Content Include="InventoryManagement\RMInventory.aspx" />
     <Content Include="InventoryManagement\RMStockUpdate.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
-    <Content Include="InventoryManagement\StockUpdate.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\elegant-theme-line.eot" />
@@ -182,6 +206,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="bin\ClothingDBMS.dll.config" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,7 +223,7 @@
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProcurementManagement\Purchase_Order.aspx" />
-    <Content Include="ProcurementManagement\Provides.aspx" />
+    <Content Include="ProcurementManagement\provides.aspx" />
     <Content Include="ProcurementManagement\Orders.aspx" />
     <Content Include="ProcurementManagement\Tracks.aspx" />
     <Content Include="ProcurementManagement\Updates.aspx" />
@@ -278,26 +306,12 @@
     <Compile Include="InventoryManagement\stockmovement.aspx.designer.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InventoryManagement\StockUpdate.aspx.cs">
-      <DependentUpon>StockUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InventoryManagement\StockUpdate.aspx.designer.cs">
-      <DependentUpon>StockUpdate.aspx</DependentUpon>
-    </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.cs">
-      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.designer.cs">
-      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Supplies.aspx.cs">
       <DependentUpon>Supplies.aspx</DependentUpon>
@@ -327,12 +341,12 @@
     <Compile Include="ProcurementManagement\Purchase_Order.aspx.designer.cs">
       <DependentUpon>Purchase_Order.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProcurementManagement\Provides.aspx.cs">
-      <DependentUpon>Provides.aspx</DependentUpon>
+    <Compile Include="ProcurementManagement\provides.aspx.cs">
+      <DependentUpon>provides.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProcurementManagement\Provides.aspx.designer.cs">
-      <DependentUpon>Provides.aspx</DependentUpon>
+    <Compile Include="ProcurementManagement\provides.aspx.designer.cs">
+      <DependentUpon>provides.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
