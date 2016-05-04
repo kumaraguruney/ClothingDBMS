@@ -22,31 +22,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SqlSupplier control.
+        /// SqlSupplies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplier;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplies;
         
         /// <summary>
-        /// lbSuppliesHeader control.
+        /// lbSuppliessHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSuppliesHeader;
-        
-        /// <summary>
-        /// btnaddSupplies control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddSupplies;
+        protected global::System.Web.UI.WebControls.Label lbSuppliessHeader;
         
         /// <summary>
         /// PanelgvSupplies control.
@@ -58,67 +49,85 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
         
         /// <summary>
-        /// PaneladdSupplier control.
+        /// btnaddSupplies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdSupplier;
+        protected global::System.Web.UI.WebControls.Button btnaddSupplies;
         
         /// <summary>
-        /// lbSuppliesaddTitle control.
+        /// gvSupplies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSuppliesaddTitle;
+        protected global::System.Web.UI.WebControls.GridView gvSupplies;
         
         /// <summary>
-        /// lbSupplier_id control.
+        /// PaneladdSupplies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSupplier_id;
+        protected global::System.Web.UI.WebControls.Panel PaneladdSupplies;
         
         /// <summary>
-        /// txtSupplier_id control.
+        /// lbProvidesaddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplier_id;
+        protected global::System.Web.UI.WebControls.Label lbProvidesaddTitle;
         
         /// <summary>
-        /// rfvSupplier_id control.
+        /// lbSupplier_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSupplier_id;
+        protected global::System.Web.UI.WebControls.Label lbSupplier_ID;
         
         /// <summary>
-        /// lblRawmaterial_ID control.
+        /// txtSupplies_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRawmaterial_ID;
+        protected global::System.Web.UI.WebControls.TextBox txtSupplies_ID;
         
         /// <summary>
-        /// txtSupplierAddress control.
+        /// lbRawMaterial_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierAddress;
+        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
+        
+        /// <summary>
+        /// txtRawMaterial_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRawMaterial_ID;
+        
+        /// <summary>
+        /// rfvPrvd_id control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
         
         /// <summary>
         /// btnSaveSupplies control.
@@ -139,13 +148,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Button btnCancelSupplies;
         
         /// <summary>
-        /// gvSupplies control.
+        /// form3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSupplies;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form3;
         
         /// <summary>
         /// form1 control.
