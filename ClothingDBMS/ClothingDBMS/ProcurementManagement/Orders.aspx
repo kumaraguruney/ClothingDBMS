@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Updates.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.Orders" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Updates.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm3" %>
 
 <!DOCTYPE html>
 
@@ -31,21 +31,31 @@
 
                 <br />
                 <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddOrders" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Button ID="btnaddOrders" runat="server" Text="Add" OnClick="btnaddOrders_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvOrders" runat="server">
-                    <asp:Panel ID="PaneladdOrders" runat="server" Visible="false">
+                    
+                    <asp:GridView ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlOrders" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="RawMaterial_id" HeaderText="RawMaterial_id" SortExpression="RawMaterial_id" />
+                            <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
+                        </Columns>
+                        <EditRowStyle BackColor="Yellow"/>
+                    </asp:GridView>
+                   </asp:Panel>
+
+                <asp:Panel ID="PaneladdOrders" runat="server" Visible="false">
                         <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
                         <br />
                         <asp:Label ID="lbPrvd_id" runat="server" Text="Purchase_Order_ID: " Width="150px" />
-                        <asp:DropDownList ID="PurchaseOrderIDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="PurchaseOrder" DataTextField="purchase_order_id" DataValueField="purchase_order_id">
+                        <asp:DropDownList ID="PurchaseOrderIDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="SqlPurchaseOrder" DataTextField="purchase_order_id" DataValueField="purchase_order_id">
                         </asp:DropDownList>
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="PurchaseOrderIDDropDownList" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <asp:Label ID="lbRawMaterial_ID" runat="server" Text="RawMaterial_ID: " Width="150px" />
-                        <asp:DropDownList ID="RMIDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="RawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID">
+                        <asp:DropDownList ID="RMIDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID">
                         </asp:DropDownList>
                         <br />
                         <br />
@@ -55,14 +65,6 @@
                         &nbsp;&nbsp;
                         <asp:Button ID="btnCancelOrders" runat="server" OnClick="btnCancelOrders_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Orders" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField DataField="RawMaterial_id" HeaderText="RawMaterial_id" SortExpression="RawMaterial_id" />
-                            <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
-                        </Columns>
-                        <EditRowStyle BackColor="Yellow"/>
-                    </asp:GridView>
-                   </asp:Panel>
         </div>
     </form>
     
