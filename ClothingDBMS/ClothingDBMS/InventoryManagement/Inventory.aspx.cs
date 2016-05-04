@@ -21,16 +21,17 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void btnSaveInventory_Click(object sender, EventArgs e)
         {
-            SqlInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
-            SqlInventory.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDTextBox.Text.ToUpper().Trim();
-            SqlInventory.InsertParameters["Quantity"].DefaultValue = QuantityTextBox.Text.ToUpper().Trim();
+            //SqlInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
+            SqlInventory.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDDropDownList.SelectedValue;
+            SqlInventory.InsertParameters["Area"].DefaultValue = AreaTextBox.Text.ToUpper().Trim();
+            SqlInventory.InsertParameters["Inventory_Name"].DefaultValue = InventoryNameTextBox.Text.ToUpper().Trim();
             SqlInventory.Insert();
             gvInventory.DataBind();
             PaneladdInventory.Visible = false;
             PanelgvInventory.Visible = true;
-            InventoryTextBox.Text = string.Empty;
-            WarehouseIDTextBox.Text = string.Empty;
-            QuantityTextBox.Text = string.Empty;
+            InventoryNameTextBox.Text = string.Empty;
+            WarehouseIDDropDownList.SelectedIndex = -1;
+            AreaTextBox.Text = string.Empty;
         }
 
         protected void btnCancelInventory_Click(object sender, EventArgs e)
