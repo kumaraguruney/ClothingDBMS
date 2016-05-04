@@ -25,32 +25,32 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlPurchase_Order" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [purchase_order_id]" DeleteCommand="DELETE FROM [purchase_order] WHERE [purchase_order_id] = @purchase_order_id" InsertCommand="INSERT INTO [purchase_order] ([Purchase_date], [supplier_name], [supplier_description], [supplier_id], [RawMaterial_description], [quantity], [unit_price], [total], [shipping_address]) VALUES (@Purchase_date, @supplier_name, @supplier_description, @supplier_id, @RawMaterial_description, @quantity, @unit_price, @total, @shipping_address)" UpdateCommand="UPDATE [purchase_order] SET [Purchase_date] = @Purchase_date, [supplier_name] = @supplier_name, [supplier_description] = @supplier_description, [supplier_id] = @supplier_id, [RawMaterial_description] = @RawMaterial_description, [quantity] = @quantity, [unit_price] = @unit_price, [total] = @total, [shipping_address] = @shipping_address WHERE [purchase_order_id] = @purchase_order_id">
+        <asp:SqlDataSource ID="SqlPurchase_Order" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [Purchase_Date]" DeleteCommand="DELETE FROM [purchase_order] WHERE [Purchase_Order_ID] = @Purchase_Order_ID" InsertCommand="INSERT INTO [purchase_order] ([Purchase_Date], [Supplier_Name], [Supplier_Description], [Supplier_ID], [RawMaterial_ID], [Quantity], [Unit_Price], [Total], [Shipping_Address]) VALUES (@Purchase_Date, @Supplier_Name, @Supplier_Description, @Supplier_ID, @RawMaterial_ID, @Quantity, @Unit_Price, @Total, @Shipping_Address)" UpdateCommand="UPDATE [purchase_order] SET [Purchase_Date] = @Purchase_Date, [Supplier_Name] = @Supplier_Name, [Supplier_Description] = @Supplier_Description, [Supplier_ID] = @Supplier_ID, [RawMaterial_ID] = @RawMaterial_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price, [Total] = @Total, [Shipping_Address] = @Shipping_Address WHERE [Purchase_Order_ID] = @Purchase_Order_ID">
             <DeleteParameters>
-                <asp:Parameter Name="purchase_order_id" Type="Int32" />
+                <asp:Parameter Name="Purchase_Order_ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Purchase_date" DbType="Date" />
-                <asp:Parameter Name="supplier_name" Type="String" />
-                <asp:Parameter Name="supplier_description" Type="String" />
-                <asp:Parameter Name="supplier_id" Type="Int16" />
-                <asp:Parameter Name="RawMaterial_description" Type="String" />
-                <asp:Parameter Name="quantity" Type="Int32" />
-                <asp:Parameter Name="unit_price" Type="Decimal" />
-                <asp:Parameter Name="total" Type="Decimal" />
-                <asp:Parameter Name="shipping_address" Type="String" />
+                <asp:Parameter Name="Purchase_Date" DbType="Date" />
+                <asp:Parameter Name="Supplier_Name" Type="String" />
+                <asp:Parameter Name="Supplier_Description" Type="String" />
+                <asp:Parameter Name="Supplier_ID" Type="Int16" />
+                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Unit_Price" Type="Decimal" />
+                <asp:Parameter Name="Total" Type="Decimal" />
+                <asp:Parameter Name="Shipping_Address" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Purchase_date" DbType="Date" />
-                <asp:Parameter Name="supplier_name" Type="String" />
-                <asp:Parameter Name="supplier_description" Type="String" />
-                <asp:Parameter Name="supplier_id" Type="Int16" />
-                <asp:Parameter Name="RawMaterial_description" Type="String" />
-                <asp:Parameter Name="quantity" Type="Int32" />
-                <asp:Parameter Name="unit_price" Type="Decimal" />
-                <asp:Parameter Name="total" Type="Decimal" />
-                <asp:Parameter Name="shipping_address" Type="String" />
-                <asp:Parameter Name="purchase_order_id" Type="Int32" />
+                <asp:Parameter Name="Purchase_Date" DbType="Date" />
+                <asp:Parameter Name="Supplier_Name" Type="String" />
+                <asp:Parameter Name="Supplier_Description" Type="String" />
+                <asp:Parameter Name="Supplier_ID" Type="Int16" />
+                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Unit_Price" Type="Decimal" />
+                <asp:Parameter Name="Total" Type="Decimal" />
+                <asp:Parameter Name="Shipping_Address" Type="String" />
+                <asp:Parameter Name="Purchase_Order_ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
@@ -60,19 +60,19 @@
                 <asp:Button ID="btnaddPurchase_Order" runat="server" Text="Add" OnClick="btnaddPurchase_Order_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvPurchase_Order" runat="server">
-                    <asp:GridView ID="gvPurchase_Order" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlPurchase_Order" AutoGenerateColumns="False" DataKeyNames="purchase_order_id">
+                    <asp:GridView ID="gvPurchase_Order" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlPurchase_Order" AutoGenerateColumns="False" DataKeyNames="Purchase_Order_ID">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                            <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" ReadOnly="True" SortExpression="purchase_order_id" InsertVisible="False" />
-                            <asp:BoundField DataField="Purchase_date" HeaderText="Purchase_date" SortExpression="Purchase_date" />
-                             <asp:BoundField DataField="supplier_name" HeaderText="supplier_name" SortExpression="supplier_name" />
-                            <asp:BoundField DataField="supplier_description" HeaderText="supplier_description" SortExpression="supplier_description" />
-                            <asp:BoundField DataField="supplier_id" HeaderText="supplier_id" SortExpression="supplier_id" />
-                            <asp:BoundField DataField="RawMaterial_description" HeaderText="RawMaterial_description" SortExpression="RawMaterial_description" />
-                            <asp:BoundField DataField="quantity" HeaderText="quantity" SortExpression="quantity" />
-                            <asp:BoundField DataField="unit_price" HeaderText="unit_price" SortExpression="unit_price" />
-                            <asp:BoundField DataField="total" HeaderText="total" SortExpression="total" />
-                            <asp:BoundField DataField="shipping_address" HeaderText="shipping_address" SortExpression="shipping_address" />
+                            <asp:BoundField DataField="Purchase_Order_ID" HeaderText="Purchase_Order_ID" ReadOnly="True" SortExpression="Purchase_Order_ID" InsertVisible="False" />
+                            <asp:BoundField DataField="Purchase_Date" HeaderText="Purchase_Date" SortExpression="Purchase_Date" />
+                             <asp:BoundField DataField="Supplier_Name" HeaderText="Supplier_Name" SortExpression="Supplier_Name" />
+                            <asp:BoundField DataField="Supplier_Description" HeaderText="Supplier_Description" SortExpression="Supplier_Description" />
+                            <asp:BoundField DataField="Supplier_ID" HeaderText="Supplier_ID" SortExpression="Supplier_ID" />
+                            <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
+                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                            <asp:BoundField DataField="Unit_Price" HeaderText="Unit_Price" SortExpression="Unit_Price" />
+                            <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
+                            <asp:BoundField DataField="Shipping_Address" HeaderText="Shipping_Address" SortExpression="Shipping_Address" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
