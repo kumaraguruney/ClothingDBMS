@@ -21,22 +21,24 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void btnSaveProductInventory_Click(object sender, EventArgs e)
         {
-            SqlProductInventory.InsertParameters["Inventory_ID"].DefaultValue = ProductInventoryTextBox.Text.ToUpper().Trim();
-            SqlProductInventory.InsertParameters["Product_ID"].DefaultValue = ProductIDTextBox.Text.ToUpper().Trim();
-            SqlProductInventory.InsertParameters["Design_ID"].DefaultValue = DesignIDTextBox.Text.ToUpper().Trim();
+            SqlProductInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryIDDropDownList.SelectedValue;
+            SqlProductInventory.InsertParameters["Product_ID"].DefaultValue = ProductIDDropDownList.SelectedValue;
+            SqlProductInventory.InsertParameters["Design_ID"].DefaultValue = DesignIDDropDownList.SelectedValue;
             SqlProductInventory.InsertParameters["Manufactured_Date"].DefaultValue = ManufacturedDateTextBox.Text.ToUpper().Trim();
             SqlProductInventory.InsertParameters["Created_Date"].DefaultValue = CreatedDateTextBox.Text.ToUpper().Trim();
             SqlProductInventory.InsertParameters["Product_SKU"].DefaultValue = ProductSKUTextBox.Text.ToUpper().Trim();
+            SqlProductInventory.InsertParameters["Quantity"].DefaultValue = QuantityTextBox.Text.ToUpper().Trim();
             SqlProductInventory.Insert();
             SqlProductInventory.DataBind();
             PaneladdProductInventory.Visible = false;
             PanelgvProductInventory.Visible = true;
-            ProductInventoryTextBox.Text = string.Empty;
-            DesignIDTextBox.Text = string.Empty;
+            InventoryIDDropDownList.SelectedIndex= -1;
+            DesignIDDropDownList.SelectedIndex = -1;
             ManufacturedDateTextBox.Text = string.Empty;
-            ProductIDTextBox.Text = string.Empty;
+            ProductIDDropDownList.SelectedIndex = -1;
             CreatedDateTextBox.Text = string.Empty;
             ProductSKUTextBox.Text = string.Empty;
+            QuantityTextBox.Text = string.Empty;
         }
 
         protected void btnCancelProductInventory_Click(object sender, EventArgs e)

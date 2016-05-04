@@ -22,7 +22,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlRMInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RMInventory] ORDER BY [Inventory_ID]" DeleteCommand="DELETE FROM [RMInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [RMInventory] ([Entry_ID], [Inventory_ID], [RM_ID], [Procurement_Date]) VALUES (@Entry_ID, @Inventory_ID, @RM_ID, @Procurement_Date)" UpdateCommand="UPDATE [RMInventory] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID, [Procurement_Date] = @Procurement_Date WHERE [Entry_ID] = @Entry_ID">
+        <asp:SqlDataSource ID="SqlRMInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RMInventory] ORDER BY [RM_ID]" DeleteCommand="DELETE FROM [RMInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [RMInventory] ([Entry_ID], [Inventory_ID], [RM_ID], [Procurement_Date], [Quantity]) VALUES (@Entry_ID, @Inventory_ID, @RM_ID, @Procurement_Date, @Quantity)" UpdateCommand="UPDATE [RMInventory] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID, [Procurement_Date] = @Procurement_Date, [Quantity] = @Quantity WHERE [Entry_ID] = @Entry_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </DeleteParameters>
@@ -31,26 +31,30 @@
                 <asp:Parameter Name="Inventory_ID" Type="Int16" />
                 <asp:Parameter Name="RM_ID" Type="Int16" />
                 <asp:Parameter Name="Procurement_Date" Type="DateTime" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="Inventory_ID" Type="Int16" />
                 <asp:Parameter Name="RM_ID" Type="Int16" />
                 <asp:Parameter Name="Procurement_Date" Type="DateTime" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
           <div align="center">
+        <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_Name]">
+        </asp:SqlDataSource>
                 <br />
                 <asp:Label ID="lblProductInventory" runat="server" Text="RM Inventory Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvRMInventory" runat="server" style="margin-top: 0px">
                      <asp:Button ID="btnaddRMInventory" runat="server" Text="Add" OnClick="btnaddRMInventory_Click"/>
                     <asp:GridView ID="gvProductInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRMInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" />
                             <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
                              <asp:BoundField DataField="RM_ID" HeaderText="RM_ID" SortExpression="RM_ID" />
                             <asp:BoundField DataField="Procurement_Date" HeaderText="Procurement_Date" SortExpression="Procurement_Date" />
+                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
@@ -64,8 +68,9 @@
                     <br />
                         
                     <br />
-                    <asp:Label ID="lblRMID" runat="server" Text="RM ID:" Width="200px" />
-                    <asp:TextBox ID="RMIDTextBox" runat="server" Width="199px"></asp:TextBox>
+                    <asp:Label ID="lblRMID" runat="server" Text="RM ID:" Width="184px" />
+                    <asp:DropDownList ID="RMIDDropDownList" runat="server" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID" Height="19px" Width="191px">
+                    </asp:DropDownList>
                     
                     <br />
                     <br />
@@ -73,6 +78,9 @@
                     <asp:TextBox ID="ProcurementDateTextBox" runat="server" Width="199px"></asp:TextBox>
                     
                     <br />
+                    <br />
+                    <asp:Label ID="lblQuantity" runat="server" Text="Quantity:" Width="200px" />
+                    <asp:TextBox ID="QuantityTextBox" runat="server" Width="199px"></asp:TextBox>
                     <br />
                     <br />
                     <asp:Button ID="btnSaveRMInventory" ValidationGroup="addAllocatesValidation" runat="server" Text="Save" OnClick="btnSaveRMInventory_Click"/> &nbsp;&nbsp;

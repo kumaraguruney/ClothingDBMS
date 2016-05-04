@@ -31,6 +31,33 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlProductInventory;
         
         /// <summary>
+        /// SqlProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
+        
+        /// <summary>
+        /// SqlInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlInventory;
+        
+        /// <summary>
+        /// SqlDesign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDesign;
+        
+        /// <summary>
         /// lblProductInventory control.
         /// </summary>
         /// <remarks>
@@ -94,13 +121,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblAllocatesInventoryID;
         
         /// <summary>
-        /// ProductInventoryTextBox control.
+        /// InventoryIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductInventoryTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList InventoryIDDropDownList;
         
         /// <summary>
         /// lblProductID control.
@@ -112,13 +139,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblProductID;
         
         /// <summary>
-        /// ProductIDTextBox control.
+        /// ProductIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ProductIDTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList ProductIDDropDownList;
         
         /// <summary>
         /// lblDesignID control.
@@ -130,13 +157,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblDesignID;
         
         /// <summary>
-        /// DesignIDTextBox control.
+        /// DesignIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DesignIDTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList DesignIDDropDownList;
         
         /// <summary>
         /// lblManufacturedDate control.
@@ -245,6 +272,24 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ProductSKUTextBox;
+        
+        /// <summary>
+        /// lblQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuantity;
+        
+        /// <summary>
+        /// QuantityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuantityTextBox;
         
         /// <summary>
         /// btnSaveProductInventory control.
