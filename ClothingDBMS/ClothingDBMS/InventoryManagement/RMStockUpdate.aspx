@@ -17,10 +17,9 @@
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
+          <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
           <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
-          <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
     </div>
   </nav>

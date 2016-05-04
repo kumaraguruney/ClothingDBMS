@@ -22,7 +22,7 @@ namespace ClothingDBMS.InventoryManagement
         protected void btnSaveRMStockUpdate_Click(object sender, EventArgs e)
         {
             //SqlInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
-            SqlRMStockUpdate.InsertParameters["Stock_Movement_ID"].DefaultValue = StockMovementIDDropDownList.SelectedValue;
+            SqlRMStockUpdate.InsertParameters["StockMovement_ID"].DefaultValue = StockMovementIDDropDownList.SelectedValue;
             SqlRMStockUpdate.InsertParameters["RM_ID"].DefaultValue = RMIDDropDownList.SelectedValue;
             SqlRMStockUpdate.InsertParameters["Entry_ID"].DefaultValue = EntryIDDropDownList.SelectedValue;
             SqlRMStockUpdate.Insert();
