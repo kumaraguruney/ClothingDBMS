@@ -19,14 +19,14 @@ namespace ClothingDBMS.ProcurementManagement
             PanelgvTracks.Visible = false;
         }
 
-        protected void btnCancelUpdates_Click(object sender, EventArgs e)
+        protected void btnCancelTracks_Click(object sender, EventArgs e)
         {
             PaneladdTracks.Visible = false;
             PanelgvTracks.Visible = true;
 
         }
 
-        protected void btnSaveUpdates_Click(object sender, EventArgs e)
+        protected void btnSaveTracks_Click(object sender, EventArgs e)
         {
             SqlTracks.InsertParameters["Track_ID"].DefaultValue = txtTrack_ID.Text.ToUpper().Trim();
             SqlTracks.InsertParameters["Inventory_ID"].DefaultValue = txtInventory_ID.Text.ToUpper().Trim();

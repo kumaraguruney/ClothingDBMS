@@ -10,7 +10,7 @@
 namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class Orders {
+    public partial class Updates {
         
         /// <summary>
         /// form2 control.
@@ -22,31 +22,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SqlOrders control.
+        /// SqlUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlOrders;
-        
-        /// <summary>
-        /// SqlPurchaseOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlPurchaseOrder;
-        
-        /// <summary>
-        /// SqlRawMaterial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlUpdate;
         
         /// <summary>
         /// lbUpdatesHeader control.
@@ -58,31 +40,31 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbUpdatesHeader;
         
         /// <summary>
-        /// btnaddOrders control.
+        /// btnaddUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddOrders;
+        protected global::System.Web.UI.WebControls.Button btnaddUpdates;
         
         /// <summary>
-        /// PanelgvOrders control.
+        /// PanelgvUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvOrders;
+        protected global::System.Web.UI.WebControls.Panel PanelgvUpdates;
         
         /// <summary>
-        /// PaneladdOrders control.
+        /// PaneladdUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdOrders;
+        protected global::System.Web.UI.WebControls.Panel PaneladdUpdates;
         
         /// <summary>
         /// lbUpdatesaddTitle control.
@@ -94,75 +76,129 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbUpdatesaddTitle;
         
         /// <summary>
-        /// lbPrvd_id control.
+        /// lbUpdate_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrvd_id;
+        protected global::System.Web.UI.WebControls.Label lbUpdate_id;
         
         /// <summary>
-        /// PurchaseOrderIDDropDownList control.
+        /// txtUpdate_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PurchaseOrderIDDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox txtUpdate_id;
         
         /// <summary>
-        /// rfvPrvd_id control.
+        /// lbReceipt_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
+        protected global::System.Web.UI.WebControls.Label lbReceipt_ID;
         
         /// <summary>
-        /// lbRawMaterial_ID control.
+        /// txtReceipt_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
+        protected global::System.Web.UI.WebControls.TextBox txtReceipt_ID;
         
         /// <summary>
-        /// RMIDDropDownList control.
+        /// lbInventory_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList RMIDDropDownList;
+        protected global::System.Web.UI.WebControls.Label lbInventory_ID;
         
         /// <summary>
-        /// btnSaveOrders control.
+        /// txtInventory_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveOrders;
+        protected global::System.Web.UI.WebControls.TextBox txtInventory_ID;
         
         /// <summary>
-        /// btnCancelOrders control.
+        /// rfvUpdate_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelOrders;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUpdate_id;
         
         /// <summary>
-        /// gvOrders control.
+        /// btnSaveUpdates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvOrders;
+        protected global::System.Web.UI.WebControls.Button btnSaveUpdates;
+        
+        /// <summary>
+        /// btnCancelUpdates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelUpdates;
+        
+        /// <summary>
+        /// gvUpdates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvUpdates;
+        
+        /// <summary>
+        /// form3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form3;
+        
+        /// <summary>
+        /// form4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form4;
+        
+        /// <summary>
+        /// form5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form5;
+        
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }

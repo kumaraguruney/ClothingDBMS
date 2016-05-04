@@ -19,7 +19,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="Track" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Tracks] ORDER BY [Track_ID]" DeleteCommand="DELETE FROM [Tracks] WHERE [Track_ID] = @Track_ID" InsertCommand="INSERT INTO [Tracks] ([Inventory_ID], [RM_ID]) VALUES (@Inventory_ID, @RM_ID)" UpdateCommand="UPDATE [Tracks] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID WHERE [Track_ID] = @Track_ID">
+        <asp:SqlDataSource ID="SqlTracks" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Tracks] ORDER BY [Track_ID]" DeleteCommand="DELETE FROM [Tracks] WHERE [Track_ID] = @Track_ID" InsertCommand="INSERT INTO [Tracks] ([Inventory_ID], [RM_ID]) VALUES (@Inventory_ID, @RM_ID)" UpdateCommand="UPDATE [Tracks] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID WHERE [Track_ID] = @Track_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Track_ID" Type="Int32" />
             </DeleteParameters>
