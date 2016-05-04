@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Updates.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Updates.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.Orders" %>
 
 <!DOCTYPE html>
 
@@ -19,43 +19,43 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="Orders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
+        <asp:SqlDataSource ID="SqlOrders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
         </asp:SqlDataSource>
 
             <div align="center">
-        <asp:SqlDataSource ID="PurchaseOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [purchase_order_id]">
+        <asp:SqlDataSource ID="SqlPurchaseOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [purchase_order_id]">
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="RawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
+        <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_ID]">
         </asp:SqlDataSource>
 
                 <br />
                 <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Button ID="btnaddOrders" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
                 <br /> <br />
-                <asp:Panel ID="PanelgvSupplies" runat="server">
-                    <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
+                <asp:Panel ID="PanelgvOrders" runat="server">
+                    <asp:Panel ID="PaneladdOrders" runat="server" Visible="false">
                         <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
                         <br />
                         <asp:Label ID="lbPrvd_id" runat="server" Text="Purchase_Order_ID: " Width="150px" />
-                        <asp:DropDownList ID="PurchaseOrderIDDropDownList" runat="server" Height="29px" Width="151px">
+                        <asp:DropDownList ID="PurchaseOrderIDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="PurchaseOrder" DataTextField="purchase_order_id" DataValueField="purchase_order_id">
                         </asp:DropDownList>
                         <br />
                         <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <asp:Label ID="lbRawMaterial_ID" runat="server" Text="RawMaterial_ID: " Width="150px" />
-                        <asp:DropDownList ID="RMIDDropDownList" runat="server" Height="29px" Width="151px">
+                        <asp:DropDownList ID="RMIDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="RawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID">
                         </asp:DropDownList>
                         <br />
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveUpdates" runat="server" OnClick="btnSaveSupplier_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <asp:Button ID="btnSaveOrders" runat="server" OnClick="btnSaveOrders_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelUpdates" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelOrders" runat="server" OnClick="btnCancelOrders_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Updates" AutoGenerateColumns="False">
+                    <asp:GridView ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Orders" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="RawMaterial_id" HeaderText="RawMaterial_id" SortExpression="RawMaterial_id" />
                             <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
@@ -65,15 +65,6 @@
                    </asp:Panel>
         </div>
     </form>
-    <form id="form3" runat="server">
-    <div>
     
-    </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
-</body>
+    </body>
 </html>

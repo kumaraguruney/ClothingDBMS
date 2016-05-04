@@ -7,36 +7,36 @@ using System.Web.UI.WebControls;
 
 namespace ClothingDBMS.ProcurementManagement
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class Orders : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void btnaddUpdates_Click(object sender, EventArgs e)
+        protected void btnaddOrders_Click(object sender, EventArgs e)
         {
-            PaneladdUpdates.Visible = true;
-            PanelgvUpdates.Visible = false;
+            PaneladdOrders.Visible = true;
+            PanelgvOrders.Visible = false;
         }
 
-        protected void btnCancelUpdates_Click(object sender, EventArgs e)
+        protected void btnCancelOrders_Click(object sender, EventArgs e)
         {
-            PaneladdUpdates.Visible = false;
-            PanelgvUpdates.Visible = true;
+            PaneladdOrders.Visible = false;
+            PanelgvOrders.Visible = true;
 
         }
 
-        protected void btnSaveUpdates_Click(object sender, EventArgs e)
+        protected void btnSaveOrders_Click(object sender, EventArgs e)
         {
-            SqlUpdates.InsertParameters["Name"].DefaultValue = txtUpdatesName.Text.ToUpper().Trim();
-            SqlUpdates.InsertParameters["Address"].DefaultValue = txtUpdatesAddress.Text.ToUpper().Trim();
+            SqlOrders.InsertParameters["Purchase_Order_ID"].DefaultValue = PurchaseOrderIDDropDownList.SelectedValue;
+            SqlOrders.InsertParameters["RawMaterial_ID"].DefaultValue = RMIDDropDownList.SelectedValue;
 
-            SqlUpdates.Insert();
-            gvUpdates.DataBind();
-            PaneladdUpdates.Visible = false;
-            PanelgvUpdates.Visible = true;
-            txtUpdatesName.Text = string.Empty;
-            txtUpdatesAddress.Text = string.Empty;
+            SqlOrders.Insert();
+            gvOrders.DataBind();
+            PaneladdOrders.Visible = false;
+            PanelgvOrders.Visible = true;
+            PurchaseOrderIDDropDownList.SelectedIndex = -1;
+            RMIDDropDownList.SelectedIndex = -1;
 
         }
     }

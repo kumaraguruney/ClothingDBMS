@@ -10,7 +10,7 @@
 namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class WebForm3 {
+    public partial class Orders {
         
         /// <summary>
         /// form2 control.
@@ -22,31 +22,31 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Orders control.
+        /// SqlOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Orders;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlOrders;
         
         /// <summary>
-        /// PurchaseOrder control.
+        /// SqlPurchaseOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource PurchaseOrder;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlPurchaseOrder;
         
         /// <summary>
-        /// RawMaterial control.
+        /// SqlRawMaterial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource RawMaterial;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
         
         /// <summary>
         /// lbUpdatesHeader control.
@@ -58,31 +58,31 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbUpdatesHeader;
         
         /// <summary>
-        /// btnaddUpdates control.
+        /// btnaddOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddUpdates;
+        protected global::System.Web.UI.WebControls.Button btnaddOrders;
         
         /// <summary>
-        /// PanelgvSupplies control.
+        /// PanelgvOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
+        protected global::System.Web.UI.WebControls.Panel PanelgvOrders;
         
         /// <summary>
-        /// PaneladdUpdates control.
+        /// PaneladdOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdUpdates;
+        protected global::System.Web.UI.WebControls.Panel PaneladdOrders;
         
         /// <summary>
         /// lbUpdatesaddTitle control.
@@ -139,48 +139,30 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.DropDownList RMIDDropDownList;
         
         /// <summary>
-        /// btnSaveUpdates control.
+        /// btnSaveOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveUpdates;
+        protected global::System.Web.UI.WebControls.Button btnSaveOrders;
         
         /// <summary>
-        /// btnCancelUpdates control.
+        /// btnCancelOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelUpdates;
+        protected global::System.Web.UI.WebControls.Button btnCancelOrders;
         
         /// <summary>
-        /// gvSupplies control.
+        /// gvOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSupplies;
-        
-        /// <summary>
-        /// form3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form3;
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.GridView gvOrders;
     }
 }
