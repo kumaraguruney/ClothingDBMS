@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="provides.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Provides.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm2" %>
 
 <!DOCTYPE html>
 
@@ -36,7 +36,7 @@
 
             <div align="center">
                 <br />
-                <asp:Label ID="lbSuppliesHeader" runat="server" Text="Provides Details" Font-Bold="True"></asp:Label> <br /> <br />
+                <asp:Label ID="lbProvidesHeader" runat="server" Text="Provides Details" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Button ID="btnaddProvides" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvSupplies" runat="server">

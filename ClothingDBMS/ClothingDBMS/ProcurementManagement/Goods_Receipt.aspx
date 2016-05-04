@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [goods_receipt]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlGoods_Receipt" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [goods_receipt]"></asp:SqlDataSource>
     
 
     <div align="center">
@@ -19,7 +19,7 @@
         <br />
         <br />
         <asp:Panel ID="pnlGoodsReceipt" runat="server">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="receipt_id" DataSourceID="SqlDataSource1">
+            <asp:GridView ID="gvGoods_Receipt" runat="server" AutoGenerateColumns="False" DataKeyNames="receipt_id" DataSourceID="SqlDataSource1">
                 <Columns>
                     <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" InsertVisible="False" ReadOnly="True" SortExpression="receipt_id" />
                     <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
@@ -38,7 +38,7 @@
             <asp:Label ID="lblAddGoodsTitle" runat="server" Text="Add a Goods Receipt into the Database"></asp:Label><br />
             <br />
             <asp:Label ID="lblPurchaseOrderID" runat="server" Text="Purchase Order ID"></asp:Label>
-            <asp:TextBox ID="txtPurchaseOrderID" runat="server"></asp:TextBox><br />
+            <asp:TextBox ID="txtPurchase_Order_ID" runat="server"></asp:TextBox><br />
             <asp:Label ID="lblReceiptDate" runat="server" Text="Receipt Date:"></asp:Label>
             <asp:TextBox ID="txtReceiptDate" runat="server"></asp:TextBox><br />
             <asp:Label ID="lblSupplierName" runat="server" Text="Supplier Name:"></asp:Label>

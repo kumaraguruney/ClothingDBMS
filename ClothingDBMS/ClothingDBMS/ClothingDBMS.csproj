@@ -193,7 +193,7 @@
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProcurementManagement\Purchase_Order.aspx" />
-    <Content Include="ProcurementManagement\provides.aspx" />
+    <Content Include="ProcurementManagement\Provides.aspx" />
     <Content Include="ProcurementManagement\Orders.aspx" />
     <Content Include="ProcurementManagement\Tracks.aspx" />
     <Content Include="ProcurementManagement\Updates.aspx" />
@@ -276,6 +276,13 @@
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.cs">
+      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\Goods_Receipt.aspx.designer.cs">
+      <DependentUpon>Goods_Receipt.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProcurementManagement\Supplies.aspx.cs">
       <DependentUpon>Supplies.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,12 +311,12 @@
     <Compile Include="ProcurementManagement\Purchase_Order.aspx.designer.cs">
       <DependentUpon>Purchase_Order.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProcurementManagement\provides.aspx.cs">
-      <DependentUpon>provides.aspx</DependentUpon>
+    <Compile Include="ProcurementManagement\Provides.aspx.cs">
+      <DependentUpon>Provides.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProcurementManagement\provides.aspx.designer.cs">
-      <DependentUpon>provides.aspx</DependentUpon>
+    <Compile Include="ProcurementManagement\Provides.aspx.designer.cs">
+      <DependentUpon>Provides.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>

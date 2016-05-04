@@ -32,28 +32,43 @@ namespace ClothingDBMS.ProcurementManagement
         }
         protected void btnaddGoods_Receipt_Click(object sender, EventArgs e)
         {
-            PaneladdGoods_Receipt.Visible = true;
-            PanelgvGoods_Receipt.Visible = false;
+            pnlAddGoodsReceipt.Visible = true;
+            pnlGoodsReceipt.Visible = false;
         }
 
         protected void btnCancelGoods_Receipt_Click(object sender, EventArgs e)
         {
-            PaneladdGoods_Receipt.Visible = false;
-            PanelgvGoods_Receipt.Visible = true;
+            pnlAddGoodsReceipt.Visible = false;
+            pnlGoodsReceipt.Visible = true;
 
         }
 
         protected void btnSaveGoods_Receipt_Click(object sender, EventArgs e)
         {
-            SqlGoods_Receipt.InsertParameters["Name"].DefaultValue = txtGoods_ReceiptName.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Address"].DefaultValue = txtGoods_ReceiptAddress.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Purchase_Order_ID"].DefaultValue = txtPurchase_Order_ID.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Receipt_Date"].DefaultValue = txtReceiptDate.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Supplier_Name"].DefaultValue = txtSupplierName.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Delivery_Location"].DefaultValue = txtDeliveryLocation.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Item_Code"].DefaultValue = txtItemCode.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Delivered_Quantity"].DefaultValue = txtDeliveredQty.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Ordered_Quantity"].DefaultValue = txtOrderedQty.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Unit_Price"].DefaultValue = txtUnitPrice.Text.ToUpper().Trim();
+            SqlGoods_Receipt.InsertParameters["Total_Price"].DefaultValue = txtTotalPrice.Text.ToUpper().Trim();
 
             SqlGoods_Receipt.Insert();
             gvGoods_Receipt.DataBind();
-            PaneladdGoods_Receipt.Visible = false;
-            PanelgvGoods_Receipt.Visible = true;
-            txtGoods_ReceiptName.Text = string.Empty;
-            txtGoods_ReceiptAddress.Text = string.Empty;
+            pnlAddGoodsReceipt.Visible = false;
+            pnlGoodsReceipt.Visible = true;
+            txtPurchase_Order_ID.Text = string.Empty;
+            txtReceiptDate.Text = string.Empty;
+            txtSupplierName.Text = string.Empty;
+            txtDeliveryLocation.Text = string.Empty;
+            txtItemCode.Text = string.Empty;
+            txtDeliveredQty.Text = string.Empty;
+            txtOrderedQty.Text = string.Empty;
+            txtUnitPrice.Text = string.Empty;
+            txtTotalPrice.Text = string.Empty;
+      
 
         }
     }
