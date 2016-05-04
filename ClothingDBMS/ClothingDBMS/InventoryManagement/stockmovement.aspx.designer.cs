@@ -31,6 +31,15 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlStockMovement;
         
         /// <summary>
+        /// SqlWarehouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlWarehouse;
+        
+        /// <summary>
         /// lblStockMovement control.
         /// </summary>
         /// <remarks>
@@ -94,13 +103,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblStockMovementFromWarehouse;
         
         /// <summary>
-        /// fromWhereHouseTextbox control.
+        /// FromWarehouseDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fromWhereHouseTextbox;
+        protected global::System.Web.UI.WebControls.DropDownList FromWarehouseDropDownList;
         
         /// <summary>
         /// lblStockMovementToWarehouse control.
@@ -112,13 +121,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblStockMovementToWarehouse;
         
         /// <summary>
-        /// ToWarehouseTextBox control.
+        /// ToWarehouseDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ToWarehouseTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList ToWarehouseDropDownList;
         
         /// <summary>
         /// btnSaveStockMovement control.

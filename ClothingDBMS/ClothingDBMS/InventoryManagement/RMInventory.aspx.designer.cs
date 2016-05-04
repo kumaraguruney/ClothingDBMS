@@ -31,6 +31,15 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlRMInventory;
         
         /// <summary>
+        /// SqlRawMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
+        
+        /// <summary>
         /// lblProductInventory control.
         /// </summary>
         /// <remarks>
@@ -112,13 +121,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblRMID;
         
         /// <summary>
-        /// RMIDTextBox control.
+        /// RMIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RMIDTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList RMIDDropDownList;
         
         /// <summary>
         /// lblProcurementDate control.
@@ -137,6 +146,24 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ProcurementDateTextBox;
+        
+        /// <summary>
+        /// lblQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblQuantity;
+        
+        /// <summary>
+        /// QuantityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuantityTextBox;
         
         /// <summary>
         /// btnSaveRMInventory control.

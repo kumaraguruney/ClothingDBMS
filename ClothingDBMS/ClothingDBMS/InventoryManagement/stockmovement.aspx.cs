@@ -23,21 +23,26 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void btnSaveStockMovement_Click(object sender, EventArgs e)
         {
-            SqlStockMovement.InsertParameters["from_warehouse_id"].DefaultValue =  fromWhereHouseTextbox.Text.ToUpper().Trim();
-            SqlStockMovement.InsertParameters["to_warehouse_id"].DefaultValue = ToWarehouseTextBox.Text.ToUpper().Trim();
+            SqlStockMovement.InsertParameters["from_warehouse_id"].DefaultValue = FromWarehouseDropDownList.SelectedValue;
+            SqlStockMovement.InsertParameters["to_warehouse_id"].DefaultValue = ToWarehouseDropDownList.SelectedValue;
             
             SqlStockMovement.Insert();
             gvStockMovement.DataBind();
             PaneladdStockMovement.Visible = false;
             PanelgvStockMovement.Visible = true;
-            fromWhereHouseTextbox.Text = string.Empty;
-            ToWarehouseTextBox.Text = string.Empty;
+            FromWarehouseDropDownList.SelectedIndex = -1;
+            ToWarehouseDropDownList.SelectedIndex = -1;
         }
 
         protected void btnCancelStockMovement_Click(object sender, EventArgs e)
         {
             PaneladdStockMovement.Visible = false;
             PanelgvStockMovement.Visible = true;
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,6 +17,8 @@
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
+          <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
+          <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
@@ -37,6 +39,8 @@
             </UpdateParameters>
         </asp:SqlDataSource>
           <div align="center">
+        <asp:SqlDataSource ID="SqlWarehouse" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Warehouse] ORDER BY [contact_number]">
+        </asp:SqlDataSource>
                 <br />
                 <asp:Label ID="lblStockMovement" runat="server" Text="Stock Movement" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Panel ID="PanelgvStockMovement" runat="server">
@@ -69,16 +73,16 @@
                 <asp:Panel ID="PaneladdStockMovement" Visible="false" runat="server">
                 <asp:Label ID="lblAllocatesWarehouseDetails" Text="Stock Movement Details" runat="server" /><br /> <br />
                     <asp:Label ID="lblStockMovementFromWarehouse" runat="server" Text="From Warehouse :" Width="200px" />
-                    <asp:TextBox ID="fromWhereHouseTextbox" runat="server" Width="199px"></asp:TextBox>
+                    <asp:DropDownList ID="FromWarehouseDropDownList" runat="server" DataSourceID="SqlWarehouse" DataTextField="Warehouse_Name" DataValueField="Warehouse_ID" Height="24px" Width="182px">
+                    </asp:DropDownList>
                         
                     <br />
                     <br />
                     <asp:Label ID="lblStockMovementToWarehouse" Width="200px" Text="To Warehouse :" runat="server" />
-                    <asp:TextBox ID="ToWarehouseTextBox" runat="server" Width="199px"></asp:TextBox>
-                    
+                    <asp:DropDownList ID="ToWarehouseDropDownList" runat="server" DataSourceID="SqlWarehouse" DataTextField="Warehouse_Name" DataValueField="Warehouse_ID" Height="39px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Width="170px">
+                    </asp:DropDownList>
                     <br />
                     <br />
-                    
                     <br />
                     <br />
                     <br />
