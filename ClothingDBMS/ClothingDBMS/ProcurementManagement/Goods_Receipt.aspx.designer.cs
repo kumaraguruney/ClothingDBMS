@@ -22,13 +22,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlDataSource1 control.
+        /// SqlGoods_Receipt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlGoods_Receipt;
         
         /// <summary>
         /// lblGoodsReceipt control.
@@ -58,13 +58,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Panel pnlGoodsReceipt;
         
         /// <summary>
-        /// GridView1 control.
+        /// gvGoods_Receipt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvGoods_Receipt;
         
         /// <summary>
         /// pnlAddGoodsReceipt control.
@@ -94,13 +94,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lblPurchaseOrderID;
         
         /// <summary>
-        /// txtPurchaseOrderID control.
+        /// txtPurchase_Order_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchaseOrderID;
+        protected global::System.Web.UI.WebControls.TextBox txtPurchase_Order_ID;
         
         /// <summary>
         /// lblReceiptDate control.

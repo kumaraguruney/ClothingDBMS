@@ -22,13 +22,31 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// Updates control.
+        /// Orders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Updates;
+        protected global::System.Web.UI.WebControls.SqlDataSource Orders;
+        
+        /// <summary>
+        /// PurchaseOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource PurchaseOrder;
+        
+        /// <summary>
+        /// RawMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource RawMaterial;
         
         /// <summary>
         /// lbUpdatesHeader control.
@@ -85,13 +103,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbPrvd_id;
         
         /// <summary>
-        /// txtPurchase_Order_id control.
+        /// PurchaseOrderIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPurchase_Order_id;
+        protected global::System.Web.UI.WebControls.DropDownList PurchaseOrderIDDropDownList;
         
         /// <summary>
         /// rfvPrvd_id control.
@@ -101,6 +119,24 @@ namespace ClothingDBMS.ProcurementManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
+        
+        /// <summary>
+        /// lbRawMaterial_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
+        
+        /// <summary>
+        /// RMIDDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList RMIDDropDownList;
         
         /// <summary>
         /// btnSaveUpdates control.

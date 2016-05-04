@@ -19,7 +19,7 @@ namespace ClothingDBMS.InventoryManagement
             PanelgvRMStockUpdate.Visible = false;
         }
 
-        protected void btnSaveProductStockUpdate_Click(object sender, EventArgs e)
+        protected void btnSaveRMStockUpdate_Click(object sender, EventArgs e)
         {
             //SqlInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
             SqlRMStockUpdate.InsertParameters["Stock_Movement_ID"].DefaultValue = StockMovementIDDropDownList.SelectedValue;
@@ -34,7 +34,7 @@ namespace ClothingDBMS.InventoryManagement
             EntryIDDropDownList.SelectedIndex = -1;
         }
 
-        protected void btnCancelInventory_Click(object sender, EventArgs e)
+        protected void btnCancelRMStockUpdate_Click(object sender, EventArgs e)
         {
             PaneladdRMStockUpdate.Visible = false;
             PanelgvRMStockUpdate.Visible = true;
