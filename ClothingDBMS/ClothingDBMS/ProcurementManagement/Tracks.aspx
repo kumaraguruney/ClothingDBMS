@@ -19,23 +19,35 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="Orders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
+        <asp:SqlDataSource ID="Track" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Tracks] ORDER BY [Track_ID]" DeleteCommand="DELETE FROM [Tracks] WHERE [Track_ID] = @Track_ID" InsertCommand="INSERT INTO [Tracks] ([Inventory_ID], [RM_ID]) VALUES (@Inventory_ID, @RM_ID)" UpdateCommand="UPDATE [Tracks] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID WHERE [Track_ID] = @Track_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="Track_ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Inventory_ID" Type="Int32" />
+                <asp:Parameter Name="RM_ID" Type="Int16" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Inventory_ID" Type="Int32" />
+                <asp:Parameter Name="RM_ID" Type="Int16" />
+                <asp:Parameter Name="Track_ID" Type="Int32" />
+            </UpdateParameters>
         </asp:SqlDataSource>
 
             <div align="center">
                 <br />
-                <asp:Label ID="lbOrdersHeader" runat="server" Text="Orders Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddOrders" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Label ID="lbOrdersHeader" runat="server" Text="Tracks Details" Font-Bold="True"></asp:Label> <br /> <br />
+                <asp:Button ID="btnaddTracks" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvSupplies" runat="server">
-                    <asp:Panel ID="PaneladdOrders" runat="server" Visible="false">
-                        <asp:Label ID="lbOrdersaddTitle" runat="server" Text="Add Orders into Database" />
+                    <asp:Panel ID="PaneladdTracks" runat="server" Visible="false">
+                        <asp:Label ID="lbTracksaddTitle" runat="server" Text="Add Tracks into Database" />
                         <br />
-                        <asp:Label ID="lbPrvd_id" runat="server" Text="Purchase_Order_ID: " Width="150px" />
+                        <asp:Label ID="lbPrvd_id" runat="server" Text="Track_ID: " Width="150px" />
                         <br />
-                        <asp:TextBox ID="txtPurchase_Order_id" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        <asp:TextBox ID="txtTrack_id" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvTrack_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <br />
@@ -46,10 +58,11 @@
                         &nbsp;&nbsp;
                         <asp:Button ID="btnCancelOrders" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Orders" AutoGenerateColumns="False">
+                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Orders" AutoGenerateColumns="False" DataKeyNames="Track_ID">
                         <Columns>
-                            <asp:BoundField DataField="RawMaterial_id" HeaderText="RawMaterial_id" SortExpression="RawMaterial_id" />
-                            <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
+                            <asp:BoundField DataField="Track_ID" HeaderText="Track_ID" SortExpression="Track_ID" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
+                            <asp:BoundField DataField="RM_ID" HeaderText="RM_ID" SortExpression="RM_ID" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm3" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Updates.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm3" %>
 
 <!DOCTYPE html>
 
@@ -19,17 +19,17 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="Orders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
+        <asp:SqlDataSource ID="Updates" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [purchase_order_id]">
         </asp:SqlDataSource>
 
             <div align="center">
                 <br />
-                <asp:Label ID="lbOrdersHeader" runat="server" Text="Orders Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddOrders" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
+                <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvSupplies" runat="server">
-                    <asp:Panel ID="PaneladdOrders" runat="server" Visible="false">
-                        <asp:Label ID="lbOrdersaddTitle" runat="server" Text="Add Orders into Database" />
+                    <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
+                        <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
                         <br />
                         <asp:Label ID="lbPrvd_id" runat="server" Text="Purchase_Order_ID: " Width="150px" />
                         <br />
@@ -42,11 +42,11 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveOrders" runat="server" OnClick="btnSaveSupplier_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <asp:Button ID="btnSaveUpdates" runat="server" OnClick="btnSaveSupplier_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelOrders" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelUpdates" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Orders" AutoGenerateColumns="False">
+                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Updates" AutoGenerateColumns="False">
                         <Columns>
                             <asp:BoundField DataField="RawMaterial_id" HeaderText="RawMaterial_id" SortExpression="RawMaterial_id" />
                             <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
