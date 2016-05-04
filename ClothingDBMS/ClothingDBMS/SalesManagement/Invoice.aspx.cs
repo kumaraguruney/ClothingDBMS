@@ -41,5 +41,7 @@ namespace SalesManagement.Sales
             panelAddInvoice.Visible = false;
             panelSaveInvoice.Visible = true;
         }
+
+    
     }
 }

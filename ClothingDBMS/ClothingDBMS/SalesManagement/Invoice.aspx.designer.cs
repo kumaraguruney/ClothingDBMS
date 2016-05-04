@@ -22,13 +22,40 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// lblInvoice control.
+        /// SqlDataSourceShipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInvoice;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceShipment;
+        
+        /// <summary>
+        /// SqlDataSourceSalesOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceSalesOrder;
+        
+        /// <summary>
+        /// SqlDataSourceProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
+        
+        /// <summary>
+        /// SqlDataSourcePayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePayment;
         
         /// <summary>
         /// SqlDataSourceInvoice control.
@@ -40,6 +67,15 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceInvoice;
         
         /// <summary>
+        /// lblInvoice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInvoice;
+        
+        /// <summary>
         /// panelAddInvoice control.
         /// </summary>
         /// <remarks>
@@ -47,6 +83,15 @@ namespace SalesManagement.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panelAddInvoice;
+        
+        /// <summary>
+        /// lblInvoiceaddTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInvoiceaddTitle;
         
         /// <summary>
         /// lblShipmentId control.

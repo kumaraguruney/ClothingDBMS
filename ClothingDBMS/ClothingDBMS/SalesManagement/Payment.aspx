@@ -4,27 +4,61 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Payment Information</title>
+        <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Kumaraguru" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../css/the-big-picture.css" rel="stylesheet" />
+    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- ============ Google fonts ============ -->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
+        type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
+        rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <form id="form1" runat="server">
-                <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Sales Managment - Home</a></li>
-        <li><a href="Customer.aspx">Customer Management</a></li>
-          <li><a href="Invoice.aspx">Invoice Management</a></li>
-          <li><a href="Payment.aspx">Payment Management</a></li>
-          <li><a href="Quotation.aspx">Quotation Management</a></li>
-          <li><a href="SalesOrder.aspx">Sales Order Management</a></li>
-          <li><a href="Shipment.aspx">Shipment Management</a></li>
-       </ul>
+          <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+          <li><a href="../Index.aspx">Home</a></li>
+          <li><a href="Default.aspx">Sales Managment - Home</a></li>
+          <li><a href="Customer.aspx">Customer</a></li>
+          <li><a href="Invoice.aspx">Invoice</a></li>
+          <li><a href="Payment.aspx">Payment</a></li>
+          <li><a href="Quotation.aspx">Quotation</a></li>
+          <li><a href="SalesOrder.aspx">Sales Order</a></li>
+          <li><a href="Shipment.aspx">Shipment</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </nav>
-        <div align="center">
-        <br/>
-        <asp:Label ID="lblPayment" runat="server" Text="Payment Management" Font-Bold="true"></asp:Label>
+
          <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Paymeny_Date], [Acct_Id], [Status_Info]) VALUES (@Paymeny_Date, @Acct_Id, @Status_Info)" UpdateCommand="UPDATE [PAYMENT] SET [Paymeny_Date] = @Paymeny_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info WHERE [Payment_Id] = @Payment_Id">
              <DeleteParameters>
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
@@ -41,34 +75,68 @@
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
              </UpdateParameters>
          </asp:SqlDataSource>
+        <div style="margin-top:100px;" align="center">
+        <br/>
+        <asp:Label ID="lblPayment" runat="server" Text="Payment Management" Font-Bold="true"></asp:Label>  <br /> <br />
+            <asp:Panel ID="panelSavePayment" Visible="true" runat="server">
+            <asp:Button ID="btnAdd" CssClass="bg-primary" runat="server" Text="Add" OnClick="btnAdd_Click" />
+            <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False" DataKeyNames="Payment_Id" DataSourceID="SqlDataSourcePayment" AllowSorting="True"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+            <Columns>
+                <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
+              
+                <asp:BoundField DataField="Payment_Id" HeaderText="Payment ID" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
+
+                <asp:BoundField DataField="Paymeny_Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Paymeny Date" SortExpression="Paymeny_Date" />
+
+                <asp:BoundField DataField="Acct_Id" HeaderText="Account ID" SortExpression="Acct_Id" />
+
+                <asp:BoundField DataField="Status_Info" HeaderText="Status Info" SortExpression="Status_Info" />
+                 <asp:TemplateField HeaderText="Delete" ShowHeader="False">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
+                                </ItemTemplate>
+                 </asp:TemplateField>
+            </Columns>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <EditRowStyle BackColor="Yellow"/>
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+        </asp:GridView>
+            </asp:Panel>
+
     
         <asp:Panel ID="panelAddPayment" Visible="false" runat="server">
                     <asp:Label ID="lblAcctId" Width="200" Text="Account ID: " runat="server" />
-                    <asp:DropDownList ID="dropAcctId" runat="server" DataSourceID="SqlDataSource" DataTextField="Acct_Id" DataValueField="Acct_Id"></asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvAcctId" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="dropAcctId" ErrorMessage="(*) One Account ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-            
-                    <br /> <br />
-        <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
-        <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" /> 
+   
+                    <asp:TextBox ID="Account_Id" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addPaymentValidation" runat="server" ControlToValidate="Account_Id" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RegularExpressionValidator ValidationGroup="addCustomerValidation" ID="revAllocatesTime" runat="server" ControlToValidate="Account_Id"
+                                 ErrorMessage=" (*) eg:0123456, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
+					<br /> <br />
+             <asp:Label ID="lblPaymentStatus" Width="200" Text="Payment Status: " runat="server" />
+                    <asp:DropDownList ID="PaymentStatus" runat="server" AutoPostBack="True" AppendDataBoundItems ="True">
+                         <asp:ListItem Text="-- Payment Status --" Value="-1"></asp:ListItem>
+                         <asp:ListItem Text="Paid" Value="Paid"></asp:ListItem>
+                        <asp:ListItem Text="UnPaid" Value="UnPaid"></asp:ListItem>
+                        <asp:ListItem Text="Partially Paid" Value="Partially Paid"></asp:ListItem>
+                        <asp:ListItem Text="Partially Paid" Value="Defaulted"></asp:ListItem>
+                    </asp:DropDownList>
+            <br /> <br />
+
+        <asp:Button ID="btnSave" CssClass="bg-primary" ValidationGroup="addPaymentValidation" runat="server" Text="Save" OnClick="btnSave_Click" />
+        <asp:Button ID="btnCancel" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancel_Click" /> 
             <br/>     
-         Account ID: <asp:TextBox ID="Acct_Id" runat="server" style="margin-top: 0px"></asp:TextBox>
-         Status Info: <asp:TextBox ID="Status_Info" runat="server" style="margin-top: 0px"></asp:TextBox>          
-        </asp:Panel>
+                                
+       </asp:Panel>
     
-    </div>
-        <asp:Panel ID="panelSavePayment" Visible="true" runat="server">
-            <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
-            <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False" DataKeyNames="Payment_Id" DataSourceID="SqlDataSourcePayment" AllowSorting="True">
-            <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                <asp:BoundField DataField="Payment_Id" HeaderText="Payment_Id" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
-                <asp:BoundField DataField="Paymeny_Date" HeaderText="Paymeny_Date" SortExpression="Paymeny_Date" />
-                <asp:BoundField DataField="Acct_Id" HeaderText="Acct_Id" SortExpression="Acct_Id" />
-                <asp:BoundField DataField="Status_Info" HeaderText="Status_Info" SortExpression="Status_Info" />
-            </Columns>
-        </asp:GridView>
-            </asp:Panel>
-       
+
+
+          </div> 
     </form>
 </body>
 </html>
