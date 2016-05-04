@@ -119,7 +119,7 @@
 
         <asp:Panel ID="panelAddCustomer" Visible="false" runat="server" >
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="lblCustomer" runat="server" Text="Enter New Customer Details" Font-Bold="True" Font-Size="X-Large" Font-Underline ="True"></asp:Label>
+        <asp:Label ID="lblCustomer" runat="server" Text="Enter New Customer Details" Font-Bold="True"></asp:Label>
             <br/> <br/>
             <asp:Label ID="lbCustomerName" Width="200" Text="Customer Name: " runat="server" />
             <asp:TextBox ID="Customer_Name" runat="server" style="margin-top: 0px"></asp:TextBox><br />

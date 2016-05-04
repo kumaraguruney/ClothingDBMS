@@ -85,13 +85,13 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.Label lblAcctId;
         
         /// <summary>
-        /// Account_Id control.
+        /// Acct_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Account_Id;
+        protected global::System.Web.UI.WebControls.TextBox Acct_Id;
         
         /// <summary>
         /// rfvAllocatesTime control.
@@ -112,13 +112,13 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revAllocatesTime;
         
         /// <summary>
-        /// lblPaymentStatus control.
+        /// lblStatusInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentStatus;
+        protected global::System.Web.UI.WebControls.Label lblStatusInfo;
         
         /// <summary>
         /// PaymentStatus control.

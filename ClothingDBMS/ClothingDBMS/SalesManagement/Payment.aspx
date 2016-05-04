@@ -113,12 +113,12 @@
         <asp:Panel ID="panelAddPayment" Visible="false" runat="server">
                     <asp:Label ID="lblAcctId" Width="200" Text="Account ID: " runat="server" />
    
-                    <asp:TextBox ID="Account_Id" runat="server" style="margin-top: 0px"></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addPaymentValidation" runat="server" ControlToValidate="Account_Id" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
-                    <asp:RegularExpressionValidator ValidationGroup="addCustomerValidation" ID="revAllocatesTime" runat="server" ControlToValidate="Account_Id"
+                    <asp:TextBox ID="Acct_Id" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addPaymentValidation" runat="server" ControlToValidate="Acct_Id" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RegularExpressionValidator ValidationGroup="addPaymentValidation" ID="revAllocatesTime" runat="server" ControlToValidate="Acct_Id"
                                  ErrorMessage=" (*) eg:0123456, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
 					<br /> <br />
-             <asp:Label ID="lblPaymentStatus" Width="200" Text="Payment Status: " runat="server" />
+             <asp:Label ID="lblStatusInfo" Width="200" Text="Payment Status: " runat="server" />
                     <asp:DropDownList ID="PaymentStatus" runat="server" AutoPostBack="True" AppendDataBoundItems ="True">
                          <asp:ListItem Text="-- Payment Status --" Value="-1"></asp:ListItem>
                          <asp:ListItem Text="Paid" Value="Paid"></asp:ListItem>

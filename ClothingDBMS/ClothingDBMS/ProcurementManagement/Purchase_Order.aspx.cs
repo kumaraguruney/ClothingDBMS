@@ -16,8 +16,8 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnaddPurchase_Order_Click(object sender, EventArgs e)
         {
-            PaneladdPurchase_Order.Visible = true;
-            PanelgvPurchase_Order.Visible = false;
+            .Visible = true;
+            P.Visible = false;
         }
 
         protected void btnCancelPurchase_Order_Click(object sender, EventArgs e)

@@ -38,26 +38,31 @@
           <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="../Index.aspx">NTL</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL
+                </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
+
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
           <li><a href="../Index.aspx">Home</a></li>
           <li><a href="Default.aspx">Sales Managment - Home</a></li>
-          <li><a href="Customer.aspx">Customer Management</a></li>
-          <li><a href="Invoice.aspx">Invoice Management</a></li>
-          <li><a href="Payment.aspx">Payment Management</a></li>
-          <li><a href="Quotation.aspx">Quotation Management</a></li>
-          <li><a href="SalesOrder.aspx">Sales Order Management</a></li>
-          <li><a href="Shipment.aspx">Shipment Management</a></li>
+          <li><a href="Customer.aspx">Customer </a></li>
+          <li><a href="Invoice.aspx">Invoice </a></li>
+          <li><a href="Payment.aspx">Payment </a></li>
+          <li><a href="Quotation.aspx">Quotation </a></li>
+          <li><a href="SalesOrder.aspx">Sales Order </a></li>
+          <li><a href="Shipment.aspx">Shipment </a></li>
                 </ul>
             </div>
         </div>
     </div>
+                <asp:SqlDataSource ID="SqlDataSourceCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [CUSTOMER] ORDER BY [Customer_Name]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSourceSalesOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [SALES_ORDER] ORDER BY [Sorder_Number]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSourceInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Inventory] ORDER BY [Inventory_Name]"></asp:SqlDataSource>
          <asp:SqlDataSource ID="SqlDataSourceShipment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [SHIPMENT]" DeleteCommand="DELETE FROM [SHIPMENT] WHERE [Shipment_Id] = @Shipment_Id" InsertCommand="INSERT INTO [SHIPMENT] ([Shipment_Date], [Sorder_Number], [Inventory_Id], [Customer_Id], [Due_Date]) VALUES (@Shipment_Date, @Sorder_Number, @Inventory_Id, @Customer_Id, @Due_Date)" UpdateCommand="UPDATE [SHIPMENT] SET [Shipment_Date] = @Shipment_Date, [Sorder_Number] = @Sorder_Number, [Inventory_Id] = @Inventory_Id, [Customer_Id] = @Customer_Id, [Due_Date] = @Due_Date WHERE [Shipment_Id] = @Shipment_Id">
             <DeleteParameters>
                 <asp:Parameter Name="Shipment_Id" Type="Int32" />
@@ -82,10 +87,11 @@
             <div style="margin-top:100px;"  align="center">
               
       
-        <asp:Label ID="lblShipment" runat="server" Text="Shipment Management" Font-Bold="true"></asp:Label>
+        <asp:Label ID="lblShipment" runat="server" Text="Shipment Management" Font-Bold="true"></asp:Label><br/><br/>
     
   
         <asp:Panel ID="panelAddShipment" Visible="false" runat="server">
+            <asp:Label ID="Label1" runat="server" Text="Enter New Shipment Information" Font-Bold="true"></asp:Label><br/>
                     <asp:Label ID="lblSorderNo" Width="200" Text="Sales order Number: " runat="server" />
                     <asp:DropDownList ID="dropSalesOrderNo" runat="server" DataSourceID="SqlDataSourceSalesOrder" DataTextField="Sorder_Number" DataValueField="Sorder_Number">
                         <asp:ListItem Text="-- Sales Order Number --" Value="-1"></asp:ListItem>
@@ -96,7 +102,7 @@
                         <asp:ListItem Text="-- Inventory ID --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvdropInventoryId" ValidationGroup="addShipmentValidation" runat="server" ControlToValidate="dropInventoryId" ErrorMessage="(*) One Inventory ID should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-                    <asp:Label ID="lblCustomerId" Width="200" Text="Inventory Id: " runat="server" />
+                    <asp:Label ID="lblCustomerId" Width="200" Text="Customer Id: " runat="server" />
                     <asp:DropDownList ID="dropCustomerId" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Id" DataValueField="Customer_Id">
                         <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
@@ -108,8 +114,9 @@
          </asp:Panel> 
     
         <asp:Panel ID="panelSaveShipment" Visible="true" runat="server">
-            <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
-            <asp:GridView ID="GridViewShipment" runat="server" AutoGenerateColumns="False" DataKeyNames="Shipment_Id" DataSourceID="SqlDataSourceShipment" AllowSorting="True">
+            <asp:Button ID="btnAdd"  CssClass="bg-primary" runat="server" Text="Add" OnClick="btnAdd_Click" />
+            <asp:GridView ID="GridViewShipment" runat="server" AutoGenerateColumns="False" DataKeyNames="Shipment_Id" DataSourceID="SqlDataSourceShipment" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
                     <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
   

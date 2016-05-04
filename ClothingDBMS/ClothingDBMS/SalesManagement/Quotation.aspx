@@ -142,7 +142,6 @@
                     <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:RegularExpressionValidator ValidationGroup="addQuotationValidation" ID="revAllocatesTime" runat="server" ControlToValidate="Quantity"
                                  ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
-					<br /> <br />
 
                     <asp:Label ID="lblProductId" Width="200" Text="Product ID: " runat="server" />
                     <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Id" DataValueField="Product_Id">
