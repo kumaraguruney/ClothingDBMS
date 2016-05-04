@@ -102,7 +102,7 @@
                     <asp:RequiredFieldValidator ID="rfvQuotationNumber" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropQuotationNumber" ErrorMessage="(*) One Quotation Number should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
 
               <asp:Label ID="lblProductId" Width="200" Text="Product ID: " runat="server" />
-                    <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Id" DataValueField="Product_Id">
+                    <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Description" DataValueField="Product_ID">
                         <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvProductId" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
