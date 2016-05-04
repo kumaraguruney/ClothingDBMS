@@ -17,33 +17,35 @@
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
+            <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
           <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
-          <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="StockUpdate.aspx">Stock Update</a></li>
+        
+          
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlRMInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RMInventory] ORDER BY [RM_ID]" DeleteCommand="DELETE FROM [RMInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [RMInventory] ([Entry_ID], [Inventory_ID], [RM_ID], [Procurement_Date], [Quantity]) VALUES (@Entry_ID, @Inventory_ID, @RM_ID, @Procurement_Date, @Quantity)" UpdateCommand="UPDATE [RMInventory] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID, [Procurement_Date] = @Procurement_Date, [Quantity] = @Quantity WHERE [Entry_ID] = @Entry_ID">
+        <asp:SqlDataSource ID="SqlRMInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RMInventory] ORDER BY [Entry_ID]" DeleteCommand="DELETE FROM [RMInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [RMInventory] ([Inventory_ID], [RM_ID], [Procurement_Date], [Quantity]) VALUES (@Inventory_ID, @RM_ID, @Procurement_Date, @Quantity)" UpdateCommand="UPDATE [RMInventory] SET [Inventory_ID] = @Inventory_ID, [RM_ID] = @RM_ID, [Procurement_Date] = @Procurement_Date, [Quantity] = @Quantity WHERE [Entry_ID] = @Entry_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
                 <asp:Parameter Name="Inventory_ID" Type="Int16" />
                 <asp:Parameter Name="RM_ID" Type="Int16" />
-                <asp:Parameter Name="Procurement_Date" Type="DateTime" />
+                <asp:Parameter Name="Procurement_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="Inventory_ID" Type="Int16" />
                 <asp:Parameter Name="RM_ID" Type="Int16" />
-                <asp:Parameter Name="Procurement_Date" Type="DateTime" />
+                <asp:Parameter Name="Procurement_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
           <div align="center">
+        <asp:SqlDataSource ID="SqlInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Inventory] ORDER BY [Inventory_ID]">
+        </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_Name]">
         </asp:SqlDataSource>
                 <br />
@@ -52,7 +54,7 @@
                      <asp:Button ID="btnaddRMInventory" runat="server" Text="Add" OnClick="btnaddRMInventory_Click"/>
                     <asp:GridView ID="gvProductInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRMInventory" AutoGenerateColumns="False" DataKeyNames="Entry_ID">
                         <Columns>
-                            <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" />
+                            <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" InsertVisible="False" />
                             <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
                              <asp:BoundField DataField="RM_ID" HeaderText="RM_ID" SortExpression="RM_ID" />
                             <asp:BoundField DataField="Procurement_Date" HeaderText="Procurement_Date" SortExpression="Procurement_Date" />
@@ -65,7 +67,8 @@
                 <asp:Panel ID="PaneladdRMInventory" Visible="false" runat="server">
                 <asp:Label ID="lblRMInventoryDetails" Text="Enter RM Inventory Details" runat="server" /><br /> <br />
                     <asp:Label ID="lblRMInventoryID" runat="server" Text="Inventory ID:" Width="200px" />
-                    <asp:TextBox ID="RMInventoryTextBox" runat="server" Width="199px"></asp:TextBox>
+                    <asp:DropDownList ID="InventoryIDDropDownList" runat="server" DataSourceID="SqlInventory" DataTextField="Inventory_Name" DataValueField="Inventory_ID" Height="20px" Width="185px">
+                    </asp:DropDownList>
                         
                     <br />
                         
@@ -79,7 +82,7 @@
                     <asp:Label ID="lblProcurementDate" runat="server" Text="Procurement Date:" Width="200px" />
                     <asp:TextBox ID="ProcurementDateTextBox" runat="server" Width="199px"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgProcurementDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgProcurementDate_Click" Width="25px" />
                     <asp:Panel ID="calpanel" runat="server" Visible="false">
-                        <asp:Calendar ID="calProcurementDate" runat="server" OnSelectionChanged="calProcurement_SelectionChanged"></asp:Calendar>
+                        <asp:Calendar ID="calProcurementDate" runat="server" OnSelectionChanged="calProcurementDate_SelectionChanged"></asp:Calendar>
                         <br />
                     </asp:Panel>
                     <br />

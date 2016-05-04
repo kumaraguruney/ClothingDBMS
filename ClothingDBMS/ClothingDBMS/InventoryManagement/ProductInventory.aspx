@@ -19,25 +19,25 @@
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
+          <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
           <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
-          <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="StockUpdate.aspx">Stock Update</a></li>
+          
+          
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlProductInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProductInventory] ORDER BY [Product_ID]" DeleteCommand="DELETE FROM [ProductInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [ProductInventory] ([Entry_ID], [Inventory_ID], [Product_ID], [Product_SKU], [Design_ID], [Manufactured_Date], [Created_Date], [Quantity]) VALUES (@Entry_ID, @Inventory_ID, @Product_ID, @Product_SKU, @Design_ID, @Manufactured_Date, @Created_Date, @Quantity)" UpdateCommand="UPDATE [ProductInventory] SET [Inventory_ID] = @Inventory_ID, [Product_ID] = @Product_ID, [Product_SKU] = @Product_SKU, [Design_ID] = @Design_ID, [Manufactured_Date] = @Manufactured_Date, [Created_Date] = @Created_Date, [Quantity] = @Quantity WHERE [Entry_ID] = @Entry_ID">
+        <asp:SqlDataSource ID="SqlProductInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProductInventory] ORDER BY [Entry_ID]" DeleteCommand="DELETE FROM [ProductInventory] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [ProductInventory] ([Inventory_ID], [Product_ID], [Product_SKU], [Design_ID], [Manufactured_Date], [Created_Date], [Quantity]) VALUES (@Inventory_ID, @Product_ID, @Product_SKU, @Design_ID, @Manufactured_Date, @Created_Date, @Quantity)" UpdateCommand="UPDATE [ProductInventory] SET [Inventory_ID] = @Inventory_ID, [Product_ID] = @Product_ID, [Product_SKU] = @Product_SKU, [Design_ID] = @Design_ID, [Manufactured_Date] = @Manufactured_Date, [Created_Date] = @Created_Date, [Quantity] = @Quantity WHERE [Entry_ID] = @Entry_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
                 <asp:Parameter Name="Inventory_ID" Type="Int16" />
                 <asp:Parameter Name="Product_ID" Type="Int16" />
                 <asp:Parameter Name="Product_SKU" Type="Int32" />
                 <asp:Parameter Name="Design_ID" Type="Int16" />
-                <asp:Parameter Name="Manufactured_Date" Type="DateTime" />
-                <asp:Parameter Name="Created_Date" Type="DateTime" />
+                <asp:Parameter Name="Manufactured_Date" Type="String" />
+                <asp:Parameter Name="Created_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
@@ -45,8 +45,8 @@
                 <asp:Parameter Name="Product_ID" Type="Int16" />
                 <asp:Parameter Name="Product_SKU" Type="Int32" />
                 <asp:Parameter Name="Design_ID" Type="Int16" />
-                <asp:Parameter Name="Manufactured_Date" Type="DateTime" />
-                <asp:Parameter Name="Created_Date" Type="DateTime" />
+                <asp:Parameter Name="Manufactured_Date" Type="String" />
+                <asp:Parameter Name="Created_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </UpdateParameters>

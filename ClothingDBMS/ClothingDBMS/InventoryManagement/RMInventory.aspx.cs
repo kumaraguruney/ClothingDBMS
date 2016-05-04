@@ -21,7 +21,7 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void btnSaveRMInventory_Click(object sender, EventArgs e)
         {
-            SqlRMInventory.InsertParameters["Inventory_ID"].DefaultValue = RMInventoryTextBox.Text.ToUpper().Trim();
+            SqlRMInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryIDDropDownList.SelectedValue;
             SqlRMInventory.InsertParameters["RM_ID"].DefaultValue = RMIDDropDownList.SelectedValue;
             SqlRMInventory.InsertParameters["Procurement_Date"].DefaultValue = ProcurementDateTextBox.Text.ToUpper().Trim();
             SqlRMInventory.InsertParameters["Quantity"].DefaultValue = QuantityTextBox.Text.ToUpper().Trim();
@@ -29,7 +29,7 @@ namespace ClothingDBMS.InventoryManagement
             SqlRMInventory.DataBind();
             PaneladdRMInventory.Visible = false;
             PanelgvRMInventory.Visible = true;
-            RMInventoryTextBox.Text = string.Empty;
+            InventoryIDDropDownList.SelectedIndex = -1;
             RMIDDropDownList.SelectedIndex = -1;
             ProcurementDateTextBox.Text = string.Empty;
             QuantityTextBox.Text = String.Empty;
@@ -39,6 +39,16 @@ namespace ClothingDBMS.InventoryManagement
         {
             PaneladdRMInventory.Visible = false;
             PanelgvRMInventory.Visible = true;
+        }
+        protected void calProcurementDate_SelectionChanged(object sender, EventArgs e)
+        {
+            ProcurementDateTextBox.Text = calProcurementDate.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void calimgProcurementDate_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
         }
     }
 }
