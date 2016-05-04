@@ -38,7 +38,8 @@
           <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="../Index.aspx">NTL</a>
+                <a class="navbar-brand" href="../Index.aspx">NTL
+                </a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
                     <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                         class="icon-bar"></span><span class="icon-bar"></span>
@@ -141,14 +142,21 @@
             <asp:TextBox ID="Quantity" runat="server" style="margin-top: 0px"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:RegularExpressionValidator ValidationGroup="addQuotationValidation" ID="revAllocatesTime" runat="server" ControlToValidate="Quantity"
-                                 ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
-					<br /> <br />
+                 ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator><br/>
 
                     <asp:Label ID="lblProductId" Width="200" Text="Product ID: " runat="server" />
-                    <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Id" DataValueField="Product_Id">
+                    <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Description" DataValueField="Product_ID">
                          <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvProductId" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+
+
+           <asp:Label ID="lblDate" Width="200" Text="Quotation Date: " runat="server" />
+            <asp:TextBox ID="Quotation_Date" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="Quotation_Date" ErrorMessage="(*) Enter Month/Date/Year Format" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RegularExpressionValidator ValidationGroup="addQuotationValidation" ID="RegularExpressionValidator1" runat="server" ControlToValidate="Quotation_Date"
+                                 ErrorMessage=" (*) eg:03/25/1989, " ForeColor="Red" ValidationExpression="^[0-9/]*$"></asp:RegularExpressionValidator>
+					<br /> <br />
 
              
                      <asp:Label ID="lblCustomerId" Width="200" Text="Customer ID: " runat="server" />

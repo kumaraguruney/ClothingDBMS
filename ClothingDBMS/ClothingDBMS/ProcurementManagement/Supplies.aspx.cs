@@ -15,28 +15,28 @@ namespace ClothingDBMS.ProcurementManagement
         }
         protected void btnaddsupplies_Click(object sender, EventArgs e)
         {
-            Paneladdsupplies.Visible = true;
-            Panelgvsupplies.Visible = false;
+            PaneladdSupplies.Visible = true;
+            PanelgvSupplies.Visible = false;
         }
 
         protected void btnCancelsupplies_Click(object sender, EventArgs e)
         {
-            Paneladdsupplies.Visible = false;
-            Panelgvsupplies.Visible = true;
+            PaneladdSupplies.Visible = false;
+            PanelgvSupplies.Visible = true;
 
         }
 
         protected void btnSavesupplies_Click(object sender, EventArgs e)
         {
-            Sqlsupplies.InsertParameters["Name"].DefaultValue = txtsuppliesName.Text.ToUpper().Trim();
-            Sqlsupplies.InsertParameters["Address"].DefaultValue = txtsuppliesAddress.Text.ToUpper().Trim();
+            SqlSupplies.InsertParameters["Supplier_ID"].DefaultValue = txtSupplies_ID.Text.ToUpper().Trim();
+            SqlSupplies.InsertParameters["RawMaterial_ID"].DefaultValue = txtRawMaterial_ID.Text.ToUpper().Trim();
 
-            Sqlsupplies.Insert();
-            gvsupplies.DataBind();
-            Paneladdsupplies.Visible = false;
-            Panelgvsupplies.Visible = true;
-            txtsuppliesName.Text = string.Empty;
-            txtsuppliesAddress.Text = string.Empty;
+            SqlSupplies.Insert();
+            gvSupplies.DataBind();
+            PaneladdSupplies.Visible = false;
+            PanelgvSupplies.Visible = true;
+            txtSupplies_ID.Text = string.Empty;
+            txtRawMaterial_ID.Text = string.Empty;
 
         }
     }

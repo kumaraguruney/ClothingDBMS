@@ -48,12 +48,12 @@
                 <ul class="nav navbar-nav navbar-right">
           <li><a href="../Index.aspx">Home</a></li>
           <li><a href="Default.aspx">Sales Managment - Home</a></li>
-          <li><a href="Customer.aspx">Customer Management</a></li>
-          <li><a href="Invoice.aspx">Invoice Management</a></li>
-          <li><a href="Payment.aspx">Payment Management</a></li>
-          <li><a href="Quotation.aspx">Quotation Management</a></li>
-          <li><a href="SalesOrder.aspx">Sales Order Management</a></li>
-          <li><a href="Shipment.aspx">Shipment Management</a></li>
+          <li><a href="Customer.aspx">Customer</a></li>
+          <li><a href="Invoice.aspx">Invoice</a></li>
+          <li><a href="Payment.aspx">Payment</a></li>
+          <li><a href="Quotation.aspx">Quotation</a></li>
+          <li><a href="SalesOrder.aspx">Sales Order</a></li>
+          <li><a href="Shipment.aspx">Shipment</a></li>
                 </ul>
             </div>
  </div>
@@ -102,7 +102,7 @@
                     <asp:RequiredFieldValidator ID="rfvQuotationNumber" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropQuotationNumber" ErrorMessage="(*) One Quotation Number should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
 
               <asp:Label ID="lblProductId" Width="200" Text="Product ID: " runat="server" />
-                    <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Id" DataValueField="Product_Id">
+                    <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Description" DataValueField="Product_ID">
                         <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvProductId" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
@@ -114,9 +114,7 @@
                     <asp:RequiredFieldValidator ID="rfvDesignId" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropDesignId" ErrorMessage="(*) One Design ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
  
                     <br /> <br />             
-        <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addQuotationValidation"  Text="Save" OnClick="btnSave_Click" />
-        <asp:Button ID="btnCancel" runat="server" CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
-            <br/>
+
             <asp:Label ID="lbLateFee" Width="200" Text="Late Fee ($): " runat="server" />
             <asp:TextBox ID="LateFee" runat="server" style="margin-top: 0px"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addSalesOrderValidation" runat="server" ControlToValidate="LateFee" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
@@ -130,8 +128,10 @@
                     <asp:RegularExpressionValidator ValidationGroup="addSalesOrderValidation" ID="RegularExpressionValidator1" runat="server" ControlToValidate="DueDate"
                                  ErrorMessage=" (*) eg:03/25/1989, " ForeColor="Red" ValidationExpression="^[0-9/]*$"></asp:RegularExpressionValidator>
 					<br /> <br />
-
+        <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addQuotationValidation"  Text="Save" OnClick="btnSave_Click" />
+        <asp:Button ID="btnCancel" runat="server" CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
             <br/>
+          
          </asp:Panel> 
         <asp:Panel ID="panelSaveSalesOrder" Visible="true" runat="server" >
             <asp:Button ID="btnAdd" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />

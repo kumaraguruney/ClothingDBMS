@@ -19,26 +19,41 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplies] ORDER BY [Supplier_id]">
+        <asp:SqlDataSource ID="SqlSupplies" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplies] ORDER BY [Supplier_id]" ProviderName="<%$ ConnectionStrings:clothingDBMSConnectionString.ProviderName %>">
         </asp:SqlDataSource>
 
             <div align="center">
                 <br />
-                <asp:Label ID="lbSuppliesHeader" runat="server" Text="Supplies Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddSupplies" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
-                <br /> <br />
+                <asp:Label ID="lbSuppliessHeader" runat="server" Text="Supplies Details" Font-Bold="True"></asp:Label> <br /> <br />
+                
                 <asp:Panel ID="PanelgvSupplies" runat="server">
-                    <asp:Panel ID="PaneladdSupplier" runat="server" Visible="false">
-                        <asp:Label ID="lbSuppliesaddTitle" runat="server" Text="Add Supplies into Database" />
+                    <asp:Button ID="btnaddSupplies" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <br /> <br />
+                
+                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlSupplies" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="Supplier_id" HeaderText="Supplier_id" SortExpression="Supplier_id" />
+                            <asp:BoundField DataField="Rawmaterial_ID" HeaderText="Rawmaterial_ID" SortExpression="Rawmaterial_ID" />
+                        </Columns>
+                        <EditRowStyle BackColor="Yellow"/>
+                    </asp:GridView>
+                   </asp:Panel>
+                <asp:Panel ID="PaneladdSupplies" runat="server" Visible="false">
+                        <asp:Label ID="lbProvidesaddTitle" runat="server" Text="Add Provides into Database" />
                         <br />
                         <br />
-                        <asp:Label ID="lbSupplier_id" runat="server" Text="Supplier Name: " Width="150px" />
-                        <asp:TextBox ID="txtSupplier_id" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvSupplier_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:Label ID="lbSupplier_ID" runat="server" Text="Supplier_ID: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtSupplies_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
                         <br />
-                        <asp:Label ID="lblRawmaterial_ID" runat="server" Text="Address: " Width="150px"></asp:Label>
-                        <asp:TextBox ID="txtSupplierAddress" runat="server"></asp:TextBox>
+                        <asp:Label ID="lbRawMaterial_ID" runat="server" Text="RawMaterial_ID: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtRawMaterial_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <br />
                         <br />
                         <br />
                         <br />
@@ -48,15 +63,13 @@
                         &nbsp;&nbsp;
                         <asp:Button ID="btnCancelSupplies" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvSupplies" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlSupplier" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField DataField="Supplier_id" HeaderText="Supplier_id" SortExpression="Supplier_id" />
-                            <asp:BoundField DataField="Rawmaterial_ID" HeaderText="Rawmaterial_ID" SortExpression="Rawmaterial_ID" />
-                        </Columns>
-                        <EditRowStyle BackColor="Yellow"/>
-                    </asp:GridView>
-                   </asp:Panel>
+                    
         </div>
+    </form>
+    <form id="form3" runat="server">
+    <div>
+    
+    </div>
     </form>
     <form id="form1" runat="server">
     <div>

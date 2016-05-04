@@ -19,7 +19,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="Update" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [inventory_id]) VALUES (@receipt_id, @inventory_id)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [inventory_id] = @inventory_id WHERE [Update_id] = @Update_id">
+        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [inventory_id]) VALUES (@receipt_id, @inventory_id)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [inventory_id] = @inventory_id WHERE [Update_id] = @Update_id">
             <DeleteParameters>
                 <asp:Parameter Name="Update_id" Type="Int32" />
             </DeleteParameters>
@@ -39,13 +39,21 @@
                 <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
                 <br /> <br />
-                <asp:Panel ID="PanelgvSupplies" runat="server">
-                    <asp:Panel ID="PaneladdTracks" runat="server" Visible="false">
+                <asp:Panel ID="PanelgvUpdates" runat="server">
+                    <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
                         <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
                         <br />
                         <asp:Label ID="lbUpdate_id" runat="server" Text="Update_ID: " Width="150px" />
-                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtUpdate_id" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lbReceipt_ID" runat="server" Text="Receipt_ID: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtReceipt_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lbInventory_ID" runat="server" Text="Inventory_ID: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtInventory_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
                         <br />
                         <asp:RequiredFieldValidator ID="rfvUpdate_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />

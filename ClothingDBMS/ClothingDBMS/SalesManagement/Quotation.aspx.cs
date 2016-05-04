@@ -21,14 +21,18 @@ namespace SalesManagement.Sales
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+
             SqlDataSourceQuotation.InsertParameters["Customer_Id"].DefaultValue = dropCustomerId.SelectedValue;
             SqlDataSourceQuotation.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
+            SqlDataSourceQuotation.InsertParameters["Quotation_Date"].DefaultValue = Quantity.Text;
             SqlDataSourceQuotation.InsertParameters["Quantity"].DefaultValue = Quantity.Text;
+           
             SqlDataSourceQuotation.Insert();
             GridViewQuotation.DataBind();
             panelAddQuotation.Visible = false;
             panelSaveQuotation.Visible = true;
             Quantity.Text = string.Empty;
+            Quotation_Date.Text = string.Empty;
             dropCustomerId.SelectedIndex = 0;
             dropProductId.SelectedIndex = 0;
 

@@ -94,7 +94,7 @@
                             <asp:BoundField DataField="Employee_Name" HeaderText="Name" SortExpression="Employee_Name" />
                              <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                             <asp:BoundField DataField="Contact_Number" HeaderText="Contact Number" SortExpression="Contact_Number" />
-                            <asp:BoundField DataField="Date_of_Birth" HeaderText="DOB dd-MM-YYYY" SortExpression="Date_of_Birth" />
+                            <asp:BoundField DataField="Date_of_Birth" HeaderText="DOB" SortExpression="Date_of_Birth" />
                              <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
