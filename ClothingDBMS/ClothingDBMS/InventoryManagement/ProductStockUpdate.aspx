@@ -17,6 +17,8 @@
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
+          <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
+          <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
@@ -43,8 +45,7 @@
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlProductInventory" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProductInventory] ORDER BY [Entry_ID]">
         </asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_ID]">
-        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
                 <br />
                 <asp:Label ID="lblProductStockUpdate" runat="server" Text="Product Stock Update Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvProductStockUpdate" runat="server">
@@ -70,13 +71,13 @@
                     </asp:DropDownList>
                     <br /> <br />
                     <asp:Label ID="lblProductID" runat="server" Text="Product ID:" Width="200px" />
-                    <asp:DropDownList ID="ProductIDDropDownList" runat="server" DataSourceID="SqlProductInventory" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="26px" Width="182px">
+                    <asp:DropDownList ID="ProductIDDropDownList" runat="server" DataSourceID="SqlProduct" DataTextField="Product_ID" DataValueField="Product_ID" Height="26px" Width="182px">
                     </asp:DropDownList>
                         
                     <br />
                     <br />
                     <asp:Label ID="lblEntryID" Width="200px" Text="Entry ID:" runat="server" />
-                    <asp:DropDownList ID="EntryIDDropDownList" runat="server" DataSourceID="SqlProduct" DataTextField="Product_Description" DataValueField="Product_ID" Height="26px" Width="182px">
+                    <asp:DropDownList ID="EntryIDDropDownList" runat="server" DataSourceID="SqlProductInventory" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="26px" Width="182px">
                     </asp:DropDownList>
                     
                     <br />
