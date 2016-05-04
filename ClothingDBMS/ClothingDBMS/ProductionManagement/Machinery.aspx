@@ -67,12 +67,12 @@
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="Machine_Name" Type="String" />
-                <asp:Parameter Name="Machine_Date_Of_Commission" Type="DateTime" />
+                <asp:Parameter Name="Machine_Date_Of_Commission" Type="String" />
                 <asp:Parameter Name="Machine_Is_Active" Type="Boolean" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="Machine_Name" Type="String" />
-                <asp:Parameter Name="Machine_Date_Of_Commission" Type="DateTime" />
+                <asp:Parameter Name="Machine_Date_Of_Commission" Type="String" />
                 <asp:Parameter Name="Machine_Is_Active" Type="Boolean" />
                 <asp:Parameter Name="Machine_ID" Type="Byte" />
             </UpdateParameters>
@@ -92,7 +92,7 @@
                             <asp:CheckBoxField DataField="Machine_Is_Active" ItemStyle-HorizontalAlign="Center" HeaderText="Active" SortExpression="Machine_Is_Active" />
                             <asp:BoundField DataField="Machine_ID" HeaderText="Machine ID" ItemStyle-HorizontalAlign="Left" ReadOnly="True" SortExpression="Machine_ID" />
                             <asp:BoundField DataField="Machine_Name" HeaderText="Machine Name" ItemStyle-HorizontalAlign="Center" SortExpression="Machine_Name" />
-                             <asp:BoundField DataField="Machine_Date_Of_Commission" DataFormatString="{0:MM/dd/yyyy}" ItemStyle-HorizontalAlign="Center" HeaderText="Machine DOC" SortExpression="Machine_Date_Of_Commission" />
+                             <asp:BoundField DataField="Machine_Date_Of_Commission"  ItemStyle-HorizontalAlign="Center" HeaderText="Machine DOC" SortExpression="Machine_Date_Of_Commission" />
                             
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />

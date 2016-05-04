@@ -22,9 +22,9 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnSaveMachinery_Click(object sender, EventArgs e)
         {
-            DateTime DateOC = DateTime.ParseExact(txtMachineDOC.Text, "dd-MM-yyyy", null);
+            
             SqlMachinery.InsertParameters["Machine_Name"].DefaultValue = txtMachineryName.Text.ToUpper().Trim();
-            SqlMachinery.InsertParameters["Machine_Date_Of_Commission"].DefaultValue = DateOC.ToString();
+            SqlMachinery.InsertParameters["Machine_Date_Of_Commission"].DefaultValue = txtMachineDOC.Text;
             SqlMachinery.InsertParameters["Machine_IS_Active"].DefaultValue = rbMachineActive.SelectedValue;
             SqlMachinery.Insert();
             gvMachinery.DataBind();

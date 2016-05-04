@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClothingDBMS.InventoryManagement
 {
-    public partial class ProductStockUpdate : System.Web.UI.Page
+    public partial class ProductStockUpdate1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,15 +29,16 @@ namespace ClothingDBMS.InventoryManagement
             gvProductStockUpdate.DataBind();
             PaneladdProductStockUpdate.Visible = false;
             PanelgvProductStockUpdate.Visible = true;
-            StockMovementIDDropDownList.SelectedIndex= -1;
+            StockMovementIDDropDownList.SelectedIndex = -1;
             ProductIDDropDownList.SelectedIndex = -1;
             EntryIDDropDownList.SelectedIndex = -1;
         }
 
-        protected void btnCancelInventory_Click(object sender, EventArgs e)
+        protected void btnCancelProductStockUpdate_Click(object sender, EventArgs e)
         {
             PaneladdProductStockUpdate.Visible = false;
             PanelgvProductStockUpdate.Visible = true;
         }
-    }
+
+}
 }

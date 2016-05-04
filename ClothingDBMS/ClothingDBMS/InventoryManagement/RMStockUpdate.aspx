@@ -17,6 +17,8 @@
           <li><a href="Inventory.aspx">Inventory Details</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
+          <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
+          <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
           <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="StockUpdate.aspx">Stock Update</a></li>
       </ul>
@@ -48,7 +50,7 @@
                 <br />
                 <asp:Label ID="lblRMStockUpdate" runat="server" Text="RM Stock Update Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvRMStockUpdate" runat="server">
-                     <asp:Button ID="btnaddRMStockUpdate" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                     <asp:Button ID="btnaddRMStockUpdate" runat="server" Text="Add" OnClick="btnaddRMStockUpdate_Click"/>
                     <asp:GridView ID="gvRMStockUpdate" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRMStockUpdate" AutoGenerateColumns="False" DataKeyNames="StockUpdate_ID">
                         <Columns>
                             <asp:BoundField DataField="StockUpdate_ID" HeaderText="StockUpdate_ID" ReadOnly="True" SortExpression="StockUpdate_ID" InsertVisible="False" />
@@ -69,13 +71,13 @@
                     </asp:DropDownList>
                     <br /> <br />
                     <asp:Label ID="lblRMID" runat="server" Text="RM ID:" Width="200px" />
-                    <asp:DropDownList ID="RMIDDropDownList" runat="server" DataSourceID="SqlProductInventory" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="26px" Width="182px">
+                    <asp:DropDownList ID="RMIDDropDownList" runat="server" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID" Height="26px" Width="182px">
                     </asp:DropDownList>
                         
                     <br />
                     <br />
                     <asp:Label ID="lblEntryID" Width="200px" Text="Entry ID:" runat="server" />
-                    <asp:DropDownList ID="EntryIDDropDownList" runat="server" DataSourceID="SqlProduct" DataTextField="Product_Description" DataValueField="Product_ID" Height="26px" Width="182px">
+                    <asp:DropDownList ID="EntryIDDropDownList" runat="server" DataSourceID="SqlRMInventory" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="26px" Width="182px">
                     </asp:DropDownList>
                     
                     <br />
@@ -86,8 +88,7 @@
                    
                     </asp:Panel>
         </div>
-       
-    </div>
+       </form>
    
 </body>
 </html>
