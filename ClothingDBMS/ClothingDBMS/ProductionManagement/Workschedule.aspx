@@ -63,20 +63,16 @@
     </div>
         <asp:SqlDataSource ID="SqlWorkOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT WorkOrder.WorkOrder_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM WorkOrder LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY WorkOrder.Product_ID"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_Date, Workschedule.WorkScheduled_To_End, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name" DeleteCommand="DELETE FROM [Workschedule] WHERE [Workschedule_ID] = @Workschedule_ID" InsertCommand="INSERT INTO [Workschedule] ([WorkOrder_ID], [WorkScheduled_Date], [WorkScheduled_To_End], [WorkScheduled_By]) VALUES (@WorkOrder_ID, @WorkScheduled_Date, @WorkScheduled_To_End, @WorkScheduled_By)" UpdateCommand="UPDATE [Workschedule] SET [WorkOrder_ID] = @WorkOrder_ID, [WorkScheduled_Date] = @WorkScheduled_Date, [WorkScheduled_To_End] = @WorkScheduled_To_End, [WorkScheduled_By] = @WorkScheduled_By WHERE [Workschedule_ID] = @Workschedule_ID">
+        <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name" DeleteCommand="DELETE FROM [Workschedule] WHERE [Workschedule_ID] = @Workschedule_ID" InsertCommand="INSERT INTO [Workschedule] ([WorkOrder_ID],  [WorkScheduled_By]) VALUES (@WorkOrder_ID, @WorkScheduled_By)" UpdateCommand="UPDATE [Workschedule] SET [WorkOrder_ID] = @WorkOrder_ID,  [WorkScheduled_By] = @WorkScheduled_By WHERE [Workschedule_ID] = @Workschedule_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Workschedule_ID" Type="Int16" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="WorkOrder_ID" Type="Int16" />
-                <asp:Parameter Name="WorkScheduled_Date" Type="String" />
-                <asp:Parameter Name="WorkScheduled_To_End" Type="String" />
                 <asp:Parameter Name="WorkScheduled_By" Type="Byte" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="WorkOrder_ID" Type="Int16" />
-                <asp:Parameter Name="WorkScheduled_Date" Type="String" />
-                <asp:Parameter Name="WorkScheduled_To_End" Type="String" />
                 <asp:Parameter Name="WorkScheduled_By" Type="Byte" />
                 <asp:Parameter Name="Workschedule_ID" Type="Int16" />
             </UpdateParameters>
@@ -103,8 +99,6 @@
                                     <asp:Label ID="lblWorkOrder" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="WorkScheduled_Date"  HeaderText="Start Date" SortExpression="WorkScheduled_Date" />
-                            <asp:BoundField DataField="WorkScheduled_To_End" HeaderText="End Date" SortExpression="WorkScheduled_To_End" />
                             <asp:TemplateField HeaderText="WorkScheduled_By" SortExpression="WorkScheduled By">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="dropEmployee" runat="server" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID" SelectedValue='<%# Bind("WorkScheduled_By") %>'>
@@ -138,22 +132,6 @@
                         <asp:ListItem Text="-- Work Order--" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                         <asp:RequiredFieldValidator ID="rfvdropWorkOrder" InitialValue="-1" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="dropaddWorkOrder" ErrorMessage="(*) Must have one WorkOrder Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-                    <br />
-                    <asp:Label ID="lblWorkscheduleStartDate" Width="150" Text="Work Schedule Start Date: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtWorkscheduleStartDate" ReadOnly="true" Width="230" runat="server"></asp:TextBox> &nbsp;<asp:ImageButton ID="coeWorkscheduleStartDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeWorkscheduleStartDate_Click" Width="25px" /><br />
-                    <asp:Panel ID="cal1panel" runat="server" Visible="false">
-                    <asp:Calendar ID="calWorkscheduleStartDate" OnSelectionChanged="calWorkscheduleStartDate_SelectionChanged" runat="server"></asp:Calendar>
-                    <br />
-                        </asp:Panel>
-                    <asp:RequiredFieldValidator ID="rfvWorkscheduleStartDate" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="txtWorkscheduleStartDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
-                    <br />
-                    <asp:Label ID="lblWorkscheduleEndDate" Width="150" Text="Work Schedule End Date: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtWorkscheduleEndDate" ReadOnly="true" Width="230" runat="server"></asp:TextBox> &nbsp;<asp:ImageButton ID="coeWorkscheduleEndDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="coeWorkscheduleEndDate_Click" Width="25px" /><br />
-                    <asp:Panel ID="cal2panel" runat="server" Visible="false">
-                    <asp:Calendar ID="calWorkscheduleEndDate" OnSelectionChanged="calWorkscheduleEndDate_SelectionChanged" runat="server"></asp:Calendar>
-                    <br />
-                        </asp:Panel>
-                    <asp:RequiredFieldValidator ID="rfvWorkscheduleEndDate" ValidationGroup="addWorkScheduleValidation" runat="server" ControlToValidate="txtWorkscheduleEndDate" ErrorMessage="(*) Must be filled" ForeColor="Red"></asp:RequiredFieldValidator><br />
                     <br />
                     <asp:Label ID="lblWorkScheduledBy" Width="150" Text="Scheduled By: " runat="server"></asp:Label>
                     <asp:DropDownList ID="dropaddScheduledBy" AppendDataBoundItems="true" EnableViewState="true" runat="server" Width="250" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID">
