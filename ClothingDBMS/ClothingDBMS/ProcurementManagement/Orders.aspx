@@ -19,10 +19,16 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="Updates" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [purchase_order_id]">
+        <asp:SqlDataSource ID="Orders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
         </asp:SqlDataSource>
 
             <div align="center">
+        <asp:SqlDataSource ID="PurchaseOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [purchase_order_id]">
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="RawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [purchase_order_id]">
+        </asp:SqlDataSource>
+
                 <br />
                 <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
@@ -32,12 +38,15 @@
                         <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
                         <br />
                         <asp:Label ID="lbPrvd_id" runat="server" Text="Purchase_Order_ID: " Width="150px" />
-                        <br />
-                        <asp:TextBox ID="txtPurchase_Order_id" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        <asp:DropDownList ID="PurchaseOrderIDDropDownList" runat="server" Height="29px" Width="151px">
+                        </asp:DropDownList>
                         <br />
                         <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
+                        <asp:Label ID="lbRawMaterial_ID" runat="server" Text="RawMaterial_ID: " Width="150px" />
+                        <asp:DropDownList ID="RMIDDropDownList" runat="server" Height="29px" Width="151px">
+                        </asp:DropDownList>
                         <br />
                         <br />
                         <br />

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductStockUpdate.aspx.cs" Inherits="ClothingDBMS.InventoryManagement.ProductStockUpdate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductStockUpdate.aspx.cs" Inherits="ClothingDBMS.InventoryManagement.ProductStockUpdate1" %>
 
 <!DOCTYPE html>
 
@@ -7,8 +7,8 @@
     <title></title>
 </head>
 <body>
-    <form id="form2" runat="server">
-            <nav>
+    <form id="form1" runat="server">
+     <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="../Index.aspx">Home</a></li>
@@ -49,7 +49,7 @@
                 <br />
                 <asp:Label ID="lblProductStockUpdate" runat="server" Text="Product Stock Update Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvProductStockUpdate" runat="server">
-                     <asp:Button ID="btnaddProductStockUpdate" runat="server" Text="Add" OnClick="btnaddAllocates_Click"/>
+                     <asp:Button ID="btnaddProductStockUpdate" runat="server" Text="Add" OnClick="btnaddProductStockUpdate_Click"/>
                     <asp:GridView ID="gvProductStockUpdate" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProductStockUpdate" AutoGenerateColumns="False" DataKeyNames="Stock_Update_ID">
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -71,7 +71,7 @@
                     </asp:DropDownList>
                     <br /> <br />
                     <asp:Label ID="lblProductID" runat="server" Text="Product ID:" Width="200px" />
-                    <asp:DropDownList ID="ProductIDDropDownList" runat="server" DataSourceID="SqlProduct" DataTextField="Product_ID" DataValueField="Product_ID" Height="26px" Width="182px">
+                    <asp:DropDownList ID="ProductIDDropDownList" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID" Height="26px" Width="182px">
                     </asp:DropDownList>
                         
                     <br />
@@ -88,7 +88,6 @@
                    
                     </asp:Panel>
         </div>
-       
     </form>
 </body>
 </html>
