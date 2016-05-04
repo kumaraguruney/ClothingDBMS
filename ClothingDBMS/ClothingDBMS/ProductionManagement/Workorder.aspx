@@ -105,7 +105,7 @@
                             </asp:TemplateField>
                             <asp:BoundField DataField="Product_Quantity" HeaderText="Product_Quantity" SortExpression="Product_Quantity" />
                             <asp:BoundField DataField="CreatedDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="CreatedDate" SortExpression="CreatedDate" />
-                            <asp:BoundField DataField="DueDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="DueDate" SortExpression="DueDate" />
+                            <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
                             <asp:BoundField DataField="Submitted_By" HeaderText="Submitted_By" SortExpression="Submitted_By" />
                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>

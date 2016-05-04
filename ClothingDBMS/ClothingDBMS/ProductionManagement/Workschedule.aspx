@@ -103,8 +103,8 @@
                                     <asp:Label ID="lblWorkOrder" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:BoundField DataField="WorkScheduled_Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Start Date" SortExpression="WorkScheduled_Date" />
-                            <asp:BoundField DataField="WorkScheduled_To_End" DataFormatString="{0:MM/dd/yyyy}" HeaderText="End Date" SortExpression="WorkScheduled_To_End" />
+                            <asp:BoundField DataField="WorkScheduled_Date"  HeaderText="Start Date" SortExpression="WorkScheduled_Date" />
+                            <asp:BoundField DataField="WorkScheduled_To_End" HeaderText="End Date" SortExpression="WorkScheduled_To_End" />
                             <asp:TemplateField HeaderText="WorkScheduled_By" SortExpression="WorkScheduled By">
                                 <EditItemTemplate>
                                     <asp:DropDownList ID="dropEmployee" runat="server" DataSourceID="SqlEmployee" DataTextField="Employee_Name" DataValueField="Employee_ID" SelectedValue='<%# Bind("WorkScheduled_By") %>'>
