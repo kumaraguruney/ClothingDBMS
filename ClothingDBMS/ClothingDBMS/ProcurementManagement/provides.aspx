@@ -41,17 +41,8 @@
                 <asp:Panel ID="PanelgvProvides" runat="server">
                     <asp:Button ID="btnaddProvides" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
                 <br /> <br />
-                
-                    <asp:GridView ID="gvProvides" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlSupplier" AutoGenerateColumns="False" DataKeyNames="Prvd_id">
-                        <Columns>
-                            <asp:BoundField DataField="Prvd_id" HeaderText="Prvd_id" ReadOnly="True" SortExpression="Prvd_id" InsertVisible="False" />
-                            <asp:BoundField DataField="quotation_id" HeaderText="quotation_id" SortExpression="quotation_id" />
-                             <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
-                        </Columns>
-                        <EditRowStyle BackColor="Yellow"/>
-                    </asp:GridView>
-                   </asp:Panel>
-                <asp:Panel ID="PaneladdProvides" runat="server" Visible="false">
+                <asp:Panel ID="PanelgvSupplies" runat="server">
+                    <asp:Panel ID="PaneladdProvides" runat="server" Visible="false">
                         <asp:Label ID="lbProvidesaddTitle" runat="server" Text="Add Provides into Database" />
                         <br />
                         <br />

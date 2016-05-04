@@ -58,13 +58,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Button btnaddProvides;
         
         /// <summary>
-        /// gvProvides control.
+        /// PanelgvSupplies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProvides;
+        protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
         
         /// <summary>
         /// PaneladdProvides control.
@@ -157,13 +157,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Button btnSaveSupplies;
         
         /// <summary>
-        /// btnCancelSupplies control.
+        /// gvSupplies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelSupplies;
+        protected global::System.Web.UI.WebControls.GridView gvSupplies;
         
         /// <summary>
         /// form3 control.

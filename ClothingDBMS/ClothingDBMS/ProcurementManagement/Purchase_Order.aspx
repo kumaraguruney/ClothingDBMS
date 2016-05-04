@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Purchase_Order.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Purchase_Order.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.Purchase_Order" %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -77,7 +77,7 @@
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>
-                <asp:Panel ID="PaneladdPurchase_Order" Visible="false" runat="server">
+                <asp:Panel ID="PanelPurchase" Visible="false" runat="server">
                 <asp:Label ID="lbPurchase_OrderaddTitle" Text="Add Purchase_Order into Database" runat="server" /><br /> <br />
                     <asp:Label ID="lbPurchase_OrderName" Width="150px" Text="Purchase_Date: " runat="server" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
