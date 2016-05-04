@@ -7,36 +7,37 @@ using System.Web.UI.WebControls;
 
 namespace ClothingDBMS.ProcurementManagement
 {
-    public partial class Updates : System.Web.UI.Page
+    public partial class Tracks : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-        protected void btnaddUpdates_Click(object sender, EventArgs e)
+        protected void btnaddTracks_Click(object sender, EventArgs e)
         {
-            PaneladdUpdates.Visible = true;
-            PanelgvUpdates.Visible = false;
+            PaneladdTracks.Visible = true;
+            PanelgvTracks.Visible = false;
         }
 
         protected void btnCancelUpdates_Click(object sender, EventArgs e)
         {
-            PaneladdUpdates.Visible = false;
-            PanelgvUpdates.Visible = true;
+            PaneladdTracks.Visible = false;
+            PanelgvTracks.Visible = true;
 
         }
 
         protected void btnSaveUpdates_Click(object sender, EventArgs e)
         {
-            SqlUpdates.InsertParameters["Name"].DefaultValue = txtUpdatesName.Text.ToUpper().Trim();
-            SqlUpdates.InsertParameters["Address"].DefaultValue = txtUpdatesAddress.Text.ToUpper().Trim();
-
-            SqlUpdates.Insert();
-            gvUpdates.DataBind();
-            PaneladdUpdates.Visible = false;
-            PanelgvUpdates.Visible = true;
-            txtUpdatesName.Text = string.Empty;
-            txtUpdatesAddress.Text = string.Empty;
+            SqlTracks.InsertParameters["Track_ID"].DefaultValue = txtTrack_ID.Text.ToUpper().Trim();
+            SqlTracks.InsertParameters["Inventory_ID"].DefaultValue = txtInventory_ID.Text.ToUpper().Trim();
+            SqlTracks.InsertParameters["RM_ID"].DefaultValue = txtRM_ID.Text.ToUpper().Trim();
+            SqlTracks.Insert();
+            gvTracks.DataBind();
+            PaneladdTracks.Visible = false;
+            PanelgvTracks.Visible = true;
+            txtTrack_ID.Text = string.Empty;
+            txtInventory_ID.Text = string.Empty;
+            txtRM_ID.Text = string.Empty;
 
         }
     }
