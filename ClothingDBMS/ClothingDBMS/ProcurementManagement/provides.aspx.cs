@@ -33,7 +33,7 @@ namespace ClothingDBMS.ProcurementManagement
             SqlProvides.InsertParameters["RawMaterial_ID"].DefaultValue = txtRawMaterial_ID.Text.ToUpper().Trim();
 
             SqlProvides.Insert();
-            gvProvides.DataBind();
+            gvSupplies.DataBind();
             PaneladdProvides.Visible = false;
             PanelgvProvides.Visible = true;
             txtPrvd_ID.Text = string.Empty;
