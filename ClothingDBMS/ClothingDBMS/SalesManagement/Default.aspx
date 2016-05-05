@@ -48,12 +48,12 @@
                 <ul class="nav navbar-nav navbar-right">
           <li><a class="page-scroll" href="../Index.aspx">Home</a></li>
           <li><a class="page-scroll" href="Default.aspx">Sales Managment - Home</a></li>
-          <li><a class="page-scroll" href="Customer.aspx">Customer Management</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice Management</a></li>
-          <li><a class="page-scroll" href="Payment.aspx">Payment Management</a></li>
-          <li><a class="page-scroll" href="Quotation.aspx">Quotation Management</a></li>
-          <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order Management</a></li>
-          <li><a class="page-scroll" href="Shipment.aspx">Shipment Management</a></li>
+          <li><a class="page-scroll" href="Customer.aspx">Customer</a></li>
+          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
+          <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
+          <li><a class="page-scroll" href="Quotation.aspx">Quotation</a></li>
+          <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order</a></li>
+          <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
                 </ul>
             </div>
         </div>
