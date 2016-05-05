@@ -220,6 +220,7 @@
   <ItemGroup>
     <Content Include="ProcurementManagement\Goods_Receipt.aspx" />
     <Content Include="ProcurementManagement\Orders.aspx" />
+    <Content Include="ProcurementManagement\Purchase_Order.aspx" />
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProcurementManagement\Supplies.aspx" />
@@ -317,6 +318,13 @@
     </Compile>
     <Compile Include="ProcurementManagement\Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcurementManagement\Purchase_Order.aspx.cs">
+      <DependentUpon>Purchase_Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\Purchase_Order.aspx.designer.cs">
+      <DependentUpon>Purchase_Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>
