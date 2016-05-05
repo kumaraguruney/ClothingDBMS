@@ -31,6 +31,15 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlRMInventory;
         
         /// <summary>
+        /// SqlInventory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlInventory;
+        
+        /// <summary>
         /// SqlRawMaterial control.
         /// </summary>
         /// <remarks>
@@ -103,13 +112,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblRMInventoryID;
         
         /// <summary>
-        /// RMInventoryTextBox control.
+        /// InventoryIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RMInventoryTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList InventoryIDDropDownList;
         
         /// <summary>
         /// lblRMID control.
@@ -146,6 +155,33 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ProcurementDateTextBox;
+        
+        /// <summary>
+        /// calimgProcurementDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton calimgProcurementDate;
+        
+        /// <summary>
+        /// calpanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel calpanel;
+        
+        /// <summary>
+        /// calProcurementDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calProcurementDate;
         
         /// <summary>
         /// lblQuantity control.

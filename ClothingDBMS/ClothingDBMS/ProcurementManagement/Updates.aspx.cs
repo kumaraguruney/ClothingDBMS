@@ -28,15 +28,17 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveUpdates_Click(object sender, EventArgs e)
         {
-            SqlUpdates.InsertParameters["Name"].DefaultValue = txtUpdatesName.Text.ToUpper().Trim();
-            SqlUpdates.InsertParameters["Address"].DefaultValue = txtUpdatesAddress.Text.ToUpper().Trim();
+            SqlUpdate.InsertParameters["Update_ID"].DefaultValue = txtUpdate_id.Text.ToUpper().Trim();
+            SqlUpdate.InsertParameters["Receipt_ID"].DefaultValue = txtReceipt_ID.Text.ToUpper().Trim();
+            SqlUpdate.InsertParameters["Inventory_ID"].DefaultValue = txtInventory_ID.Text.ToUpper().Trim();
 
-            SqlUpdates.Insert();
+            SqlUpdate.Insert();
             gvUpdates.DataBind();
             PaneladdUpdates.Visible = false;
             PanelgvUpdates.Visible = true;
-            txtUpdatesName.Text = string.Empty;
-            txtUpdatesAddress.Text = string.Empty;
+            txtUpdate_id.Text = string.Empty;
+            txtReceipt_ID.Text = string.Empty;
+            txtInventory_ID.Text = string.Empty;
 
         }
     }

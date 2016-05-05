@@ -15,10 +15,11 @@
         <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
           <li><a href="Inventory.aspx">Inventory Details</a></li>
+          <li><a href="StockMovement.aspx">Stock Movement</a></li>
           <li><a href="ProductInventory.aspx">ProductInventory</a></li>
           <li><a href="RMInventory.aspx">RMInventory</a></li>
-          <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="StockUpdate.aspx">Stock Update</a></li>
+          
+          
       </ul>
     </div>
   </nav>
