@@ -31,6 +31,24 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlPurchase_Order;
         
         /// <summary>
+        /// SqlRawMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
+        
+        /// <summary>
+        /// SqlSupplier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplier;
+        
+        /// <summary>
         /// lbPurchase_OrderHeader control.
         /// </summary>
         /// <remarks>
@@ -121,40 +139,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.DropDownList DropDownSupplier_Name;
         
         /// <summary>
-        /// lblSupplier_ID control.
+        /// lblRawMaterial_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSupplier_ID;
+        protected global::System.Web.UI.WebControls.Label lblRawMaterial_Name;
         
         /// <summary>
-        /// DropDownSupplier_ID control.
+        /// DropDownRawMaterial_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownSupplier_ID;
-        
-        /// <summary>
-        /// lblRawMaterial_ID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRawMaterial_ID;
-        
-        /// <summary>
-        /// DropDownRawMaterial_ID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownRawMaterial_ID;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRawMaterial_Name;
         
         /// <summary>
         /// lblQuantity control.

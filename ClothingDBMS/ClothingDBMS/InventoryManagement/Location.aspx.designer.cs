@@ -7,189 +7,162 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesManagement.Sales {
+namespace ClothingDBMS.InventoryManagement {
     
     
-    public partial class Quotation {
+    public partial class Inventory {
         
         /// <summary>
-        /// form1 control.
+        /// form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SqlDataSourceCustomer control.
+        /// SqlLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceCustomer;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlLocation;
         
         /// <summary>
-        /// SqlDataSourceProduct control.
+        /// SqlWarehouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlWarehouse;
         
         /// <summary>
-        /// SqlDataSourceQuotation control.
+        /// lblAllocates control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuotation;
+        protected global::System.Web.UI.WebControls.Label lblAllocates;
         
         /// <summary>
-        /// lblQuotation control.
+        /// PanelgvInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuotation;
+        protected global::System.Web.UI.WebControls.Panel PanelgvInventory;
         
         /// <summary>
-        /// panelSaveQuotation control.
+        /// btnaddInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSaveQuotation;
+        protected global::System.Web.UI.WebControls.Button btnaddInventory;
         
         /// <summary>
-        /// btnAdd control.
+        /// gvInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.GridView gvInventory;
         
         /// <summary>
-        /// GridViewQuotation control.
+        /// PaneladdInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewQuotation;
+        protected global::System.Web.UI.WebControls.Panel PaneladdInventory;
         
         /// <summary>
-        /// panelAddQuotation control.
+        /// lblAllocatesInventoryDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelAddQuotation;
+        protected global::System.Web.UI.WebControls.Label lblAllocatesInventoryDetails;
         
         /// <summary>
-        /// lblQuotationTitle control.
+        /// lblIncludesWarehouseID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuotationTitle;
+        protected global::System.Web.UI.WebControls.Label lblIncludesWarehouseID;
         
         /// <summary>
-        /// lblCustomerId control.
+        /// WarehouseIDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerId;
+        protected global::System.Web.UI.WebControls.DropDownList WarehouseIDDropDownList;
         
         /// <summary>
-        /// dropCustomerId control.
+        /// lblInventoryName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropCustomerId;
+        protected global::System.Web.UI.WebControls.Label lblInventoryName;
         
         /// <summary>
-        /// rfvCustomerId control.
+        /// InventoryNameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCustomerId;
+        protected global::System.Web.UI.WebControls.TextBox InventoryNameTextBox;
         
         /// <summary>
-        /// lblQuotationDate control.
+        /// lblArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuotationDate;
+        protected global::System.Web.UI.WebControls.Label lblArea;
         
         /// <summary>
-        /// txtQuotation control.
+        /// AreaTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuotation;
+        protected global::System.Web.UI.WebControls.TextBox AreaTextBox;
         
         /// <summary>
-        /// calingQuotation control.
+        /// btnSaveInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton calingQuotation;
+        protected global::System.Web.UI.WebControls.Button btnSaveInventory;
         
         /// <summary>
-        /// calpanel control.
+        /// btnCancelInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel calpanel;
-        
-        /// <summary>
-        /// calQuotation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calQuotation;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnCancelInventory;
     }
 }

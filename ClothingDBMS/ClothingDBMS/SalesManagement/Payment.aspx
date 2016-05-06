@@ -56,22 +56,25 @@
           <li><a href="Shipment.aspx">Shipment</a></li>
                 </ul>
             </div>
-        </div>
+ </div>
     </div>
-
-         <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Payment_Date], [Acct_Id], [Status_Info]) VALUES (@Payment_Date, @Acct_Id, @Status_Info)" UpdateCommand="UPDATE [PAYMENT] SET [Payment_Date] = @Payment_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info WHERE [Payment_Id] = @Payment_Id">
+        <asp:SqlDataSource ID="SqlDataSourceInvoice" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [INVOICE]"></asp:SqlDataSource>
+       
+         <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Payment_Date], [Acct_Id], [Status_Info], [Invoice_Number]) VALUES (@Payment_Date, @Acct_Id, @Status_Info, @Invoice_Number)" UpdateCommand="UPDATE [PAYMENT] SET [Payment_Date] = @Payment_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info, [Invoice_Number] = @Invoice_Number WHERE [Payment_Id] = @Payment_Id">
              <DeleteParameters>
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
              </DeleteParameters>
              <InsertParameters>
                  <asp:Parameter Name="Payment_Date" Type="String" />
-                 <asp:Parameter Name="Acct_Id" Type="Int16" />
+                 <asp:Parameter Name="Acct_Id" Type="Int32" />
                  <asp:Parameter Name="Status_Info" Type="String" />
+                 <asp:Parameter Name="Invoice_Number" Type="Int32" />
              </InsertParameters>
              <UpdateParameters>
                  <asp:Parameter Name="Payment_Date" Type="String" />
-                 <asp:Parameter Name="Acct_Id" Type="Int16" />
+                 <asp:Parameter Name="Acct_Id" Type="Int32" />
                  <asp:Parameter Name="Status_Info" Type="String" />
+                 <asp:Parameter Name="Invoice_Number" Type="Int32" />
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
              </UpdateParameters>
          </asp:SqlDataSource>
@@ -82,20 +85,24 @@
             <asp:Button ID="btnAdd" CssClass="bg-primary" runat="server" Text="Add" OnClick="btnAdd_Click" />
             <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False" DataKeyNames="Payment_Id" DataSourceID="SqlDataSourcePayment" AllowSorting="True"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
             <Columns>
-                <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
               
-                <asp:BoundField DataField="Payment_Id" HeaderText="Payment ID" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
+                <asp:BoundField DataField="Payment_Id" HeaderText="Payment Id" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
 
-                <asp:BoundField DataField="Payment_Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Payment Date" SortExpression="Payment_Date" />
+                <asp:BoundField DataField="Payment_Date" HeaderText="Payment Date" SortExpression="Payment_Date" />
 
-                <asp:BoundField DataField="Acct_Id" HeaderText="Account ID" SortExpression="Acct_Id" />
+                <asp:BoundField DataField="Acct_Id" HeaderText="Account Number" SortExpression="Acct_Id" />
 
                 <asp:BoundField DataField="Status_Info" HeaderText="Status Info" SortExpression="Status_Info" />
-                 <asp:TemplateField HeaderText="Delete" ShowHeader="False">
+                 
+                               <asp:TemplateField HeaderText="Invoice Number" SortExpression="Invoice_Number">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="dropInvoiceId" runat="server" DataSourceID="SqlDataSourceInvoice" DataTextField="Invoice_Number" DataValueField="Invoice_Number" SelectedValue='<%# Bind("Invoice_Number") %>'>
+                                    </asp:DropDownList>
+                                </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
+                                    <asp:Label ID="lblInvoiceNumber" runat="server" Text='<%# Bind("Invoice_Number") %>'></asp:Label>
                                 </ItemTemplate>
-                 </asp:TemplateField>
+                            </asp:TemplateField>
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -111,13 +118,24 @@
 
     
         <asp:Panel ID="panelAddPayment" Visible="false" runat="server">
+            <br /> <br />
+                <asp:Label ID="LblInvoice" Width="200" Text="Invoice Number: " runat="server" />
+                    <asp:DropDownList ID="DropDownInvoice" runat="server" DataSourceID="SqlDataSourceInvoice" DataTextField="Invoice_Number" DataValueField="Invoice_Number">
+                        <asp:ListItem Text="-- Invoice Number --" Value="-1"></asp:ListItem>
+                    </asp:DropDownList><br />
+                    <asp:RequiredFieldValidator ID="rfvInvoiceNum" ValidationGroup="addPaymentValidation" runat="server" ControlToValidate="DropDownInvoice" ErrorMessage="(*) One Invoice Number should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
+                    
+            <br /> <br />
                     <asp:Label ID="lblAcctId" Width="200" Text="Account ID: " runat="server" />
-   
+       
                     <asp:TextBox ID="Acct_Id" runat="server" style="margin-top: 0px"></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addPaymentValidation" runat="server" ControlToValidate="Acct_Id" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:RegularExpressionValidator ValidationGroup="addPaymentValidation" ID="revAllocatesTime" runat="server" ControlToValidate="Acct_Id"
                                  ErrorMessage=" (*) eg:0123456, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
 					<br /> <br />
+
+          
+            <br /> <br />
              <asp:Label ID="lblStatusInfo" Width="200" Text="Payment Status: " runat="server" />
                     <asp:DropDownList ID="PaymentStatus" runat="server" AutoPostBack="True" AppendDataBoundItems ="True">
                          <asp:ListItem Text="-- Payment Status --" Value="-1"></asp:ListItem>

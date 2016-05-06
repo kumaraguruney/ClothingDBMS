@@ -43,7 +43,7 @@
         </asp:SqlDataSource>
           <div align="center">
                 <br />
-                <asp:Label ID="lblAllocates" runat="server" Text="Warehouse Details" Font-Bold="True"></asp:Label> <br /> <br />
+                <asp:Label ID="lblAllocates" runat="server" Text="Warehouse Details" Font-Bold="True"></asp:Label> 
              
                 <br /> <br />
                 <asp:Panel ID="PanelgvWarehouse" runat="server">
