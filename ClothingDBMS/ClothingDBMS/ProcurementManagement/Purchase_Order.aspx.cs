@@ -41,7 +41,7 @@ namespace ClothingDBMS.ProcurementManagement
             pnlAddPurchase_Order.Visible = false;
             pnlAddPurchase_Order.Visible = true;
 
-     
+        }
 
         protected void btnSaveGoods_Receipt_Click(object sender, EventArgs e)
         {
