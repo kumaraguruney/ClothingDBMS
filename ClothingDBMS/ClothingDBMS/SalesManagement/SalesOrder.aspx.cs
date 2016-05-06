@@ -24,6 +24,10 @@ namespace SalesManagement.Sales
             SqlDataSourceSalesOrder.InsertParameters["Quotation_Number"].DefaultValue = dropQuotationNumber.SelectedValue;
             SqlDataSourceSalesOrder.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
             SqlDataSourceSalesOrder.InsertParameters["Design_Id"].DefaultValue = dropDesignId.SelectedValue;
+            SqlDataSourceSalesOrder.InsertParameters["Sorder_Date"].DefaultValue = txtSODate.Text.Trim();
+            SqlDataSourceSalesOrder.InsertParameters["Due_Date"].DefaultValue = txtSODueDate.Text.Trim();
+            SqlDataSourceSalesOrder.InsertParameters["Quantity"].DefaultValue = Quantity.Text;
+            SqlDataSourceSalesOrder.InsertParameters["Late_Fee"].DefaultValue = LateFee.Text.Trim();
             SqlDataSourceSalesOrder.Insert();
             GridViewSalesOrder.DataBind();
             panelAddSalesOrder.Visible = false;
@@ -38,6 +42,28 @@ namespace SalesManagement.Sales
         {
             panelAddSalesOrder.Visible = false;
             panelSaveSalesOrder.Visible = true;
+        }
+        protected void calSODueDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtSODueDate.Text = calDueDate.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void calingSODueDate_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
+        }
+
+
+        protected void calSODate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtSODate.Text = calSODate.SelectedDate.ToShortDateString();
+            calpanel1.Visible = false;
+        }
+
+        protected void calingSODate_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel1.Visible = true;
         }
     }
 }

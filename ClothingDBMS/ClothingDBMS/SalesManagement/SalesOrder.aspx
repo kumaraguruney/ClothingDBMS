@@ -67,22 +67,22 @@
                 <asp:Parameter Name="Sorder_Number" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Sorder_Date" Type="DateTime" />
+                <asp:Parameter Name="Sorder_Date" Type="String" />
                 <asp:Parameter Name="Quotation_Number" Type="Int32" />
                 <asp:Parameter Name="Quantity" Type="Int16" />
                 <asp:Parameter Name="Product_Id" Type="Int32" />
                 <asp:Parameter Name="Design_Id" Type="Int32" />
                 <asp:Parameter Name="Late_Fee" Type="Int16" />
-                <asp:Parameter Name="Due_Date" Type="DateTime" />
+                <asp:Parameter Name="Due_Date" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Sorder_Date" Type="DateTime" />
+                <asp:Parameter Name="Sorder_Date" Type="String" />
                 <asp:Parameter Name="Quotation_Number" Type="Int32" />
                 <asp:Parameter Name="Quantity" Type="Int16" />
                 <asp:Parameter Name="Product_Id" Type="Int32" />
                 <asp:Parameter Name="Design_Id" Type="Int32" />
                 <asp:Parameter Name="Late_Fee" Type="Int16" />
-                <asp:Parameter Name="Due_Date" Type="DateTime" />
+                <asp:Parameter Name="Due_Date" Type="String" />
                 <asp:Parameter Name="Sorder_Number" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
@@ -101,6 +101,7 @@
                     </asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvQuotationNumber" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropQuotationNumber" ErrorMessage="(*) One Quotation Number should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
 
+
               <asp:Label ID="lblProductId" Width="200" Text="Product ID: " runat="server" />
                     <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Description" DataValueField="Product_ID">
                         <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
@@ -115,19 +116,39 @@
  
                     <br /> <br />             
 
+                 <asp:Label ID="lblSODate" Width="200" Text="Sales Order Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtSODate" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingSODate_Click" Width="25px" />
+             <asp:Panel ID="calpanel1" runat="server" Visible="false">
+                        <asp:Calendar ID="calSODate" runat="server" OnSelectionChanged="calSODate_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+            <br /> <br /> 
+
             <asp:Label ID="lbLateFee" Width="200" Text="Late Fee ($): " runat="server" />
             <asp:TextBox ID="LateFee" runat="server" style="margin-top: 0px"></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addSalesOrderValidation" runat="server" ControlToValidate="LateFee" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RequiredFieldValidator ID="rfvSalesOrder" ValidationGroup="addSalesOrderValidation" runat="server" ControlToValidate="LateFee" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:RegularExpressionValidator ValidationGroup="addSalesOrderValidation" ID="revAllocatesTime" runat="server" ControlToValidate="LateFee"
                                  ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator>
 					<br /> <br />
 
-            <asp:Label ID="lblDueDate" Width="200" Text="Due Date: " runat="server" />
-            <asp:TextBox ID="DueDate" runat="server" style="margin-top: 0px"></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="addSalesOrderValidation" runat="server" ControlToValidate="DueDate" ErrorMessage="(*) Enter Month/Date/Year Format" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
-                    <asp:RegularExpressionValidator ValidationGroup="addSalesOrderValidation" ID="RegularExpressionValidator1" runat="server" ControlToValidate="DueDate"
-                                 ErrorMessage=" (*) eg:03/25/1989, " ForeColor="Red" ValidationExpression="^[0-9/]*$"></asp:RegularExpressionValidator>
-					<br /> <br />
+
+ <asp:Label ID="lbQuantity" Width="200" Text="Quantity: " runat="server" />
+            <asp:TextBox ID="Quantity" runat="server" style="margin-top: 0px"></asp:TextBox><br />
+                    <asp:RequiredFieldValidator ID="rfvSalesOrder1" ValidationGroup="addSalesOrderValidation" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
+                    <asp:RegularExpressionValidator ValidationGroup="addSalesOrderValidation" ID="revAllocatesTime1" runat="server" ControlToValidate="Quantity"
+                 ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$"></asp:RegularExpressionValidator><br/>
+
+
+            <asp:Label ID="lblDueDate" Width="200" Text="Due Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtSODueDate" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calingSODueDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingSODueDate_Click" Width="25px" />
+             <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calDueDate" runat="server" OnSelectionChanged="calSODueDate_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+
+
+                       
+            <br /> <br />
         <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addQuotationValidation"  Text="Save" OnClick="btnSave_Click" />
         <asp:Button ID="btnCancel" runat="server" CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
             <br/>

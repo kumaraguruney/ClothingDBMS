@@ -66,13 +66,13 @@
                 <asp:Parameter Name="Quotation_Number" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Quotation_Date" Type="DateTime" />
+                <asp:Parameter Name="Quotation_Date" Type="String" />
                 <asp:Parameter Name="Customer_Id" Type="Int16" />
                 <asp:Parameter Name="Product_Id" Type="Int32" />
                 <asp:Parameter Name="Quantity" Type="Int16" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Quotation_Date" Type="DateTime" />
+                <asp:Parameter Name="Quotation_Date" Type="String" />
                 <asp:Parameter Name="Customer_Id" Type="Int16" />
                 <asp:Parameter Name="Product_Id" Type="Int32" />
                 <asp:Parameter Name="Quantity" Type="Int16" />
@@ -151,14 +151,7 @@
                     <asp:RequiredFieldValidator ID="rfvProductId" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
 
 
-           <asp:Label ID="lblDate" Width="200" Text="Quotation Date: " runat="server" />
-            <asp:TextBox ID="Quotation_Date" runat="server" style="margin-top: 0px"></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="Quotation_Date" ErrorMessage="(*) Enter Month/Date/Year Format" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
-                    <asp:RegularExpressionValidator ValidationGroup="addQuotationValidation" ID="RegularExpressionValidator1" runat="server" ControlToValidate="Quotation_Date"
-                                 ErrorMessage=" (*) eg:03/25/1989, " ForeColor="Red" ValidationExpression="^[0-9/]*$"></asp:RegularExpressionValidator>
-					<br /> <br />
-
-             
+                
                      <asp:Label ID="lblCustomerId" Width="200" Text="Customer ID: " runat="server" />
                     <asp:DropDownList ID="dropCustomerId" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Id" DataValueField="Customer_Id">
                         <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
@@ -166,6 +159,15 @@
                     <asp:RequiredFieldValidator ID="rfvCustomerId" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropCustomerId" ErrorMessage="(*) One Customer ID should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
  
                     <br /> <br /> 
+               <asp:Label ID="lblQuotationDate" Width="150" Text="Quotation Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtQuotation" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calingQuotation" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingQuotation_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calQuotation" runat="server" OnSelectionChanged="calQuotation_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+                    <br />
+                    <br />
+
         <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addQuotationValidation" Text="Save" OnClick="btnSave_Click" />
         <asp:Button ID="btnCancel" runat="server"  CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
          <br/>
