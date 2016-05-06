@@ -22,13 +22,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlStockMovement control.
+        /// SqlStockPile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockMovement;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockPile;
         
         /// <summary>
         /// SqlWarehouse control.
@@ -38,6 +38,51 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlWarehouse;
+        
+        /// <summary>
+        /// SqlFromWarehouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlFromWarehouse;
+        
+        /// <summary>
+        /// SqlFromLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlFromLocation;
+        
+        /// <summary>
+        /// SqlLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlLocation;
+        
+        /// <summary>
+        /// SqlFinishedProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlFinishedProduct;
+        
+        /// <summary>
+        /// SqlData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlData;
         
         /// <summary>
         /// lblStockMovement control.
@@ -85,6 +130,15 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Panel PaneladdStockMovement;
         
         /// <summary>
+        /// rbIs_Product control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rbIs_Product;
+        
+        /// <summary>
         /// lblAllocatesWarehouseDetails control.
         /// </summary>
         /// <remarks>
@@ -94,13 +148,31 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblAllocatesWarehouseDetails;
         
         /// <summary>
-        /// lblStockMovementFromWarehouse control.
+        /// lblProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStockMovementFromWarehouse;
+        protected global::System.Web.UI.WebControls.Label lblProduct;
+        
+        /// <summary>
+        /// ProductDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ProductDropDownList;
+        
+        /// <summary>
+        /// lblWarehouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarehouse;
         
         /// <summary>
         /// FromWarehouseDropDownList control.
@@ -112,31 +184,112 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.DropDownList FromWarehouseDropDownList;
         
         /// <summary>
-        /// lblStockMovementToWarehouse control.
+        /// lblLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStockMovementToWarehouse;
+        protected global::System.Web.UI.WebControls.Label lblLocation;
         
         /// <summary>
-        /// ToWarehouseDropDownList control.
+        /// FromLocationDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ToWarehouseDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList FromLocationDropDownList;
         
         /// <summary>
-        /// btnSaveStockMovement control.
+        /// lblQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveStockMovement;
+        protected global::System.Web.UI.WebControls.Label lblQuantity;
+        
+        /// <summary>
+        /// QuantityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox QuantityTextBox;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
+        /// LblToWarehouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblToWarehouse;
+        
+        /// <summary>
+        /// TowarehouseDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList TowarehouseDropDownList;
+        
+        /// <summary>
+        /// lblToLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblToLocation;
+        
+        /// <summary>
+        /// ToLocationDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ToLocationDropDownList;
+        
+        /// <summary>
+        /// lblToQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblToQuantity;
+        
+        /// <summary>
+        /// ToQuantityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ToQuantityTextBox;
+        
+        /// <summary>
+        /// btnMoveStockMovement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMoveStockMovement;
         
         /// <summary>
         /// btnCancelStockMovement control.

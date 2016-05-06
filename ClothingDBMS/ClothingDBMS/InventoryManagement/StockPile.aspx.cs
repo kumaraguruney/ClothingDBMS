@@ -22,11 +22,12 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void btnSaveStockPile_Click(object sender, EventArgs e)
         {
-            SqlStockPile.InsertParameters["Batch"].DefaultValue = BatchIDDropDownList.SelectedValue;
-            SqlStockPile.InsertParameters["Warehouse"].DefaultValue = WarehouseIDDropDownList.SelectedValue;
-            SqlStockPile.InsertParameters["Location"].DefaultValue = LocationIDDropDownList.SelectedValue;
+            SqlStockPile.InsertParameters["Batch_ID"].DefaultValue = BatchIDDropDownList.SelectedValue;
+            SqlStockPile.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDDropDownList.SelectedValue;
+            SqlStockPile.InsertParameters["Location_ID"].DefaultValue = LocationIDDropDownList.SelectedValue;
             SqlStockPile.InsertParameters["Quantity"].DefaultValue = QuantityTextBox.Text.ToUpper().Trim();
-
+            SqlStockPile.InsertParameters["Created_Date"].DefaultValue = CreatedDateTextBox.Text.ToUpper().Trim();
+            SqlStockPile.InsertParameters["Is_Product"].DefaultValue = rbStockPile.SelectedValue;
             SqlStockPile.Insert();
             gvStockPile.DataBind();
             PaneladdStockPile.Visible = false;
@@ -35,6 +36,7 @@ namespace ClothingDBMS.InventoryManagement
             WarehouseIDDropDownList.SelectedIndex = -1;
             LocationIDDropDownList.SelectedIndex = -1;
             QuantityTextBox.Text = String.Empty;
+            CreatedDateTextBox.Text = String.Empty;
 
         }
 
