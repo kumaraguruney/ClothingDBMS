@@ -61,7 +61,19 @@
     </div>
                 <asp:SqlDataSource ID="SqlDataSourceCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [CUSTOMER] ORDER BY [Customer_Name]"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSourceProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_Description]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTATION] ORDER BY [Quotation_Number]">
+            <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Quotation_Date, QUOTATION.Customer_Id, CUSTOMER.Customer_Name FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id WHERE [Quotation_Number] = @Quotation_Number">
+                <DeleteParameters>
+                    <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Quotation_Date" Type="String" />
+                    <asp:Parameter Name="Customer_Id" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Quotation_Date" Type="String" />
+                    <asp:Parameter Name="Customer_Id" Type="Int32" />
+                    <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                </UpdateParameters>
         </asp:SqlDataSource>
 
 
@@ -76,16 +88,6 @@
                 <asp:BoundField DataField="Quotation_Date" HeaderText="Quotation_Date" SortExpression="Quotation_Date" />
 
                 <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" SortExpression="Customer_Id" />
-               <asp:TemplateField HeaderText="Convert to SO" ShowHeader="false">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkConverttoSO" runat="server" CausesValidation="False"  OnClick="btnConverttoSOQuotation_Click" Text="Convert to SO"></asp:LinkButton>
-                                </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Open" ShowHeader="false">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkOpen" runat="server" CausesValidation="False"  OnClick="btnOpenQuotation_Click" Text="Open"></asp:LinkButton>
-                                </ItemTemplate>
-                </asp:TemplateField>
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -105,20 +107,13 @@
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <asp:Label ID="lblQuotationTitle" Text="Enter New Quotation Information" runat="server" Font-Bold="True"/><br /> <br />
 
-                          <asp:Label ID="lbQuantity" Width="200" Text="Quantity: " runat="server" />
-            <asp:TextBox ID="Quantity" runat="server" style="margin-top: 0px"></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator>&nbsp;
-              <asp:RegularExpressionValidator ID="revAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="addQuotationValidation"></asp:RegularExpressionValidator>
+                          <br />
+                    &nbsp;
               <br/>
-              <asp:Label ID="lblProductId" runat="server" Text="Product ID: " Width="200" />
-              <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Description" DataValueField="Product_ID">
-                  <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
-              </asp:DropDownList>
               <br />
-              <asp:RequiredFieldValidator ID="rfvProductId" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
               <br />
-              <asp:Label ID="lblCustomerId" runat="server" Text="Customer ID: " Width="200" />
-              <asp:DropDownList ID="dropCustomerId" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Id" DataValueField="Customer_Id">
+              <asp:Label ID="lblCustomerId" runat="server" Text="Customer: " Width="200px" />
+              <asp:DropDownList ID="dropCustomerId" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Name" DataValueField="Customer_Id">
                   <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
               </asp:DropDownList>
               <br />
@@ -126,19 +121,18 @@
               <br />
               <br />
               <br />
-              <asp:Label ID="lblQuotationDate" runat="server" Text="Quotation Date: " Width="150"></asp:Label>
+              <asp:Label ID="lblQuotationDate" runat="server" Text="Quotation Date: " Width="150" />
               <asp:TextBox ID="txtQuotation" runat="server" ReadOnly="false" Width="230"></asp:TextBox>
               &nbsp;<asp:ImageButton ID="calingQuotation" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingQuotation_Click" Width="25px" />
-                    <asp:Panel ID="calpanel" runat="server" Visible="false">
-                        <asp:Calendar ID="calQuotation" runat="server" OnSelectionChanged="calQuotation_SelectionChanged"></asp:Calendar>
-                        <br />
-                    </asp:Panel>
-                    <br />
-                    <br />
-
-        <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addQuotationValidation" Text="Save" OnClick="btnSave_Click" />
-        <asp:Button ID="btnCancel" runat="server"  CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
-         <br/>
+              <asp:Panel ID="calpanel" runat="server" Visible="false">
+                  <asp:Calendar ID="calQuotation" runat="server" OnSelectionChanged="calQuotation_SelectionChanged"></asp:Calendar>
+                  <br />
+              </asp:Panel>
+              <br />
+              <br />
+              <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" OnClick="btnSave_Click" Text="Save" ValidationGroup="addQuotationValidation" />
+              <asp:Button ID="btnCancel" runat="server" CssClass="bg-primary" OnClick="btnCancel_Click" Text="Cancel" />
+              <br />
      </asp:Panel>
 
        </div>

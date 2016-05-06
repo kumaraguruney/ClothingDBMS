@@ -193,6 +193,16 @@
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\StockPile.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.easing.min.js" />
+    <Content Include="js\jquery.fancybox.pack.js" />
+    <Content Include="js\jquery.flexslider-min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\modernizr.js" />
+    <Content Include="js\retina.min.js" />
+    <Content Include="js\wow.js" />
     <Content Include="packages.config" />
     <Content Include="fonts\elegant-theme-line.eot" />
     <Content Include="fonts\elegant-theme-line.ttf" />
@@ -224,6 +234,7 @@
     <Content Include="ProcurementManagement\Orders.aspx" />
     <Content Include="ProcurementManagement\provides.aspx" />
     <Content Include="ProcurementManagement\Purchase_Order.aspx" />
+    <Content Include="ProcurementManagement\Requires.aspx" />
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
     <Content Include="ProcurementManagement\Supplies.aspx" />
@@ -233,6 +244,7 @@
     <Content Include="ProductionManagement\Default.aspx" />
     <Content Include="ProductionManagement\Design.aspx" />
     <Content Include="ProductionManagement\Employee.aspx" />
+    <Content Include="ProductionManagement\FinishedProduct.aspx" />
     <Content Include="ProductionManagement\Includes.aspx" />
     <Content Include="ProductionManagement\Machinery.aspx" />
     <Content Include="ProductionManagement\Product.aspx" />
@@ -245,7 +257,6 @@
     <Content Include="SalesManagement\Invoice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
     <Content Include="SalesManagement\Quotation.aspx" />
-    <Content Include="SalesManagement\Quotes.aspx" />
     <Content Include="SalesManagement\SalesOrder.aspx" />
     <Content Include="SalesManagement\Shipment.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -358,6 +369,13 @@
     <Compile Include="ProcurementManagement\Purchase_Order.aspx.designer.cs">
       <DependentUpon>Purchase_Order.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProcurementManagement\Requires.aspx.cs">
+      <DependentUpon>Requires.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\Requires.aspx.designer.cs">
+      <DependentUpon>Requires.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProcurementManagement\Supplier.aspx.cs">
       <DependentUpon>Supplier.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,6 +438,13 @@
     </Compile>
     <Compile Include="ProductionManagement\Employee.aspx.designer.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionManagement\FinishedProduct.aspx.cs">
+      <DependentUpon>FinishedProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductionManagement\FinishedProduct.aspx.designer.cs">
+      <DependentUpon>FinishedProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\Includes.aspx.cs">
       <DependentUpon>Includes.aspx</DependentUpon>
@@ -505,13 +530,6 @@
     </Compile>
     <Compile Include="SalesManagement\Quotation.aspx.designer.cs">
       <DependentUpon>Quotation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SalesManagement\Quotes.aspx.cs">
-      <DependentUpon>Quotes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SalesManagement\Quotes.aspx.designer.cs">
-      <DependentUpon>Quotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="SalesManagement\SalesOrder.aspx.cs">
       <DependentUpon>SalesOrder.aspx</DependentUpon>

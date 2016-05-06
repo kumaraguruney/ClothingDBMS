@@ -10,7 +10,7 @@
 namespace ClothingDBMS.SalesManagement {
     
     
-    public partial class Quotes {
+    public partial class Contains {
         
         /// <summary>
         /// form1 control.
@@ -22,22 +22,22 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlQotes control.
+        /// SqlContains control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlQotes;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlContains;
         
         /// <summary>
-        /// SqlDataSourceProduct control.
+        /// SqlDataSalesorder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSalesorder;
         
         /// <summary>
         /// SqlProduct control.
@@ -76,13 +76,13 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// GridViewQuotation control.
+        /// GridViewContains control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewQuotation;
+        protected global::System.Web.UI.WebControls.GridView GridViewContains;
         
         /// <summary>
         /// panelAddQuotation control.

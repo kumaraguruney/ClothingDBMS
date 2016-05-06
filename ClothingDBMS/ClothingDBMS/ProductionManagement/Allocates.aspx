@@ -47,15 +47,6 @@
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
-                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
-                    <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
-                    <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
-                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
                     <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
                 </ul>
             </div>
@@ -83,12 +74,9 @@
             <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lblAllocates" runat="server" Text="Employee Allocates to Work Schedule" Font-Bold="true"></asp:Label> <br /> <br />
-                 <asp:Panel ID="PanelgvAllocates" runat="server">
-                      <asp:Label ID="lblAllocatesFilter" runat="server" Text="Please Select a WorkSchedule and Click Filter: " Font-Bold="true"></asp:Label>
-                <asp:DropDownList ID="dropAllocatesSearch" width="300" DataSourceID="SqlAllocatesdrop" AppendDataBoundItems="true" DataTextField="Name"  DataValueField="WorkSchedule_ID" runat="server">
-                <asp:ListItem Text="--- Please Select a Work Schedule ---" Value="-1"></asp:ListItem>
-                </asp:DropDownList> &nbsp; &nbsp; <asp:Button ID="btnAllocatesfilter" runat="server" Text="Filter" CssClass="bg-primary" OnClick="btnAllocatesfilter_Click"/> &nbsp; &nbsp; <asp:Button ID="btnAllocatesClear" runat="server" Text="Clear" CssClass="bg-primary" OnClick="btnAllocatesClear_Click"/> &nbsp;&nbsp;
-                 <asp:Button ID="btnaddAllocates" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddAllocates_Click"/>
+                  <a href='javascript:history.go(-1)'>Go Back to Previous Page</a> <br />
+                <asp:Panel ID="PanelgvAllocates" runat="server">
+                      <asp:Button ID="btnaddAllocates" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddAllocates_Click"/>
                 <br /> <br />
 
                     <asp:GridView ID="gvAllocates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlAllocates" AutoGenerateColumns="False" DataKeyNames="Allocates_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
@@ -137,13 +125,7 @@
                         <asp:ListItem Text="-- Select an Employee --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                         <asp:RequiredFieldValidator ID="rfvWorkschedule" InitialValue="-1" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="dropEmployee" ErrorMessage="(*) One Employee should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-                    <asp:Label ID="lblIncludesWorkscheduleID" Width="200" Text="Workschedule: " runat="server" />
-                    <asp:DropDownList ID="dropWorkschedule" Width="300" AppendDataBoundItems="true" EnableViewState="false" runat="server" DataSourceID="SqlWorkSchedule" DataTextField="Name" DataValueField="Workschedule_ID">
-                        <asp:ListItem Text="-- Select a WorkSchedule --" Value="-1"></asp:ListItem>
-                    </asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvdropWorkschedule" ValidationGroup="addAllocatesValidation" InitialValue="-1" runat="server" ControlToValidate="dropWorkschedule" ErrorMessage="(*) One Employee should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-                    <br />
-                     <asp:Label ID="lblAllocatesTime" Width="200" Text="Hours of Operation: " runat="server" />
+                    <asp:Label ID="lblAllocatesTime" Width="200" Text="Hours of Operation: " runat="server" />
                     <asp:TextBox ID="txtAllocatesTime" Width="300" ValidationGroup="addAllocatesValidation" runat="server" ></asp:TextBox><br />
                     <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addAllocatesValidation" runat="server" ControlToValidate="txtAllocatesTime" ErrorMessage="(*) Must have some hours" ForeColor="Red"></asp:RequiredFieldValidator><br /> 
                     <asp:RegularExpressionValidator ValidationGroup="addAllocatesValidation" ID="revAllocatesTime" runat="server" ControlToValidate="txtAllocatesTime"

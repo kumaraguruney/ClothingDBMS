@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace ClothingDBMS.SalesManagement
 {
-    public partial class Quotes : System.Web.UI.Page
+    public partial class Contains : System.Web.UI.Page
     {
-       protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
 
         }
@@ -22,12 +22,13 @@ namespace ClothingDBMS.SalesManagement
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
-            SqlQotes.InsertParameters["QOquantity"].DefaultValue = Quantity.Text;
-            SqlQotes.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
-            SqlQotes.InsertParameters["Quotation_Number"].DefaultValue = dropQotationNum.SelectedValue;
+           
+            SqlContains.InsertParameters["SOquantity"].DefaultValue = Quantity.Text;
+            SqlContains.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
+            SqlContains.InsertParameters["Sorder_Number"].DefaultValue = dropQotationNum.SelectedValue;
 
-            SqlQotes.Insert();
-            GridViewQuotation.DataBind();
+            SqlContains.Insert();
+            GridViewContains.DataBind();
             panelAddQuotation.Visible = false;
             panelSaveQuotation.Visible = true;
             Quantity.Text = string.Empty;
@@ -47,6 +48,5 @@ namespace ClothingDBMS.SalesManagement
             dropQotationNum.SelectedIndex = 0;
         }
 
-
-           }
+    }
 }

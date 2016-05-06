@@ -50,5 +50,15 @@ namespace ProductionManagement.ProductionManagement
             dropProductSize.SelectedIndex = -1;
             dropDesignName.SelectedIndex = -1;
         }
+
+        
+        protected void lnkRequireds_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string productid  = gvProduct.DataKeys[row.RowIndex].Values[0].ToString();
+            Session["ProductID"] = productid;
+            Response.Redirect("Require.aspx");
+        }
     }
 }

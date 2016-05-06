@@ -31,6 +31,24 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlUpdate;
         
         /// <summary>
+        /// SqlGoods_Receipt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlGoods_Receipt;
+        
+        /// <summary>
+        /// SqlStock_Pile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStock_Pile;
+        
+        /// <summary>
         /// lbUpdatesHeader control.
         /// </summary>
         /// <remarks>
@@ -76,24 +94,6 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbUpdatesaddTitle;
         
         /// <summary>
-        /// lbUpdate_id control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbUpdate_id;
-        
-        /// <summary>
-        /// txtUpdate_id control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUpdate_id;
-        
-        /// <summary>
         /// lbReceipt_ID control.
         /// </summary>
         /// <remarks>
@@ -103,31 +103,67 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbReceipt_ID;
         
         /// <summary>
-        /// txtReceipt_ID control.
+        /// DropDownReceipt_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReceipt_ID;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownReceipt_ID;
         
         /// <summary>
-        /// lbInventory_ID control.
+        /// lbIEntry_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbInventory_ID;
+        protected global::System.Web.UI.WebControls.Label lbIEntry_ID;
         
         /// <summary>
-        /// txtInventory_ID control.
+        /// DropDownEntry_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInventory_ID;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownEntry_ID;
+        
+        /// <summary>
+        /// lblRequired_Qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRequired_Qty;
+        
+        /// <summary>
+        /// txtRequired_Qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRequired_Qty;
+        
+        /// <summary>
+        /// lbRemaining_Qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbRemaining_Qty;
+        
+        /// <summary>
+        /// txtRemaining_Qty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemaining_Qty;
         
         /// <summary>
         /// rfvUpdate_id control.

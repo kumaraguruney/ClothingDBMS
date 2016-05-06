@@ -45,30 +45,15 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveGoods_Receipt_Click(object sender, EventArgs e)
         {
-            SqlGoods_Receipt.InsertParameters["Purchase_Order_ID"].DefaultValue = txtPurchase_Order_ID.Text.ToUpper().Trim();
+            SqlPurchase_Order.InsertParameters["PurchaseOrder_ID"].DefaultValue = DropDownPurchaseOrder_ID.SelectedValue;
             SqlGoods_Receipt.InsertParameters["Receipt_Date"].DefaultValue = txtReceiptDate.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Supplier_Name"].DefaultValue = txtSupplierName.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Delivery_Location"].DefaultValue = txtDeliveryLocation.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Item_Code"].DefaultValue = txtItemCode.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Delivered_Quantity"].DefaultValue = txtDeliveredQty.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Ordered_Quantity"].DefaultValue = txtOrderedQty.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Unit_Price"].DefaultValue = txtUnitPrice.Text.ToUpper().Trim();
-            SqlGoods_Receipt.InsertParameters["Total_Price"].DefaultValue = txtTotalPrice.Text.ToUpper().Trim();
-
             SqlGoods_Receipt.Insert();
             gvGoods_Receipt.DataBind();
             pnlAddGoodsReceipt.Visible = false;
             pnlGoodsReceipt.Visible = true;
-            txtPurchase_Order_ID.Text = string.Empty;
+            DropDownPurchaseOrder_ID.SelectedIndex = -1;
             txtReceiptDate.Text = string.Empty;
-            txtSupplierName.Text = string.Empty;
-            txtDeliveryLocation.Text = string.Empty;
-            txtItemCode.Text = string.Empty;
-            txtDeliveredQty.Text = string.Empty;
-            txtOrderedQty.Text = string.Empty;
-            txtUnitPrice.Text = string.Empty;
-            txtTotalPrice.Text = string.Empty;
-      
+
 
         }
     }

@@ -39,20 +39,16 @@ namespace SalesManagement.Sales
         {
 
             SqlDataSourceQuotation.InsertParameters["Customer_Id"].DefaultValue = dropCustomerId.SelectedValue;
-            SqlDataSourceQuotation.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
-            SqlDataSourceQuotation.InsertParameters["Quantity"].DefaultValue = Quantity.Text;
             SqlDataSourceQuotation.InsertParameters["Quotation_Date"].DefaultValue = txtQuotation.Text.Trim();
 
             SqlDataSourceQuotation.Insert();
             GridViewQuotation.DataBind();
             panelAddQuotation.Visible = false;
             panelSaveQuotation.Visible = true;
-            Quantity.Text = string.Empty;
             txtQuotation.Text = string.Empty;
             txtQuotation.Text = string.Empty;
             dropCustomerId.SelectedIndex = 0;
-            dropProductId.SelectedIndex = 0;
-
+      
 
         }
 
@@ -62,10 +58,8 @@ namespace SalesManagement.Sales
             panelSaveQuotation.Visible = true;
             panelAddQuotation.Visible = false;
             panelSaveQuotation.Visible = true;
-            Quantity.Text = string.Empty;
             txtQuotation.Text = string.Empty;
             dropCustomerId.SelectedIndex = 0;
-            dropProductId.SelectedIndex = 0;
         }
 
 
