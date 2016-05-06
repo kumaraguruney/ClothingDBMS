@@ -56,6 +56,14 @@
 
             <div align="center">
                 <br />
+                <br />
+        <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_Name]">
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Name]">
+        </asp:SqlDataSource>
+
+                <br />
                 <asp:Label ID="lbPurchase_OrderHeader" runat="server" Text="Purchase_Order Details" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Button ID="btnaddPurchase_Order" runat="server" Text="Add" OnClick="btnaddPurchase_Order_Click"/>
                 <br /> <br />
@@ -85,20 +93,15 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtPurchase_Date" runat="server" ValidationGroup="addPurchase_OrderValidation" Width="274px"></asp:TextBox>
                     <br />
-                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier Name: " Width="259px" />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="DropDownSupplier_Name" runat="server" Height="28px" Width="300px">
+                    <br />
+                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier" Width="149px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:DropDownList ID="DropDownSupplier_Name" runat="server" Height="28px" Width="300px" DataSourceID="SqlSupplier" DataTextField="Name" DataValueField="Supplier_id">
                     </asp:DropDownList>
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <br />
-                    <asp:Label ID="lblSupplier_ID" runat="server" Text="Supplier_ID " Width="149px"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="DropDownSupplier_ID" runat="server" Height="28px" Width="300px">
-                    </asp:DropDownList>
-                    <br />
-                    <asp:Label ID="lblRawMaterial_ID" runat="server" Text="RawMaterial_ID" Width="149px" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="DropDownRawMaterial_ID" runat="server" Height="28px" Width="300px">
+                    <asp:Label ID="lblRawMaterial_Name" runat="server" Text="RawMaterial" Width="149px" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="DropDownRawMaterial_Name" runat="server" Height="28px" Width="300px" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID">
                     </asp:DropDownList>
                     <br />
                     <asp:Label ID="lblQuantity" runat="server" Text="Quantity: " Width="150px"></asp:Label>
