@@ -59,17 +59,17 @@
         </div>
     </div>
 
-         <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Paymeny_Date], [Acct_Id], [Status_Info]) VALUES (@Paymeny_Date, @Acct_Id, @Status_Info)" UpdateCommand="UPDATE [PAYMENT] SET [Paymeny_Date] = @Paymeny_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info WHERE [Payment_Id] = @Payment_Id">
+         <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Payment_Date], [Acct_Id], [Status_Info]) VALUES (@Payment_Date, @Acct_Id, @Status_Info)" UpdateCommand="UPDATE [PAYMENT] SET [Payment_Date] = @Payment_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info WHERE [Payment_Id] = @Payment_Id">
              <DeleteParameters>
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
              </DeleteParameters>
              <InsertParameters>
-                 <asp:Parameter Name="Paymeny_Date" Type="DateTime" />
+                 <asp:Parameter Name="Payment_Date" Type="String" />
                  <asp:Parameter Name="Acct_Id" Type="Int16" />
                  <asp:Parameter Name="Status_Info" Type="String" />
              </InsertParameters>
              <UpdateParameters>
-                 <asp:Parameter Name="Paymeny_Date" Type="DateTime" />
+                 <asp:Parameter Name="Payment_Date" Type="String" />
                  <asp:Parameter Name="Acct_Id" Type="Int16" />
                  <asp:Parameter Name="Status_Info" Type="String" />
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
@@ -86,7 +86,7 @@
               
                 <asp:BoundField DataField="Payment_Id" HeaderText="Payment ID" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
 
-                <asp:BoundField DataField="Paymeny_Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Paymeny Date" SortExpression="Paymeny_Date" />
+                <asp:BoundField DataField="Payment_Date" DataFormatString="{0:MM/dd/yyyy}" HeaderText="Payment Date" SortExpression="Payment_Date" />
 
                 <asp:BoundField DataField="Acct_Id" HeaderText="Account ID" SortExpression="Acct_Id" />
 
@@ -124,10 +124,17 @@
                          <asp:ListItem Text="Paid" Value="Paid"></asp:ListItem>
                         <asp:ListItem Text="UnPaid" Value="UnPaid"></asp:ListItem>
                         <asp:ListItem Text="Partially Paid" Value="Partially Paid"></asp:ListItem>
-                        <asp:ListItem Text="Partially Paid" Value="Defaulted"></asp:ListItem>
+                        <asp:ListItem Text="Defaulted" Value="Defaulted"></asp:ListItem>
                     </asp:DropDownList>
             <br /> <br />
-
+             <asp:Label ID="lblPaymentDate" Width="200" Text="Payment Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtPayment" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calingPayment" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingPayment_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calPayment" runat="server" OnSelectionChanged="calPayment_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+                    <br />
+                    <br />
         <asp:Button ID="btnSave" CssClass="bg-primary" ValidationGroup="addPaymentValidation" runat="server" Text="Save" OnClick="btnSave_Click" />
         <asp:Button ID="btnCancel" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancel_Click" /> 
             <br/>     

@@ -19,19 +19,7 @@
         <br />
         <br />
         <asp:Panel ID="pnlGoodsReceipt" runat="server">
-            <asp:GridView ID="gvGoods_Receipt" runat="server" AutoGenerateColumns="False" DataKeyNames="receipt_id" DataSourceID="SqlDataSource1">
-                <Columns>
-                    <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" InsertVisible="False" ReadOnly="True" SortExpression="receipt_id" />
-                    <asp:BoundField DataField="purchase_order_id" HeaderText="purchase_order_id" SortExpression="purchase_order_id" />
-                    <asp:BoundField DataField="receipt_date" HeaderText="receipt_date" SortExpression="receipt_date" />
-                    <asp:BoundField DataField="supplier_name" HeaderText="supplier_name" SortExpression="supplier_name" />
-                    <asp:BoundField DataField="delivery_location" HeaderText="delivery_location" SortExpression="delivery_location" />
-                    <asp:BoundField DataField="item_code" HeaderText="item_code" SortExpression="item_code" />
-                    <asp:BoundField DataField="delivered_quantity" HeaderText="delivered_quantity" SortExpression="delivered_quantity" />
-                    <asp:BoundField DataField="ordered_quantity" HeaderText="ordered_quantity" SortExpression="ordered_quantity" />
-                    <asp:BoundField DataField="unit_price" HeaderText="unit_price" SortExpression="unit_price" />
-                    <asp:BoundField DataField="total_price" HeaderText="total_price" SortExpression="total_price" />
-                </Columns>
+            <asp:GridView ID="gvGoods_Receipt" runat="server" AutoGenerateColumns="False" DataSourceID="SqlGoods_Receipt">
             </asp:GridView>
         </asp:Panel>
         <asp:Panel ID="pnlAddGoodsReceipt" Visible="false" runat="server">

@@ -26,6 +26,8 @@ namespace SalesManagement.Sales
             SqlDataSourceShipment.InsertParameters["Customer_Id"].DefaultValue = dropCustomerId.SelectedValue;
             SqlDataSourceShipment.InsertParameters["Inventory_Id"].DefaultValue = dropInventoryId.SelectedValue;
             SqlDataSourceShipment.InsertParameters["Sorder_Number"].DefaultValue = dropSalesOrderNo.SelectedValue;
+            SqlDataSourceShipment.InsertParameters["Shipment_Date"].DefaultValue = txtShip.Text.Trim();
+            SqlDataSourceShipment.InsertParameters["Due_Date"].DefaultValue = txtDue.Text.Trim();
             SqlDataSourceShipment.Insert();
             GridViewShipment.DataBind();
             panelAddShipment.Visible = false;
@@ -40,6 +42,30 @@ namespace SalesManagement.Sales
         {
             panelAddShipment.Visible = false;
             panelSaveShipment.Visible = true;
+        }
+
+
+
+        protected void calShipDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtShip.Text = calShip.SelectedDate.ToShortDateString();
+            calpanel.Visible = false;
+        }
+
+        protected void calingShip_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel.Visible = true;
+        }
+
+        protected void calDueDate_SelectionChanged(object sender, EventArgs e)
+        {
+            txtDue.Text = calDue.SelectedDate.ToShortDateString();
+            calpanel1.Visible = false;
+        }
+
+        protected void calingDue_Click(object sender, ImageClickEventArgs e)
+        {
+            calpanel1.Visible = true;
         }
     }
 }

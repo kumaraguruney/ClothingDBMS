@@ -68,18 +68,18 @@
                 <asp:Parameter Name="Shipment_Id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Shipment_Date" Type="DateTime" />
+                <asp:Parameter Name="Shipment_Date" Type="String" />
                 <asp:Parameter Name="Sorder_Number" Type="Int32" />
                 <asp:Parameter Name="Inventory_Id" Type="Int32" />
                 <asp:Parameter Name="Customer_Id" Type="Int16" />
-                <asp:Parameter Name="Due_Date" Type="DateTime" />
+                <asp:Parameter Name="Due_Date" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Shipment_Date" Type="DateTime" />
+                <asp:Parameter Name="Shipment_Date" Type="String" />
                 <asp:Parameter Name="Sorder_Number" Type="Int32" />
                 <asp:Parameter Name="Inventory_Id" Type="Int32" />
                 <asp:Parameter Name="Customer_Id" Type="Int16" />
-                <asp:Parameter Name="Due_Date" Type="DateTime" />
+                <asp:Parameter Name="Due_Date" Type="String" />
                 <asp:Parameter Name="Shipment_Id" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
@@ -109,6 +109,25 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="addShipmentValidation" runat="server" ControlToValidate="dropCustomerId" ErrorMessage="(*) One Customer ID should be Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
    
                     <br /> <br />
+
+             <asp:Label ID="lblShip" Width="200" Text="Shipment Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtShip" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="calingShip" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingShip_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calShip" runat="server" OnSelectionChanged="calShipDate_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+                    <br />
+                    <br />
+
+             <asp:Label ID="lblDue" Width="150" Text="Due Date: " runat="server"></asp:Label>
+                    <asp:TextBox ID="txtDue" ReadOnly="false" Width="230" runat="server"></asp:TextBox>&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingDue_Click" Width="25px" />
+                    <asp:Panel ID="calpanel1" runat="server" Visible="false">
+                        <asp:Calendar ID="calDue" runat="server" OnSelectionChanged="calDueDate_SelectionChanged"></asp:Calendar>
+                        <br />
+                    </asp:Panel>
+                    <br />
+                    <br />
+
         <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addShipmentValidation"  Text="Save" OnClick="btnSave_Click" />
         <asp:Button ID="btnCancel" runat="server" CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
          </asp:Panel> 
