@@ -243,6 +243,7 @@
     <Content Include="ProductionManagement\Default.aspx" />
     <Content Include="ProductionManagement\Design.aspx" />
     <Content Include="ProductionManagement\Employee.aspx" />
+    <Content Include="ProductionManagement\FinishedProduct.aspx" />
     <Content Include="ProductionManagement\Includes.aspx" />
     <Content Include="ProductionManagement\Machinery.aspx" />
     <Content Include="ProductionManagement\Product.aspx" />
@@ -429,6 +430,13 @@
     </Compile>
     <Compile Include="ProductionManagement\Employee.aspx.designer.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionManagement\FinishedProduct.aspx.cs">
+      <DependentUpon>FinishedProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductionManagement\FinishedProduct.aspx.designer.cs">
+      <DependentUpon>FinishedProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\Includes.aspx.cs">
       <DependentUpon>Includes.aspx</DependentUpon>

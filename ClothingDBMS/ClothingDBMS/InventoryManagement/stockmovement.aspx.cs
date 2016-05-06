@@ -30,9 +30,6 @@ namespace ClothingDBMS.InventoryManagement
             string strWarehouseID = FromWarehouseDropDownList.SelectedValue;
             string strLocationID = FromLocationDropDownList.SelectedValue;
             string strIsProduct = rbIs_Product.SelectedValue;
-            SqlData.SelectCommand = "SELECT  StockPile.Quantity, StockPile.Created_Date FROM StockPile INNER JOIN FinishedProduct ON FinishedProduct.Batch_ID = StockPile.Batch_ID AND StockPile.Batch_ID ='" + strBatchID + "' AND StockPile.Warehouse_ID ='" + strWarehouseID + "' AND StockPile.Location_ID ='" + strLocationID + "' INNER JOIN Product ON FinishedProduct.Product_ID = Product.Product_ID INNER JOIN Location ON StockPile.Location_ID = Location.Location_ID";
-            DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
-            DataView dvView = new DataView();
 
             SqlStockPile.InsertParameters["Batch_ID"].DefaultValue = ProductDropDownList.SelectedValue;
             SqlStockPile.InsertParameters["Warehouse_ID"].DefaultValue = TowarehouseDropDownList.SelectedValue;
@@ -41,6 +38,12 @@ namespace ClothingDBMS.InventoryManagement
             SqlStockPile.InsertParameters["Created_Date"].DefaultValue = System.DateTime.Now.ToShortDateString();
             SqlStockPile.InsertParameters["Is_Product"].DefaultValue = rbIs_Product.SelectedValue;
             SqlStockPile.Insert();
+
+            SqlData.SelectCommand = "SELECT  StockPile.Quantity, StockPile.Created_Date FROM StockPile INNER JOIN FinishedProduct ON FinishedProduct.Batch_ID = StockPile.Batch_ID AND StockPile.Batch_ID ='" + strBatchID + "' AND StockPile.Warehouse_ID ='" + strWarehouseID + "' AND StockPile.Location_ID ='" + strLocationID + "' INNER JOIN Product ON FinishedProduct.Product_ID = Product.Product_ID INNER JOIN Location ON StockPile.Location_ID = Location.Location_ID";
+            DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
+            DataView dvView = new DataView();
+
+            
 
             dvView = (DataView)SqlData.Select(dsArguments);
             string strQty = dvView[0].Row["Quantity"].ToString();
