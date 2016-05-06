@@ -44,20 +44,17 @@
                         class="icon-bar"></span><span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
+     <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
-                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Rawmaterial.aspx">Raw Material</a> </li>
                     <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
                     <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
-                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
-                    <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
+                    <li><a class="page-scroll" href="Workorder.aspx">Work Order</a> </li>
+                    <li><a class="page-scroll" href="WorkSchedule.aspx">Work Schedule</a> </li>
                     <li><a class="page-scroll" href="FinishedProduct.aspx">Finished Products</a> </li>
+                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
                 </ul>
             </div>
         </div>
@@ -88,7 +85,7 @@
             </UpdateParameters>
             </asp:SqlDataSource>
 
-          <div align="center">
+          <div style="margin-top:100px;" align="center">
         <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name, Workschedule.Is_FinishedProduct_Updated, Product.Product_ID FROM Workschedule INNER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID AND ISNULL(Workschedule.Is_FinishedProduct_Updated, 0) = 'FALSE' LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name" UpdateCommand="UPDATE Workschedule SET Is_FinishedProduct_Updated = @Is_FinishedProduct_Updated WHERE (Workschedule_ID = @WorkSchedule_ID)">
             <UpdateParameters>
                 <asp:Parameter Name="Is_FinishedProduct_Updated" />
@@ -122,10 +119,10 @@
                     </asp:GridView>
                    </asp:Panel>
 
-                <asp:Panel ID="PaneladdFinishedProduct" Visible="false" runat="server">
+                <asp:Panel ID="PaneladdFinishedProduct" Visible="true" runat="server">
                 <asp:Label ID="lblFinishedProductDetails" Text="Enter Finished Product Details" runat="server" /><br /> <br />
                     <asp:Label ID="lblProductID" runat="server" Text="Product:" Width="200px" />
-                    <asp:DropDownList ID="dropaddProduct" Width="300px" AppendDataBoundItems="True" EnableViewState="False" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Workschedule_ID" OnSelectedIndexChanged="dropaddProduct_SelectedIndexChanged">
+                    <asp:DropDownList ID="dropaddProduct" Width="250px" AutoPostBack="true" AppendDataBoundItems="True" EnableViewState="False" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Workschedule_ID" OnSelectedIndexChanged="dropaddProduct_SelectedIndexChanged">
                     <asp:ListItem Text="-- Select a Finished Product --" Value="-1"></asp:ListItem>
                     </asp:DropDownList>
                     <br /><asp:RequiredFieldValidator ID="rfvaddProduct" ValidationGroup="addFinishedProductValidation" InitialValue="-1" runat="server" ControlToValidate="dropaddProduct" ErrorMessage="(*) Must select a Product" ForeColor="Red"></asp:RequiredFieldValidator><br />
