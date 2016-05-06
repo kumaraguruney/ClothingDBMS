@@ -70,12 +70,22 @@
     <asp:Label ID="lblQuotation" runat="server" Text="Quotation Data Management" Font-Bold="true"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
-        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="Quotation_Number" DataSourceID="SqlDataSourceQuotation" AllowSorting="True" OnSelectedIndexChanged="GridViewQuotation_SelectedIndexChanged">
+        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="Quotation_Number" DataSourceID="SqlDataSourceQuotation" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" ReadOnly="True" SortExpression="Quotation_Number" InsertVisible="False" />
                 <asp:BoundField DataField="Quotation_Date" HeaderText="Quotation_Date" SortExpression="Quotation_Date" />
 
                 <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" SortExpression="Customer_Id" />
+               <asp:TemplateField HeaderText="Convert to SO" ShowHeader="false">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkConverttoSO" runat="server" CausesValidation="False"  OnClick="btnConverttoSOQuotation_Click" Text="Convert to SO"></asp:LinkButton>
+                                </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Open" ShowHeader="false">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkOpen" runat="server" CausesValidation="False"  OnClick="btnOpenQuotation_Click" Text="Open"></asp:LinkButton>
+                                </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
