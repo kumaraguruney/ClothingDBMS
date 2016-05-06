@@ -39,11 +39,11 @@ namespace ClothingDBMS.ProcurementManagement
         protected void btnCancelPurchase_Order_Click(object sender, EventArgs e)
         {
             pnlAddPurchase_Order.Visible = false;
-            gvPurchase_Order.Visible = true;
-        }  
-     
+            pnlAddPurchase_Order.Visible = true;
 
-        protected void btnSavePurchase_Order_Click(object sender, EventArgs e)
+        }
+
+        protected void btnSaveGoods_Receipt_Click(object sender, EventArgs e)
         {
             SqlPurchase_Order.InsertParameters["Purchase_Date"].DefaultValue = txtPurchase_Order_Date.Text.ToUpper().Trim();
             SqlPurchase_Order.InsertParameters["Supplier"].DefaultValue = DropDownSupplier_Name.SelectedValue;          

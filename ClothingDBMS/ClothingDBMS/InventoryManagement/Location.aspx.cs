@@ -24,7 +24,7 @@ namespace ClothingDBMS.InventoryManagement
             //SqlInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
             SqlLocation.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDDropDownList.SelectedValue;
             SqlLocation.InsertParameters["Area"].DefaultValue = AreaTextBox.Text.ToUpper().Trim();
-            SqlLocation.InsertParameters["Inventory_Name"].DefaultValue = InventoryNameTextBox.Text.ToUpper().Trim();
+            SqlLocation.InsertParameters["Location_Name"].DefaultValue = InventoryNameTextBox.Text.ToUpper().Trim();
             SqlLocation.Insert();
             gvInventory.DataBind();
             PaneladdInventory.Visible = false;

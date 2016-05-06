@@ -31,15 +31,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlIncludes;
         
         /// <summary>
-        /// SqlIncludesdrop control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlIncludesdrop;
-        
-        /// <summary>
         /// SqlMachines control.
         /// </summary>
         /// <remarks>
@@ -76,42 +67,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Panel PanelgvIncludes;
         
         /// <summary>
-        /// lblIncludesFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIncludesFilter;
-        
-        /// <summary>
-        /// dropIncludesSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropIncludesSearch;
-        
-        /// <summary>
-        /// btnIncludesfilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIncludesfilter;
-        
-        /// <summary>
-        /// btnIncludesClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIncludesClear;
-        
-        /// <summary>
         /// btnaddIncludes control.
         /// </summary>
         /// <remarks>
@@ -146,33 +101,6 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIncludesMachineryaddTitle;
-        
-        /// <summary>
-        /// lblIncludesWorkSchedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIncludesWorkSchedule;
-        
-        /// <summary>
-        /// dropaddWorkschedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropaddWorkschedule;
-        
-        /// <summary>
-        /// rfvWorkschedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkschedule;
         
         /// <summary>
         /// lblIncludesMachineID control.

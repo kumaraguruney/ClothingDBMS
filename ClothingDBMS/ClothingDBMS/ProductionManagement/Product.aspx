@@ -62,6 +62,29 @@
             </div>
         </div>
     </div>
+
+        <asp:SqlDataSource ID="SqlRequires" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Require.Require_ID, Require.Product_ID, Require.RawMaterial_ID, Require.RawMaterial_Quantity, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name, RawMaterial.RawMaterial_Name + ', ' + code_2.Code_Description + ', ' + ISNULL(RawMaterial.RawMaterial_Description, ' ') AS Rawmaterial_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section LEFT OUTER JOIN RawMaterial ON Require.RawMaterial_ID = Require.RawMaterial_ID LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = RawMaterial.RawMaterial_Color ORDER BY Design.Design_Name" DeleteCommand="DELETE FROM [Require] WHERE [Require_ID] = @Require_ID" InsertCommand="INSERT INTO Require(Product_ID, RawMaterial_ID, RawMaterial_Quantity) VALUES (@Product_ID, @RawMaterial_ID, @RawMaterial_Quantity)" UpdateCommand="UPDATE Require SET Product_ID = @Product_ID, RawMaterial_ID = @RawMaterial_ID, RawMaterial_Quantity = @RawMaterial_Quantity WHERE (Require_ID = @Require_ID)">
+            <DeleteParameters>
+                <asp:Parameter Name="Require_ID" Type="Int16" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Product_ID" />
+                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="RawMaterial_Quantity" Type="Byte" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Product_ID" />
+                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="RawMaterial_Quantity" Type="Byte" />
+                <asp:Parameter Name="Require_ID" Type="Int16" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlRequireDrop" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT DISTINCT Require.Product_ID, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section ORDER BY Product_Name" />
+        
+        <asp:SqlDataSource ID="SqlRawmaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT RawMaterial.RawMaterial_ID, RawMaterial.RawMaterial_Name + ',' + Code.Code_Description + ', ' + RawMaterial.RawMaterial_Description AS RawMaterial_Name FROM RawMaterial LEFT OUTER JOIN Code ON Code.Code_ID = RawMaterial.RawMaterial_Color"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlProducts" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Product.Design_ID, Product.Size, Product.Color, Product.Product_Description, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
+
         <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Design_ID, Product.Product_ID, Product.Size, Product.Color, Product.Product_Description, Code.Code_Description AS Product_Size, Code_1.Code_Description AS Product_Color, Design.Design_Name + ', ' + Code_2.Code_Description AS Name FROM Product LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS Code_1 ON Code_1.Code_ID = Product.Color LEFT OUTER JOIN Design ON Product.Design_ID = Design.Design_ID LEFT OUTER JOIN Code AS Code_2 ON Code_2.Code_ID = Design.Design_Section ORDER BY Design.Design_Name" DeleteCommand="DELETE FROM [Product] WHERE [Product_ID] = @Product_ID" InsertCommand="INSERT INTO [Product] ([Design_ID], [Size], [Color], [Product_Description]) VALUES (@Design_ID, @Size, @Color, @Product_Description)" UpdateCommand="UPDATE [Product] SET [Design_ID] = @Design_ID, [Size] = @Size, [Color] = @Color, [Product_Description] = @Product_Description WHERE [Product_ID] = @Product_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Product_ID" Type="Int16" />
@@ -91,7 +114,7 @@
                 <asp:Button ID="btnaddProduct" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnaddProduct_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvProduct" runat="server">
-                    <asp:GridView ID="gvProduct" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProduct" AutoGenerateColumns="False" DataKeyNames="Product_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                    <asp:GridView ID="gvProduct" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProduct" AutoGenerateColumns="False" DataKeyNames="Product_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" HorizontalAlign="Center">
                         <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
@@ -124,6 +147,12 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="Product_Description" HeaderText="Product Description" SortExpression="Product_Description" />
+                            <asp:TemplateField HeaderText="RM Required"  ShowHeader="False">
+                                 <ItemTemplate>
+                                     <asp:LinkButton ID="lnkRequireds" runat="server" CausesValidation="False" ToolTip=" click to check the Raw Material Required for this Product" OnClick="lnkRequireds_Click"  Text="RM"></asp:LinkButton>
+                                 </ItemTemplate>
+                                
+                            </asp:TemplateField>
                              <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                  <ItemTemplate>
                                      <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
@@ -168,7 +197,11 @@
                         <asp:Button ID="btnCancelProductDesign" CssClass="bg-primary" runat="server" Text="Cancel" OnClick="btnCancelProduct_Click"/>
                     </div>
                     </asp:Panel>
+
+
+
         </div>
+
     </form>
 </body>
 </html>
