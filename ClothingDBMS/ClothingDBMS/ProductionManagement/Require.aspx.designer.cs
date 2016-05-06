@@ -49,13 +49,13 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlRawmaterial;
         
         /// <summary>
-        /// SqlProduct control.
+        /// SqlProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProducts;
         
         /// <summary>
         /// lbRequireHeader control.
@@ -74,42 +74,6 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelgvProductRequire;
-        
-        /// <summary>
-        /// lblRequiresFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRequiresFilter;
-        
-        /// <summary>
-        /// droprequire control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList droprequire;
-        
-        /// <summary>
-        /// btnProductRequirefilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProductRequirefilter;
-        
-        /// <summary>
-        /// btnProductRequireClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProductRequireClear;
         
         /// <summary>
         /// btaddProductRequire control.
@@ -146,33 +110,6 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbProductRequireaddTitle;
-        
-        /// <summary>
-        /// lblRequireProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRequireProduct;
-        
-        /// <summary>
-        /// dropProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProduct;
-        
-        /// <summary>
-        /// rfvdropProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropProduct;
         
         /// <summary>
         /// lblRequireRawmaterial control.

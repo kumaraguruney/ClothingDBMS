@@ -76,42 +76,6 @@ namespace ProductionManagement.ProductionManagement {
         protected global::System.Web.UI.WebControls.Panel PanelgvAllocates;
         
         /// <summary>
-        /// lblAllocatesFilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllocatesFilter;
-        
-        /// <summary>
-        /// dropAllocatesSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropAllocatesSearch;
-        
-        /// <summary>
-        /// btnAllocatesfilter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAllocatesfilter;
-        
-        /// <summary>
-        /// btnAllocatesClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAllocatesClear;
-        
-        /// <summary>
         /// btnaddAllocates control.
         /// </summary>
         /// <remarks>
@@ -173,33 +137,6 @@ namespace ProductionManagement.ProductionManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkschedule;
-        
-        /// <summary>
-        /// lblIncludesWorkscheduleID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIncludesWorkscheduleID;
-        
-        /// <summary>
-        /// dropWorkschedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropWorkschedule;
-        
-        /// <summary>
-        /// rfvdropWorkschedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropWorkschedule;
         
         /// <summary>
         /// lblAllocatesTime control.
