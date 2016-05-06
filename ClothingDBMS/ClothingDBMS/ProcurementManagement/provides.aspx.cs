@@ -30,11 +30,14 @@ namespace ClothingDBMS.ProcurementManagement
         {
             SqlProvides.InsertParameters["Quotation_ID"].DefaultValue = DropDownQuotation_ID.SelectedValue;
             SqlProvides.InsertParameters["RawMaterial_ID"].DefaultValue = DropDownRawMaterial_ID.SelectedValue;
-
+            SqlProvides.InsertParameters["Unit_Price"].DefaultValue = txtUnit_Price.Text.ToUpper().Trim();
+            SqlProvides.InsertParameters["Quantity"].DefaultValue = txtQuantity.Text.ToUpper().Trim();
             SqlProvides.Insert();
             gvProvides.DataBind();
             PaneladdProvides.Visible = false;
             PanelgvProvides.Visible = true;
+            txtUnit_Price.Text = string.Empty;
+            txtQuantity.Text = string.Empty;
             DropDownQuotation_ID.SelectedIndex = -1;
             DropDownRawMaterial_ID.SelectedIndex = -1;
 

@@ -29,15 +29,12 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveSupplier_Quotation_Click(object sender, EventArgs e)
         {
-            SqlSupplier_Quotation.InsertParameters["Item_Code"].DefaultValue = txtSupplier_QuotationName.Text.ToUpper().Trim();
-            SqlSupplier_Quotation.InsertParameters["unit_price"].DefaultValue = txtSupplier_QuotationAddress.Text.ToUpper().Trim();
-
+            SqlSupplier_Quotation.InsertParameters["Supplier_Name"].DefaultValue = DropDownSupplier_Name.SelectedValue;
             SqlSupplier_Quotation.Insert();
             gvSupplier_Quotation.DataBind();
             PaneladdSupplier_Quotation.Visible = false;
             PanelgvSupplier_Quotation.Visible = true;
-            txtSupplier_QuotationName.Text = string.Empty;
-            txtSupplier_QuotationAddress.Text = string.Empty;
+            DropDownSupplier_Name.SelectedIndex = -1;
 
         }
 

@@ -25,29 +25,19 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlPurchase_Order" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [Purchase_Date]" DeleteCommand="DELETE FROM [purchase_order] WHERE [Purchase_Order_ID] = @Purchase_Order_ID" InsertCommand="INSERT INTO [purchase_order] ([Purchase_Date], [Supplier_Name], [Supplier_Description], [Supplier_ID], [RawMaterial_ID], [Quantity], [Unit_Price], [Total], [Shipping_Address]) VALUES (@Purchase_Date, @Supplier_Name, @Supplier_Description, @Supplier_ID, @RawMaterial_ID, @Quantity, @Unit_Price, @Total, @Shipping_Address)" UpdateCommand="UPDATE [purchase_order] SET [Purchase_Date] = @Purchase_Date, [Supplier_Name] = @Supplier_Name, [Supplier_Description] = @Supplier_Description, [Supplier_ID] = @Supplier_ID, [RawMaterial_ID] = @RawMaterial_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price, [Total] = @Total, [Shipping_Address] = @Shipping_Address WHERE [Purchase_Order_ID] = @Purchase_Order_ID">
+        <asp:SqlDataSource ID="SqlPurchase_Order" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [Purchase_Order_ID]" DeleteCommand="DELETE FROM [purchase_order] WHERE [Purchase_Order_ID] = @Purchase_Order_ID" InsertCommand="INSERT INTO [purchase_order] ([Purchase_Date], [Supplier_ID], [Total], [Shipping_Address]) VALUES (@Purchase_Date, @Supplier_ID, @Total, @Shipping_Address)" UpdateCommand="UPDATE [purchase_order] SET [Purchase_Date] = @Purchase_Date, [Supplier_ID] = @Supplier_ID, [Total] = @Total, [Shipping_Address] = @Shipping_Address WHERE [Purchase_Order_ID] = @Purchase_Order_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Purchase_Order_ID" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="Purchase_Date" DbType="Date" />
-                <asp:Parameter Name="Supplier_Name" Type="String" />
-                <asp:Parameter Name="Supplier_Description" Type="String" />
+                <asp:Parameter Name="Purchase_Date" Type="String" />
                 <asp:Parameter Name="Supplier_ID" Type="Int16" />
-                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
-                <asp:Parameter Name="Quantity" Type="Int32" />
-                <asp:Parameter Name="Unit_Price" Type="Decimal" />
                 <asp:Parameter Name="Total" Type="Decimal" />
                 <asp:Parameter Name="Shipping_Address" Type="String" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="Purchase_Date" DbType="Date" />
-                <asp:Parameter Name="Supplier_Name" Type="String" />
-                <asp:Parameter Name="Supplier_Description" Type="String" />
+                <asp:Parameter Name="Purchase_Date" Type="String" />
                 <asp:Parameter Name="Supplier_ID" Type="Int16" />
-                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
-                <asp:Parameter Name="Quantity" Type="Int32" />
-                <asp:Parameter Name="Unit_Price" Type="Decimal" />
                 <asp:Parameter Name="Total" Type="Decimal" />
                 <asp:Parameter Name="Shipping_Address" Type="String" />
                 <asp:Parameter Name="Purchase_Order_ID" Type="Int32" />
@@ -57,8 +47,6 @@
             <div align="center">
                 <br />
                 <br />
-        <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [RawMaterial] ORDER BY [RawMaterial_Name]">
-        </asp:SqlDataSource>
 
         <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Name]">
         </asp:SqlDataSource>
@@ -70,15 +58,9 @@
                 <asp:Panel ID="PanelgvPurchase_Order" runat="server">
                     <asp:GridView ID="gvPurchase_Order" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlPurchase_Order" AutoGenerateColumns="False" DataKeyNames="Purchase_Order_ID">
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="Purchase_Order_ID" HeaderText="Purchase_Order_ID" ReadOnly="True" SortExpression="Purchase_Order_ID" InsertVisible="False" />
                             <asp:BoundField DataField="Purchase_Date" HeaderText="Purchase_Date" SortExpression="Purchase_Date" />
-                             <asp:BoundField DataField="Supplier_Name" HeaderText="Supplier_Name" SortExpression="Supplier_Name" />
-                            <asp:BoundField DataField="Supplier_Description" HeaderText="Supplier_Description" SortExpression="Supplier_Description" />
-                            <asp:BoundField DataField="Supplier_ID" HeaderText="Supplier_ID" SortExpression="Supplier_ID" />
-                            <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
-                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                            <asp:BoundField DataField="Unit_Price" HeaderText="Unit_Price" SortExpression="Unit_Price" />
+                             <asp:BoundField DataField="Supplier_ID" HeaderText="Supplier_ID" SortExpression="Supplier_ID" />
                             <asp:BoundField DataField="Total" HeaderText="Total" SortExpression="Total" />
                             <asp:BoundField DataField="Shipping_Address" HeaderText="Shipping_Address" SortExpression="Shipping_Address" />
                         </Columns>
@@ -89,32 +71,23 @@
                 <asp:Label ID="lbPurchase_OrderaddTitle" Text="Add Purchase_Order into Database" runat="server" />
                     <br />
                     <br />
-                    <asp:Label ID="lblPurchase_Date" Width="149px" Text="Purchase_Date: " runat="server" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtPurchase_Date" runat="server" ValidationGroup="addPurchase_OrderValidation" Width="274px"></asp:TextBox>
+                    <asp:Label ID="lblPurchase_Order_Date" Width="149px" Text="Purchase_Order_Date: " runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+                    <asp:TextBox ID="txtPurchase_Order_Date" runat="server" ValidationGroup="addPurchase_OrderValidation" Width="274px"></asp:TextBox>
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <br />
-                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier" Width="149px"></asp:Label>
+                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier_Name" Width="149px"></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:DropDownList ID="DropDownSupplier_Name" runat="server" Height="28px" Width="300px" DataSourceID="SqlSupplier" DataTextField="Name" DataValueField="Supplier_id">
                     </asp:DropDownList>
                     <br />
-                    <asp:Label ID="lblRawMaterial_Name" runat="server" Text="RawMaterial" Width="149px" />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:DropDownList ID="DropDownRawMaterial_Name" runat="server" Height="28px" Width="300px" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID">
-                    </asp:DropDownList>
-                    <br />
-                    <asp:Label ID="lblQuantity" runat="server" Text="Quantity: " Width="150px"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtQuantity" runat="server" Height="33px" Width="300px"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="lblUnit_Price" runat="server" Text="Unit_Price: " Width="150px"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:TextBox ID="txtUnit_Price" runat="server" Height="33px" Width="300px"></asp:TextBox>
-                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<br />
+                    &nbsp;&nbsp;
                     <asp:Label ID="lblTotal" runat="server" Text="Total: " Width="150px"></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtTotal" runat="server" Height="33px" Width="300px"></asp:TextBox>
+                    <br />
                     <br />
                     <asp:Label ID="lblShipping_Address" runat="server" Text="Shipping Address: " Width="237px"></asp:Label>
                     &nbsp;&nbsp;&nbsp;&nbsp;

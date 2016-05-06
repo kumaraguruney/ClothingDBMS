@@ -10,7 +10,7 @@
 namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class WebForm2 {
+    public partial class Requires {
         
         /// <summary>
         /// form2 control.
@@ -22,22 +22,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SqlProvides control.
+        /// SqlRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlProvides;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRequires;
         
         /// <summary>
-        /// SqlSupplier_Quotation control.
+        /// SqlWorkOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplier_Quotation;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlWorkOrder_ID;
         
         /// <summary>
         /// SqlRawMaterial control.
@@ -49,49 +49,49 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
         
         /// <summary>
-        /// lblProvidesHeader control.
+        /// lbRequiresHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProvidesHeader;
+        protected global::System.Web.UI.WebControls.Label lbRequiresHeader;
         
         /// <summary>
-        /// btnaddProvides control.
+        /// btnaddRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddProvides;
+        protected global::System.Web.UI.WebControls.Button btnaddRequires;
         
         /// <summary>
-        /// PanelgvProvides control.
+        /// PanelgvRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvProvides;
+        protected global::System.Web.UI.WebControls.Panel PanelgvRequires;
         
         /// <summary>
-        /// gvProvides control.
+        /// gvRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProvides;
+        protected global::System.Web.UI.WebControls.GridView gvRequires;
         
         /// <summary>
-        /// PaneladdProvides control.
+        /// PaneladdRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdProvides;
+        protected global::System.Web.UI.WebControls.Panel PaneladdRequires;
         
         /// <summary>
         /// lbUpdatesaddTitle control.
@@ -103,22 +103,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbUpdatesaddTitle;
         
         /// <summary>
-        /// lbQuotation_ID control.
+        /// lbWorkOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbQuotation_ID;
+        protected global::System.Web.UI.WebControls.Label lbWorkOrder_ID;
         
         /// <summary>
-        /// DropDownQuotation_ID control.
+        /// DropDownQWorkOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownQuotation_ID;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownQWorkOrder_ID;
         
         /// <summary>
         /// rfvPrvd_id control.
@@ -130,13 +130,13 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
         
         /// <summary>
-        /// lblRawMaterial_Name control.
+        /// lbRawMaterial_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRawMaterial_Name;
+        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
         
         /// <summary>
         /// DropDownRawMaterial_ID control.
@@ -148,57 +148,30 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.DropDownList DropDownRawMaterial_ID;
         
         /// <summary>
-        /// lblUnit_Price control.
+        /// btnSaveRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUnit_Price;
+        protected global::System.Web.UI.WebControls.Button btnSaveRequires;
         
         /// <summary>
-        /// txtUnit_Price control.
+        /// btnCancelRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUnit_Price;
+        protected global::System.Web.UI.WebControls.Button btnCancelRequires;
         
         /// <summary>
-        /// lblQuantity control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuantity;
-        
-        /// <summary>
-        /// txtQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
-        
-        /// <summary>
-        /// btnSaveProvides control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveProvides;
-        
-        /// <summary>
-        /// btnCancelProvides control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelProvides;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
     }
 }

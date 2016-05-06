@@ -28,17 +28,18 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveUpdates_Click(object sender, EventArgs e)
         {
-            SqlUpdate.InsertParameters["Update_ID"].DefaultValue = txtUpdate_id.Text.ToUpper().Trim();
-            SqlUpdate.InsertParameters["Receipt_ID"].DefaultValue = txtReceipt_ID.Text.ToUpper().Trim();
-            SqlUpdate.InsertParameters["Inventory_ID"].DefaultValue = txtInventory_ID.Text.ToUpper().Trim();
-
+            SqlUpdate.InsertParameters["Receipt_ID"].DefaultValue = DropDownReceipt_ID.SelectedValue;
+            SqlUpdate.InsertParameters["Entry_ID"].DefaultValue = DropDownEntry_ID.SelectedValue;
+            SqlUpdate.InsertParameters["Required_Qty"].DefaultValue = txtRequired_Qty.Text.ToUpper().Trim();
+            SqlUpdate.InsertParameters["Remaining_Qty"].DefaultValue = txtRemaining_Qty.Text.ToUpper().Trim();
             SqlUpdate.Insert();
             gvUpdates.DataBind();
             PaneladdUpdates.Visible = false;
             PanelgvUpdates.Visible = true;
-            txtUpdate_id.Text = string.Empty;
-            txtReceipt_ID.Text = string.Empty;
-            txtInventory_ID.Text = string.Empty;
+            txtRequired_Qty.Text = string.Empty;
+            txtRemaining_Qty.Text = string.Empty;
+            DropDownReceipt_ID.SelectedIndex = -1;
+            DropDownEntry_ID.SelectedIndex = -1;
 
         }
     }
