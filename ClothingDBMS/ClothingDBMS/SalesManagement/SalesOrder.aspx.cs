@@ -22,19 +22,16 @@ namespace SalesManagement.Sales
         protected void btnSave_Click(object sender, EventArgs e)
         {
             SqlDataSourceSalesOrder.InsertParameters["Quotation_Number"].DefaultValue = dropQuotationNumber.SelectedValue;
-            SqlDataSourceSalesOrder.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
-            SqlDataSourceSalesOrder.InsertParameters["Design_Id"].DefaultValue = dropDesignId.SelectedValue;
             SqlDataSourceSalesOrder.InsertParameters["Sorder_Date"].DefaultValue = txtSODate.Text.Trim();
             SqlDataSourceSalesOrder.InsertParameters["Due_Date"].DefaultValue = txtSODueDate.Text.Trim();
-            SqlDataSourceSalesOrder.InsertParameters["Quantity"].DefaultValue = Quantity.Text;
+           
             SqlDataSourceSalesOrder.InsertParameters["Late_Fee"].DefaultValue = LateFee.Text.Trim();
             SqlDataSourceSalesOrder.Insert();
             GridViewSalesOrder.DataBind();
             panelAddSalesOrder.Visible = false;
             panelSaveSalesOrder.Visible = true;
             dropQuotationNumber.SelectedIndex = 0;
-            dropProductId.SelectedIndex = 0;
-            dropDesignId.SelectedIndex = 0;
+         
 
         }
 

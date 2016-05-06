@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Quotes.aspx.cs" Inherits="ClothingDBMS.SalesManagement.Quotes" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Contains.aspx.cs" Inherits="ClothingDBMS.SalesManagement.Contains" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-  <form id="form1" runat="server">
+    <form id="form1" runat="server">
           <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -32,40 +32,25 @@
             </div>
         </div>
     </div>
-                <asp:SqlDataSource ID="SqlQotes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTES] ORDER BY [QUOTES_ID]" DeleteCommand="DELETE FROM [QUOTES] WHERE [QUOTES_ID] = @QUOTES_ID" InsertCommand="INSERT INTO [QUOTES] ([QOquantity], [Product_ID], [Quotation_Number]) VALUES (@QOquantity, @Product_ID, @Quotation_Number)" UpdateCommand="UPDATE [QUOTES] SET [QOquantity] = @QOquantity, [Product_ID] = @Product_ID, [Quotation_Number] = @Quotation_Number WHERE [QUOTES_ID] = @QUOTES_ID">
-                    <DeleteParameters>
-                        <asp:Parameter Name="QUOTES_ID" Type="Int32" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="QOquantity" Type="String" />
-                        <asp:Parameter Name="Product_ID" Type="Int16" />
-                        <asp:Parameter Name="Quotation_Number" Type="Int32" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="QOquantity" Type="String" />
-                        <asp:Parameter Name="Product_ID" Type="Int16" />
-                        <asp:Parameter Name="Quotation_Number" Type="Int32" />
-                        <asp:Parameter Name="QUOTES_ID" Type="Int32" />
-                    </UpdateParameters>
+                <asp:SqlDataSource ID="SqlContains" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [CONTAINS] ORDER BY [CONTAINS_ID]">
           </asp:SqlDataSource>
-                <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Quotation_Date, QUOTATION.Customer_Id, CUSTOMER.Customer_Name FROM QUOTATION INNER JOIN CUSTOMER ON CUSTOMER.Customer_Id = QUOTATION.Customer_Id">
+                <asp:SqlDataSource ID="SqlDataSalesorder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [SALES_ORDER] ORDER BY [Sorder_Number]">
             
         </asp:SqlDataSource>
        <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
 
         <div style="margin-top:100px;"  align="center">
         <br/>
-    <asp:Label ID="lblQuotation" runat="server" Text="Quotes Data Management" Font-Bold="True"></asp:Label>  <br /> <br />
+    <asp:Label ID="lblQuotation" runat="server" Text="Contains Data Management" Font-Bold="True"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
-        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True" >
+        <asp:GridView ID="GridViewContains" runat="server" AutoGenerateColumns="False" DataKeyNames="CONTAINS_ID" DataSourceID="SqlContains" AllowSorting="True" >
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                <asp:BoundField DataField="QUOTES_ID" HeaderText="QUOTES_ID" ReadOnly="True" SortExpression="QUOTES_ID" InsertVisible="False" />
-                <asp:BoundField DataField="QOquantity" HeaderText="QOquantity" SortExpression="QOquantity" />
+                <asp:BoundField DataField="CONTAINS_ID" HeaderText="CONTAINS_ID" ReadOnly="True" SortExpression="CONTAINS_ID" InsertVisible="False" />
+                <asp:BoundField DataField="SOquantity" HeaderText="SOquantity" SortExpression="SOquantity" />
 
                 <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" SortExpression="Product_ID" />
-                <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" SortExpression="Quotation_Number" />
+                <asp:BoundField DataField="Sorder_Number" HeaderText="Sorder_Number" SortExpression="Sorder_Number" />
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -83,14 +68,14 @@
     
           <asp:Panel ID="panelAddQuotation" Visible="false" runat="server">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:Label ID="lblQuotationTitle" Text="Enter New Quotation Information" runat="server" Font-Bold="True"/><br /> <br />
+         <asp:Label ID="lblQuotationTitle" Text="Enter New Sales Order  Information" runat="server" Font-Bold="True"/><br /> <br />
 
-                          <asp:Label ID="lblCustomerId" runat="server" Text="Quotation Number:" Width="200px" />
-              <asp:DropDownList ID="dropQotationNum" runat="server" DataSourceID="SqlDataSourceQuotation" DataTextField="Customer_Name" DataValueField="Quotation_Number">
+                          <asp:Label ID="lblCustomerId" runat="server" Text="Salesorder Number" Width="200px" />
+              <asp:DropDownList ID="dropQotationNum" runat="server" DataSourceID="SqlDataSalesorder" DataTextField="Sorder_Number" DataValueField="Sorder_Number">
                   <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
               </asp:DropDownList>
               <br />
-              <asp:RequiredFieldValidator ID="rfvAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Select One Quotation Number" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              <asp:RequiredFieldValidator ID="rfvAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Select One Sales order Number" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
               &nbsp;
               <br/>
               <asp:Label ID="lblProductId" runat="server" Text="Product: " Width="200px" />

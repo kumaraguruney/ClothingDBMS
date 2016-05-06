@@ -31,15 +31,6 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlQotes;
         
         /// <summary>
-        /// SqlDataSourceProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
-        
-        /// <summary>
         /// SqlDataSourceQuotation control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace ClothingDBMS.SalesManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuotation;
+        
+        /// <summary>
+        /// SqlProduct control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
         /// lblQuotation control.
@@ -103,22 +103,22 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.Label lblQuotationTitle;
         
         /// <summary>
-        /// lbQuantity control.
+        /// lblCustomerId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbQuantity;
+        protected global::System.Web.UI.WebControls.Label lblCustomerId;
         
         /// <summary>
-        /// Quantity control.
+        /// dropQotationNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Quantity;
+        protected global::System.Web.UI.WebControls.DropDownList dropQotationNum;
         
         /// <summary>
         /// rfvAllocatesTime control.
@@ -128,15 +128,6 @@ namespace ClothingDBMS.SalesManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAllocatesTime;
-        
-        /// <summary>
-        /// revAllocatesTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAllocatesTime;
         
         /// <summary>
         /// lblProductId control.
@@ -166,22 +157,22 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductId;
         
         /// <summary>
-        /// lblCustomerId control.
+        /// lbQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerId;
+        protected global::System.Web.UI.WebControls.Label lbQuantity;
         
         /// <summary>
-        /// dropQotationNum control.
+        /// Quantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropQotationNum;
+        protected global::System.Web.UI.WebControls.TextBox Quantity;
         
         /// <summary>
         /// rfvCustomerId control.
@@ -191,6 +182,15 @@ namespace ClothingDBMS.SalesManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCustomerId;
+        
+        /// <summary>
+        /// revAllocatesTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAllocatesTime;
         
         /// <summary>
         /// calpanel control.
