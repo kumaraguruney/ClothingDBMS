@@ -41,8 +41,8 @@ namespace ClothingDBMS.ProcurementManagement
             pnlAddPurchase_Order.Visible = false;
             pnlAddPurchase_Order.Visible = true;
 
-     
 
+        }
         protected void btnSaveGoods_Receipt_Click(object sender, EventArgs e)
         {
             SqlPurchase_Order.InsertParameters["Purchase_Date"].DefaultValue = txtPurchase_Date.Text.ToUpper().Trim();
