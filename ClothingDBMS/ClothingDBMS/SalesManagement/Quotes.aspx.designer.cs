@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesManagement.Sales {
+namespace ClothingDBMS.SalesManagement {
     
     
-    public partial class Payment1 {
+    public partial class Quotes {
         
         /// <summary>
         /// form1 control.
@@ -22,40 +22,49 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlDataSourceInvoice control.
+        /// SqlQotes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceInvoice;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlQotes;
         
         /// <summary>
-        /// SqlDataSourcePayment control.
+        /// SqlDataSourceQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourcePayment;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuotation;
         
         /// <summary>
-        /// lblPayment control.
+        /// SqlProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPayment;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
-        /// panelSavePayment control.
+        /// lblQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSavePayment;
+        protected global::System.Web.UI.WebControls.Label lblQuotation;
+        
+        /// <summary>
+        /// panelSaveQuotation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelSaveQuotation;
         
         /// <summary>
         /// btnAdd control.
@@ -67,67 +76,49 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// GridViewPayment control.
+        /// GridViewQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewPayment;
+        protected global::System.Web.UI.WebControls.GridView GridViewQuotation;
         
         /// <summary>
-        /// panelAddPayment control.
+        /// panelAddQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelAddPayment;
+        protected global::System.Web.UI.WebControls.Panel panelAddQuotation;
         
         /// <summary>
-        /// LblInvoice control.
+        /// lblQuotationTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblInvoice;
+        protected global::System.Web.UI.WebControls.Label lblQuotationTitle;
         
         /// <summary>
-        /// DropDownInvoice control.
+        /// lblCustomerId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownInvoice;
+        protected global::System.Web.UI.WebControls.Label lblCustomerId;
         
         /// <summary>
-        /// rfvInvoiceNum control.
+        /// dropQotationNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvInvoiceNum;
-        
-        /// <summary>
-        /// lblAcctId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAcctId;
-        
-        /// <summary>
-        /// Acct_Id control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Acct_Id;
+        protected global::System.Web.UI.WebControls.DropDownList dropQotationNum;
         
         /// <summary>
         /// rfvAllocatesTime control.
@@ -139,6 +130,60 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAllocatesTime;
         
         /// <summary>
+        /// lblProductId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProductId;
+        
+        /// <summary>
+        /// dropProductId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropProductId;
+        
+        /// <summary>
+        /// rfvProductId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductId;
+        
+        /// <summary>
+        /// lbQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbQuantity;
+        
+        /// <summary>
+        /// Quantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Quantity;
+        
+        /// <summary>
+        /// rfvCustomerId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCustomerId;
+        
+        /// <summary>
         /// revAllocatesTime control.
         /// </summary>
         /// <remarks>
@@ -148,51 +193,6 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revAllocatesTime;
         
         /// <summary>
-        /// lblStatusInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatusInfo;
-        
-        /// <summary>
-        /// PaymentStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PaymentStatus;
-        
-        /// <summary>
-        /// lblPaymentDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPaymentDate;
-        
-        /// <summary>
-        /// txtPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPayment;
-        
-        /// <summary>
-        /// calingPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton calingPayment;
-        
-        /// <summary>
         /// calpanel control.
         /// </summary>
         /// <remarks>
@@ -200,15 +200,6 @@ namespace SalesManagement.Sales {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel calpanel;
-        
-        /// <summary>
-        /// calPayment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calPayment;
         
         /// <summary>
         /// btnSave control.
