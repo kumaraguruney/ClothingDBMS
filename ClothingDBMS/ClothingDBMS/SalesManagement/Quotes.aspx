@@ -1,40 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Quotation.aspx.cs" Inherits="SalesManagement.Sales.Quotation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Quotes.aspx.cs" Inherits="ClothingDBMS.SalesManagement.Quotes" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Quotation Information</title>
-        <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="Kumaraguru" />
-    <!-- Bootstrap Core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="../css/the-big-picture.css" rel="stylesheet" />
-    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
-    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
-    <link href="../css/main.css" rel="stylesheet" type="text/css" />
-    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
-    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
-    <!-- ============ Google fonts ============ -->
-    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
-        type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
-        rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+  <form id="form1" runat="server">
           <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll">
@@ -59,23 +32,41 @@
             </div>
         </div>
     </div>
-                <asp:SqlDataSource ID="SqlDataSourceCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [CUSTOMER] ORDER BY [Customer_Name]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlQotes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTES] ORDER BY [QUOTES_ID]" DeleteCommand="DELETE FROM [QUOTES] WHERE [QUOTES_ID] = @QUOTES_ID" InsertCommand="INSERT INTO [QUOTES] ([QOquantity], [Product_ID], [Quotation_Number]) VALUES (@QOquantity, @Product_ID, @Quotation_Number)" UpdateCommand="UPDATE [QUOTES] SET [QOquantity] = @QOquantity, [Product_ID] = @Product_ID, [Quotation_Number] = @Quotation_Number WHERE [QUOTES_ID] = @QUOTES_ID">
+                    <DeleteParameters>
+                        <asp:Parameter Name="QUOTES_ID" Type="Int32" />
+                    </DeleteParameters>
+                    <InsertParameters>
+                        <asp:Parameter Name="QOquantity" Type="Int16" />
+                        <asp:Parameter Name="Product_ID" Type="Int16" />
+                        <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                    </InsertParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="QOquantity" Type="Int16" />
+                        <asp:Parameter Name="Product_ID" Type="Int16" />
+                        <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                        <asp:Parameter Name="QUOTES_ID" Type="Int32" />
+                    </UpdateParameters>
+          </asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSourceProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_Description]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTATION] ORDER BY [Quotation_Number]">
+                <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTES]" DeleteCommand="DELETE FROM [QUOTES] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTES] ([QUOTES_ID], [QOquantity], [Product_Id], [Quotation_Number]) VALUES (@QUOTES_ID, @QOquantity, @Product_Id, @Quotation_Number)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id, [Product_Id] = @Product_Id, [Quantity] = @Quantity WHERE [Quotation_Number] = @Quotation_Number">
+         
         </asp:SqlDataSource>
 
 
         <div style="margin-top:100px;"  align="center">
         <br/>
-    <asp:Label ID="lblQuotation" runat="server" Text="Quotation Data Management" Font-Bold="true"></asp:Label>  <br /> <br />
+    <asp:Label ID="lblQuotation" runat="server" Text="Quotes Data Management" Font-Bold="True"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
-        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="Quotation_Number" DataSourceID="SqlDataSourceQuotation" AllowSorting="True" OnSelectedIndexChanged="GridViewQuotation_SelectedIndexChanged">
+        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True" OnSelectedIndexChanged="GridViewQuotation_SelectedIndexChanged">
             <Columns>
-                <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" ReadOnly="True" SortExpression="Quotation_Number" InsertVisible="False" />
-                <asp:BoundField DataField="Quotation_Date" HeaderText="Quotation_Date" SortExpression="Quotation_Date" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="QUOTES_ID" HeaderText="QUOTES_ID" ReadOnly="True" SortExpression="QUOTES_ID" InsertVisible="False" />
+                <asp:BoundField DataField="QOquantity" HeaderText="QOquantity" SortExpression="QOquantity" />
 
-                <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" SortExpression="Customer_Id" />
+                <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" SortExpression="Product_ID" />
+                <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" SortExpression="Quotation_Number" />
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -107,20 +98,16 @@
               <br />
               <asp:RequiredFieldValidator ID="rfvProductId" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
               <br />
-              <asp:Label ID="lblCustomerId" runat="server" Text="Customer ID: " Width="200" />
-              <asp:DropDownList ID="dropCustomerId" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Id" DataValueField="Customer_Id">
+              <asp:Label ID="lblCustomerId" runat="server" Text="Quotation Number:" Width="200px" />
+              <asp:DropDownList ID="dropQotationNum" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Id" DataValueField="Customer_Id">
                   <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
               </asp:DropDownList>
               <br />
-              <asp:RequiredFieldValidator ID="rfvCustomerId" runat="server" ControlToValidate="dropCustomerId" ErrorMessage="(*) One Customer ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              <asp:RequiredFieldValidator ID="rfvCustomerId" runat="server" ControlToValidate="dropQotationNum" ErrorMessage="(*) One Customer ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
               <br />
               <br />
               <br />
-              <asp:Label ID="lblQuotationDate" runat="server" Text="Quotation Date: " Width="150"></asp:Label>
-              <asp:TextBox ID="txtQuotation" runat="server" ReadOnly="false" Width="230"></asp:TextBox>
-              &nbsp;<asp:ImageButton ID="calingQuotation" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingQuotation_Click" Width="25px" />
-                    <asp:Panel ID="calpanel" runat="server" Visible="false">
-                        <asp:Calendar ID="calQuotation" runat="server" OnSelectionChanged="calQuotation_SelectionChanged"></asp:Calendar>
+              &nbsp;<asp:Panel ID="calpanel" runat="server" Visible="false">
                         <br />
                     </asp:Panel>
                     <br />
