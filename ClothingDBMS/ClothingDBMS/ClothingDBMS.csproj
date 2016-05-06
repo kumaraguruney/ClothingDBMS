@@ -184,12 +184,14 @@
     <Content Include="img\work-8.jpg" />
     <Content Include="img\work-9.jpg" />
     <Content Include="Index.aspx" />
-    <Content Include="InventoryManagement\Inventory.aspx" />
+    <Content Include="InventoryManagement\FinishedProduct.aspx" />
+    <Content Include="InventoryManagement\Location.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
     <Content Include="InventoryManagement\ProductStockUpdate.aspx" />
     <Content Include="InventoryManagement\RMInventory.aspx" />
     <Content Include="InventoryManagement\RMStockUpdate.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
+    <Content Include="InventoryManagement\StockPile.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\elegant-theme-line.eot" />
@@ -229,10 +231,10 @@
     <Content Include="ProcurementManagement\Updates.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
     <Content Include="ProductionManagement\Default.aspx" />
+    <Content Include="ProductionManagement\Design.aspx" />
     <Content Include="ProductionManagement\Employee.aspx" />
     <Content Include="ProductionManagement\Includes.aspx" />
     <Content Include="ProductionManagement\Machinery.aspx" />
-    <Content Include="ProductionManagement\Design.aspx" />
     <Content Include="ProductionManagement\Product.aspx" />
     <Content Include="ProductionManagement\RawMaterial.aspx" />
     <Content Include="ProductionManagement\Require.aspx" />
@@ -265,12 +267,19 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="InventoryManagement\Inventory.aspx.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
+    <Compile Include="InventoryManagement\FinishedProduct.aspx.cs">
+      <DependentUpon>FinishedProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="InventoryManagement\Inventory.aspx.designer.cs">
-      <DependentUpon>Inventory.aspx</DependentUpon>
+    <Compile Include="InventoryManagement\FinishedProduct.aspx.designer.cs">
+      <DependentUpon>FinishedProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\Location.aspx.cs">
+      <DependentUpon>Location.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\Location.aspx.designer.cs">
+      <DependentUpon>Location.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\ProductInventory.aspx.cs">
       <DependentUpon>ProductInventory.aspx</DependentUpon>
@@ -306,6 +315,13 @@
     </Compile>
     <Compile Include="InventoryManagement\stockmovement.aspx.designer.cs">
       <DependentUpon>stockmovement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\StockPile.aspx.cs">
+      <DependentUpon>StockPile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\StockPile.aspx.designer.cs">
+      <DependentUpon>StockPile.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
@@ -391,6 +407,13 @@
     <Compile Include="ProductionManagement\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductionManagement\Design.aspx.cs">
+      <DependentUpon>Design.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductionManagement\Design.aspx.designer.cs">
+      <DependentUpon>Design.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductionManagement\Employee.aspx.cs">
       <DependentUpon>Employee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,13 +434,6 @@
     </Compile>
     <Compile Include="ProductionManagement\Machinery.aspx.designer.cs">
       <DependentUpon>Machinery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductionManagement\Design.aspx.cs">
-      <DependentUpon>Design.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductionManagement\Design.aspx.designer.cs">
-      <DependentUpon>Design.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductionManagement\Product.aspx.cs">
       <DependentUpon>Product.aspx</DependentUpon>

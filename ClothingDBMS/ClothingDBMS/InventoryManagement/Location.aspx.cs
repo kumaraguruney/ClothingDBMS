@@ -22,10 +22,10 @@ namespace ClothingDBMS.InventoryManagement
         protected void btnSaveInventory_Click(object sender, EventArgs e)
         {
             //SqlInventory.InsertParameters["Inventory_ID"].DefaultValue = InventoryTextBox.Text.ToUpper().Trim();
-            SqlInventory.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDDropDownList.SelectedValue;
-            SqlInventory.InsertParameters["Area"].DefaultValue = AreaTextBox.Text.ToUpper().Trim();
-            SqlInventory.InsertParameters["Inventory_Name"].DefaultValue = InventoryNameTextBox.Text.ToUpper().Trim();
-            SqlInventory.Insert();
+            SqlLocation.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseIDDropDownList.SelectedValue;
+            SqlLocation.InsertParameters["Area"].DefaultValue = AreaTextBox.Text.ToUpper().Trim();
+            SqlLocation.InsertParameters["Inventory_Name"].DefaultValue = InventoryNameTextBox.Text.ToUpper().Trim();
+            SqlLocation.Insert();
             gvInventory.DataBind();
             PaneladdInventory.Visible = false;
             PanelgvInventory.Visible = true;

@@ -28,17 +28,15 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveProvides_Click(object sender, EventArgs e)
         {
-            SqlProvides.InsertParameters["Prvd_ID"].DefaultValue = txtPrvd_ID.Text.ToUpper().Trim();
-            SqlProvides.InsertParameters["Quotation_ID"].DefaultValue = txtQuotation_ID.Text.ToUpper().Trim();
-            SqlProvides.InsertParameters["RawMaterial_ID"].DefaultValue = txtRawMaterial_ID.Text.ToUpper().Trim();
+            SqlProvides.InsertParameters["Quotation_ID"].DefaultValue = DropDownQuotation_ID.SelectedValue;
+            SqlProvides.InsertParameters["RawMaterial_ID"].DefaultValue = DropDownRawMaterial_ID.SelectedValue;
 
             SqlProvides.Insert();
-            gvSupplies.DataBind();
+            gvProvides.DataBind();
             PaneladdProvides.Visible = false;
             PanelgvProvides.Visible = true;
-            txtPrvd_ID.Text = string.Empty;
-            txtQuotation_ID.Text = string.Empty;
-            txtRawMaterial_ID.Text = string.Empty;
+            DropDownQuotation_ID.SelectedIndex = -1;
+            DropDownRawMaterial_ID.SelectedIndex = -1;
 
         }
     }
