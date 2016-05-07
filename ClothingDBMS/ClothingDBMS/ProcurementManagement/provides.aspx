@@ -57,7 +57,7 @@
 
                 <br />
                 <asp:Label ID="lblProvidesHeader" runat="server" Text="Provides Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddProvides" runat="server" Text="Add" OnClick="btnaddOrders_Click"/>
+                <asp:Button ID="btnaddProvides" runat="server" Text="Add" OnClick="btnaddProvides_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvProvides" runat="server">
                     
@@ -82,7 +82,7 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="PurchaseOrderIDDropDownList" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="DropDownQuotation_ID" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <asp:Label ID="lblRawMaterial_Name" runat="server" Text="RawMaterial_Name: " Width="150px" />
@@ -101,9 +101,9 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveProvides" runat="server" OnClick="btnSaveOrders_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <asp:Button ID="btnSaveProvides" runat="server" OnClick="btnSaveProvides_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelProvides" runat="server" OnClick="btnCancelOrders_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelProvides" runat="server" OnClick="btnCancelProvides_Click" Text="Cancel" />
                     </asp:Panel>
         </div>
     </form>
