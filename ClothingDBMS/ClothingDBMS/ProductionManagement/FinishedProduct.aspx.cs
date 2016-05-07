@@ -24,10 +24,12 @@ namespace ClothingDBMS.ProductionManagement
             SqlFinishedProduct.InsertParameters["Product_ID"].DefaultValue = strProductID;
             SqlFinishedProduct.InsertParameters["Manufactured_Date"].DefaultValue = ManufacturedDateTextBox.Text.Trim();
             SqlFinishedProduct.InsertParameters["Quantity"].DefaultValue = strQty;
-
             SqlFinishedProduct.Insert();
             gvFinishedProduct.DataBind();
-            PaneladdFinishedProduct.Visible = false;
+
+            SqlProduct.UpdateParameters["WorkSchedule_ID"].DefaultValue = dropaddProduct.SelectedValue;
+            SqlProduct.UpdateParameters["Is_FinishedProduct_Updated"].DefaultValue = "true";
+            SqlProduct.Update();
             PanelgvFinishedProduct.Visible = true;
             dropaddProduct.SelectedIndex = -1;
             ManufacturedDateTextBox.Text = String.Empty;

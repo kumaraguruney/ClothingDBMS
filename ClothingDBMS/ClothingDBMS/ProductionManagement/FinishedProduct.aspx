@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-        <asp:SqlDataSource ID="SqlFinishedProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [FinishedProduct] ORDER BY [Batch_ID]" DeleteCommand="DELETE FROM [FinishedProduct] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [FinishedProduct] ([Product_ID], [Manufactured_Date], [Quantity], [Is_Stock_Piled]) VALUES (@Product_ID, @Manufactured_Date, @Quantity, @Is_Stock_Piled)" UpdateCommand="UPDATE [FinishedProduct] SET [Product_ID] = @Product_ID, [Manufactured_Date] = @Manufactured_Date, [Quantity] = @Quantity, [Is_Stock_Piled] = @Is_Stock_Piled WHERE [Batch_ID] = @Batch_ID">
+        <asp:SqlDataSource ID="SqlFinishedProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT FinishedProduct.Batch_ID, FinishedProduct.Product_ID, FinishedProduct.Manufactured_Date, FinishedProduct.Quantity, FinishedProduct.Is_Stock_Piled, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') AS Name FROM FinishedProduct INNER JOIN Product ON Product.Product_ID = FinishedProduct.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY FinishedProduct.Batch_ID" DeleteCommand="DELETE FROM [FinishedProduct] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [FinishedProduct] ([Product_ID], [Manufactured_Date], [Quantity]) VALUES (@Product_ID, @Manufactured_Date, @Quantity)" UpdateCommand="UPDATE [FinishedProduct] SET [Product_ID] = @Product_ID, [Manufactured_Date] = @Manufactured_Date, [Quantity] = @Quantity WHERE [Batch_ID] = @Batch_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Batch_ID" Type="Int32" />
             </DeleteParameters>
@@ -67,22 +67,16 @@
                 <asp:Parameter Name="Product_ID" Type="Int32" />
                 <asp:Parameter Name="Manufactured_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
-                <asp:Parameter Name="Is_Stock_Piled" Type="Boolean" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="Product_ID" Type="Int32" />
                 <asp:Parameter Name="Manufactured_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
-                <asp:Parameter Name="Is_Stock_Piled" Type="Boolean" />
                 <asp:Parameter Name="Batch_ID" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
-        <asp:SqlDataSource ID="SqlData" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name, Workschedule.Is_FinishedProduct_Updated, Product.Product_ID, WorkOrder.Product_Quantity FROM Workschedule INNER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID AND ISNULL(Workschedule.Is_FinishedProduct_Updated, 0) = 'FALSE' LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name" UpdateCommand="UPDATE Workschedule SET Is_FinishedProduct_Updated = @Is_FinishedProduct_Updated WHERE (Workschedule_ID = @WorkSchedule_ID)">
-            <UpdateParameters>
-                <asp:Parameter Name="Is_FinishedProduct_Updated" />
-                <asp:Parameter Name="WorkSchedule_ID" />
-            </UpdateParameters>
+        <asp:SqlDataSource ID="SqlData" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name, Workschedule.Is_FinishedProduct_Updated, Product.Product_ID, WorkOrder.Product_Quantity FROM Workschedule INNER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID AND ISNULL(Workschedule.Is_FinishedProduct_Updated, 0) = 'FALSE' LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name">
             </asp:SqlDataSource>
 
           <div style="margin-top:100px;" align="center">
@@ -99,14 +93,9 @@
                         <Columns>
                             <asp:CommandField HeaderText="Edit" ShowEditButton="True" />
                             <asp:BoundField DataField="Batch_ID" HeaderText="Batch_ID" ReadOnly="True" SortExpression="Batch_ID" InsertVisible="False" />
-                            <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" SortExpression="Product_ID" />
+                            <asp:BoundField DataField="Name" HeaderText="Product" SortExpression="Name" />
                              <asp:BoundField DataField="Manufactured_Date" HeaderText="Manufactured_Date" SortExpression="Manufactured_Date" />
                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
-                            <asp:TemplateField HeaderText="Delete" ShowHeader="False">
-                                 <ItemTemplate>
-                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
-                                 </ItemTemplate>
-                            </asp:TemplateField>
                         </Columns><FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -118,7 +107,7 @@
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
                    </asp:Panel>
-
+              <br /><br /><br />
                 <asp:Panel ID="PaneladdFinishedProduct" Visible="true" runat="server">
                 <asp:Label ID="lblFinishedProductDetails" Text="Enter Finished Product Details" runat="server" /><br /> <br />
                     <asp:Label ID="lblProductID" runat="server" Text="Product:" Width="200px" />
