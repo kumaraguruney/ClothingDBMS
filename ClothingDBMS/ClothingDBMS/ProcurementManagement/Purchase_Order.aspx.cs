@@ -14,13 +14,13 @@ namespace ClothingDBMS.ProcurementManagement
 
         }
 
-        protected void btnAddGoodsReceipt_Click(object sender, EventArgs e)
+        protected void btnAddPurchase_Order_Click(object sender, EventArgs e)
         {
             pnlAddPurchase_Order.Visible = true;
             pnlAddPurchase_Order.Visible = false;
         }
 
-        protected void btnAddGoodsReceiptDB_Click(object sender, EventArgs e)
+        protected void btnAddPurchase_OrderDB_Click(object sender, EventArgs e)
         {
 
         }
@@ -43,7 +43,7 @@ namespace ClothingDBMS.ProcurementManagement
 
         }
 
-        protected void btnSaveGoods_Receipt_Click(object sender, EventArgs e)
+        protected void btnSavePurchase_Order_Click(object sender, EventArgs e)
         {
             SqlPurchase_Order.InsertParameters["Purchase_Date"].DefaultValue = txtPurchase_Order_Date.Text.ToUpper().Trim();
             SqlPurchase_Order.InsertParameters["Supplier"].DefaultValue = DropDownSupplier_Name.SelectedValue;          
