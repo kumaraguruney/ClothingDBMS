@@ -237,8 +237,6 @@
     <Content Include="ProcurementManagement\Requires.aspx" />
     <Content Include="ProcurementManagement\Supplier.aspx" />
     <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
-    <Content Include="ProcurementManagement\Supplies.aspx" />
-    <Content Include="ProcurementManagement\Tracks.aspx" />
     <Content Include="ProcurementManagement\Updates.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
     <Content Include="ProductionManagement\Default.aspx" />
@@ -389,20 +387,6 @@
     </Compile>
     <Compile Include="ProcurementManagement\Supplier_Quotation.aspx.designer.cs">
       <DependentUpon>Supplier_Quotation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Supplies.aspx.cs">
-      <DependentUpon>Supplies.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Supplies.aspx.designer.cs">
-      <DependentUpon>Supplies.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Tracks.aspx.cs">
-      <DependentUpon>Tracks.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Tracks.aspx.designer.cs">
-      <DependentUpon>Tracks.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\Updates.aspx.cs">
       <DependentUpon>Updates.aspx</DependentUpon>

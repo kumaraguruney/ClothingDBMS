@@ -79,10 +79,23 @@
 
                 <br />
                 <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddUpdates_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvUpdates" runat="server">
-                    <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
+                   
+                    <asp:GridView ID="gvUpdates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlUpdate" AutoGenerateColumns="False" DataKeyNames="Update_id">
+                        <Columns>
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                            <asp:BoundField DataField="Update_id" HeaderText="Update_id" SortExpression="Update_id" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" SortExpression="receipt_id" />
+                            <asp:BoundField DataField="Entry_id" HeaderText="Entry_id" SortExpression="Entry_id" />
+                            <asp:BoundField DataField="Remaining_Qty" HeaderText="Remaining_Qty" SortExpression="Remaining_Qty" />
+                            <asp:BoundField DataField="Recieved_Qty" HeaderText="Recieved_Qty" SortExpression="Recieved_Qty" />
+                        </Columns>
+                        <EditRowStyle BackColor="Yellow"/>
+                    </asp:GridView>
+                   </asp:Panel>
+                 <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
                         <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
                         <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -108,50 +121,18 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtRemaining_Qty" runat="server" Height="35px" ValidationGroup="addSupplierValidation" Width="312px"></asp:TextBox>
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvUpdate_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvUpdate_id" runat="server" ControlToValidate="txtRemaining_Qty" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <br />
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveUpdates" runat="server" OnClick="btnSaveSupplier_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <asp:Button ID="btnSaveUpdates" runat="server" OnClick="btnSaveUpdates_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelUpdates" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelUpdates" runat="server" OnClick="btnCancelUpdates_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvUpdates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlUpdate" AutoGenerateColumns="False" DataKeyNames="Update_id">
-                        <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                            <asp:BoundField DataField="Update_id" HeaderText="Update_id" SortExpression="Update_id" InsertVisible="False" ReadOnly="True" />
-                            <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" SortExpression="receipt_id" />
-                            <asp:BoundField DataField="Entry_id" HeaderText="Entry_id" SortExpression="Entry_id" />
-                            <asp:BoundField DataField="Remaining_Qty" HeaderText="Remaining_Qty" SortExpression="Remaining_Qty" />
-                            <asp:BoundField DataField="Recieved_Qty" HeaderText="Recieved_Qty" SortExpression="Recieved_Qty" />
-                        </Columns>
-                        <EditRowStyle BackColor="Yellow"/>
-                    </asp:GridView>
-                   </asp:Panel>
         </div>
-    </form>
-    <form id="form3" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form4" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form5" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
     </form>
 </body>
 </html>
