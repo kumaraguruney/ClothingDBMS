@@ -71,7 +71,7 @@
         </asp:SqlDataSource>
 
                 <br />
-                <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
+                <asp:Label ID="lbUpdatesHeader" runat="server" Text="Orders Details" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Button ID="btnaddOrders" runat="server" Text="Add" OnClick="btnaddOrders_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvOrders" runat="server">
@@ -106,12 +106,12 @@
                         <br />
                         <asp:Label ID="lblPurchase_Order_ID" runat="server" Text="Purchase_Order_ID: " Width="150px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="Purchase_Order_IDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="SqlPurchaseOrder" DataTextField="Purchase_Order_ID" DataValueField="Purchase_Order_ID">
+                        <asp:DropDownList ID="PurchaseOrder_IDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="SqlPurchaseOrder" DataTextField="Purchase_Order_ID" DataValueField="Purchase_Order_ID">
                         </asp:DropDownList>
                         <br />
                         <br />
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="PurchaseOrderIDDropDownList" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPurchaseOrder_ID" runat="server" ControlToValidate="PurchaseOrder_IDDropDownList" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <br />

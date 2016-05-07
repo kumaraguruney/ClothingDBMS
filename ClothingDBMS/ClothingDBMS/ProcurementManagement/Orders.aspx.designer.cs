@@ -157,22 +157,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lblPurchase_Order_ID;
         
         /// <summary>
-        /// Purchase_Order_IDDropDownList control.
+        /// PurchaseOrder_IDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Purchase_Order_IDDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList PurchaseOrder_IDDropDownList;
         
         /// <summary>
-        /// rfvPrvd_id control.
+        /// rfvPurchaseOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPurchaseOrder_ID;
         
         /// <summary>
         /// btnSaveOrders control.
