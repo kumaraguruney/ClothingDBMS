@@ -10,7 +10,7 @@
 namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class WebForm3 {
+    public partial class Orders {
         
         /// <summary>
         /// form2 control.
@@ -47,6 +47,15 @@ namespace ClothingDBMS.ProcurementManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
+        
+        /// <summary>
+        /// SqlStockPile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockPile;
         
         /// <summary>
         /// lbUpdatesHeader control.
@@ -103,22 +112,58 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbUpdatesaddTitle;
         
         /// <summary>
-        /// lbPrvd_id control.
+        /// lblRawMaterial_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPrvd_id;
+        protected global::System.Web.UI.WebControls.Label lblRawMaterial_Name;
         
         /// <summary>
-        /// PurchaseOrderIDDropDownList control.
+        /// RawMaterial_IDDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PurchaseOrderIDDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList RawMaterial_IDDropDownList;
+        
+        /// <summary>
+        /// lblEntry_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEntry_ID;
+        
+        /// <summary>
+        /// Entry_IDDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Entry_IDDropDownList;
+        
+        /// <summary>
+        /// lblPurchase_Order_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPurchase_Order_ID;
+        
+        /// <summary>
+        /// Purchase_Order_IDDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Purchase_Order_IDDropDownList;
         
         /// <summary>
         /// rfvPrvd_id control.
@@ -128,24 +173,6 @@ namespace ClothingDBMS.ProcurementManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
-        
-        /// <summary>
-        /// lbRawMaterial_ID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
-        
-        /// <summary>
-        /// RMIDDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList RMIDDropDownList;
         
         /// <summary>
         /// btnSaveOrders control.
