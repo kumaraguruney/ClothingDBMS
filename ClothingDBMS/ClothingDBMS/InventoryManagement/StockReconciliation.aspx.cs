@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace ClothingDBMS.InventoryManagement
 {
@@ -21,58 +22,13 @@ namespace ClothingDBMS.InventoryManagement
         }
         protected void btnSaveStockReconcile_Click(object sender, EventArgs e)
         {
-            //if (rbStockReconcile.SelectedValue == "true")
-               // SqlData.SelectCommand = "SELECT Available_Quantity FROM FinishedProduct WHERE Batch_ID =" + BatchIDDropDownList.SelectedValue;
-            //else
-               // SqlData.SelectCommand = "SELECT Available_Quantity FROM ProcuredRawMaterial WHERE Batch_ID =" + BatchIDDropDownList.SelectedValue;
-
-           // DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
-            //DataView dvView = new DataView();
-            //string str = dvView.Count.ToString();
-            //dvView = (DataView)SqlData.Select(dsArguments);
-            //string strAvailableQty = dvView[0].Row["Available_Quantity"].ToString();
-            //AvailableQuantityTextBox.Text = strAvailableQty;
-
-            SqlStockReconcile.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseDropDownList.SelectedValue;
-            SqlStockReconcile.InsertParameters["Location_ID"].DefaultValue = LocationDropDownList.SelectedValue;
-            SqlStockReconcile.InsertParameters["Batch_ID"].DefaultValue = BatchDropDownList.SelectedValue;
-            SqlStockReconcile.InsertParameters["Inventory_Quantity"].DefaultValue = InventoryQuantityTextBox.Text.ToUpper().Trim();
-            SqlStockReconcile.InsertParameters["Physical_Quantity"].DefaultValue = PhysicalQuantityTextBox.Text.ToUpper().Trim();
-            SqlStockReconcile.InsertParameters["Reconciled_Date"].DefaultValue = ReconciledDateTextBox.Text.Trim();
-            SqlStockReconcile.Insert();
+           
+            SqlStockPile.UpdateParameters["Entry_ID"].DefaultValue = BatchDropDownList.SelectedValue;
+            SqlStockPile.UpdateParameters["Physical_Quantity"].DefaultValue = PhysicalQuantityTextBox.Text.Trim();
+            SqlStockPile.UpdateParameters["Reconciled_Date"].DefaultValue = ReconciledDateTextBox.Text.Trim();
+            SqlStockPile.Update();
             gvStockReconcile.DataBind();
 
-           // if (rbStockReconcile.SelectedValue == "false")
-            //{
-                //SqlUpdateAvailableRMQty.UpdateParameters["Available_Quantity"].DefaultValue = Convert.ToString(Convert.ToInt32(AvailableQuantityTextBox.Text) - Convert.ToInt32(QuantityTextBox.Text));
-                //SqlUpdateAvailableRMQty.UpdateParameters["Batch_ID"].DefaultValue = BatchIDDropDownList.SelectedValue; ;
-                //if (Convert.ToInt32(AvailableQuantityTextBox.Text) - Convert.ToInt32(QuantityTextBox.Text) == 0)
-                //{
-                  //  SqlUpdateAvailableRMQty.UpdateParameters["Is_Stock_Piled"].DefaultValue = "TRUE";
-
-                //}
-                //else
-                //{
-                  //  SqlUpdateAvailableRMQty.UpdateParameters["Is_Stock_Piled"].DefaultValue = "FALSE";
-                //}
-                //SqlUpdateAvailableRMQty.Update();
-            //}
-
-            //else if (rbStockPile.SelectedValue == "true")
-            //{
-            //    SqlUpdateAvailableQty.UpdateParameters["Available_Quantity"].DefaultValue = Convert.ToString(Convert.ToInt32(AvailableQuantityTextBox.Text) - Convert.ToInt32(QuantityTextBox.Text));
-            //    SqlUpdateAvailableQty.UpdateParameters["Batch_ID"].DefaultValue = BatchIDDropDownList.SelectedValue; ;
-            //    if (Convert.ToInt32(AvailableQuantityTextBox.Text) - Convert.ToInt32(QuantityTextBox.Text) == 0)
-            //    {
-            //        SqlUpdateAvailableQty.UpdateParameters["Is_Stock_Piled"].DefaultValue = "TRUE";
-
-            //    }
-            //    else
-            //    {
-            //        SqlUpdateAvailableQty.UpdateParameters["Is_Stock_Piled"].DefaultValue = "FALSE";
-            //    }
-            //    SqlUpdateAvailableQty.Update();
-            //}
 
             PaneladdStockReconciliation.Visible = false;
             PanelgvStockReconcile.Visible = true;
@@ -82,6 +38,7 @@ namespace ClothingDBMS.InventoryManagement
             InventoryQuantityTextBox.Text = String.Empty;
             PhysicalQuantityTextBox.Text = String.Empty;
             ReconciledDateTextBox.Text = String.Empty;
+            rbStockReconcile.SelectedIndex = -1;
 
         }
 
@@ -101,45 +58,42 @@ namespace ClothingDBMS.InventoryManagement
             calpanel.Visible = true;
         }
 
-        //protected void BatchIDDropDownList_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (rbStockPile.SelectedValue == "true")
-        //        SqlData.SelectCommand = "SELECT Available_Quantity FROM FinishedProduct WHERE Batch_ID =" + BatchIDDropDownList.SelectedValue;
-        //    else
-        //        SqlData.SelectCommand = "SELECT Available_Quantity FROM ProcuredRawMaterial WHERE Batch_ID =" + BatchIDDropDownList.SelectedValue;
+        protected void BatchDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (BatchDropDownList.SelectedValue != "-1")
+            {
+                SqlData.SelectCommand = "SELECT  StockPile.Quantity FROM StockPile WHERE StockPile.Entry_ID =" + BatchDropDownList.SelectedValue;
+                DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
+                DataView dvView = new DataView();
+                dvView = (DataView)SqlData.Select(dsArguments);
+                string strQty = dvView[0].Row["Quantity"].ToString();
+                InventoryQuantityTextBox.Text = strQty;
+                QuantityValidator.MaximumValue = strQty;
+            }
 
-        //    DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
-        //    DataView dvView = new DataView();
-        //    string str = dvView.Count.ToString();
-        //    dvView = (DataView)SqlData.Select(dsArguments);
-        //    string strAvailableQty = dvView[0].Row["Available_Quantity"].ToString();
-        //    AvailableQuantityTextBox.Text = strAvailableQty;
-        //    QuantityValidator.MaximumValue = strAvailableQty;
-        //}
+        }
 
-        //protected void rbStockPile_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (rbStockPile.SelectedValue == "false")
-        //    {
+        protected void rbStockReconcile_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            InventoryQuantityTextBox.Text = string.Empty;
+            ListItem first = BatchDropDownList.Items[0];
+            BatchDropDownList.Items.Clear();
+            BatchDropDownList.Items.Add(first);
+            BatchDropDownList.DataBind();
+        }
 
-        //        ListItem first = BatchIDDropDownList.Items[0];
-        //        BatchIDDropDownList.Items.Clear();
-        //        BatchIDDropDownList.Items.Add(first);
-        //        BatchIDDropDownList.DataSourceID = "SqlProcuredRawMaterial";
-        //        BatchIDDropDownList.DataTextField = "Name";
-        //        BatchIDDropDownList.DataValueField = "Batch_ID";
-        //    }
-
-        //    else if (rbStockPile.SelectedValue == "true")
-        //    {
-        //        ListItem first = BatchIDDropDownList.Items[0];
-        //        BatchIDDropDownList.Items.Clear();
-        //        BatchIDDropDownList.Items.Add(first);
-        //        BatchIDDropDownList.DataSourceID = "SqlFinishedProduct";
-        //        BatchIDDropDownList.DataTextField = "Name";
-        //        BatchIDDropDownList.DataValueField = "Batch_ID";
-        //    }
-        //    BatchIDDropDownList.DataBind();
-        //}
+        protected void WarehouseDropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BatchDropDownList.SelectedIndex = -1;
+            LocationDropDownList.SelectedIndex = -1;
+            InventoryQuantityTextBox.Text = String.Empty;
+            PhysicalQuantityTextBox.Text = String.Empty;
+            ReconciledDateTextBox.Text = String.Empty;
+            InventoryQuantityTextBox.Text = string.Empty;
+            ListItem first = BatchDropDownList.Items[0];
+            LocationDropDownList.Items.Clear();
+            LocationDropDownList.Items.Add(first);
+            LocationDropDownList.DataBind();
+        }
     }
 }
