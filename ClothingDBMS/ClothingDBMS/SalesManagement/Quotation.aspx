@@ -88,6 +88,16 @@
                 <asp:BoundField DataField="Quotation_Date" HeaderText="Quotation_Date" SortExpression="Quotation_Date" />
 
                 <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" SortExpression="Customer_Id" />
+                <asp:TemplateField HeaderText="Convert to SO" ShowHeader="False">
+                               <ItemTemplate>
+                                    <asp:LinkButton ID="lnkConverttoSO" runat="server" OnClick="btnConverttoSOQuotation_Click" Text="Convert to SO"></asp:LinkButton>
+                                </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Open" ShowHeader="False">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkOpen" runat="server"  OnClick="btnOpenQuotation_Click" Text="Open"></asp:LinkButton>
+                                </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>

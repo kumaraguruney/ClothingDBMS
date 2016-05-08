@@ -62,7 +62,7 @@
     <asp:Label ID="lblQuotation" runat="server" Text="Quotes Data Management" Font-Bold="True"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
-        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True" OnSelectedIndexChanged="GridViewQuotation_SelectedIndexChanged">
+        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True">
             <Columns>
                 <asp:BoundField DataField="QUOTES_ID" HeaderText="QUOTES_ID" ReadOnly="True" SortExpression="QUOTES_ID" InsertVisible="False" />
                 <asp:BoundField DataField="QOquantity" HeaderText="QOquantity" SortExpression="QOquantity" />
@@ -94,14 +94,14 @@
               <asp:RegularExpressionValidator ID="revAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="addQuotationValidation"></asp:RegularExpressionValidator>
               <br/>
               <asp:Label ID="lblProductId" runat="server" Text="Product ID: " Width="200" />
-              <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlDataSourceProduct" DataTextField="Product_Description" DataValueField="Product_ID">
+              <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
                   <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
               </asp:DropDownList>
               <br />
               <asp:RequiredFieldValidator ID="rfvProductId" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
               <br />
               <asp:Label ID="lblCustomerId" runat="server" Text="Quotation Number:" Width="200px" />
-              <asp:DropDownList ID="dropQotationNum" runat="server" DataSourceID="SqlDataSourceCustomer" DataTextField="Customer_Id" DataValueField="Customer_Id">
+              <asp:DropDownList ID="dropQotationNum" runat="server" DataSourceID="SqlQotes" DataTextField="Quotation_Number" DataValueField="QUOTES_ID">
                   <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
               </asp:DropDownList>
               <br />
