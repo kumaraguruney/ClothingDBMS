@@ -10,7 +10,7 @@
 namespace ClothingDBMS.ProcurementManagement {
     
     
-    public partial class Material_Transaction {
+    public partial class Requires {
         
         /// <summary>
         /// form2 control.
@@ -22,103 +22,103 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
         
         /// <summary>
-        /// SqlSupplies control.
+        /// SqlRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplies;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRequires;
         
         /// <summary>
-        /// lbSuppliessHeader control.
+        /// SqlWorkOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSuppliessHeader;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlWorkOrder_ID;
         
         /// <summary>
-        /// PanelgvSupplies control.
+        /// SqlRawMaterial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelgvSupplies;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRawMaterial;
         
         /// <summary>
-        /// btnaddSupplies control.
+        /// lbRequiresHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnaddSupplies;
+        protected global::System.Web.UI.WebControls.Label lbRequiresHeader;
         
         /// <summary>
-        /// gvSupplies control.
+        /// btnaddRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSupplies;
+        protected global::System.Web.UI.WebControls.Button btnaddRequires;
         
         /// <summary>
-        /// PaneladdSupplies control.
+        /// PanelgvRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PaneladdSupplies;
+        protected global::System.Web.UI.WebControls.Panel PanelgvRequires;
         
         /// <summary>
-        /// lbProvidesaddTitle control.
+        /// gvRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbProvidesaddTitle;
+        protected global::System.Web.UI.WebControls.GridView gvRequires;
         
         /// <summary>
-        /// lbSupplier_ID control.
+        /// PaneladdRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSupplier_ID;
+        protected global::System.Web.UI.WebControls.Panel PaneladdRequires;
         
         /// <summary>
-        /// txtSupplies_ID control.
+        /// lbUpdatesaddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplies_ID;
+        protected global::System.Web.UI.WebControls.Label lbUpdatesaddTitle;
         
         /// <summary>
-        /// lbRawMaterial_ID control.
+        /// lbWorkOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
+        protected global::System.Web.UI.WebControls.Label lbWorkOrder_ID;
         
         /// <summary>
-        /// txtRawMaterial_ID control.
+        /// DropDownQWorkOrder_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRawMaterial_ID;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownQWorkOrder_ID;
         
         /// <summary>
         /// rfvPrvd_id control.
@@ -130,39 +130,39 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPrvd_id;
         
         /// <summary>
-        /// btnSaveSupplies control.
+        /// lbRawMaterial_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveSupplies;
+        protected global::System.Web.UI.WebControls.Label lbRawMaterial_ID;
         
         /// <summary>
-        /// btnCancelSupplies control.
+        /// DropDownRawMaterial_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelSupplies;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownRawMaterial_ID;
         
         /// <summary>
-        /// form3 control.
+        /// btnSaveRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form3;
+        protected global::System.Web.UI.WebControls.Button btnSaveRequires;
         
         /// <summary>
-        /// form1 control.
+        /// btnCancelRequires control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btnCancelRequires;
     }
 }

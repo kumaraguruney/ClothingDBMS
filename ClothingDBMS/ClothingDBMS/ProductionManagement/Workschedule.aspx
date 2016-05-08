@@ -47,21 +47,24 @@
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
-                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Rawmaterial.aspx">Raw Material</a> </li>
                     <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
                     <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
-                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
-                    <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
+                    <li><a class="page-scroll" href="Workorder.aspx">Work Order</a> </li>
+                    <li><a class="page-scroll" href="WorkSchedule.aspx">Work Schedule</a> </li>
+                    <li><a class="page-scroll" href="FinishedProduct.aspx">Finished Products</a> </li>
+                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
                 </ul>
             </div>
         </div>
     </div>
-        <asp:SqlDataSource ID="SqlWorkOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT WorkOrder.WorkOrder_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name FROM WorkOrder LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY WorkOrder.Product_ID"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlWorkOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT WorkOrder.WorkOrder_ID, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, WorkOrder.Is_WorkScheduled FROM WorkOrder INNER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID AND ISNULL(WorkOrder.Is_WorkScheduled, 0) = 'false' LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY WorkOrder.Product_ID" UpdateCommand="UPDATE WorkOrder SET Is_WorkScheduled = @Is_WorkScheduled WHERE (WorkOrder_ID = @WorkOrder_ID)">
+            <UpdateParameters>
+                <asp:Parameter Name="Is_WorkScheduled" />
+                <asp:Parameter Name="WorkOrder_ID" />
+            </UpdateParameters>
+            </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlEmployee" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Employee] ORDER BY [Employee_Name]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlWorkSchedule" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Workschedule.Workschedule_ID, Workschedule.WorkOrder_ID, Workschedule.WorkScheduled_By, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') + ', ' + CAST(WorkOrder.Product_Quantity AS varchar(8)) AS Name, Employee.Employee_Name FROM Workschedule LEFT OUTER JOIN WorkOrder ON Workschedule.WorkOrder_ID = WorkOrder.WorkOrder_ID LEFT OUTER JOIN Product ON Product.Product_ID = WorkOrder.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section LEFT OUTER JOIN Employee ON Employee.Employee_ID = Workschedule.WorkScheduled_By ORDER BY Name" DeleteCommand="DELETE FROM [Workschedule] WHERE [Workschedule_ID] = @Workschedule_ID" InsertCommand="INSERT INTO [Workschedule] ([WorkOrder_ID],  [WorkScheduled_By]) VALUES (@WorkOrder_ID, @WorkScheduled_By)" UpdateCommand="UPDATE [Workschedule] SET [WorkOrder_ID] = @WorkOrder_ID,  [WorkScheduled_By] = @WorkScheduled_By WHERE [Workschedule_ID] = @Workschedule_ID">
             <DeleteParameters>
@@ -107,6 +110,16 @@
                                 <ItemTemplate>
                                     <asp:Label ID="lblWorkScheduledBy" runat="server" Text='<%# Bind("Employee_Name") %>'></asp:Label>
                                 </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Machines Included"  ShowHeader="False">
+                                 <ItemTemplate>
+                                     <asp:LinkButton ID="lnkIncluded" runat="server" CausesValidation="False" ToolTip=" click to check the Machines neeeded for the workschedule" OnClick="lnkIncluded_Click"  Text="Machine(s)"></asp:LinkButton>
+                                 </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Employee Allocated"  ShowHeader="False">
+                                 <ItemTemplate>
+                                     <asp:LinkButton ID="lnkAllocated" runat="server" CausesValidation="False" ToolTip=" click to check the Employee allocated for the workschedule" OnClick="lnkAllocated_Click"  Text="Employee(s)"></asp:LinkButton>
+                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>

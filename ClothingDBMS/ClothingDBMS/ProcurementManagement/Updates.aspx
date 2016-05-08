@@ -19,83 +19,120 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [inventory_id]) VALUES (@receipt_id, @inventory_id)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [inventory_id] = @inventory_id WHERE [Update_id] = @Update_id">
+        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [Entry_id], [Remaining_Qty], [Recieved_Qty]) VALUES (@receipt_id, @Entry_id, @Remaining_Qty, @Recieved_Qty)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [Entry_id] = @Entry_id, [Remaining_Qty] = @Remaining_Qty, [Recieved_Qty] = @Recieved_Qty WHERE [Update_id] = @Update_id">
             <DeleteParameters>
                 <asp:Parameter Name="Update_id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="receipt_id" Type="Int32" />
-                <asp:Parameter Name="inventory_id" Type="Int32" />
+                <asp:Parameter Name="Entry_id" Type="Int32" />
+                <asp:Parameter Name="Remaining_Qty" Type="Int32" />
+                <asp:Parameter Name="Recieved_Qty" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="receipt_id" Type="Int32" />
-                <asp:Parameter Name="inventory_id" Type="Int32" />
+                <asp:Parameter Name="Entry_id" Type="Int32" />
+                <asp:Parameter Name="Remaining_Qty" Type="Int32" />
+                <asp:Parameter Name="Recieved_Qty" Type="Int32" />
                 <asp:Parameter Name="Update_id" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
             <div align="center">
+        <asp:SqlDataSource ID="SqlGoods_Receipt" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [goods_receipt] ORDER BY [receipt_id]" DeleteCommand="DELETE FROM [goods_receipt] WHERE [receipt_id] = @receipt_id" InsertCommand="INSERT INTO [goods_receipt] ([purchase_order_id], [receipt_date]) VALUES (@purchase_order_id, @receipt_date)" UpdateCommand="UPDATE [goods_receipt] SET [purchase_order_id] = @purchase_order_id, [receipt_date] = @receipt_date WHERE [receipt_id] = @receipt_id">
+            <DeleteParameters>
+                <asp:Parameter Name="receipt_id" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="purchase_order_id" Type="Int32" />
+                <asp:Parameter Name="receipt_date" Type="String" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="purchase_order_id" Type="Int32" />
+                <asp:Parameter Name="receipt_date" Type="String" />
+                <asp:Parameter Name="receipt_id" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
+        <asp:SqlDataSource ID="SqlStock_Pile" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [StockPile] ORDER BY [Entry_ID]" DeleteCommand="DELETE FROM [StockPile] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [StockPile] ([Batch_ID], [Warehouse_ID], [Location_ID], [Quantity], [Created_Date], [Is_Product]) VALUES (@Batch_ID, @Warehouse_ID, @Location_ID, @Quantity, @Created_Date, @Is_Product)" UpdateCommand="UPDATE [StockPile] SET [Batch_ID] = @Batch_ID, [Warehouse_ID] = @Warehouse_ID, [Location_ID] = @Location_ID, [Quantity] = @Quantity, [Created_Date] = @Created_Date, [Is_Product] = @Is_Product WHERE [Entry_ID] = @Entry_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="Entry_ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Batch_ID" Type="Int32" />
+                <asp:Parameter Name="Warehouse_ID" Type="Int32" />
+                <asp:Parameter Name="Location_ID" Type="Int32" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Created_Date" Type="String" />
+                <asp:Parameter Name="Is_Product" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Batch_ID" Type="Int32" />
+                <asp:Parameter Name="Warehouse_ID" Type="Int32" />
+                <asp:Parameter Name="Location_ID" Type="Int32" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Created_Date" Type="String" />
+                <asp:Parameter Name="Is_Product" Type="Boolean" />
+                <asp:Parameter Name="Entry_ID" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
                 <br />
                 <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Button ID="btnaddUpdates" runat="server" Text="Add" OnClick="btnaddUpdates_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvUpdates" runat="server">
-                    <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
-                        <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
-                        <br />
-                        <asp:Label ID="lbUpdate_id" runat="server" Text="Update_ID: " Width="150px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtUpdate_id" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
-                        <br />
-                        <asp:Label ID="lbReceipt_ID" runat="server" Text="Receipt_ID: " Width="150px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtReceipt_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
-                        <br />
-                        <asp:Label ID="lbInventory_ID" runat="server" Text="Inventory_ID: " Width="150px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtInventory_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
-                        <br />
-                        <asp:RequiredFieldValidator ID="rfvUpdate_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <asp:Button ID="btnSaveUpdates" runat="server" OnClick="btnSaveSupplier_Click" Text="Save" ValidationGroup="addSupplierValidation" />
-                        &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelUpdates" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
-                    </asp:Panel>
-                    <asp:GridView ID="gvUpdates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Update" AutoGenerateColumns="False" DataKeyNames="Update_id">
+                   
+                    <asp:GridView ID="gvUpdates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlUpdate" AutoGenerateColumns="False" DataKeyNames="Update_id">
                         <Columns>
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="Update_id" HeaderText="Update_id" SortExpression="Update_id" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" SortExpression="receipt_id" />
-                            <asp:BoundField DataField="inventory_id" HeaderText="inventory_id" SortExpression="inventory_id" />
+                            <asp:BoundField DataField="Entry_id" HeaderText="Entry_id" SortExpression="Entry_id" />
+                            <asp:BoundField DataField="Remaining_Qty" HeaderText="Remaining_Qty" SortExpression="Remaining_Qty" />
+                            <asp:BoundField DataField="Recieved_Qty" HeaderText="Recieved_Qty" SortExpression="Recieved_Qty" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>
+                 <asp:Panel ID="PaneladdUpdates" runat="server" Visible="false">
+                        <asp:Label ID="lbUpdatesaddTitle" runat="server" Text="Add Updates into Database" />
+                        <br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <br />
+                        <asp:Label ID="lbReceipt_ID" runat="server" Text="Receipt_ID: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:DropDownList ID="DropDownReceipt_ID" runat="server" DataSourceID="SqlGoods_Receipt" DataTextField="receipt_id" DataValueField="receipt_id" Height="27px" Width="333px">
+                        </asp:DropDownList>
+                        <br />
+                        <br />
+                        <asp:Label ID="lbIEntry_ID" runat="server" Text="Entry_ID: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:DropDownList ID="DropDownEntry_ID" runat="server" DataSourceID="SqlStock_Pile" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="25px" Width="326px">
+                        </asp:DropDownList>
+                        <br />
+                        <br />
+                        <asp:Label ID="lblRequired_Qty" runat="server" Text="Required_Qty: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtRequired_Qty" runat="server" ValidationGroup="addSupplierValidation" Height="35px" Width="299px"></asp:TextBox>
+                        <br />
+                        <br />
+                        <asp:Label ID="lbRemaining_Qty" runat="server" Text="Remaining_Qty: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtRemaining_Qty" runat="server" Height="35px" ValidationGroup="addSupplierValidation" Width="312px"></asp:TextBox>
+                        <br />
+                        <asp:RequiredFieldValidator ID="rfvUpdate_id" runat="server" ControlToValidate="txtRemaining_Qty" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <asp:Button ID="btnSaveUpdates" runat="server" OnClick="btnSaveUpdates_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        &nbsp;&nbsp;
+                        <asp:Button ID="btnCancelUpdates" runat="server" OnClick="btnCancelUpdates_Click" Text="Cancel" />
+                    </asp:Panel>
         </div>
-    </form>
-    <form id="form3" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form4" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form5" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
     </form>
 </body>
 </html>

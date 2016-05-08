@@ -19,18 +19,20 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlProvides" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [provides] ORDER BY [Prvd_id]" DeleteCommand="DELETE FROM [provides] WHERE [Prvd_id] = @Prvd_id" InsertCommand="INSERT INTO [provides] ([quotation_id], [RawMaterial_ID], [Unit_Price]) VALUES (@quotation_id, @RawMaterial_ID, @Unit_Price)" UpdateCommand="UPDATE [provides] SET [quotation_id] = @quotation_id, [RawMaterial_ID] = @RawMaterial_ID, [Unit_Price] = @Unit_Price WHERE [Prvd_id] = @Prvd_id">
+        <asp:SqlDataSource ID="SqlProvides" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [provides] ORDER BY [Prvd_id]" DeleteCommand="DELETE FROM [provides] WHERE [Prvd_id] = @Prvd_id" InsertCommand="INSERT INTO [provides] ([quotation_id], [RawMaterial_ID], [Quantity], [Unit_Price]) VALUES (@quotation_id, @RawMaterial_ID, @Quantity, @Unit_Price)" UpdateCommand="UPDATE [provides] SET [quotation_id] = @quotation_id, [RawMaterial_ID] = @RawMaterial_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price WHERE [Prvd_id] = @Prvd_id">
             <DeleteParameters>
                 <asp:Parameter Name="Prvd_id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="quotation_id" Type="Int32" />
                 <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Unit_Price" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="quotation_id" Type="Int32" />
                 <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Unit_Price" Type="Int32" />
                 <asp:Parameter Name="Prvd_id" Type="Int32" />
             </UpdateParameters>
@@ -54,8 +56,8 @@
         </asp:SqlDataSource>
 
                 <br />
-                <asp:Label ID="lbUpdatesHeader" runat="server" Text="Updates Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddProvides" runat="server" Text="Add" OnClick="btnaddOrders_Click"/>
+                <asp:Label ID="lblProvidesHeader" runat="server" Text="Provides Details" Font-Bold="True"></asp:Label> <br /> <br />
+                <asp:Button ID="btnaddProvides" runat="server" Text="Add" OnClick="btnaddProvides_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvProvides" runat="server">
                     
@@ -64,6 +66,7 @@
                             <asp:BoundField DataField="Prvd_id" HeaderText="Prvd_id" SortExpression="Prvd_id" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="quotation_id" HeaderText="quotation_id" SortExpression="quotation_id" />
                             <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
+                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                             <asp:BoundField DataField="Unit_Price" HeaderText="Unit_Price" SortExpression="Unit_Price" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
@@ -79,20 +82,28 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="PurchaseOrderIDDropDownList" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="DropDownQuotation_ID" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
-                        <asp:Label ID="lbRawMaterial_ID" runat="server" Text="RawMaterial_ID: " Width="150px" />
+                        <asp:Label ID="lblRawMaterial_Name" runat="server" Text="RawMaterial_Name: " Width="150px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:DropDownList ID="DropDownRawMaterial_ID" runat="server" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID" Height="29px" Width="151px">
                         </asp:DropDownList>
                         <br />
                         <br />
+                        <asp:Label ID="lblUnit_Price" runat="server" Text="Unit_Price: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtUnit_Price" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lblQuantity" runat="server" Text="Quantity: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:TextBox ID="txtQuantity" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveProvides" runat="server" OnClick="btnSaveOrders_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <br />
+                        <asp:Button ID="btnSaveProvides" runat="server" OnClick="btnSaveProvides_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelProvides" runat="server" OnClick="btnCancelOrders_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelProvides" runat="server" OnClick="btnCancelProvides_Click" Text="Cancel" />
                     </asp:Panel>
         </div>
     </form>

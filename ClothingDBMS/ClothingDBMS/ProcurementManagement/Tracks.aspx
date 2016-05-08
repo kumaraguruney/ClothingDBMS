@@ -37,10 +37,20 @@
             <div align="center">
                 <br />
                 <asp:Label ID="lbTracksHeader" runat="server" Text="Tracks Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddTracks" runat="server" Text="Add" OnClick="btnaddSupplier_Click"/>
+                <asp:Button ID="btnaddTracks" runat="server" Text="Add" OnClick="btnaddTracks_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvTracks" runat="server">
-                    <asp:Panel ID="PaneladdTracks" runat="server" Visible="false">
+                    <asp:GridView ID="gvTracks" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlTracks" AutoGenerateColumns="False" DataKeyNames="Track_ID">
+                        <Columns>
+                            <asp:BoundField DataField="Track_ID" HeaderText="Track_ID" SortExpression="Track_ID" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
+                            <asp:BoundField DataField="RM_ID" HeaderText="RM_ID" SortExpression="RM_ID" />
+                        </Columns>
+                        <EditRowStyle BackColor="Yellow"/>
+                    </asp:GridView>
+                   </asp:Panel>
+
+                <asp:Panel ID="PaneladdTracks" runat="server" Visible="false">
                         <asp:Label ID="lbTracksaddTitle" runat="server" Text="Add Tracks into Database" />
                         <br />
                         <asp:Label ID="lbTrack_ID" runat="server" Text="Track_ID: " Width="150px" />
@@ -55,42 +65,20 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:TextBox ID="txtRM_ID" runat="server" ValidationGroup="addSupplierValidation"></asp:TextBox>
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvTrack_id" runat="server" ControlToValidate="txtSupplierName" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvTrack_id" runat="server" ControlToValidate="txtRM_ID" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <br />
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveTracks" runat="server" OnClick="btnSaveSupplier_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <asp:Button ID="btnSaveTracks" runat="server" OnClick="btnSaveTracks_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelTracks" runat="server" OnClick="btnCancelSupplier_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelTracks" runat="server" OnClick="btnCancelTracks_Click" Text="Cancel" />
                     </asp:Panel>
-                    <asp:GridView ID="gvTracks" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="Track" AutoGenerateColumns="False" DataKeyNames="Track_ID">
-                        <Columns>
-                            <asp:BoundField DataField="Track_ID" HeaderText="Track_ID" SortExpression="Track_ID" InsertVisible="False" ReadOnly="True" />
-                            <asp:BoundField DataField="Inventory_ID" HeaderText="Inventory_ID" SortExpression="Inventory_ID" />
-                            <asp:BoundField DataField="RM_ID" HeaderText="RM_ID" SortExpression="RM_ID" />
-                        </Columns>
-                        <EditRowStyle BackColor="Yellow"/>
-                    </asp:GridView>
-                   </asp:Panel>
+                    
+
         </div>
-    </form>
-    <form id="form3" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form4" runat="server">
-    <div>
-    
-    </div>
-    </form>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
     </form>
 </body>
 </html>

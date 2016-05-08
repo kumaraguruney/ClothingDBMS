@@ -17,22 +17,33 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlSupplier_Quotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplier_quotation] ORDER BY [item_code]" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([item_code], [unit_price]) VALUES (@item_code, @unit_price)" UpdateCommand="UPDATE [supplier_quotation] SET [item_code] = @item_code, [unit_price] = @unit_price WHERE [quotation_id] = @quotation_id">
+        <asp:SqlDataSource ID="SqlSupplier_Quotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplier_quotation] ORDER BY [quotation_id]" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([Supplier_id]) VALUES (@Supplier_id)" UpdateCommand="UPDATE [supplier_quotation] SET [Supplier_id] = @Supplier_id WHERE [quotation_id] = @quotation_id">
             <DeleteParameters>
                 <asp:Parameter Name="quotation_id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
-                <asp:Parameter Name="item_code" Type="String" />
-                <asp:Parameter Name="unit_price" Type="Decimal" />
+                <asp:Parameter Name="Supplier_id" Type="Int16" />
             </InsertParameters>
             <UpdateParameters>
-                <asp:Parameter Name="item_code" Type="String" />
-                <asp:Parameter Name="unit_price" Type="Decimal" />
+                <asp:Parameter Name="Supplier_id" Type="Int16" />
                 <asp:Parameter Name="quotation_id" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
 
             <div align="center">
+        <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplier_quotation] ORDER BY [quotation_id]" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([Supplier_id]) VALUES (@Supplier_id)" UpdateCommand="UPDATE [supplier_quotation] SET [Supplier_id] = @Supplier_id WHERE [quotation_id] = @quotation_id">
+            <DeleteParameters>
+                <asp:Parameter Name="quotation_id" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="Supplier_id" Type="Int16" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="Supplier_id" Type="Int16" />
+                <asp:Parameter Name="quotation_id" Type="Int32" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+
                 <br />
                 <asp:Label ID="lbSupplier_QuotationHeader" runat="server" Text="Supplier_Quotation Details" Font-Bold="True"></asp:Label> <br /> <br />
                 <asp:Button ID="btnaddSupplier_Quotation" runat="server" Text="Add" OnClick="btnaddSupplier_Quotation_Click"/>
@@ -42,24 +53,27 @@
                         <Columns>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="quotation_id" HeaderText="quotation_id" ReadOnly="True" SortExpression="quotation_id" InsertVisible="False" />
-                            <asp:BoundField DataField="item_code" HeaderText="item_code" SortExpression="item_code" />
-                             <asp:BoundField DataField="unit_price" HeaderText="unit_price" SortExpression="unit_price" />
+                            <asp:BoundField DataField="Supplier_id" HeaderText="Supplier_id" SortExpression="Supplier_id" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>
                 <asp:Panel ID="PaneladdSupplier_Quotation" Visible="false" runat="server">
                 <asp:Label ID="lbSupplier_QuotationaddTitle" Text="Add Supplier_Quotation into Database" runat="server" /><br /> <br />
-                    <asp:Label ID="lbSupplier_QuotationName" Width="150px" Text="Item_Code: " runat="server" />
-                    <asp:TextBox ID="txtSupplier_QuotationName" ValidationGroup="addSupplier_QuotationValidation" runat="server" ></asp:TextBox><br />
-                    <br />
-                    <asp:Label ID="lblSupplier_QuotationAddress" Width="150px" Text="Unit Price: " runat="server"></asp:Label>
-                    <asp:TextBox ID="txtSupplier_QuotationAddress" runat="server"></asp:TextBox><br />
                     <br />
                     <br />
-                    <br /> <br />
-                    <asp:Button ID="btnSaveSupplier_Quotation" ValidationGroup="addSupplier_QuotationValidation" runat="server" Text="Save" OnClick="btnSaveSupplier_Quotation_Click"/> &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelSupplier_Quotation" runat="server" Text="Cancel" OnClick="btnCancelSupplier_Quotation_Click"/>
+                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier_Name" Width="150px"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:DropDownList ID="DropDownSupplier_Name" runat="server" DataSourceID="SqlSupplier" DataTextField="Name" DataValueField="Supplier_id" Height="28px" Width="300px">
+                    </asp:DropDownList>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Button ID="btnSaveSupplier_Quotation" runat="server" Text="Save" OnClick="btnSaveSupplier_Quotation_Click" ValidationGroup="addSupplier_QuotationValidation"/>
+                    &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelSupplier_Quotation" runat="server" OnClick="btnCancelSupplier_Quotation_Click" Text="Cancel" />
                     </asp:Panel>
         </div>
     </form>

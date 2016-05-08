@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClothingDBMS.ProcurementManagement
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class Orders : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,15 +28,17 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveOrders_Click(object sender, EventArgs e)
         {
-            SqlOrders.InsertParameters["Purchase_Order_ID"].DefaultValue = PurchaseOrderIDDropDownList.SelectedValue;
-            SqlOrders.InsertParameters["RawMaterial_ID"].DefaultValue = RMIDDropDownList.SelectedValue;
+            SqlOrders.InsertParameters["PurchaseOrder_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
+            SqlOrders.InsertParameters["RawMaterial_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
+            SqlOrders.InsertParameters["Entry_ID"].DefaultValue = Entry_IDDropDownList.SelectedValue;
 
             SqlOrders.Insert();
             gvOrders.DataBind();
             PaneladdOrders.Visible = false;
             PanelgvOrders.Visible = true;
-            PurchaseOrderIDDropDownList.SelectedIndex = -1;
-            RMIDDropDownList.SelectedIndex = -1;
+            RawMaterial_IDDropDownList.SelectedIndex = -1;
+            PurchaseOrder_IDDropDownList.SelectedIndex = -1;
+            Entry_IDDropDownList.SelectedIndex = -1;
 
         }
     }

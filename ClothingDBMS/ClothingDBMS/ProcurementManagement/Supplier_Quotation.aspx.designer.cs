@@ -31,6 +31,15 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplier_Quotation;
         
         /// <summary>
+        /// SqlSupplier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlSupplier;
+        
+        /// <summary>
         /// lbSupplier_QuotationHeader control.
         /// </summary>
         /// <remarks>
@@ -85,40 +94,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Label lbSupplier_QuotationaddTitle;
         
         /// <summary>
-        /// lbSupplier_QuotationName control.
+        /// lblSupplier_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbSupplier_QuotationName;
+        protected global::System.Web.UI.WebControls.Label lblSupplier_Name;
         
         /// <summary>
-        /// txtSupplier_QuotationName control.
+        /// DropDownSupplier_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplier_QuotationName;
-        
-        /// <summary>
-        /// lblSupplier_QuotationAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSupplier_QuotationAddress;
-        
-        /// <summary>
-        /// txtSupplier_QuotationAddress control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplier_QuotationAddress;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownSupplier_Name;
         
         /// <summary>
         /// btnSaveSupplier_Quotation control.

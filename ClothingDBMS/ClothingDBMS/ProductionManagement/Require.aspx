@@ -46,22 +46,13 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
-                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li> 
                     <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
-                    <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
-                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
-                    <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
                 </ul>
             </div>
         </div>
     </div>
-        <asp:SqlDataSource ID="SqlRequires" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Require.Require_ID, Require.Product_ID, Require.RawMaterial_ID, Require.RawMaterial_Quantity, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name, RawMaterial.RawMaterial_Name + ', ' + code_2.Code_Description + ', ' + ISNULL(RawMaterial.RawMaterial_Description, ' ') AS Rawmaterial_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section LEFT OUTER JOIN RawMaterial ON Require.RawMaterial_ID = Require.RawMaterial_ID LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = RawMaterial.RawMaterial_Color ORDER BY Design.Design_Name" DeleteCommand="DELETE FROM [Require] WHERE [Require_ID] = @Require_ID" InsertCommand="INSERT INTO Require(Product_ID, RawMaterial_ID, RawMaterial_Quantity) VALUES (@Product_ID, @RawMaterial_ID, @RawMaterial_Quantity)" UpdateCommand="UPDATE Require SET Product_ID = @Product_ID, RawMaterial_ID = @RawMaterial_ID, RawMaterial_Quantity = @RawMaterial_Quantity WHERE (Require_ID = @Require_ID)">
+        <asp:SqlDataSource ID="SqlRequires" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Require.Require_ID, Require.Product_ID, Require.RawMaterial_ID, Require.RawMaterial_Quantity, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name, RawMaterial.RawMaterial_Name + ', ' + code_2.Code_Description + ', ' + ISNULL(RawMaterial.RawMaterial_Description, ' ') AS Rawmaterial_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section LEFT OUTER JOIN RawMaterial ON Require.RawMaterial_ID = RawMaterial.RawMaterial_ID LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = RawMaterial.RawMaterial_Color WHERE (Require.Product_ID = @ProductID)" DeleteCommand="DELETE FROM [Require] WHERE [Require_ID] = @Require_ID" InsertCommand="INSERT INTO Require(Product_ID, RawMaterial_ID, RawMaterial_Quantity) VALUES (@Product_ID, @RawMaterial_ID, @RawMaterial_Quantity)" UpdateCommand="UPDATE Require SET Product_ID = @Product_ID, RawMaterial_ID = @RawMaterial_ID, RawMaterial_Quantity = @RawMaterial_Quantity WHERE (Require_ID = @Require_ID)">
             <DeleteParameters>
                 <asp:Parameter Name="Require_ID" Type="Int16" />
             </DeleteParameters>
@@ -76,21 +67,23 @@
                 <asp:Parameter Name="RawMaterial_Quantity" Type="Byte" />
                 <asp:Parameter Name="Require_ID" Type="Int16" />
             </UpdateParameters>
+            <SelectParameters>
+                
+                <asp:SessionParameter Name="ProductID" SessionField="ProductID" />
+                
+                </SelectParameters>
         </asp:SqlDataSource>
 
         <asp:SqlDataSource ID="SqlRequireDrop" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT DISTINCT Require.Product_ID, Design.Design_Name + ', ' + code_1.Code_Description + ', ' + Code.Code_Description + ', ' + code_3.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Product_Name FROM Require LEFT OUTER JOIN Product ON Require.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Design.Design_Section ORDER BY Product_Name" />
         
         <asp:SqlDataSource ID="SqlRawmaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT RawMaterial.RawMaterial_ID, RawMaterial.RawMaterial_Name + ',' + Code.Code_Description + ', ' + RawMaterial.RawMaterial_Description AS RawMaterial_Name FROM RawMaterial LEFT OUTER JOIN Code ON Code.Code_ID = RawMaterial.RawMaterial_Color"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Product.Design_ID, Product.Size, Product.Color, Product.Product_Description, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlProducts" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Product.Design_ID, Product.Size, Product.Color, Product.Product_Description, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
             <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbRequireHeader" runat="server" Text="Product Requirement - Management" Font-Bold="true"></asp:Label> <br /> <br />
-                
+                <a href='javascript:history.go(-1)'>Go Back to Previous Page</a> <br />
                 <asp:Panel ID="PanelgvProductRequire" runat="server">
-                    <asp:Label ID="lblRequiresFilter" runat="server" Text="Please Select a Design and Click Filter: " Font-Bold="true"></asp:Label>
-                <asp:DropDownList ID="droprequire" width="300" DataSourceID="SqlRequireDrop" AppendDataBoundItems="true" DataTextField="Product_Name"  DataValueField="Product_ID" runat="server">
-                <asp:ListItem Text="--- Please Select a Design ---" Value="-1"></asp:ListItem>
-                </asp:DropDownList> &nbsp; &nbsp; <asp:Button ID="btnProductRequirefilter" CssClass="bg-primary" runat="server" Text="Filter" OnClick="btnProductRequirefilter_Click"/> &nbsp; &nbsp; <asp:Button ID="btnProductRequireClear" runat="server" Text="Clear" CssClass="bg-primary" OnClick="btnProductRequireClear_Click"/> &nbsp;&nbsp;
+                    <br />
                 <asp:Button ID="btaddProductRequire" runat="server" CssClass="bg-primary" Text="Add" OnClick="btaddProductRequire_Click"/>
                 <br /> <br />
                     <asp:GridView ID="gvProductRequire" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRequires" AutoGenerateColumns="False" DataKeyNames="Require_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" >
@@ -100,7 +93,7 @@
                             <asp:BoundField DataField="Require_ID" HeaderText="Require_ID" InsertVisible="False" ReadOnly="true" SortExpression="Require_ID" />
                             <asp:TemplateField HeaderText="Product_Name" SortExpression="Product_Name">
                                 <EditItemTemplate>
-                                    <asp:DropDownList ID="dropProductName" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID" SelectedValue='<%# Bind("Product_ID") %>'>
+                                    <asp:DropDownList ID="dropProductName" runat="server" DataSourceID="SqlProducts" DataTextField="Name" DataValueField="Product_ID" SelectedValue='<%# Bind("Product_ID") %>'>
                                     </asp:DropDownList>
                                 </EditItemTemplate>
                                 <ItemTemplate>
@@ -115,8 +108,9 @@
                                 <ItemTemplate>
                                     <asp:Label ID="lblRawMaterialName" runat="server" Text='<%# Bind("RawMaterial_Name") %>'></asp:Label>
                                 </ItemTemplate>
+                                
                             </asp:TemplateField>
-                            <asp:BoundField DataField="RawMaterial_Quantity" HeaderText="RawMaterial_Quantity" SortExpression="RawMaterial_Quantity" />
+                            <asp:BoundField DataField="RawMaterial_Quantity" HeaderText="Quantity" SortExpression="RawMaterial_Quantity" />
                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>
@@ -138,12 +132,7 @@
                     
                 <asp:Label ID="lbProductRequireaddTitle" Text="Add Required Raw Material(s) for particular Design into Database" runat="server" /><br /> <br />
                     <div class="form-group form-horizontal col-md-8" >
-                    <asp:Label ID="lblRequireProduct" Width="200" Text="Product: " runat="server" />
-                    <asp:DropDownList ID="dropProduct" runat="server" AppendDataBoundItems="true" EnableViewState="false" width="350" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
-                        <asp:ListItem Text="-- Select a Product --" Value="-1"></asp:ListItem>
-                    </asp:DropDownList><br />
-                        <asp:RequiredFieldValidator ID="rfvdropProduct" ValidationGroup="addProductRequireValidation" InitialValue="-1" runat="server" ControlToValidate="dropProduct" ErrorMessage="(*) Must have one Design Selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-                    <asp:Label ID="lblRequireRawmaterial" Width="200" Text="Raw Material : " runat="server" />
+                   <asp:Label ID="lblRequireRawmaterial" Width="200" Text="Raw Material : " runat="server" />
                     <asp:DropDownList ID="dropRawmaterial" AppendDataBoundItems="true" EnableViewState="false" width="350" runat="server" DataSourceID="SqlRawmaterial" DataTextField="Rawmaterial_Name" DataValueField="Rawmaterial_ID">
                         <asp:ListItem Text="-- Raw Material --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
