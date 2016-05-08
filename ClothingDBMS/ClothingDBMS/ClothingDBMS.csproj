@@ -186,12 +186,14 @@
     <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\FinishedProduct.aspx" />
     <Content Include="InventoryManagement\Location.aspx" />
+    <Content Include="InventoryManagement\ProcuredRawMaterial.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
     <Content Include="InventoryManagement\ProductStockUpdate.aspx" />
     <Content Include="InventoryManagement\RMInventory.aspx" />
     <Content Include="InventoryManagement\RMStockUpdate.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\StockPile.aspx" />
+    <Content Include="InventoryManagement\StockReconciliation.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -290,6 +292,13 @@
     <Compile Include="InventoryManagement\Location.aspx.designer.cs">
       <DependentUpon>Location.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InventoryManagement\ProcuredRawMaterial.aspx.cs">
+      <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\ProcuredRawMaterial.aspx.designer.cs">
+      <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InventoryManagement\ProductInventory.aspx.cs">
       <DependentUpon>ProductInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -331,6 +340,13 @@
     </Compile>
     <Compile Include="InventoryManagement\StockPile.aspx.designer.cs">
       <DependentUpon>StockPile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\StockReconciliation.aspx.cs">
+      <DependentUpon>StockReconciliation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\StockReconciliation.aspx.designer.cs">
+      <DependentUpon>StockReconciliation.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
