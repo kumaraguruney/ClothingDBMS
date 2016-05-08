@@ -252,11 +252,13 @@
     <Content Include="ProductionManagement\Require.aspx" />
     <Content Include="ProductionManagement\Workorder.aspx" />
     <Content Include="ProductionManagement\Workschedule.aspx" />
+    <Content Include="SalesManagement\Contains.aspx" />
     <Content Include="SalesManagement\Customer.aspx" />
     <Content Include="SalesManagement\Default.aspx" />
     <Content Include="SalesManagement\Invoice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
     <Content Include="SalesManagement\Quotation.aspx" />
+    <Content Include="SalesManagement\Quotes.aspx" />
     <Content Include="SalesManagement\SalesOrder.aspx" />
     <Content Include="SalesManagement\Shipment.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
@@ -496,6 +498,13 @@
       <DependentUpon>Workschedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesManagement\Contains.aspx.cs">
+      <DependentUpon>Contains.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Contains.aspx.designer.cs">
+      <DependentUpon>Contains.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -530,6 +539,13 @@
     </Compile>
     <Compile Include="SalesManagement\Quotation.aspx.designer.cs">
       <DependentUpon>Quotation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Quotes.aspx.cs">
+      <DependentUpon>Quotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Quotes.aspx.designer.cs">
+      <DependentUpon>Quotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="SalesManagement\SalesOrder.aspx.cs">
       <DependentUpon>SalesOrder.aspx</DependentUpon>
