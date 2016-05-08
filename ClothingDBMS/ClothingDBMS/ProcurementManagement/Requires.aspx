@@ -63,11 +63,11 @@
 
                 <br />
                 <asp:Label ID="lbRequiresHeader" runat="server" Text="Requires Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddRequires" runat="server" Text="Add" OnClick="btnaddOrders_Click"/>
+                <asp:Button ID="btnaddRequires" runat="server" Text="Add" OnClick="btnaddRequires_Click"/>
                 <br /> <br />
                 <asp:Panel ID="PanelgvRequires" runat="server">
                     
-                    <asp:GridView ID="gvRequires" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProvides" AutoGenerateColumns="False" DataKeyNames="Require_ID">
+                    <asp:GridView ID="gvRequires" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlRequires" AutoGenerateColumns="False" DataKeyNames="Require_ID">
                         <Columns>
                             <asp:BoundField DataField="Require_ID" HeaderText="Require_ID" SortExpression="Require_ID" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="WorkOrder_ID" HeaderText="WorkOrder_ID" SortExpression="WorkOrder_ID" />
@@ -86,7 +86,7 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="PurchaseOrderIDDropDownList" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvPrvd_id" runat="server" ControlToValidate="DropDownQWorkOrder_ID" ErrorMessage="(*) Must have some ID" ForeColor="Red" ValidationGroup="addSupplierValidation"></asp:RequiredFieldValidator>
                         <br />
                         <br />
                         <asp:Label ID="lbRawMaterial_ID" runat="server" Text="RawMaterial_ID: " Width="150px" />
@@ -99,17 +99,12 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnSaveRequires" runat="server" OnClick="btnSaveOrders_Click" Text="Save" ValidationGroup="addSupplierValidation" />
+                        <asp:Button ID="btnSaveRequires" runat="server" OnClick="btnSaveRequires_Click" Text="Save" ValidationGroup="addSupplierValidation" />
                         &nbsp;&nbsp;
-                        <asp:Button ID="btnCancelRequires" runat="server" OnClick="btnCancelOrders_Click" Text="Cancel" />
+                        <asp:Button ID="btnCancelRequires" runat="server" OnClick="btnCancelRequires_Click" Text="Cancel" />
                     </asp:Panel>
         </div>
     </form>
-    
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-    </form>
+
 </body>
 </html>

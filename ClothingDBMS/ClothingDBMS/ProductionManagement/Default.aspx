@@ -47,20 +47,92 @@
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Allocates.aspx">Allocates</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
-                    <li><a class="page-scroll" href="Includes.aspx">Includes</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Rawmaterial.aspx">Raw Material</a> </li>
                     <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
                     <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Rawmaterial</a> </li>
-                    <li><a class="page-scroll" href="Require.aspx">Require</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">WorkOrder</a> </li>
-                    <li><a class="page-scroll" href="WorkSchedule.aspx">WorkSchedule</a> </li>
+                    <li><a class="page-scroll" href="Workorder.aspx">Work Order</a> </li>
+                    <li><a class="page-scroll" href="WorkSchedule.aspx">Work Schedule</a> </li>
+                    <li><a class="page-scroll" href="FinishedProduct.aspx">Finished Products</a> </li>
+                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
+                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
                 </ul>
             </div>
         </div>
     </div>
+
+         <div style="margin-top:100px; height: 475px; text-overflow:inherit; overflow:auto"  align="center">
+
+
+
+
+             <asp:Button ID="btnRawMaterial" runat="server" CssClass="btn btn-primary btn-lg" Text="Raw Material" Height="100" Width="200" OnClick="btnRawMaterial_Click" /> 
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+             <asp:Button ID="btnMachinery" runat="server" CssClass="btn btn-primary btn-lg" Text="Machinery" Height="100" Width="200" OnClick="btnMachinery_Click" />
+
+
+
+
+             <br /> <br /> <br />
+
+
+
+
+             <asp:Button ID="btnProduct" runat="server" CssClass="btn btn-primary btn-lg" Text="Product" Height="100" Width="200" OnClick="btnProduct_Click" />
+
+              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp;&nbsp;
+
+
+             <asp:Button ID="btnWorkOrder" runat="server" CssClass="btn btn-primary btn-lg" Text="Work Order" Height="100" Width="200" OnClick="btnWorkOrder_Click" />
+
+             -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp;&nbsp;
+
+
+             <asp:Button ID="btnWorkSchedule" runat="server" CssClass="btn btn-primary btn-lg" Text="Work Schedule" Height="100" Width="200" OnClick="btnWorkSchedule_Click" />
+            
+              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp;&nbsp;
+
+
+
+             <asp:Button ID="btnFinishedProduct" runat="server" CssClass="btn btn-primary btn-lg" Text="Finished Product" Height="100" Width="200" OnClick="btnFinishedProduct_Click" />
+
+
+
+
+             <br /> <br /> <br />
+
+
+
+
+              <asp:Button ID="btnDesign" runat="server" CssClass="btn btn-primary btn-lg" Text="Design" Height="100" Width="200" OnClick="btnDesign_Click" /> 
+              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+             <asp:Button ID="btnEmployee" runat="server" CssClass="btn btn-primary btn-lg" Text="Employee" Height="100" Width="200" OnClick="btnEmployee_Click" />
+
+
+             <br /> <br /> <br /> <br />
+
+             </div>
+
+
     </form>
 </body>
 </html>

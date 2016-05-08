@@ -25,7 +25,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlFinishedProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [FinishedProduct] ORDER BY [Batch_ID]" DeleteCommand="DELETE FROM [FinishedProduct] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [FinishedProduct] ([Product_ID], [Manufactured_Date], [Quantity], [Is_Stock_Piled]) VALUES (@Product_ID, @Manufactured_Date, @Quantity, @Is_Stock_Piled)" UpdateCommand="UPDATE [FinishedProduct] SET [Product_ID] = @Product_ID, [Manufactured_Date] = @Manufactured_Date, [Quantity] = @Quantity, [Is_Stock_Piled] = @Is_Stock_Piled WHERE [Batch_ID] = @Batch_ID">
+        <asp:SqlDataSource ID="SqlFinishedProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT FinishedProduct.Batch_ID, FinishedProduct.Product_ID, FinishedProduct.Manufactured_Date, FinishedProduct.Quantity, FinishedProduct.Is_Stock_Piled, Design.Design_Name + ', ' + code_2.Code_Description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name, Available_Quantity FROM FinishedProduct INNER JOIN Product ON FinishedProduct.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = Design.Design_Section ORDER BY FinishedProduct.Batch_ID" DeleteCommand="DELETE FROM [FinishedProduct] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [FinishedProduct] ([Product_ID], [Manufactured_Date], [Quantity], [Is_Stock_Piled]) VALUES (@Product_ID, @Manufactured_Date, @Quantity, @Is_Stock_Piled)" UpdateCommand="UPDATE [FinishedProduct] SET [Product_ID] = @Product_ID, [Manufactured_Date] = @Manufactured_Date, [Quantity] = @Quantity, [Is_Stock_Piled] = @Is_Stock_Piled WHERE [Batch_ID] = @Batch_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Batch_ID" Type="Int32" />
             </DeleteParameters>
@@ -51,11 +51,12 @@
                      <asp:Button ID="btnaddFinishedProduct" runat="server" Text="Add" OnClick="btnaddFinishedProduct_Click"/>
                     <asp:GridView ID="gvFinishedProduct" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlFinishedProduct" AutoGenerateColumns="False" DataKeyNames="Batch_ID">
                         <Columns>
-                            <asp:CommandField ShowEditButton="True" />
                             <asp:BoundField DataField="Batch_ID" HeaderText="Batch_ID" ReadOnly="True" SortExpression="Batch_ID" InsertVisible="False" />
                             <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" SortExpression="Product_ID" />
+                             <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
                              <asp:BoundField DataField="Manufactured_Date" HeaderText="Manufactured_Date" SortExpression="Manufactured_Date" />
-                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                            <asp:BoundField DataField="Available_Quantity" HeaderText="Available_Quantity" SortExpression="Available_Quantity" />
                             <asp:CheckBoxField DataField="Is_Stock_Piled" HeaderText="Is_Stock_Piled" SortExpression="Is_Stock_Piled" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>

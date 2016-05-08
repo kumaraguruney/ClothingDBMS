@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace ProductionManagement.ProductionManagement
 {
@@ -57,6 +58,20 @@ namespace ProductionManagement.ProductionManagement
         protected void coeWorkorderDueDate_Click(object sender, ImageClickEventArgs e)
         {
             calpanel.Visible = true;
+        }
+
+        protected void lnkRequireds_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string workorderid = gvWorkOrder.DataKeys[row.RowIndex].Values[0].ToString();
+            SqlData.SelectCommand = "SELECT Product_ID FROM WorkOrder where WorkOrder_ID ='" + workorderid +"'";
+            DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
+            DataView dvView = new DataView();
+            dvView = (DataView)SqlData.Select(dsArguments);
+            string productid = dvView[0].Row["Product_ID"].ToString();
+            Session["ProductID"] = productid;
+            Response.Redirect("Require.aspx");
         }
     }
 }
