@@ -13,5 +13,33 @@ namespace ProductionManagement.ProductionManagement
         {
 
         }
+        protected void btnCustomer_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Customer.aspx");
+        }
+
+        protected void btnQuotation_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Quotation.aspx");
+        }
+
+        protected void btnSalesOrder_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SalesOrder.aspx");
+        }
+
+        protected void btnShipment_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Shipment.aspx");
+        }
+
+        protected void btnInvoice_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Invoice.aspx");
+        }
+        protected void btnPayment_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Payment.aspx");
+        }
     }
 }
