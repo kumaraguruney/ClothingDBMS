@@ -31,6 +31,24 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlStockPile;
         
         /// <summary>
+        /// SqlData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlData;
+        
+        /// <summary>
+        /// SqlDrop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDrop;
+        
+        /// <summary>
         /// SqlFinishedProduct control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,33 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlLocation;
+        
+        /// <summary>
+        /// SqlProcuredRawMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProcuredRawMaterial;
+        
+        /// <summary>
+        /// SqlUpdateAvailableQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlUpdateAvailableQty;
+        
+        /// <summary>
+        /// SqlUpdateAvailableRMQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlUpdateAvailableRMQty;
         
         /// <summary>
         /// lblStockPile control.
@@ -139,6 +184,15 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.DropDownList BatchIDDropDownList;
         
         /// <summary>
+        /// AvailableQuantityTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AvailableQuantityTextBox;
+        
+        /// <summary>
         /// lblWarehouseID control.
         /// </summary>
         /// <remarks>
@@ -191,6 +245,15 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox QuantityTextBox;
+        
+        /// <summary>
+        /// QuantityValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator QuantityValidator;
         
         /// <summary>
         /// lblCreatedDate control.
