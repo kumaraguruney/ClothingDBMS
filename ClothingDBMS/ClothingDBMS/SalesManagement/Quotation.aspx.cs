@@ -9,6 +9,22 @@ namespace SalesManagement.Sales
 {
     public partial class Quotation : System.Web.UI.Page
     {
+        protected void btnOpenQuotation_Click(object sender, EventArgs e)
+        {
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string pk = GridViewQuotation.DataKeys[row.RowIndex].Values[0].ToString();
+            Session["Quotation_number"] = pk;
+
+
+            Response.Redirect("quotes.aspx");
+           
+        }
+        protected void btnConverttoSOQuotation_Click(object sender, EventArgs e)
+        {
+           //To convert to sales order
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
