@@ -256,6 +256,7 @@
     <Content Include="SalesManagement\Customer.aspx" />
     <Content Include="SalesManagement\Default.aspx" />
     <Content Include="SalesManagement\Invoice.aspx" />
+    <Content Include="SalesManagement\ListingPrice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
     <Content Include="SalesManagement\Quotation.aspx" />
     <Content Include="SalesManagement\Quotes.aspx" />
@@ -526,6 +527,13 @@
     </Compile>
     <Compile Include="SalesManagement\Invoice.aspx.designer.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\ListingPrice.aspx.cs">
+      <DependentUpon>ListingPrice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\ListingPrice.aspx.designer.cs">
+      <DependentUpon>ListingPrice.aspx</DependentUpon>
     </Compile>
     <Compile Include="SalesManagement\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>

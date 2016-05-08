@@ -47,6 +47,15 @@ namespace ClothingDBMS.SalesManagement
             dropQotationNum.SelectedIndex = 0;
         }
 
+        int total = 0;
+        protected void girdview_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                total += Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "TotalPrice"));
+            }
+            lblTotalAmount.Text = total.ToString();
+        }
 
-           }
+    }
 }

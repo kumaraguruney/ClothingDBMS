@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-                <asp:SqlDataSource ID="SqlQotes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTES_ID, QOquantity, Product_ID, Quotation_Number FROM QUOTES WHERE (Quotation_Number = @Quotation_Number) ORDER BY QUOTES_ID" DeleteCommand="DELETE FROM [QUOTES] WHERE [QUOTES_ID] = @QUOTES_ID" InsertCommand="INSERT INTO [QUOTES] ([QOquantity], [Product_ID], [Quotation_Number]) VALUES (@QOquantity, @Product_ID, @Quotation_Number)" UpdateCommand="UPDATE [QUOTES] SET [QOquantity] = @QOquantity, [Product_ID] = @Product_ID, [Quotation_Number] = @Quotation_Number WHERE [QUOTES_ID] = @QUOTES_ID">
+                <asp:SqlDataSource ID="SqlQotes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTES.QUOTES_ID, QUOTES.QOquantity, QUOTES.Product_ID, QUOTES.Quotation_Number, Product.Price, Design.Design_Name + ', ' + code_2.Code_Description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name, QUOTES.QOquantity * Product.Price AS TotalPrice FROM QUOTES INNER JOIN Product ON QUOTES.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = Design.Design_Section WHERE (QUOTES.Quotation_Number = @Quotation_Number) ORDER BY QUOTES.QUOTES_ID" DeleteCommand="DELETE FROM [QUOTES] WHERE [QUOTES_ID] = @QUOTES_ID" InsertCommand="INSERT INTO [QUOTES] ([QOquantity], [Product_ID], [Quotation_Number]) VALUES (@QOquantity, @Product_ID, @Quotation_Number)" UpdateCommand="UPDATE [QUOTES] SET [QOquantity] = @QOquantity, [Product_ID] = @Product_ID, [Quotation_Number] = @Quotation_Number WHERE [QUOTES_ID] = @QUOTES_ID" >
                     <DeleteParameters>
                         <asp:Parameter Name="QUOTES_ID" Type="Int32" />
                     </DeleteParameters>
@@ -61,14 +61,17 @@
         <br/>
     <asp:Label ID="lblQuotation" runat="server" Text="Quotes Data Management" Font-Bold="True"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
+            <a href='javascript:history.go(-1)'>Go Back to Previous Page</a> <br />
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
-        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True">
+        <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True" OnRowDataBound="girdview_OnRowDataBound">
             <Columns>
                 <asp:BoundField DataField="QUOTES_ID" HeaderText="QUOTES_ID" ReadOnly="True" SortExpression="QUOTES_ID" InsertVisible="False" />
-                <asp:BoundField DataField="QOquantity" HeaderText="QOquantity" SortExpression="QOquantity" />
-
                 <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" SortExpression="Product_ID" />
+                <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
                 <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" SortExpression="Quotation_Number" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                <asp:BoundField DataField="QOquantity" HeaderText="QOquantity" SortExpression="QOquantity" />
+                <asp:BoundField DataField="TotalPrice" HeaderText="TotalPrice" ReadOnly="True" SortExpression="TotalPrice" />
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -81,31 +84,30 @@
                         <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
         </asp:Panel>
-
+            
+            <asp:Label ID="lblAmount" Text="Quotation Total:" runat="server" ></asp:Label>
+            <asp:Label ID="lblTotalAmount" Text="Quotation Total" runat="server" ></asp:Label>
     
     
           <asp:Panel ID="panelAddQuotation" Visible="false" runat="server">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          <asp:Label ID="lblQuotationTitle" Text="Enter New Quotation Information" runat="server" Font-Bold="True"/><br /> <br />
 
-                          <asp:Label ID="lbQuantity" Width="200" Text="Quantity: " runat="server" />
-            <asp:TextBox ID="Quantity" runat="server" style="margin-top: 0px"></asp:TextBox><br />
-                    <asp:RequiredFieldValidator ID="rfvAllocatesTime" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator>&nbsp;
-              <asp:RegularExpressionValidator ID="revAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="addQuotationValidation"></asp:RegularExpressionValidator>
-              <br/>
-              <asp:Label ID="lblProductId" runat="server" Text="Product ID: " Width="200" />
+              <asp:Label ID="lblProductId" runat="server" Text="Product ID: " Width="160px" />
               <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
                   <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
               </asp:DropDownList>
               <br />
-              <asp:RequiredFieldValidator ID="rfvProductId" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*) One Product ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              <asp:RequiredFieldValidator ID="rfvProductId" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*)Select Product ID" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              &nbsp;
+              <br/>
+              <asp:Label ID="lbQuantity" runat="server" style="margin-left: 55px" Text="Quantity: " Width="143px" />
+              <asp:TextBox ID="Quantity" runat="server" style="margin-top: 0px"></asp:TextBox>
               <br />
-              <asp:Label ID="lblCustomerId" runat="server" Text="Quotation Number:" Width="200px" />
-              <asp:DropDownList ID="dropQotationNum" runat="server" DataSourceID="SqlQotes" DataTextField="Quotation_Number" DataValueField="QUOTES_ID">
-                  <asp:ListItem Text="-- Customer ID --" Value="-1"></asp:ListItem>
-              </asp:DropDownList>
+              <asp:RequiredFieldValidator ID="rfvAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              <asp:RegularExpressionValidator ID="revAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="addQuotationValidation"></asp:RegularExpressionValidator>
               <br />
-              <asp:RequiredFieldValidator ID="rfvCustomerId" runat="server" ControlToValidate="dropQotationNum" ErrorMessage="(*) One Customer ID should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              <br />
               <br />
               <br />
               <br />
