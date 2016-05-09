@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-                <asp:SqlDataSource ID="SqlQotes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTES.QUOTES_ID, QUOTES.QOquantity, QUOTES.Product_ID, QUOTES.Quotation_Number, Product.Price, Design.Design_Name + ', ' + code_2.Code_Description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name, QUOTES.QOquantity * Product.Price AS TotalPrice FROM QUOTES INNER JOIN Product ON QUOTES.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = Design.Design_Section WHERE (QUOTES.Quotation_Number = @Quotation_Number) ORDER BY QUOTES.QUOTES_ID" DeleteCommand="DELETE FROM [QUOTES] WHERE [QUOTES_ID] = @QUOTES_ID" InsertCommand="INSERT INTO [QUOTES] ([QOquantity], [Product_ID], [Quotation_Number]) VALUES (@QOquantity, @Product_ID, @Quotation_Number)" UpdateCommand="UPDATE [QUOTES] SET [QOquantity] = @QOquantity, [Product_ID] = @Product_ID, [Quotation_Number] = @Quotation_Number WHERE [QUOTES_ID] = @QUOTES_ID" >
+                <asp:SqlDataSource ID="SqlQotes" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTES.QUOTES_ID, QUOTES.QOquantity, QUOTES.Product_ID, QUOTES.Quotation_Number, Product.Price, Design.Design_Name + ', ' + code_2.Code_Description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name, QUOTES.QOquantity * Product.Price AS TotalPrice FROM QUOTES INNER JOIN Product ON QUOTES.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = Design.Design_Section WHERE (QUOTES.Quotation_Number = @Quotation_Number) ORDER BY QUOTES.QUOTES_ID" DeleteCommand="DELETE FROM [QUOTES] WHERE [QUOTES_ID] = @QUOTES_ID" InsertCommand="INSERT INTO [QUOTES] ([QOquantity], [Product_ID], [Quotation_Number], SOquantity) VALUES (@QOquantity, @Product_ID, @Quotation_Number, @SOquantity)" UpdateCommand="UPDATE [QUOTES] SET [QOquantity] = @QOquantity, [Product_ID] = @Product_ID, [Quotation_Number] = @Quotation_Number WHERE [QUOTES_ID] = @QUOTES_ID" >
                     <DeleteParameters>
                         <asp:Parameter Name="QUOTES_ID" Type="Int32" />
                     </DeleteParameters>
@@ -40,6 +40,7 @@
                         <asp:Parameter Name="QOquantity" Type="String" />
                         <asp:Parameter Name="Product_ID" Type="Int16" />
                         <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                        <asp:Parameter Name="SOquantity" />
                     </InsertParameters>
                     <SelectParameters>
                         <asp:SessionParameter Name="Quotation_Number" SessionField="Quotation_number" />
@@ -61,7 +62,7 @@
         <br/>
     <asp:Label ID="lblQuotation" runat="server" Text="Quotes Data Management" Font-Bold="True"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
-            <a href='javascript:history.go(-1)'>Go Back to Previous Page</a> <br />
+            <a href="Quotation.aspx">Go Back to Quotation</a> <br />
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
         <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlQotes" AllowSorting="True" OnRowDataBound="girdview_OnRowDataBound">
             <Columns>
@@ -83,10 +84,11 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-        </asp:Panel>
             
             <asp:Label ID="lblAmount" Text="Quotation Total:" runat="server" ></asp:Label>
             <asp:Label ID="lblTotalAmount" Text="Quotation Total" runat="server" ></asp:Label>
+        </asp:Panel>
+            
     
     
           <asp:Panel ID="panelAddQuotation" Visible="false" runat="server">

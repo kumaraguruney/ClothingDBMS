@@ -256,10 +256,12 @@
     <Content Include="SalesManagement\Customer.aspx" />
     <Content Include="SalesManagement\Default.aspx" />
     <Content Include="SalesManagement\Invoice.aspx" />
+    <Content Include="SalesManagement\ItemsShipped.aspx" />
     <Content Include="SalesManagement\ListingPrice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
     <Content Include="SalesManagement\Quotation.aspx" />
     <Content Include="SalesManagement\Quotes.aspx" />
+    <Content Include="SalesManagement\AddSalesOrder.aspx" />
     <Content Include="SalesManagement\SalesOrder.aspx" />
     <Content Include="SalesManagement\Shipment.aspx" />
     <Content Include="SalesManagement\Ships.aspx" />
@@ -528,6 +530,13 @@
     <Compile Include="SalesManagement\Invoice.aspx.designer.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SalesManagement\ItemsShipped.aspx.cs">
+      <DependentUpon>ItemsShipped.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\ItemsShipped.aspx.designer.cs">
+      <DependentUpon>ItemsShipped.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\ListingPrice.aspx.cs">
       <DependentUpon>ListingPrice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -555,6 +564,13 @@
     </Compile>
     <Compile Include="SalesManagement\Quotes.aspx.designer.cs">
       <DependentUpon>Quotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\AddSalesOrder.aspx.cs">
+      <DependentUpon>AddSalesOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\AddSalesOrder.aspx.designer.cs">
+      <DependentUpon>AddSalesOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="SalesManagement\SalesOrder.aspx.cs">
       <DependentUpon>SalesOrder.aspx</DependentUpon>
