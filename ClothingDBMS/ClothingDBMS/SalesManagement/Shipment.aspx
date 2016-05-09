@@ -46,15 +46,20 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-          <li><a href="../Index.aspx">Home</a></li>
-          <li><a href="Default.aspx">Sales Managment - Home</a></li>
-          <li><a href="Customer.aspx">Customer</a></li>
-          <li><a href="Invoice.aspx">Invoice</a></li>
-          <li><a href="Payment.aspx">Payment</a></li>
-          <li><a href="Quotation.aspx">Quotation</a></li>
-          <li><a href="AddSalesOrder.aspx">Sales Order</a></li>
-          <li><a href="Shipment.aspx">Shipment</a></li>
+          <li><a class="page-scroll" href="../Index.aspx">Home</a></li>
+          <li><a class="page-scroll" href="Default.aspx">Sales Managment - Home</a></li>
+          <li><a class="page-scroll" href="Customer.aspx">Customer</a></li>
+          <li><a class="page-scroll" href="Quotation.aspx">Quotation</a></li>
+          <li><a class="page-scroll" href="Quotes.aspx">Quotes</a></li>          
+          <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order</a></li>
+          <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
+          <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
+                    <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
+          <li><a class="page-scroll" href="GenerateInvoice.aspx">Invoice</a></li>
+          <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
+          <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li>
                 </ul>
+                
             </div>
  </div>
     </div>
@@ -79,7 +84,7 @@
         </asp:SqlDataSource>
 
 
-            <asp:SqlDataSource ID="SqlQuotationUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Customer_Id, CUSTOMER.Customer_Name, QUOTATION.Sorder_Date, QUOTATION.SorderDue_Date, QUOTATION.Late_Fee FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND QUOTATION.Is_SO = 'True' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET Is_Shipped =@Is_Shipped WHERE [Quotation_Number] = @Quotation_Number">
+            <asp:SqlDataSource ID="SqlQuotationUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Customer_Id, CUSTOMER.Customer_Name, QUOTATION.Sorder_Date, QUOTATION.SorderDue_Date, QUOTATION.Late_Fee FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND QUOTATION.Is_SO = 'True' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET Is_Shipped =@Is_Shipped, Shipment_Date = @Shipment_Date WHERE [Quotation_Number] = @Quotation_Number">
                 <DeleteParameters>
                     <asp:Parameter Name="Quotation_Number" Type="Int32" />
                 </DeleteParameters>
@@ -89,13 +94,14 @@
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="Is_Shipped" />
+                    <asp:Parameter Name="Shipment_Date" />
                     <asp:Parameter Name="Quotation_Number" Type="Int32" />
                 </UpdateParameters>
         </asp:SqlDataSource>
 
 
         <br/>
-        <asp:Label ID="lblSalesOrder" runat="server" Text="Sales Order Management" Font-Bold="true"></asp:Label><br /> <br />
+        <asp:Label ID="lblSalesOrder" runat="server" Text="Shipment Management" Font-Bold="True"></asp:Label><br /> <br />
     
 
         <asp:Panel ID="panelSaveSalesOrder" Visible="true" runat="server" >

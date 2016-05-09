@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SalesManagement.Sales {
+namespace ProcurementManagement.ProcurementManagement {
     
     
-    public partial class Shipment {
+    public partial class Workorder {
         
         /// <summary>
         /// form1 control.
@@ -22,49 +22,13 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlContains control.
+        /// SqlWorkorder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlContains;
-        
-        /// <summary>
-        /// SqlContainsUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlContainsUpdate;
-        
-        /// <summary>
-        /// SqlContainsIsInventoryUpdated control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlContainsIsInventoryUpdated;
-        
-        /// <summary>
-        /// SqlDataSourceProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
-        
-        /// <summary>
-        /// SqlDataSourceQuotation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuotation;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlWorkorder;
         
         /// <summary>
         /// SqlProduct control.
@@ -76,15 +40,6 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
-        /// SqlStockPile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlStockPile;
-        
-        /// <summary>
         /// SqlData control.
         /// </summary>
         /// <remarks>
@@ -94,210 +49,228 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlData;
         
         /// <summary>
-        /// SqlDrop control.
+        /// lbWorkOrderHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDrop;
+        protected global::System.Web.UI.WebControls.Label lbWorkOrderHeader;
         
         /// <summary>
-        /// SqlFinishedProduct control.
+        /// PanelgvWorkOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlFinishedProduct;
+        protected global::System.Web.UI.WebControls.Panel PanelgvWorkOrder;
         
         /// <summary>
-        /// SqlWarehouse control.
+        /// btnaddWorkOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlWarehouse;
+        protected global::System.Web.UI.WebControls.Button btnaddWorkOrder;
         
         /// <summary>
-        /// SqlLocation control.
+        /// gvWorkOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlLocation;
+        protected global::System.Web.UI.WebControls.GridView gvWorkOrder;
         
         /// <summary>
-        /// SqlProcuredRawMaterial control.
+        /// PaneladdWorkorder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlProcuredRawMaterial;
+        protected global::System.Web.UI.WebControls.Panel PaneladdWorkorder;
         
         /// <summary>
-        /// SqlUpdateAvailableQty control.
+        /// lblWorkorderaddTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlUpdateAvailableQty;
+        protected global::System.Web.UI.WebControls.Label lblWorkorderaddTitle;
         
         /// <summary>
-        /// SqlUpdateAvailableRMQty control.
+        /// lblRequireDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlUpdateAvailableRMQty;
+        protected global::System.Web.UI.WebControls.Label lblRequireDesign;
         
         /// <summary>
-        /// lblQuotation control.
+        /// dropaddProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuotation;
+        protected global::System.Web.UI.WebControls.DropDownList dropaddProduct;
         
         /// <summary>
-        /// panelSaveQuotation control.
+        /// rfvdropDesign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSaveQuotation;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvdropDesign;
         
         /// <summary>
-        /// GridViewQuotation control.
+        /// lblProductQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewQuotation;
+        protected global::System.Web.UI.WebControls.Label lblProductQuantity;
         
         /// <summary>
-        /// lblProductId0 control.
+        /// txtProductQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProductId0;
+        protected global::System.Web.UI.WebControls.TextBox txtProductQuantity;
         
         /// <summary>
-        /// dropProductId control.
+        /// rfvProductQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropProductId;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvProductQuantity;
         
         /// <summary>
-        /// lblBatchID control.
+        /// revProductQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBatchID;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revProductQuantity;
         
         /// <summary>
-        /// BatchIDDropDownList control.
+        /// lblWorkorderDueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList BatchIDDropDownList;
+        protected global::System.Web.UI.WebControls.Label lblWorkorderDueDate;
         
         /// <summary>
-        /// lblWarehouseID control.
+        /// txtWorkorderDueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblWarehouseID;
+        protected global::System.Web.UI.WebControls.TextBox txtWorkorderDueDate;
         
         /// <summary>
-        /// WarehouseIDDropDownList control.
+        /// coeWorkorderDueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList WarehouseIDDropDownList;
+        protected global::System.Web.UI.WebControls.ImageButton coeWorkorderDueDate;
         
         /// <summary>
-        /// lblLocationID control.
+        /// rfvtxtWorkorderDueDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocationID;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtWorkorderDueDate;
         
         /// <summary>
-        /// LocationIDDropDownList control.
+        /// calpanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList LocationIDDropDownList;
+        protected global::System.Web.UI.WebControls.Panel calpanel;
         
         /// <summary>
-        /// lblQuantity control.
+        /// calWorkorderdue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuantity;
+        protected global::System.Web.UI.WebControls.Calendar calWorkorderdue;
         
         /// <summary>
-        /// QuantityTextBox control.
+        /// lblWorkorderSubmittedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuantityTextBox;
+        protected global::System.Web.UI.WebControls.Label lblWorkorderSubmittedBy;
         
         /// <summary>
-        /// lblQuantity2 control.
+        /// txtWorkorderSubmittedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblQuantity2;
+        protected global::System.Web.UI.WebControls.TextBox txtWorkorderSubmittedBy;
         
         /// <summary>
-        /// QuantityTextBox1 control.
+        /// rfvWorkorderSubmittedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuantityTextBox1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvWorkorderSubmittedBy;
         
         /// <summary>
-        /// btnUpdate control.
+        /// revWorkorderSubmittedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revWorkorderSubmittedBy;
+        
+        /// <summary>
+        /// btnSaveWorkOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveWorkOrder;
+        
+        /// <summary>
+        /// btnCancelWorkOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelWorkOrder;
     }
 }

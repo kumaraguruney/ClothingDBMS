@@ -236,13 +236,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProcurementManagement\provides.aspx" />
-    <Content Include="ProcurementManagement\Purchase_Order.aspx" />
-    <Content Include="ProcurementManagement\Requires.aspx" />
-    <Content Include="ProcurementManagement\Supplier.aspx" />
-    <Content Include="ProcurementManagement\Supplier_Quotation.aspx" />
-    <Content Include="ProcurementManagement\Tracks.aspx" />
-    <Content Include="ProcurementManagement\Updates.aspx" />
     <Content Include="ProductionManagement\Allocates.aspx" />
     <Content Include="ProductionManagement\Default.aspx" />
     <Content Include="ProductionManagement\Design.aspx" />
@@ -255,12 +248,17 @@
     <Content Include="ProductionManagement\Require.aspx" />
     <Content Include="ProductionManagement\Workorder.aspx" />
     <Content Include="ProductionManagement\Workschedule.aspx" />
+    <Content Include="SalesManagement\AddSalesOrder.aspx" />
     <Content Include="SalesManagement\Contains.aspx" />
     <Content Include="SalesManagement\Customer.aspx" />
     <Content Include="SalesManagement\Default.aspx" />
+    <Content Include="SalesManagement\GenerateInvoice.aspx" />
     <Content Include="SalesManagement\Invoice.aspx" />
     <Content Include="SalesManagement\ListingPrice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
+    <Content Include="SalesManagement\PrintInvoice.aspx" />
+    <Content Include="SalesManagement\Quotation.aspx" />
+    <Content Include="SalesManagement\Quotes.aspx" />
     <Content Include="SalesManagement\SalesOrder.aspx" />
     <Content Include="SalesManagement\Shipment.aspx" />
     <Content Include="SalesManagement\Ships.aspx" />
@@ -388,55 +386,6 @@
     <Compile Include="InventoryManagement\Warehouse.aspx.designer.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProcurementManagement\provides.aspx.cs">
-      <DependentUpon>provides.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\provides.aspx.designer.cs">
-      <DependentUpon>provides.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Purchase_Order.aspx.cs">
-      <DependentUpon>Purchase_Order.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Purchase_Order.aspx.designer.cs">
-      <DependentUpon>Purchase_Order.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Requires.aspx.cs">
-      <DependentUpon>Requires.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Requires.aspx.designer.cs">
-      <DependentUpon>Requires.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Supplier.aspx.cs">
-      <DependentUpon>Supplier.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Supplier.aspx.designer.cs">
-      <DependentUpon>Supplier.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Supplier_Quotation.aspx.cs">
-      <DependentUpon>Supplier_Quotation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Supplier_Quotation.aspx.designer.cs">
-      <DependentUpon>Supplier_Quotation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Tracks.aspx.cs">
-      <DependentUpon>Tracks.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Tracks.aspx.designer.cs">
-      <DependentUpon>Tracks.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProcurementManagement\Updates.aspx.cs">
-      <DependentUpon>Updates.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProcurementManagement\Updates.aspx.designer.cs">
-      <DependentUpon>Updates.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ProductionManagement\Allocates.aspx.cs">
       <DependentUpon>Allocates.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -522,6 +471,13 @@
       <DependentUpon>Workschedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesManagement\AddSalesOrder.aspx.cs">
+      <DependentUpon>AddSalesOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\AddSalesOrder.aspx.designer.cs">
+      <DependentUpon>AddSalesOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\Contains.aspx.cs">
       <DependentUpon>Contains.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -543,6 +499,13 @@
     <Compile Include="SalesManagement\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SalesManagement\GenerateInvoice.aspx.cs">
+      <DependentUpon>GenerateInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\GenerateInvoice.aspx.designer.cs">
+      <DependentUpon>GenerateInvoice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\Invoice.aspx.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -563,6 +526,27 @@
     </Compile>
     <Compile Include="SalesManagement\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\PrintInvoice.aspx.cs">
+      <DependentUpon>PrintInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\PrintInvoice.aspx.designer.cs">
+      <DependentUpon>PrintInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Quotation.aspx.cs">
+      <DependentUpon>Quotation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Quotation.aspx.designer.cs">
+      <DependentUpon>Quotation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Quotes.aspx.cs">
+      <DependentUpon>Quotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Quotes.aspx.designer.cs">
+      <DependentUpon>Quotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="SalesManagement\SalesOrder.aspx.cs">
       <DependentUpon>SalesOrder.aspx</DependentUpon>

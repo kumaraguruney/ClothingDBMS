@@ -55,7 +55,7 @@
           <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
           <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
                     <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
+          <li><a class="page-scroll" href="GenerateInvoice.aspx">Invoice</a></li>
           <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
           <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li> 
                 </ul>
@@ -105,7 +105,7 @@
 
 
 
-             <br /> <br /> <br />
+             <br /> <br /> <strong>**Happy B&#39;day Kumaraguru. Best Student Employee of the year 2016***</strong><br />
 
 
                           

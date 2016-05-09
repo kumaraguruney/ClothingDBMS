@@ -4,7 +4,34 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Lisiting Price</title>
+        <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Kumaraguru" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../css/the-big-picture.css" rel="stylesheet" />
+    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- ============ Google fonts ============ -->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
+        type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
+        rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <form id="form1" runat="server">
@@ -29,7 +56,7 @@
           <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
           <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
                     <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
+          <li><a class="page-scroll" href="GenerateInvoice.aspx">Invoice</a></li>
           <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
           <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li>
                 </ul>

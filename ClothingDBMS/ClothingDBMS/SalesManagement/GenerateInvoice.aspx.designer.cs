@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClothingDBMS.ProcurementManagement {
+namespace ClothingDBMS.SalesManagement {
     
     
-    public partial class Default {
+    public partial class GenerateInvoice {
         
         /// <summary>
         /// form1 control.
@@ -22,84 +22,66 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnSupplier control.
+        /// SqlDataSourceProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSupplier;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
         
         /// <summary>
-        /// btnSupplier_Quotation control.
+        /// SqlData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSupplier_Quotation;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlData;
         
         /// <summary>
-        /// btnProvides control.
+        /// SqlDataSourceSalesOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProvides;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceSalesOrder;
         
         /// <summary>
-        /// btnOrders control.
+        /// SqlQuotationUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOrders;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlQuotationUpdate;
         
         /// <summary>
-        /// btnPurchase_Order control.
+        /// lblSalesOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPurchase_Order;
+        protected global::System.Web.UI.WebControls.Label lblSalesOrder;
         
         /// <summary>
-        /// btnUpdates control.
+        /// panelSaveSalesOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdates;
+        protected global::System.Web.UI.WebControls.Panel panelSaveSalesOrder;
         
         /// <summary>
-        /// btnGoods_Receipt control.
+        /// GridViewSalesOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGoods_Receipt;
-        
-        /// <summary>
-        /// btnProcuredRawMaterial control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProcuredRawMaterial;
-        
-        /// <summary>
-        /// btnWorkorder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWorkorder;
+        protected global::System.Web.UI.WebControls.GridView GridViewSalesOrder;
     }
 }
