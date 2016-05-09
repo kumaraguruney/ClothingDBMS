@@ -73,8 +73,8 @@
             <br />
             <br />
 
-            <asp:Button ID="btnAddGoodsReceiptDB" runat="server" Text="Add" OnClick="btnAddGoodsReceiptDB_Click" />
-            <asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" OnClick="btnCancelAdd_Click" />
+            <asp:Button ID="btnAddGoodsReceiptDB" runat="server" Text="Save" OnClick="btnSaveGoods_Receipt_Click" />
+            <asp:Button ID="btnCancelAdd" runat="server" Text="Cancel" OnClick="btnCancelGoods_Receipt_Click" />
         </asp:Panel>
     </div>
         </form>

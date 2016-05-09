@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-        <asp:SqlDataSource ID="SqlFinishedProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT FinishedProduct.Batch_ID, FinishedProduct.Product_ID, FinishedProduct.Manufactured_Date, FinishedProduct.Quantity, FinishedProduct.Is_Stock_Piled, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') AS Name FROM FinishedProduct INNER JOIN Product ON Product.Product_ID = FinishedProduct.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY FinishedProduct.Batch_ID" DeleteCommand="DELETE FROM [FinishedProduct] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [FinishedProduct] ([Product_ID], [Manufactured_Date], [Quantity]) VALUES (@Product_ID, @Manufactured_Date, @Quantity)" UpdateCommand="UPDATE [FinishedProduct] SET [Product_ID] = @Product_ID, [Manufactured_Date] = @Manufactured_Date, [Quantity] = @Quantity WHERE [Batch_ID] = @Batch_ID">
+        <asp:SqlDataSource ID="SqlFinishedProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT FinishedProduct.Batch_ID, FinishedProduct.Product_ID, FinishedProduct.Manufactured_Date, FinishedProduct.Quantity, FinishedProduct.Is_Stock_Piled, Design.Design_Name + ' ,' + section.Code_Description + ', ' + color.Code_Description + ', ' + size.Code_Description + ' ,' + ISNULL(Product.Product_Description, ' ') AS Name FROM FinishedProduct INNER JOIN Product ON Product.Product_ID = FinishedProduct.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code AS size ON size.Code_ID = Product.Size LEFT OUTER JOIN Code AS color ON color.Code_ID = Product.Color LEFT OUTER JOIN Code AS section ON section.Code_ID = Design.Design_Section ORDER BY FinishedProduct.Batch_ID" DeleteCommand="DELETE FROM [FinishedProduct] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [FinishedProduct] ([Product_ID], [Manufactured_Date], [Quantity], [Available_Quantity]) VALUES (@Product_ID, @Manufactured_Date, @Quantity, @Available_Quantity)" UpdateCommand="UPDATE [FinishedProduct] SET [Product_ID] = @Product_ID, [Manufactured_Date] = @Manufactured_Date, [Quantity] = @Quantity WHERE [Batch_ID] = @Batch_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Batch_ID" Type="Int32" />
             </DeleteParameters>
@@ -67,6 +67,7 @@
                 <asp:Parameter Name="Product_ID" Type="Int32" />
                 <asp:Parameter Name="Manufactured_Date" Type="String" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Available_Quantity" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="Product_ID" Type="Int32" />

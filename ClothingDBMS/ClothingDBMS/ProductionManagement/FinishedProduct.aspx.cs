@@ -24,6 +24,7 @@ namespace ClothingDBMS.ProductionManagement
             SqlFinishedProduct.InsertParameters["Product_ID"].DefaultValue = strProductID;
             SqlFinishedProduct.InsertParameters["Manufactured_Date"].DefaultValue = ManufacturedDateTextBox.Text.Trim();
             SqlFinishedProduct.InsertParameters["Quantity"].DefaultValue = strQty;
+            SqlFinishedProduct.InsertParameters["Available_Quantity"].DefaultValue = strQty;
             SqlFinishedProduct.Insert();
             gvFinishedProduct.DataBind();
 

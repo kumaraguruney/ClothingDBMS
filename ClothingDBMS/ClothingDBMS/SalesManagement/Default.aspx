@@ -49,18 +49,66 @@
           <li><a class="page-scroll" href="../Index.aspx">Home</a></li>
           <li><a class="page-scroll" href="Default.aspx">Sales Managment - Home</a></li>
           <li><a class="page-scroll" href="Customer.aspx">Customer</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
-          <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
           <li><a class="page-scroll" href="Quotation.aspx">Quotation</a></li>
           <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order</a></li>
           <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
+          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
+          <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
                 </ul>
             </div>
         </div>
     </div>
-        
-         <asp:Image ID="Image1" runat="server" ImageAlign="Bottom" ImageUrl="~/img/team-3.png" Height="365px" />
-        </form>
+      
+
+ 
+                 <div style="margin-top:100px; height: 475px; text-overflow:inherit; overflow:auto"  align="center">
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+             <asp:Button ID="btnCustomer" runat="server" CssClass="btn btn-primary btn-lg" Text="Customer" Height="100" Width="100" OnClick="btnCustomer_Click" />
+
+              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp->&nbsp;
+
+
+             <asp:Button ID="btnQuotation" runat="server" CssClass="btn btn-primary btn-lg" Text="Quotation" Height="100" Width="100" OnClick="btnQuotation_Click" />
+
+              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp->&nbsp;
+
+
+             <asp:Button ID="btnSalesOrder" runat="server" CssClass="btn btn-primary btn-lg" Text="Sales Order" Height="100" Width="100" OnClick="btnSalesOrder_Click" />
+
+              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp->&nbsp;
+
+
+             <asp:Button ID="btnShipment" runat="server" CssClass="btn btn-primary btn-lg" Text="Shipment" Height="100" Width="100" OnClick="btnShipment_Click" />
+
+             -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp->&nbsp;
+
+
+             <asp:Button ID="btnInvoice" runat="server" CssClass="btn btn-primary btn-lg" Text="Invoice" Height="100" Width="100" OnClick="btnInvoice_Click" />
+            
+              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp->&nbsp;
+
+
+
+             <asp:Button ID="btnPayment" runat="server" CssClass="btn btn-primary btn-lg" Text="Payment" Height="100" Width="100" OnClick="btnPayment_Click" />
+
+
+
+
+             <br /> <br /> <br />
+
+
+                          
+
+             </div>
+          
+    </form>
 </body>
 
 </html>
