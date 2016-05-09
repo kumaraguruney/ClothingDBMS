@@ -1,10 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Contains.aspx.cs" Inherits="ClothingDBMS.SalesManagement.Contains" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsShipped.aspx.cs" Inherits="ClothingDBMS.SalesManagement.ItemsShipped" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+*{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}</style>
 </head>
 <body>
   <form id="form1" runat="server">
@@ -20,18 +22,14 @@
 </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-          <li><a class="page-scroll" href="../Index.aspx">Home</a></li>
-          <li><a class="page-scroll" href="Default.aspx">Sales Managment - Home</a></li>
-          <li><a class="page-scroll" href="Customer.aspx">Customer</a></li>
-          <li><a class="page-scroll" href="Quotation.aspx">Quotation</a></li>
-          <li><a class="page-scroll" href="Quotes.aspx">Quotes</a></li>          
-          <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order</a></li>
-          <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
-          <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
-                    <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
-          <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
-          <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li>
+          <li><a href="../Index.aspx">Home</a></li>
+          <li><a href="Default.aspx">Sales Managment - Home</a></li>
+          <li><a href="Customer.aspx">Customer</a></li>
+          <li><a href="Invoice.aspx">Invoice</a></li>
+          <li><a href="Payment.aspx">Payment</a></li>
+          <li><a href="Quotation.aspx">Quotation</a></li>
+          <li><a href="SalesOrder.aspx">Sales Order</a></li>
+          <li><a href="Shipment.aspx">Shipment</a></li>
                 </ul>
             </div>
         </div>
@@ -62,18 +60,15 @@
 
         <div style="margin-top:100px;"  align="center">
         <br/>
-    <asp:Label ID="lblQuotation" runat="server" Text="Sales Order Management" Font-Bold="True"></asp:Label>  <br /> <br />
+    <asp:Label ID="lblQuotation" runat="server" Text="Shipment Management" Font-Bold="True"></asp:Label>  <br /> <br />
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
-            <a href="SalesOrder.aspx">Go Back to SalesOrder</a> <br />
-        <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
+            &nbsp;<br />
         <asp:GridView ID="GridViewQuotation" runat="server" AutoGenerateColumns="False" DataKeyNames="QUOTES_ID" DataSourceID="SqlContains" AllowSorting="True" OnRowDataBound="girdview_OnRowDataBound">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                 <asp:BoundField DataField="QUOTES_ID" HeaderText="QUOTES_ID" ReadOnly="True" SortExpression="QUOTES_ID" InsertVisible="False" />
                 <asp:BoundField DataField="Product_ID" HeaderText="Product_ID" ReadOnly="True" SortExpression="Product_ID" />
                 <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" ReadOnly="True" SortExpression="Quotation_Number" />
                 <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
-                <asp:BoundField DataField="QOquantity" HeaderText="QOquantity" ReadOnly="True" SortExpression="QOquantity" />
                 <asp:BoundField DataField="SOquantity" HeaderText="SOquantity" SortExpression="SOquantity" />
                 <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" SortExpression="Price" />
                 <asp:BoundField DataField="TotalPrice" HeaderText="TotalPrice" SortExpression="TotalPrice" ReadOnly="True" />
@@ -91,43 +86,20 @@
             
             <asp:Label ID="lblAmount" Text="Quotation Total:" runat="server" ></asp:Label>
             <asp:Label ID="lblTotalAmount" Text="Quotation Total" runat="server" ></asp:Label>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </asp:Panel>
             
     
     
-          <asp:Panel ID="panelAddQuotation" Visible="false" runat="server">
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:Label ID="lblQuotationTitle" Text="Enter New Quotation Information" runat="server" Font-Bold="True"/><br /> <br />
-
-              <asp:Label ID="lblProductId" runat="server" Text="Product ID: " Width="160px" />
-              <asp:DropDownList ID="dropProductId" runat="server" DataSourceID="SqlProduct" DataTextField="Name" DataValueField="Product_ID">
-                  <asp:ListItem Text="-- Product ID --" Value="-1"></asp:ListItem>
-              </asp:DropDownList>
-              <br />
-              <asp:RequiredFieldValidator ID="rfvProductId" runat="server" ControlToValidate="dropProductId" ErrorMessage="(*)Select Product ID" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
-              &nbsp;
-              <br/>
-              <asp:Label ID="lbQuantity" runat="server" style="margin-left: 55px" Text="Quantity: " Width="143px" />
-              <asp:TextBox ID="Quantity" runat="server" style="margin-top: 0px"></asp:TextBox>
-              <br />
-              <asp:RequiredFieldValidator ID="rfvAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
-              <asp:RegularExpressionValidator ID="revAllocatesTime" runat="server" ControlToValidate="Quantity" ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="addQuotationValidation"></asp:RegularExpressionValidator>
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              &nbsp;<asp:Panel ID="calpanel" runat="server" Visible="false">
-                        <br />
-                    </asp:Panel>
-                    <br />
-                    <br />
-
-        <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" ValidationGroup="addQuotationValidation" Text="Save" OnClick="btnSave_Click" />
-        <asp:Button ID="btnCancel" runat="server"  CssClass="bg-primary" Text="Cancel" OnClick="btnCancel_Click" /> 
-         <br/>
-     </asp:Panel>
-
        </div>
    </form>
 </body>

@@ -22,7 +22,14 @@ namespace SalesManagement.Sales
         }
         protected void btnConverttoSOQuotation_Click(object sender, EventArgs e)
         {
-           //To convert to sales order
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string pk = GridViewQuotation.DataKeys[row.RowIndex].Values[0].ToString();
+            Session["Quotation_number"] = pk;
+
+
+            Response.Redirect("AddSalesOrder.aspx");
+
 
         }
         protected void Page_Load(object sender, EventArgs e)

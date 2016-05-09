@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClothingDBMS.SalesManagement {
+namespace ClothingDBMS.InventoryManagement {
     
     
-    public partial class Shipment {
+    public partial class Default {
         
         /// <summary>
         /// form1 control.
@@ -22,66 +22,48 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlDataSourceProduct control.
+        /// btnWarehouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
+        protected global::System.Web.UI.WebControls.Button btnWarehouse;
         
         /// <summary>
-        /// SqlData control.
+        /// btnLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlData;
+        protected global::System.Web.UI.WebControls.Button btnLocation;
         
         /// <summary>
-        /// SqlDataSourceSalesOrder control.
+        /// btnInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceSalesOrder;
+        protected global::System.Web.UI.WebControls.Button btnInventory;
         
         /// <summary>
-        /// SqlQuotationUpdate control.
+        /// btnStock_Movement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlQuotationUpdate;
+        protected global::System.Web.UI.WebControls.Button btnStock_Movement;
         
         /// <summary>
-        /// lblSalesOrder control.
+        /// btnStock_Reconciliation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSalesOrder;
-        
-        /// <summary>
-        /// panelSaveSalesOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSaveSalesOrder;
-        
-        /// <summary>
-        /// GridViewSalesOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewSalesOrder;
+        protected global::System.Web.UI.WebControls.Button btnStock_Reconciliation;
     }
 }

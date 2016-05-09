@@ -65,7 +65,7 @@
     </div>
                 <asp:SqlDataSource ID="SqlDataSourceCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [CUSTOMER] ORDER BY [Customer_Name]"></asp:SqlDataSource>
                 <asp:SqlDataSource ID="SqlDataSourceProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_Description]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Quotation_Date, QUOTATION.Customer_Id, CUSTOMER.Customer_Name FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id WHERE [Quotation_Number] = @Quotation_Number">
+            <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Quotation_Date, QUOTATION.Customer_Id, CUSTOMER.Customer_Name FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND ISNULL(QUOTATION.Is_SO, 0) = 'False' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id WHERE [Quotation_Number] = @Quotation_Number">
                 <DeleteParameters>
                     <asp:Parameter Name="Quotation_Number" Type="Int32" />
                 </DeleteParameters>
@@ -92,6 +92,7 @@
                 <asp:BoundField DataField="Quotation_Date" HeaderText="Quotation_Date" SortExpression="Quotation_Date" />
 
                 <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" SortExpression="Customer_Id" />
+                <asp:BoundField DataField="Customer_Name" HeaderText="Customer_Name" SortExpression="Customer_Name" />
                 <asp:TemplateField HeaderText="Convert to SO" ShowHeader="False">
                                <ItemTemplate>
                                     <asp:LinkButton ID="lnkConverttoSO" runat="server" OnClick="btnConverttoSOQuotation_Click" Text="Convert to SO"></asp:LinkButton>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SalesOrder.aspx.cs" Inherits="SalesManagement.Sales.SalesOrder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SalesOrder.aspx.cs" Inherits="ClothingDBMS.SalesManagement.SalesOrder" %>
 
 <!DOCTYPE html>
 
@@ -46,119 +46,58 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-          <li><a class="page-scroll" href="../Index.aspx">Home</a></li>
-          <li><a class="page-scroll" href="Default.aspx">Sales Managment - Home</a></li>
-          <li><a class="page-scroll" href="Customer.aspx">Customer</a></li>
-          <li><a class="page-scroll" href="Quotation.aspx">Quotation</a></li>
-          <li><a class="page-scroll" href="Quotes.aspx">Quotes</a></li>          
-          <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order</a></li>
-          <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
-          <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
-        <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
-          <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
-          <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li>
+          <li><a href="../Index.aspx">Home</a></li>
+          <li><a href="Default.aspx">Sales Managment - Home</a></li>
+          <li><a href="Customer.aspx">Customer</a></li>
+          <li><a href="Invoice.aspx">Invoice</a></li>
+          <li><a href="Payment.aspx">Payment</a></li>
+          <li><a href="Quotation.aspx">Quotation</a></li>
+          <li><a href="AddSalesOrder.aspx">Sales Order</a></li>
+          <li><a href="Shipment.aspx">Shipment</a></li>
                 </ul>
             </div>
  </div>
     </div>
-                 <asp:SqlDataSource ID="SqlDataSourceQuotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTATION] ORDER BY [Quotation_Number]"></asp:SqlDataSource>
-            
-            <asp:SqlDataSource ID="SqlDataSourceProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_Description]"></asp:SqlDataSource>
+                 (Query)<asp:SqlDataSource ID="SqlDataSourceProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_Description]"></asp:SqlDataSource>
        
-        <asp:SqlDataSource ID="SqlDataSourceSalesOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [SALES_ORDER]" DeleteCommand="DELETE FROM [SALES_ORDER] WHERE [Sorder_Number] = @Sorder_Number" InsertCommand="INSERT INTO [SALES_ORDER] ([Sorder_Date], [Quotation_Number], [Late_Fee], [Due_Date]) VALUES (@Sorder_Date, @Quotation_Number, @Late_Fee, @Due_Date)" UpdateCommand="UPDATE [SALES_ORDER] SET [Sorder_Date] = @Sorder_Date, [Quotation_Number] = @Quotation_Number, [Late_Fee] = @Late_Fee, [Due_Date] = @Due_Date WHERE [Sorder_Number] = @Sorder_Number">
-            <DeleteParameters>
-                <asp:Parameter Name="Sorder_Number" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Sorder_Date" Type="String" />
-                <asp:Parameter Name="Quotation_Number" Type="Int32" />
-                <asp:Parameter Name="Late_Fee" Type="Int32" />
-                <asp:Parameter Name="Due_Date" Type="String" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Sorder_Date" Type="String" />
-                <asp:Parameter Name="Quotation_Number" Type="Int32" />
-                <asp:Parameter Name="Late_Fee" Type="Int32" />
-                <asp:Parameter Name="Due_Date" Type="String" />
-                <asp:Parameter Name="Sorder_Number" Type="Int32" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
         <div style="margin-top:100px;" align="center">
+            <asp:SqlDataSource ID="SqlDataSourceSalesOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Customer_Id, CUSTOMER.Customer_Name, QUOTATION.Sorder_Date, QUOTATION.SorderDue_Date, QUOTATION.Late_Fee FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND QUOTATION.Is_SO = 'True' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id WHERE [Quotation_Number] = @Quotation_Number">
+                <DeleteParameters>
+                    <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Quotation_Date" Type="String" />
+                    <asp:Parameter Name="Customer_Id" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Quotation_Date" Type="String" />
+                    <asp:Parameter Name="Customer_Id" Type="Int32" />
+                    <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                </UpdateParameters>
+        </asp:SqlDataSource>
+
+
         <br/>
         <asp:Label ID="lblSalesOrder" runat="server" Text="Sales Order Management" Font-Bold="true"></asp:Label><br /> <br />
     
 
-        <asp:Panel ID="panelAddSalesOrder" Visible="false" runat="server"> 
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-         <asp:Label ID="lblSalesOrderTitle" Text="Enter New Sales Order Information" runat="server" Font-Bold="True"/><br /> <br />
-
-              <asp:Label ID="lblQuotationNumber" Width="200" Text="Quotation Number: " runat="server" />
-                    <asp:DropDownList ID="dropQuotationNumber" runat="server" DataSourceID="SqlDataSourceQuotation" DataTextField="Quotation_Number" DataValueField="Quotation_Number">
-                        <asp:ListItem Text="-- Quotation ID --" Value="-1"></asp:ListItem>
-                    </asp:DropDownList><br />
-                    <asp:RequiredFieldValidator ID="rfvQuotationNumber" ValidationGroup="addQuotationValidation" runat="server" ControlToValidate="dropQuotationNumber" ErrorMessage="(*) One Quotation Number should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
-
-
-              <br />
-                    <br />
-
-              <br />
-             <br />
-             <br />
-             <br />
-
-              <asp:Label ID="lblSODate" Width="200" Text="Sales Order Date: " runat="server" />
-                    <asp:TextBox ID="txtSODate" runat="server" ReadOnly="false" Width="230"></asp:TextBox>
-             &nbsp;<asp:ImageButton ID="ImageButton1" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingSODate_Click" Width="25px" />
-             <asp:Panel ID="calpanel1" runat="server" Visible="false">
-                 <asp:Calendar ID="calSODate" runat="server" OnSelectionChanged="calSODate_SelectionChanged"></asp:Calendar>
-                 <br />
-             </asp:Panel>
-             <br />
-                    <br />
-             <asp:Label ID="lbLateFee" runat="server" Text="Late Fee ($): " Width="200" />
-             <asp:TextBox ID="LateFee" runat="server" style="margin-top: 0px"></asp:TextBox>
-             <br />
-                    <asp:RequiredFieldValidator ID="rfvSalesOrder" ValidationGroup="addSalesOrderValidation" runat="server" ControlToValidate="LateFee" ErrorMessage="(*) Enter Numeric Characters Only" ForeColor="Red"></asp:RequiredFieldValidator><br />
- 
-                    <asp:RegularExpressionValidator ID="revAllocatesTime" runat="server" ControlToValidate="LateFee" ErrorMessage=" (*) eg:200, " ForeColor="Red" ValidationExpression="^[0-9]*$" ValidationGroup="addSalesOrderValidation"></asp:RegularExpressionValidator>
- 
-                    <br /> <br />             
-
-                 <br />
-             <br />
-             <br/>
-             <asp:Label ID="lblDueDate" runat="server" Text="Due Date: " Width="200"></asp:Label>
-             <asp:TextBox ID="txtSODueDate" runat="server" ReadOnly="false" Width="230"></asp:TextBox>
-             &nbsp;<asp:ImageButton ID="calingSODueDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingSODueDate_Click" Width="25px" />
-             <asp:Panel ID="calpanel" runat="server" Visible="false">
-                        <asp:Calendar ID="calDueDate" runat="server" OnSelectionChanged="calSODueDate_SelectionChanged"></asp:Calendar>
-                        <br />
-                    </asp:Panel>
-            <br /> <br /> 
-
-             <asp:Button ID="btnSave" runat="server" CssClass="bg-primary" OnClick="btnSave_Click" Text="Save" ValidationGroup="addQuotationValidation" />
-             <asp:Button ID="btnCancel" runat="server" CssClass="bg-primary" OnClick="btnCancel_Click" Text="Cancel" />
-             <br />
-          
-         </asp:Panel> 
         <asp:Panel ID="panelSaveSalesOrder" Visible="true" runat="server" >
-            <asp:Button ID="btnAdd" runat="server" CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
-            <asp:GridView ID="GridViewSalesOrder" runat="server" AutoGenerateColumns="False" DataKeyNames="Sorder_Number" DataSourceID="SqlDataSourceSalesOrder" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
-                <Columns>
-                    
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    
-                    <asp:BoundField DataField="Sorder_Number" HeaderText="Sorder_Number" InsertVisible="False" ReadOnly="True" SortExpression="Sorder_Number" />
-                    <asp:BoundField DataField="Sorder_Date" HeaderText="Sorder_Date" SortExpression="Sorder_Date" />
-
-                    <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" SortExpression="Quotation_Number" />
-
-                    <asp:BoundField DataField="Late_Fee" HeaderText="Late_Fee" SortExpression="Late_Fee" />
-                    <asp:BoundField DataField="Due_Date" HeaderText="Due_Date" SortExpression="Due_Date" />
-                </Columns>
+            <asp:GridView ID="GridViewSalesOrder" runat="server" AutoGenerateColumns="False" DataKeyNames="Quotation_Number" DataSourceID="SqlDataSourceSalesOrder" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <FooterStyle BackColor="#CCCCCC" />
+                        <Columns>
+                            <asp:BoundField DataField="Quotation_Number" HeaderText="Quotation_Number" InsertVisible="False" ReadOnly="True" SortExpression="Quotation_Number" />
+                            <asp:BoundField DataField="Customer_Id" HeaderText="Customer_Id" SortExpression="Customer_Id" />
+                            <asp:BoundField DataField="Customer_Name" HeaderText="Customer_Name" SortExpression="Customer_Name" />
+                            <asp:BoundField DataField="Sorder_Date" HeaderText="Sorder_Date" SortExpression="Sorder_Date" />
+                            <asp:BoundField DataField="SorderDue_Date" HeaderText="SorderDue_Date" SortExpression="SorderDue_Date" />
+                            <asp:BoundField DataField="Late_Fee" HeaderText="Late_Fee" SortExpression="Late_Fee" />
+                             <asp:TemplateField HeaderText="Open" ShowHeader="False">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkOpen" runat="server"  OnClick="btnOpenQuotation_Click" Text="Open"></asp:LinkButton>
+                                </ItemTemplate>
+                                </asp:TemplateField>
+                           
+                </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
                         <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
