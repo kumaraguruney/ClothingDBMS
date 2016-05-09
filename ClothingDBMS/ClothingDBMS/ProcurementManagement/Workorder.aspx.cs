@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 
-namespace ProcurementManagement.ProcurementManagement
+namespace ProductionManagement.ProductionManagement
 {
     public partial class Workorder : System.Web.UI.Page
     {
