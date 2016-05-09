@@ -19,21 +19,21 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [Entry_id], [Remaining_Qty], [Recieved_Qty]) VALUES (@receipt_id, @Entry_id, @Remaining_Qty, @Recieved_Qty)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [Entry_id] = @Entry_id, [Remaining_Qty] = @Remaining_Qty, [Recieved_Qty] = @Recieved_Qty WHERE [Update_id] = @Update_id">
+        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [Entry_id], [Remaining_Qty], [Received_Qty]) VALUES (@receipt_id, @Entry_id, @Remaining_Qty, @Received_Qty)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [Entry_id] = @Entry_id, [Remaining_Qty] = @Remaining_Qty, [Received_Qty] = @Received_Qty WHERE [Update_id] = @Update_id">
             <DeleteParameters>
                 <asp:Parameter Name="Update_id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="receipt_id" Type="Int32" />
                 <asp:Parameter Name="Entry_id" Type="Int32" />
-                <asp:Parameter Name="Remaining_Qty" Type="Int32" />
-                <asp:Parameter Name="Recieved_Qty" Type="Int32" />
+                <asp:Parameter Name="Remaining_Qty"  />
+                <asp:Parameter Name="Received_Qty"  />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="receipt_id" Type="Int32" />
                 <asp:Parameter Name="Entry_id" Type="Int32" />
                 <asp:Parameter Name="Remaining_Qty" Type="Int32" />
-                <asp:Parameter Name="Recieved_Qty" Type="Int32" />
+                <asp:Parameter Name="Received_Qty" Type="Int32" />
                 <asp:Parameter Name="Update_id" Type="Int32" />
             </UpdateParameters>
         </asp:SqlDataSource>
@@ -85,12 +85,11 @@
                    
                     <asp:GridView ID="gvUpdates" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlUpdate" AutoGenerateColumns="False" DataKeyNames="Update_id">
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="Update_id" HeaderText="Update_id" SortExpression="Update_id" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" SortExpression="receipt_id" />
                             <asp:BoundField DataField="Entry_id" HeaderText="Entry_id" SortExpression="Entry_id" />
                             <asp:BoundField DataField="Remaining_Qty" HeaderText="Remaining_Qty" SortExpression="Remaining_Qty" />
-                            <asp:BoundField DataField="Recieved_Qty" HeaderText="Recieved_Qty" SortExpression="Recieved_Qty" />
+                            <asp:BoundField DataField="Received_Qty" HeaderText="Received_Qty" SortExpression="Received_Qty" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
@@ -112,9 +111,9 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        <asp:Label ID="lblRequired_Qty" runat="server" Text="Required_Qty: " Width="150px" />
+                        <asp:Label ID="lblReceived_Qty" runat="server" Text="Received_Qty: " Width="150px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:TextBox ID="txtRequired_Qty" runat="server" ValidationGroup="addSupplierValidation" Height="35px" Width="299px"></asp:TextBox>
+                        <asp:TextBox ID="txtReceived_Qty" runat="server" ValidationGroup="addSupplierValidation" Height="35px" Width="299px"></asp:TextBox>
                         <br />
                         <br />
                         <asp:Label ID="lbRemaining_Qty" runat="server" Text="Remaining_Qty: " Width="150px" />

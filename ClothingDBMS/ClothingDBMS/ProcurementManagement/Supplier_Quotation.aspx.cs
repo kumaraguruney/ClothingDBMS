@@ -29,7 +29,7 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveSupplier_Quotation_Click(object sender, EventArgs e)
         {
-            SqlSupplier_Quotation.InsertParameters["Supplier_Name"].DefaultValue = DropDownSupplier_Name.SelectedValue;
+            SqlSupplier_Quotation.InsertParameters["Supplier_Id"].DefaultValue = DropDownSupplier_Name.SelectedValue;
             SqlSupplier_Quotation.Insert();
             gvSupplier_Quotation.DataBind();
             PaneladdSupplier_Quotation.Visible = false;

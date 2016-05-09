@@ -17,7 +17,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlSupplier_Quotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplier_quotation] ORDER BY [quotation_id]" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([Supplier_id]) VALUES (@Supplier_id)" UpdateCommand="UPDATE [supplier_quotation] SET [Supplier_id] = @Supplier_id WHERE [quotation_id] = @quotation_id">
+        <asp:SqlDataSource ID="SqlSupplier_Quotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT supplier_quotation.quotation_id, supplier_quotation.Supplier_id, Supplier.Name FROM supplier_quotation INNER JOIN Supplier ON supplier_quotation.Supplier_id = Supplier.Supplier_id ORDER BY supplier_quotation.quotation_id" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([Supplier_id]) VALUES (@Supplier_id)" UpdateCommand="UPDATE [supplier_quotation] SET [Supplier_id] = @Supplier_id WHERE [quotation_id] = @quotation_id">
             <DeleteParameters>
                 <asp:Parameter Name="quotation_id" Type="Int32" />
             </DeleteParameters>
@@ -31,17 +31,7 @@
         </asp:SqlDataSource>
 
             <div align="center">
-        <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [supplier_quotation] ORDER BY [quotation_id]" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([Supplier_id]) VALUES (@Supplier_id)" UpdateCommand="UPDATE [supplier_quotation] SET [Supplier_id] = @Supplier_id WHERE [quotation_id] = @quotation_id">
-            <DeleteParameters>
-                <asp:Parameter Name="quotation_id" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Supplier_id" Type="Int16" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Supplier_id" Type="Int16" />
-                <asp:Parameter Name="quotation_id" Type="Int32" />
-            </UpdateParameters>
+        <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Name]">
         </asp:SqlDataSource>
 
                 <br />
@@ -51,9 +41,9 @@
                 <asp:Panel ID="PanelgvSupplier_Quotation" runat="server">
                     <asp:GridView ID="gvSupplier_Quotation" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlSupplier_Quotation" AutoGenerateColumns="False" DataKeyNames="quotation_id">
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="quotation_id" HeaderText="quotation_id" ReadOnly="True" SortExpression="quotation_id" InsertVisible="False" />
                             <asp:BoundField DataField="Supplier_id" HeaderText="Supplier_id" SortExpression="Supplier_id" />
+                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>

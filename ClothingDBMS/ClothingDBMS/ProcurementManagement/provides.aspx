@@ -19,7 +19,7 @@
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlProvides" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [provides] ORDER BY [Prvd_id]" DeleteCommand="DELETE FROM [provides] WHERE [Prvd_id] = @Prvd_id" InsertCommand="INSERT INTO [provides] ([quotation_id], [RawMaterial_ID], [Quantity], [Unit_Price]) VALUES (@quotation_id, @RawMaterial_ID, @Quantity, @Unit_Price)" UpdateCommand="UPDATE [provides] SET [quotation_id] = @quotation_id, [RawMaterial_ID] = @RawMaterial_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price WHERE [Prvd_id] = @Prvd_id">
+        <asp:SqlDataSource ID="SqlProvides" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT provides.Prvd_id, provides.quotation_id, provides.RawMaterial_ID, provides.Quantity, provides.Unit_Price, RawMaterial.RawMaterial_Name, provides.Quantity * provides.Unit_Price AS totalprice FROM provides INNER JOIN RawMaterial ON RawMaterial.RawMaterial_ID = provides.RawMaterial_ID ORDER BY provides.Prvd_id" DeleteCommand="DELETE FROM [provides] WHERE [Prvd_id] = @Prvd_id" InsertCommand="INSERT INTO [provides] ([quotation_id], [RawMaterial_ID], [Quantity], [Unit_Price]) VALUES (@quotation_id, @RawMaterial_ID, @Quantity, @Unit_Price)" UpdateCommand="UPDATE [provides] SET [quotation_id] = @quotation_id, [RawMaterial_ID] = @RawMaterial_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price WHERE [Prvd_id] = @Prvd_id">
             <DeleteParameters>
                 <asp:Parameter Name="Prvd_id" Type="Int32" />
             </DeleteParameters>
@@ -63,11 +63,13 @@
                     
                     <asp:GridView ID="gvProvides" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProvides" AutoGenerateColumns="False" DataKeyNames="Prvd_id">
                         <Columns>
-                            <asp:BoundField DataField="Prvd_id" HeaderText="Prvd_id" SortExpression="Prvd_id" InsertVisible="False" ReadOnly="True" />
+                            <asp:BoundField DataField="Prvd_id" HeaderText="Prvd_id" InsertVisible="False" ReadOnly="True" SortExpression="Prvd_id" />
                             <asp:BoundField DataField="quotation_id" HeaderText="quotation_id" SortExpression="quotation_id" />
                             <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
+                            <asp:BoundField DataField="RawMaterial_Name" HeaderText="RawMaterial_Name" SortExpression="RawMaterial_Name" />
                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                             <asp:BoundField DataField="Unit_Price" HeaderText="Unit_Price" SortExpression="Unit_Price" />
+                            <asp:BoundField DataField="totalprice" HeaderText="totalprice" ReadOnly="True" SortExpression="totalprice" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
