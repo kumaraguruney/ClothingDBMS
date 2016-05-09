@@ -10,7 +10,7 @@
 namespace ClothingDBMS.SalesManagement {
     
     
-    public partial class Shipment {
+    public partial class ItemsShipped {
         
         /// <summary>
         /// form1 control.
@@ -22,6 +22,15 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// SqlContains control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlContains;
+        
+        /// <summary>
         /// SqlDataSourceProduct control.
         /// </summary>
         /// <remarks>
@@ -31,57 +40,66 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
         
         /// <summary>
-        /// SqlData control.
+        /// SqlDataSourceQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlData;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuotation;
         
         /// <summary>
-        /// SqlDataSourceSalesOrder control.
+        /// SqlProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceSalesOrder;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
         
         /// <summary>
-        /// SqlQuotationUpdate control.
+        /// lblQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlQuotationUpdate;
+        protected global::System.Web.UI.WebControls.Label lblQuotation;
         
         /// <summary>
-        /// lblSalesOrder control.
+        /// panelSaveQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSalesOrder;
+        protected global::System.Web.UI.WebControls.Panel panelSaveQuotation;
         
         /// <summary>
-        /// panelSaveSalesOrder control.
+        /// GridViewQuotation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSaveSalesOrder;
+        protected global::System.Web.UI.WebControls.GridView GridViewQuotation;
         
         /// <summary>
-        /// GridViewSalesOrder control.
+        /// lblAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewSalesOrder;
+        protected global::System.Web.UI.WebControls.Label lblAmount;
+        
+        /// <summary>
+        /// lblTotalAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAmount;
     }
 }
