@@ -24,18 +24,16 @@
         <li><a href="../Index.aspx">Home</a></li>
         <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
-          <li><a href="Inventory.aspx">Inventory Details</a></li>
-          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
-          <li><a href="RMInventory.aspx">RMInventory</a></li>
-            <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
-          <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
+        <li><a href="Location.aspx">Location Details</a></li>
+        <li><a href="StockPile.aspx">Inventory</a></li>
+        <li><a href="StockMovement.aspx">Stock Movement</a></li>
+        <li><a href="StockReconciliation.aspx">Stock Reconcile</a></li>
         
           
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlStockPile" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT StockPile.Entry_ID, StockPile.Batch_ID, StockPile.Warehouse_ID, StockPile.Location_ID, StockPile.Quantity, StockPile.Created_Date, StockPile.Is_Product, Warehouse.Warehouse_Name, Location.Location_Name FROM StockPile INNER JOIN Warehouse ON Warehouse.Warehouse_ID = StockPile.Warehouse_ID INNER JOIN Location ON Location.Location_ID = StockPile.Location_ID ORDER BY StockPile.Entry_ID" DeleteCommand="DELETE FROM [StockPile] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [StockPile] ([Batch_ID], [Warehouse_ID], [Location_ID], [Quantity], [Created_Date], [Is_Product]) VALUES (@Batch_ID, @Warehouse_ID, @Location_ID, @Quantity, @Created_Date, @Is_Product)" UpdateCommand="UPDATE [StockPile] SET [Batch_ID] = @Batch_ID, [Warehouse_ID] = @Warehouse_ID, [Location_ID] = @Location_ID, [Quantity] = @Quantity, [Created_Date] = @Created_Date, [Is_Product] = @Is_Product WHERE [Entry_ID] = @Entry_ID">
+        <asp:SqlDataSource ID="SqlStockPile" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT StockPile.Entry_ID, StockPile.Batch_ID, StockPile.Warehouse_ID, StockPile.Location_ID, StockPile.Quantity, StockPile.Created_Date, StockPile.Is_Product, CASE WHEN is_product = 'true' THEN Design.Design_Name + ', ' + code_2.Code_Description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description , ' ') + ', ' + FinishedProduct.Manufactured_Date ELSE RawMaterial_Name + ', ' + code_3.Code_Description + ', ' + ISNULL(RawMaterial_Description , ' ') + ',' + ProcuredRawMaterial.Procured_Date END AS Name, Warehouse_1.Warehouse_Name, Location.Location_Name FROM StockPile LEFT OUTER JOIN FinishedProduct ON FinishedProduct.Batch_ID = StockPile.Batch_ID LEFT OUTER JOIN ProcuredRawMaterial ON ProcuredRawMaterial.Batch_ID = StockPile.Batch_ID LEFT OUTER JOIN RawMaterial ON RawMaterial.RawMaterial_ID = ProcuredRawMaterial.RawMaterial_ID LEFT OUTER JOIN Code AS code_3 ON code_3.Code_ID = RawMaterial.RawMaterial_Color LEFT OUTER JOIN Product ON FinishedProduct.Product_ID = Product.Product_ID LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.Code_ID = Design.Design_Section INNER JOIN Warehouse AS Warehouse_1 ON Warehouse_1.Warehouse_ID = StockPile.Warehouse_ID INNER JOIN Location ON Location.Location_ID = StockPile.Location_ID ORDER BY StockPile.Entry_ID" DeleteCommand="DELETE FROM [StockPile] WHERE [Entry_ID] = @Entry_ID" InsertCommand="INSERT INTO [StockPile] ([Batch_ID], [Warehouse_ID], [Location_ID], [Quantity], [Created_Date], [Is_Product]) VALUES (@Batch_ID, @Warehouse_ID, @Location_ID, @Quantity, @Created_Date, @Is_Product)" UpdateCommand="UPDATE [StockPile] SET [Batch_ID] = @Batch_ID, [Warehouse_ID] = @Warehouse_ID, [Location_ID] = @Location_ID, [Quantity] = @Quantity, [Created_Date] = @Created_Date, [Is_Product] = @Is_Product WHERE [Entry_ID] = @Entry_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Entry_ID" Type="Int32" />
             </DeleteParameters>
@@ -96,6 +94,7 @@
                         <Columns>
                             <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" ReadOnly="True" SortExpression="Entry_ID" InsertVisible="False" />
                             <asp:BoundField DataField="Batch_ID" HeaderText="Batch_ID" SortExpression="Batch_ID" />
+                             <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" SortExpression="Name" />
                              <asp:BoundField DataField="Warehouse_ID" HeaderText="Warehouse_ID" SortExpression="Warehouse_ID" />
                             <asp:BoundField DataField="Warehouse_Name" HeaderText="Warehouse_Name" SortExpression="Warehouse_Name" />
                             <asp:BoundField DataField="Location_ID" HeaderText="Location_ID" SortExpression="Location_ID" />
@@ -127,7 +126,7 @@
                     <br />
                     <br />
                     <asp:Label ID="lblWarehouseID" runat="server" Text="Warehouse:" Width="184px" />
-                    <asp:DropDownList ID="WarehouseIDDropDownList" runat="server" AppendDataBoundItems="true" AutoPostBack="true" EnableViewState="false" DataSourceID="SqlWarehouse" DataTextField="Warehouse_Name" DataValueField="Warehouse_ID" Height="19px" Width="191px" OnSelectedIndexChanged="WarehouseIDDropDownList_SelectedIndexChanged">
+                    <asp:DropDownList ID="WarehouseIDDropDownList" runat="server" AppendDataBoundItems="true" AutoPostBack="true" EnableViewState="false" DataSourceID="SqlWarehouse" DataTextField="Warehouse_Name" DataValueField="Warehouse_ID" Height="19px" Width="191px" >
                     <asp:ListItem Text="Select a Warehouse" Value="0"></asp:ListItem>
                     </asp:DropDownList>
                     <br />
