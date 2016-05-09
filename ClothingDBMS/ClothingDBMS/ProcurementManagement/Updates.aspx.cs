@@ -29,7 +29,7 @@ namespace ClothingDBMS.ProcurementManagement
         protected void btnSaveUpdates_Click(object sender, EventArgs e)
         {
             SqlUpdate.InsertParameters["Receipt_ID"].DefaultValue = DropDownReceipt_ID.SelectedValue;
-            SqlUpdate.InsertParameters["Entry_ID"].DefaultValue = DropDownEntry_ID.SelectedValue;
+            SqlUpdate.InsertParameters["Date"].DefaultValue = txtDate.Text.ToUpper().Trim();
             SqlUpdate.InsertParameters["Received_Qty"].DefaultValue = txtReceived_Qty.Text.ToUpper().Trim();
             SqlUpdate.InsertParameters["Remaining_Qty"].DefaultValue = txtRemaining_Qty.Text.ToUpper().Trim();
             SqlUpdate.Insert();
@@ -39,7 +39,7 @@ namespace ClothingDBMS.ProcurementManagement
             txtReceived_Qty.Text = string.Empty;
             txtRemaining_Qty.Text = string.Empty;
             DropDownReceipt_ID.SelectedIndex = -1;
-            DropDownEntry_ID.SelectedIndex = -1;
+            txtDate.Text = string.Empty;
 
         }
     }

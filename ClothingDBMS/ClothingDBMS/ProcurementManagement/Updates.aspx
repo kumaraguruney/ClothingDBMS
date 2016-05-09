@@ -66,13 +66,13 @@
 
 
 
-        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], [Entry_id], [Remaining_Qty], [Received_Qty]) VALUES (@receipt_id, @Entry_id, @Remaining_Qty, @Received_Qty)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [Entry_id] = @Entry_id, [Remaining_Qty] = @Remaining_Qty, [Received_Qty] = @Received_Qty WHERE [Update_id] = @Update_id">
+        <asp:SqlDataSource ID="SqlUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Updates] ORDER BY [Update_id]" DeleteCommand="DELETE FROM [Updates] WHERE [Update_id] = @Update_id" InsertCommand="INSERT INTO [Updates] ([receipt_id], Date, [Remaining_Qty], [Received_Qty]) VALUES (@receipt_id, @Date, @Remaining_Qty, @Received_Qty)" UpdateCommand="UPDATE [Updates] SET [receipt_id] = @receipt_id, [Entry_id] = @Entry_id, [Remaining_Qty] = @Remaining_Qty, [Received_Qty] = @Received_Qty WHERE [Update_id] = @Update_id">
             <DeleteParameters>
                 <asp:Parameter Name="Update_id" Type="Int32" />
             </DeleteParameters>
             <InsertParameters>
                 <asp:Parameter Name="receipt_id" Type="Int32" />
-                <asp:Parameter Name="Entry_id" Type="Int32" />
+                <asp:Parameter Name="Date" />
                 <asp:Parameter Name="Remaining_Qty"  />
                 <asp:Parameter Name="Received_Qty"  />
             </InsertParameters>
@@ -135,7 +135,7 @@
                          <Columns>
                             <asp:BoundField DataField="Update_id" HeaderText="Update_id" SortExpression="Update_id" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="receipt_id" HeaderText="receipt_id" SortExpression="receipt_id" />
-                            <asp:BoundField DataField="Entry_id" HeaderText="Entry_id" SortExpression="Entry_id" />
+                            <asp:BoundField DataField="Date" HeaderText="Date" SortExpression="Date" />
                             <asp:BoundField DataField="Remaining_Qty" HeaderText="Remaining_Qty" SortExpression="Remaining_Qty" />
                             <asp:BoundField DataField="Received_Qty" HeaderText="Received_Qty" SortExpression="Received_Qty" />
                         </Columns>
@@ -162,11 +162,9 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        <asp:Label ID="lbIEntry_ID" runat="server" Text="Entry_ID: " Width="150px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="DropDownEntry_ID" runat="server" DataSourceID="SqlStock_Pile" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="25px" Width="326px">
-                        </asp:DropDownList>
-                        <br />
+                        <asp:Label ID="lbIDate" runat="server" Text="Date: " Width="150px" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtDate" runat="server" Height="35px" ValidationGroup="addSupplierValidation" Width="299px"></asp:TextBox>
+&nbsp;<br />
                         <br />
                         <asp:Label ID="lblReceived_Qty" runat="server" Text="Received_Qty: " Width="150px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
