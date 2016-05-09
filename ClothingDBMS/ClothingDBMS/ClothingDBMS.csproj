@@ -186,6 +186,7 @@
     <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\FinishedProduct.aspx" />
     <Content Include="InventoryManagement\Location.aspx" />
+    <Content Include="ProcurementManagement\Default.aspx" />
     <Content Include="ProcurementManagement\ProcuredRawMaterial.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
     <Content Include="InventoryManagement\ProductStockUpdate.aspx" />
@@ -295,6 +296,13 @@
     </Compile>
     <Compile Include="InventoryManagement\Location.aspx.designer.cs">
       <DependentUpon>Location.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcurementManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProcurementManagement\ProcuredRawMaterial.aspx.cs">
       <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
