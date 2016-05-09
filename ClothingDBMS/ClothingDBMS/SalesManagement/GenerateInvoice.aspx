@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SalesOrder.aspx.cs" Inherits="ClothingDBMS.SalesManagement.SalesOrder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GenerateInvoice.aspx.cs" Inherits="ClothingDBMS.SalesManagement.GenerateInvoice" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Sales Order Information</title>
+    <title>Invoice Managment</title>
         <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -65,7 +65,9 @@
                  (Query)<asp:SqlDataSource ID="SqlDataSourceProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Product] ORDER BY [Product_Description]"></asp:SqlDataSource>
        
         <div style="margin-top:100px;" align="center">
-            <asp:SqlDataSource ID="SqlDataSourceSalesOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Customer_Id, CUSTOMER.Customer_Name, QUOTATION.Sorder_Date, QUOTATION.SorderDue_Date, QUOTATION.Late_Fee FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND QUOTATION.Is_SO = 'True' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id WHERE [Quotation_Number] = @Quotation_Number">
+        <asp:SqlDataSource ID="SqlData" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Warehouse] ORDER BY [Warehouse_ID]">
+        </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceSalesOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Customer_Id, CUSTOMER.Customer_Name, QUOTATION.Sorder_Date, QUOTATION.SorderDue_Date, QUOTATION.Late_Fee FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND QUOTATION.Is_SO = 'True' AND ISNULL(QUOTATION.Is_Shipped, 0) = 'true' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET [Quotation_Date] = @Quotation_Date, [Customer_Id] = @Customer_Id WHERE [Quotation_Number] = @Quotation_Number">
                 <DeleteParameters>
                     <asp:Parameter Name="Quotation_Number" Type="Int32" />
                 </DeleteParameters>
@@ -81,8 +83,23 @@
         </asp:SqlDataSource>
 
 
+            <asp:SqlDataSource ID="SqlQuotationUpdate" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT QUOTATION.Quotation_Number, QUOTATION.Customer_Id, CUSTOMER.Customer_Name, QUOTATION.Sorder_Date, QUOTATION.SorderDue_Date, QUOTATION.Late_Fee FROM QUOTATION INNER JOIN CUSTOMER ON QUOTATION.Customer_Id = CUSTOMER.Customer_Id AND QUOTATION.Is_SO = 'True' ORDER BY QUOTATION.Quotation_Number" DeleteCommand="DELETE FROM [QUOTATION] WHERE [Quotation_Number] = @Quotation_Number" InsertCommand="INSERT INTO [QUOTATION] ([Quotation_Date], [Customer_Id]) VALUES (@Quotation_Date, @Customer_Id)" UpdateCommand="UPDATE [QUOTATION] SET Is_Shipped =@Is_Shipped WHERE [Quotation_Number] = @Quotation_Number">
+                <DeleteParameters>
+                    <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Quotation_Date" Type="String" />
+                    <asp:Parameter Name="Customer_Id" Type="Int32" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Is_Shipped" />
+                    <asp:Parameter Name="Quotation_Number" Type="Int32" />
+                </UpdateParameters>
+        </asp:SqlDataSource>
+
+
         <br/>
-        <asp:Label ID="lblSalesOrder" runat="server" Text="Sales Order Management" Font-Bold="true"></asp:Label><br /> <br />
+        <asp:Label ID="lblSalesOrder" runat="server" Text="Invoice Management" Font-Bold="true"></asp:Label><br /> <br />
     
 
         <asp:Panel ID="panelSaveSalesOrder" Visible="true" runat="server" >
@@ -95,11 +112,12 @@
                             <asp:BoundField DataField="Sorder_Date" HeaderText="Sorder_Date" SortExpression="Sorder_Date" />
                             <asp:BoundField DataField="SorderDue_Date" HeaderText="SorderDue_Date" SortExpression="SorderDue_Date" />
                             <asp:BoundField DataField="Late_Fee" HeaderText="Late_Fee" SortExpression="Late_Fee" />
-                             <asp:TemplateField HeaderText="Open" ShowHeader="False">
-                                <ItemTemplate>
-                                    <asp:LinkButton ID="lnkOpen" runat="server"  OnClick="btnOpenQuotation_Click" Text="Open"></asp:LinkButton>
+                            <asp:TemplateField HeaderText="GenerateInvoice" ShowHeader="False">
+                               <ItemTemplate>
+                                    <asp:LinkButton ID="lnkUpdateInvoice" runat="server" OnClick="btnUpdateInvoice_Click" Text="Generate Invoice"></asp:LinkButton>
                                 </ItemTemplate>
-                                </asp:TemplateField>
+                            </asp:TemplateField>
+                              
                            
                 </Columns>
                         <EditRowStyle BackColor="Yellow"/>

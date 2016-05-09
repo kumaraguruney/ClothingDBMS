@@ -40,6 +40,7 @@ namespace ClothingDBMS.SalesManagement
             if (count == 0)
             {
                 SqlQuotationUpdate.UpdateParameters["Is_Shipped"].DefaultValue = "TRUE";
+                SqlQuotationUpdate.UpdateParameters["Shipment_Date"].DefaultValue = System.DateTime.Today.ToShortDateString();
                 SqlQuotationUpdate.UpdateParameters["Quotation_Number"].DefaultValue = pk;
                 SqlQuotationUpdate.Update();
                 GridViewSalesOrder.DataBind();

@@ -35,7 +35,7 @@ namespace ProductionManagement.ProductionManagement
 
         protected void btnInvoice_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Invoice.aspx");
+            Response.Redirect("GenerateInvoice.aspx");
         }
         protected void btnPayment_Click(object sender, EventArgs e)
         {

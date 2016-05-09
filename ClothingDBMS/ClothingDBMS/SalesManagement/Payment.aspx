@@ -55,14 +55,14 @@
           <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
           <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
                     <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
-          <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
+          <li><a class="page-scroll" href="GenerateInvoice.aspx">Invoice</a></li>
           <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
           <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li>
                 </ul>
             </div>
  </div>
     </div>
-        <asp:SqlDataSource ID="SqlDataSourceInvoice" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [INVOICE]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSourceInvoice" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTATION] ORDER BY [Quotation_Number]"></asp:SqlDataSource>
        
          <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Payment_Date], [Acct_Id], [Status_Info], [Invoice_Number]) VALUES (@Payment_Date, @Acct_Id, @Status_Info, @Invoice_Number)" UpdateCommand="UPDATE [PAYMENT] SET [Payment_Date] = @Payment_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info, [Invoice_Number] = @Invoice_Number WHERE [Payment_Id] = @Payment_Id">
              <DeleteParameters>
@@ -124,7 +124,7 @@
         <asp:Panel ID="panelAddPayment" Visible="false" runat="server">
             <br /> <br />
                 <asp:Label ID="LblInvoice" Width="200" Text="Invoice Number: " runat="server" />
-                    <asp:DropDownList ID="DropDownInvoice" runat="server" DataSourceID="SqlDataSourceInvoice" DataTextField="Invoice_Number" DataValueField="Invoice_Number">
+                    <asp:DropDownList ID="DropDownInvoice" runat="server" DataSourceID="SqlDataSourceInvoice" DataTextField="Quotation_Number" DataValueField="Quotation_Number" Width="103px">
                         <asp:ListItem Text="-- Invoice Number --" Value="-1"></asp:ListItem>
                     </asp:DropDownList><br />
                     <asp:RequiredFieldValidator ID="rfvInvoiceNum" ValidationGroup="addPaymentValidation" runat="server" ControlToValidate="DropDownInvoice" ErrorMessage="(*) One Invoice Number should be selected" ForeColor="Red"></asp:RequiredFieldValidator><br />
