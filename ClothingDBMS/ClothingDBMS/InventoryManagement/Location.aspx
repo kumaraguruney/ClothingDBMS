@@ -35,29 +35,20 @@
 </head>
 <body>
     <form id="form2" runat="server">
-            <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <a class="navbar-brand" href="../Index.aspx">NTL</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
-                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
-                        class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../Index.aspx">Home</a></li>
-                    <li><a class="page-scroll" href="Default.aspx">Inventory Management - Home</a> </li>
-                    <li><a href="Warehouse.aspx">Warehouse</a></li>
-                    <li><a href="Location.aspx">Location</a></li>
-                    <li><a href="StockPile.aspx">Inventory</a></li>
-                    <li><a href="Stockmovement.aspx">Stock Movement</a></li>
-                    <li><a href="StockReconciliation.aspx">Stock Reconciliation</a></li>
-                 </ul>
-            </div>
-        </div>
+            <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../Index.aspx">Home</a></li>
+        <li><a href="Default.aspx">Inventory Management - Home</a></li>
+        <li><a href="Warehouse.aspx">Location Details</a></li>
+        <li><a href="StockPile.aspx">Inventory</a></li>
+        <li><a href="StockMovement.aspx">Stock Movement</a></li>
+        <li><a href="StockReconciliation.aspx">Stock Reconcile</a></li>
+          
+          
+      </ul>
     </div>
-
+  </nav>
         <asp:SqlDataSource ID="SqlLocation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Location.Location_ID, Location.Location_Name, Location.Warehouse_ID, Location.Area, Warehouse.Warehouse_Name FROM Location INNER JOIN Warehouse ON Warehouse.Warehouse_ID = Location.Warehouse_ID ORDER BY Location.Location_ID" DeleteCommand="DELETE FROM [Location] WHERE [Location_ID] = @Location_ID" InsertCommand="INSERT INTO [Location] ([Location_Name], [Warehouse_ID], [Area]) VALUES (@Location_Name, @Warehouse_ID, @Area)" UpdateCommand="UPDATE [Location] SET [Location_Name] = @Location_Name, [Warehouse_ID] = @Warehouse_ID, [Area] = @Area WHERE [Location_ID] = @Location_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Location_ID" Type="Int16" />

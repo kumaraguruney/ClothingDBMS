@@ -57,6 +57,9 @@ namespace ClothingDBMS.ProcurementManagement
             Response.Redirect("Goods_Receipt.aspx");
         }
 
-
+        protected void Workorder_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("WorkOrder.aspx");
+        }
     }
 }
