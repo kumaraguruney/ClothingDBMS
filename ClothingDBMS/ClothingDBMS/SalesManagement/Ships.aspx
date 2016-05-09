@@ -212,7 +212,6 @@
             <br />
             <asp:Label ID="lblQuantity2" runat="server" style="margin-left: 96px" Text="SOQuantity:" Width="132px" />
             <asp:TextBox ID="QuantityTextBox1" runat="server" Width="199px"></asp:TextBox>
-            <asp:RangeValidator ID="QuantityValidator0" runat="server" ControlToValidate="QuantityTextBox1" Display="Dynamic" ErrorMessage="Value cannot exceed Available Quantity" MaximumValue="1" MinimumValue="0" Type="Integer"></asp:RangeValidator>
             <br />
             <br />
             <asp:Button ID="btnUpdate" runat="server" CssClass="bg-primary" OnClick="btnSave_Click" Text="Update" ValidationGroup="addQuotationValidation" />
