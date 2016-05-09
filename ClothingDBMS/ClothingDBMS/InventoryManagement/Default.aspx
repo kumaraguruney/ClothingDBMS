@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ClothingDBMS.ProductionManagement.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ClothingDBMS.InventoryManagement.Default" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Production Management</title>
+    <title>Inventory Management</title>
 <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,16 +46,14 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Raw Material</a> </li>
-                    <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
-                    <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">Work Order</a> </li>
-                    <li><a class="page-scroll" href="WorkSchedule.aspx">Work Schedule</a> </li>
-                    <li><a class="page-scroll" href="FinishedProduct.aspx">Finished Products</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
-                </ul>
+                    <li><a href="../Index.aspx">Home</a></li>
+                    <li><a class="page-scroll" href="Default.aspx">Inventory Management - Home</a> </li>
+                    <li><a href="Warehouse.aspx">Warehouse</a></li>
+                    <li><a href="Location.aspx">Location</a></li>
+                    <li><a href="StockPile.aspx">Inventory</a></li>
+                    <li><a href="StockMovement.aspx">Stock Movement</a></li>
+                    <li><a href="StockReconciliation.aspx">Stock Reconciliation</a></li>
+                 </ul>
             </div>
         </div>
     </div>
@@ -65,70 +63,36 @@
 
 
 
-             <asp:Button ID="btnRawMaterial" runat="server" CssClass="btn btn-primary btn-lg" Text="Warehouse" Height="100" Width="200" OnClick="btnRawMaterial_Click" /> 
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-
-             <asp:Button ID="btnMachinery" runat="server" CssClass="btn btn-primary btn-lg" Text="Location" Height="100" Width="200" OnClick="btnMachinery_Click" />
+      <br /> <br /> <br /> <br /><br /> <br /> 
 
 
+             <asp:Button ID="btnWarehouse" runat="server" CssClass="btn btn-primary btn-lg" Text="Warehouse" Height="100" Width="200" OnClick="btnWarehouse_Click" />
+
+              -&nbsp-&nbsp-&nbsp>&nbsp;
 
 
-             <br /> <br /> <br />
+             <asp:Button ID="btnLocation" runat="server" CssClass="btn btn-primary btn-lg" Text="Location" Height="100" Width="200" OnClick="btnLocation_Click" />
+
+             -&nbsp-&nbsp-&nbsp>&nbsp;
 
 
-
-
-             <asp:Button ID="btnProduct" runat="server" CssClass="btn btn-primary btn-lg" Text="Product" Height="100" Width="200" OnClick="btnProduct_Click" />
-
-              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp;&nbsp;
-
-
-             <asp:Button ID="btnWorkOrder" runat="server" CssClass="btn btn-primary btn-lg" Text="Work Order" Height="100" Width="200" OnClick="btnWorkOrder_Click" />
-
-             -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp;&nbsp;
-
-
-             <asp:Button ID="btnWorkSchedule" runat="server" CssClass="btn btn-primary btn-lg" Text="Work Schedule" Height="100" Width="200" OnClick="btnWorkSchedule_Click" />
+             <asp:Button ID="btnInventory" runat="server" CssClass="btn btn-primary btn-lg" Text="Inventory" Height="100" Width="200" OnClick="btnInventory_Click" />
             
-              -&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp-&nbsp;&nbsp;
+              -&nbsp-&nbsp-&nbsp>&nbsp;
 
 
 
-             <asp:Button ID="btnFinishedProduct" runat="server" CssClass="btn btn-primary btn-lg" Text="Finished Product" Height="100" Width="200" OnClick="btnFinishedProduct_Click" />
+             <asp:Button ID="btnStock_Movement" runat="server" CssClass="btn btn-primary btn-lg" Text="Stock Movement" Height="100" Width="200" OnClick="btnStock_Movement_Click" />
+
+             -&nbsp-&nbsp-&nbsp>&nbsp;
+
+             <asp:Button ID="btnStock_Reconciliation" runat="server" CssClass="btn btn-primary btn-lg" Text="Stock Reconciliation" Height="100" Width="200" OnClick="btnStock_Reconciliation_Click" />
+
+                  <br /> <br /> <br />
 
 
 
-
-             <br /> <br /> <br />
-
-
-
-
-              <asp:Button ID="btnDesign" runat="server" CssClass="btn btn-primary btn-lg" Text="Design" Height="100" Width="200" OnClick="btnDesign_Click" /> 
-              &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-             &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-
-             <asp:Button ID="btnEmployee" runat="server" CssClass="btn btn-primary btn-lg" Text="Employee" Height="100" Width="200" OnClick="btnEmployee_Click" />
-
-
-             <br /> <br /> <br /> <br />
+             
 
              </div>
 

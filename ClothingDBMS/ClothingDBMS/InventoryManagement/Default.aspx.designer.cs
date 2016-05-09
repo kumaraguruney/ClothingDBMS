@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClothingDBMS.ProductionManagement {
+namespace ClothingDBMS.InventoryManagement {
     
     
     public partial class Default {
@@ -22,75 +22,48 @@ namespace ClothingDBMS.ProductionManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnRawMaterial control.
+        /// btnWarehouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRawMaterial;
+        protected global::System.Web.UI.WebControls.Button btnWarehouse;
         
         /// <summary>
-        /// btnMachinery control.
+        /// btnLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMachinery;
+        protected global::System.Web.UI.WebControls.Button btnLocation;
         
         /// <summary>
-        /// btnProduct control.
+        /// btnInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProduct;
+        protected global::System.Web.UI.WebControls.Button btnInventory;
         
         /// <summary>
-        /// btnWorkOrder control.
+        /// btnStock_Movement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWorkOrder;
+        protected global::System.Web.UI.WebControls.Button btnStock_Movement;
         
         /// <summary>
-        /// btnWorkSchedule control.
+        /// btnStock_Reconciliation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnWorkSchedule;
-        
-        /// <summary>
-        /// btnFinishedProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFinishedProduct;
-        
-        /// <summary>
-        /// btnDesign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDesign;
-        
-        /// <summary>
-        /// btnEmployee control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEmployee;
+        protected global::System.Web.UI.WebControls.Button btnStock_Reconciliation;
     }
 }

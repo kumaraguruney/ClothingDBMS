@@ -49,6 +49,7 @@
         <asp:Panel ID="panelSaveQuotation" Visible="true" runat="server">
         <asp:Button ID="btnAdd" runat="server"   CssClass="bg-primary" Text="Add" OnClick="btnAdd_Click" />
         <asp:GridView ID="GridViewContains" runat="server" AutoGenerateColumns="False" DataKeyNames="CONTAINS_ID" DataSourceID="SqlContains" AllowSorting="True" >
+            <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:BoundField DataField="CONTAINS_ID" HeaderText="CONTAINS_ID" ReadOnly="True" SortExpression="CONTAINS_ID" InsertVisible="False" />
                 <asp:BoundField DataField="SOquantity" HeaderText="SOquantity" SortExpression="SOquantity" />
