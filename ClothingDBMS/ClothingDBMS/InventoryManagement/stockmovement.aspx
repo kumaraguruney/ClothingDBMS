@@ -32,11 +32,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <style type="text/css">
-*{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important}*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}</style>
 </head>
-<body style="height: 931px">
+<body>
     <form id="form1" runat="server">
              <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -261,7 +258,7 @@
                     <asp:Label ID="lblToQuantity" runat="server" Text="Quantity:" Width="200px" />
                     <asp:TextBox ID="ToQuantityTextBox" runat="server"></asp:TextBox>
                     <asp:RangeValidator ID="QuantityValidator" runat="server" Display="Dynamic" ErrorMessage="Value cannot exceed Available Quantity" ControlToValidate="ToQuantityTextBox" MaximumValue="1"
-                        MinimumValue="0" Type="Integer"></asp:RangeValidator>
+                        MinimumValue="0" Type="String"></asp:RangeValidator>
                     <br />
                     <br />
              

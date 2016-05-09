@@ -22,13 +22,14 @@ namespace ClothingDBMS.InventoryManagement
         }
         protected void btnSaveStockReconcile_Click(object sender, EventArgs e)
         {
-           
-            SqlStockPile.UpdateParameters["Entry_ID"].DefaultValue = BatchDropDownList.SelectedValue;
-            SqlStockPile.UpdateParameters["Physical_Quantity"].DefaultValue = PhysicalQuantityTextBox.Text.Trim();
-            SqlStockPile.UpdateParameters["Reconciled_Date"].DefaultValue = ReconciledDateTextBox.Text.Trim();
-            SqlStockPile.Update();
-            gvStockReconcile.DataBind();
 
+            SqlData0.InsertParameters["Batch_ID"].DefaultValue = BatchDropDownList.SelectedValue;
+            SqlData0.InsertParameters["Warehouse_ID"].DefaultValue = WarehouseDropDownList.SelectedValue;
+            SqlData0.InsertParameters["Location_ID"].DefaultValue = LocationDropDownList.SelectedValue;
+            SqlData0.InsertParameters["Is_Product"].DefaultValue = rbStockReconcile.SelectedValue;
+            SqlData0.InsertParameters["Physical_Quantity"].DefaultValue = PhysicalQuantityTextBox.Text.Trim();
+            SqlData0.InsertParameters["Reconciled_Date"].DefaultValue = ReconciledDateTextBox.Text.Trim() ;
+            SqlData0.Insert();
 
             PaneladdStockReconciliation.Visible = false;
             PanelgvStockReconcile.Visible = true;
@@ -62,7 +63,7 @@ namespace ClothingDBMS.InventoryManagement
         {
             if (BatchDropDownList.SelectedValue != "-1")
             {
-                SqlData.SelectCommand = "SELECT  StockPile.Quantity FROM StockPile WHERE StockPile.Entry_ID =" + BatchDropDownList.SelectedValue;
+                SqlData.SelectCommand = "SELECT  sum(StockPile.Quantity) As Quantity FROM StockPile WHERE StockPile.Batch_ID ='" + BatchDropDownList.SelectedValue +"' and StockPile.Warehouse_ID ='"+ WarehouseDropDownList.SelectedValue + "' and StockPile.Location_ID =" + LocationDropDownList.SelectedValue ;
                 DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
                 DataView dvView = new DataView();
                 dvView = (DataView)SqlData.Select(dsArguments);

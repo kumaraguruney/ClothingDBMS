@@ -95,6 +95,7 @@ namespace ClothingDBMS.InventoryManagement
 
         protected void FromLocationDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            QuantityValidator.Enabled = true;
             if (rbStockMovement.SelectedValue == "true")
             {
                 string strBatch = ProductRMDownList.SelectedValue;
@@ -103,7 +104,7 @@ namespace ClothingDBMS.InventoryManagement
                 string strQty = null;
                 if (strLocation != "-1")
                 {
-                    SqlData.SelectCommand = "SELECT StockPile.Quantity FROM StockPile INNER JOIN FinishedProduct ON FinishedProduct.Batch_ID = StockPile.Batch_ID AND StockPile.Batch_ID ='" + strBatch + "' AND StockPile.Warehouse_ID ='" + strWarehouse + "' AND StockPile.Location_ID ='" + strLocation + "' INNER JOIN Product ON FinishedProduct.Product_ID = Product.Product_ID INNER JOIN Location ON StockPile.Location_ID = Location.Location_ID";
+                    SqlData.SelectCommand = "SELECT SUM(StockPile.Quantity)AS Quantity FROM StockPile INNER JOIN FinishedProduct ON FinishedProduct.Batch_ID = StockPile.Batch_ID AND StockPile.Batch_ID = '" + strBatch + "' AND StockPile.Warehouse_ID = '" + strWarehouse + "' AND StockPile.Location_ID = '" + strLocation + "' INNER JOIN Product ON FinishedProduct.Product_ID = Product.Product_ID INNER JOIN Location ON StockPile.Location_ID = Location.Location_ID";
                     DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
                     DataView dvView = new DataView();
                     int count = dvView.Count;
@@ -121,7 +122,7 @@ namespace ClothingDBMS.InventoryManagement
                 string strQty = null;
                 if (strLocation != "-1")
                 {
-                    SqlData.SelectCommand = "SELECT  StockPile.Quantity FROM StockPile INNER JOIN ProcuredRawMaterial ON ProcuredRawMaterial.Batch_ID = StockPile.Batch_ID AND StockPile.Batch_ID ='" + strBatch + "' AND StockPile.Warehouse_ID ='" + strWarehouse + "' AND StockPile.Location_ID ='" + strLocation + "' INNER JOIN RawMaterial ON ProcuredRawMaterial.RawMaterial_ID = RawMaterial.RawMaterial_ID INNER JOIN Location ON StockPile.Location_ID = Location.Location_ID";
+                    SqlData.SelectCommand = "SELECT  ISNULL(SUM(StockPile.Quantity),0) AS Quantity FROM StockPile INNER JOIN ProcuredRawMaterial ON ProcuredRawMaterial.Batch_ID = StockPile.Batch_ID AND StockPile.Batch_ID ='" + strBatch + "' AND StockPile.Warehouse_ID ='" + strWarehouse + "' AND StockPile.Location_ID ='" + strLocation + "' INNER JOIN RawMaterial ON ProcuredRawMaterial.RawMaterial_ID = RawMaterial.RawMaterial_ID INNER JOIN Location ON StockPile.Location_ID = Location.Location_ID";
                     DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
                     DataView dvView = new DataView();
                     string str = dvView.Count.ToString();
@@ -144,6 +145,7 @@ namespace ClothingDBMS.InventoryManagement
             ProductRMDownList.SelectedIndex = -1;
             FromWarehouseDropDownList.SelectedIndex = -1;
             FromLocationDropDownList.SelectedIndex = -1;
+            QuantityValidator.Enabled = false;
             if (rbStockMovement.SelectedValue == "false")
             {
 
