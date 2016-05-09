@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ClothingDBMS.ProductionManagement.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.Default" %>
 
 <!DOCTYPE html>
 
@@ -63,6 +63,52 @@
     </div>
 
          <div style="margin-top:100px; height: 475px; text-overflow:inherit; overflow:auto"  align="center">
+
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+                         <br/>
+             <asp:Button ID="btnSupplier" runat="server" CssClass="btn btn-primary btn-lg" Text="Supplier" Height="100" Width="100" OnClick="btnSupplier_Click" />
+
+                         &nbsp-&nbsp->&nbsp;
+
+
+             <asp:Button ID="btnSupplier_Quotation" runat="server" CssClass="btn btn-primary btn-lg" Text="Supplier Quotation" Height="100" Width="150" OnClick="btnSupplier_Quotation_Click" Font-Size="Medium" />
+
+              -&nbsp-&nbsp>&nbsp;
+
+
+             <asp:Button ID="btnProvides" runat="server" CssClass="btn btn-primary btn-lg" Text="Provides" Height="100" Width="100" OnClick="btnProvides_Click" />
+
+              -&nbsp-&nbsp>&nbsp;
+
+
+             <asp:Button ID="btnOrders" runat="server" CssClass="btn btn-primary btn-lg" Text="Orders" Height="100" Width="100" OnClick="btnOrders_Click" />
+
+             -&nbsp->&nbsp;
+
+
+             <asp:Button ID="btnPurchase_Order" runat="server" CssClass="btn btn-primary btn-lg" Text="Purchase Order" Height="100" Width="110" OnClick="btnPurchase_Order_Click" />
+            
+              -&nbsp-&nbsp>&nbsp;
+              <asp:Button ID="btnUpdates" runat="server" CssClass="btn btn-primary btn-lg" Text="Updates" Height="100" Width="100" OnClick="btnUpdates_Click" />
+            
+              -&nbsp-&nbsp&nbsp->&nbsp;
+              <asp:Button ID="btnGoods_Receipt" runat="server" CssClass="btn btn-primary btn-lg" Text="Goods Receipt" Height="100" Width="120" OnClick="btnGoods_Receipt_Click" />
+            
+              -&nbsp-&nbsp>&nbsp;
+      
+
+             <asp:Button ID="btnProcuredRawMaterial" runat="server" CssClass="btn btn-primary btn-lg" Text="Procured Raw Material" Height="100" Width="160" OnClick="btnProcuredRawMaterial_Click" />
+
+          
+
+
+             <br /> <br /> <br />
 
 
 

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ClothingDBMS.ProductionManagement
+namespace ClothingDBMS.ProcurementManagement
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -14,44 +14,49 @@ namespace ClothingDBMS.ProductionManagement
 
         }
 
-        protected void btnRawMaterial_Click(object sender, EventArgs e)
+
+        protected void btnSupplier_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Rawmaterial.aspx");
+            Response.Redirect("Supplier.aspx");
         }
 
-        protected void btnMachinery_Click(object sender, EventArgs e)
+        protected void btnSupplier_Quotation_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Machinery.aspx");
+            Response.Redirect("Supplier_Quotation.aspx");
         }
 
-        protected void btnProduct_Click(object sender, EventArgs e)
+ 
+        protected void btnProvides_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Product.aspx");
+            Response.Redirect("Provides.aspx");
         }
 
-        protected void btnWorkOrder_Click(object sender, EventArgs e)
+        protected void btnOrders_Click(object sender, EventArgs e)
         {
-            Response.Redirect("WorkOrder.aspx");
+            Response.Redirect("Orders.aspx");
         }
 
-        protected void btnWorkSchedule_Click(object sender, EventArgs e)
+        protected void btnPurchase_Order_Click(object sender, EventArgs e)
         {
-            Response.Redirect("workschedule.aspx");
+            Response.Redirect("Purchase_Order.aspx");
         }
 
-        protected void btnFinishedProduct_Click(object sender, EventArgs e)
+        protected void btnProcuredRawMaterial_Click(object sender, EventArgs e)
         {
-            Response.Redirect("FinishedProduct.aspx");
+            Response.Redirect("ProcuredRawMaterial.aspx");
         }
 
-        protected void btnDesign_Click(object sender, EventArgs e)
+
+        protected void btnUpdates_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Design.aspx");
+            Response.Redirect("Updates.aspx");
         }
 
-        protected void btnEmployee_Click(object sender, EventArgs e)
+        protected void btnGoods_Receipt_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Employee.aspx");
+            Response.Redirect("Goods_Receipt.aspx");
         }
+
+
     }
 }
