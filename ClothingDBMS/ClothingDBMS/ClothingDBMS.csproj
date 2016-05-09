@@ -259,8 +259,6 @@
     <Content Include="SalesManagement\Invoice.aspx" />
     <Content Include="SalesManagement\ListingPrice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
-    <Content Include="SalesManagement\Quotation.aspx" />
-    <Content Include="SalesManagement\Quotes.aspx" />
     <Content Include="SalesManagement\SalesOrder.aspx" />
     <Content Include="SalesManagement\Shipment.aspx" />
     <Content Include="SalesManagement\Ships.aspx" />
@@ -549,20 +547,6 @@
     </Compile>
     <Compile Include="SalesManagement\Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SalesManagement\Quotation.aspx.cs">
-      <DependentUpon>Quotation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SalesManagement\Quotation.aspx.designer.cs">
-      <DependentUpon>Quotation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SalesManagement\Quotes.aspx.cs">
-      <DependentUpon>Quotes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SalesManagement\Quotes.aspx.designer.cs">
-      <DependentUpon>Quotes.aspx</DependentUpon>
     </Compile>
     <Compile Include="SalesManagement\SalesOrder.aspx.cs">
       <DependentUpon>SalesOrder.aspx</DependentUpon>
