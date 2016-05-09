@@ -71,7 +71,7 @@ namespace ProcurementManagement.ProcurementManagement
             dvView = (DataView)SqlData.Select(dsArguments);
             string productid = dvView[0].Row["Product_ID"].ToString();
             Session["ProductID"] = productid;
-            Response.Redirect("Require.aspx");
+            Response.Redirect("../ProductionManagement/Require.aspx");
         }
     }
 }
