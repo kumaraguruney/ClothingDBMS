@@ -14,48 +14,32 @@ namespace ClothingDBMS.ProcurementManagement
 
         }
 
-        protected void btnAddPurchase_Order_Click(object sender, EventArgs e)
-        {
-            pnlAddPurchase_Order.Visible = true;
-            pnlAddPurchase_Order.Visible = false;
-        }
 
-        protected void btnAddPurchase_OrderDB_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnCancelAdd_Click(object sender, EventArgs e)
-        {
-            pnlAddPurchase_Order.Visible = false;
-            pnlAddPurchase_Order.Visible = true;
-        }
         protected void btnaddPurchase_Order_Click(object sender, EventArgs e)
         {
             pnlAddPurchase_Order.Visible = true;
-            gvPurchase_Order.Visible = false;
+            PanelgvPurchase_Order.Visible = false;
         }
 
         protected void btnCancelPurchase_Order_Click(object sender, EventArgs e)
         {
             pnlAddPurchase_Order.Visible = false;
-            pnlAddPurchase_Order.Visible = true;
+            PanelgvPurchase_Order.Visible = true;
 
         }
 
         protected void btnSavePurchase_Order_Click(object sender, EventArgs e)
         {
             SqlPurchase_Order.InsertParameters["Purchase_Date"].DefaultValue = txtPurchase_Order_Date.Text.ToUpper().Trim();
-            SqlPurchase_Order.InsertParameters["Supplier"].DefaultValue = DropDownSupplier_Name.SelectedValue;          
-            SqlPurchase_Order.InsertParameters["Supplier_Name"].DefaultValue = DropDownSupplier_Name.SelectedValue;
-            
+            SqlPurchase_Order.InsertParameters["Supplier_ID"].DefaultValue = DropDownSupplier_Name.SelectedValue;          
+                       
             SqlPurchase_Order.InsertParameters["Shipping_Address"].DefaultValue = txtShipping_Address.Text.ToUpper().Trim();
             
             SqlPurchase_Order.InsertParameters["Total"].DefaultValue = txtTotal.Text.ToUpper().Trim();
             SqlPurchase_Order.Insert();
             gvPurchase_Order.DataBind();
             pnlAddPurchase_Order.Visible = false;
-            pnlAddPurchase_Order.Visible = true;
+            PanelgvPurchase_Order.Visible = true;
             txtPurchase_Order_Date.Text = string.Empty;
             DropDownSupplier_Name.SelectedIndex = -1;
             txtShipping_Address.Text = string.Empty;

@@ -13,17 +13,16 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="../Index.aspx">Home</a></li>
         <li><a href="Default.aspx">Inventory Management - Home</a></li>
-        <li><a href="Warehouse.aspx">Warehouse Details</a></li>
-          <li><a href="Location.aspx">Inventory Details</a></li>
-          <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
-          <li><a href="RMInventory.aspx">RMInventory</a></li>
+        <li><a href="Warehouse.aspx">Location Details</a></li>
+        <li><a href="StockPile.aspx">Inventory</a></li>
+        <li><a href="StockMovement.aspx">Stock Movement</a></li>
+        <li><a href="StockReconciliation.aspx">Stock Reconcile</a></li>
           
           
       </ul>
     </div>
   </nav>
-        <asp:SqlDataSource ID="SqlLocation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Location] ORDER BY [Location_ID]" DeleteCommand="DELETE FROM [Location] WHERE [Location_ID] = @Location_ID" InsertCommand="INSERT INTO [Location] ([Location_Name], [Warehouse_ID], [Area]) VALUES (@Location_Name, @Warehouse_ID, @Area)" UpdateCommand="UPDATE [Location] SET [Location_Name] = @Location_Name, [Warehouse_ID] = @Warehouse_ID, [Area] = @Area WHERE [Location_ID] = @Location_ID">
+        <asp:SqlDataSource ID="SqlLocation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Location.Location_ID, Location.Location_Name, Location.Warehouse_ID, Location.Area, Warehouse.Warehouse_Name FROM Location INNER JOIN Warehouse ON Warehouse.Warehouse_ID = Location.Warehouse_ID ORDER BY Location.Location_ID" DeleteCommand="DELETE FROM [Location] WHERE [Location_ID] = @Location_ID" InsertCommand="INSERT INTO [Location] ([Location_Name], [Warehouse_ID], [Area]) VALUES (@Location_Name, @Warehouse_ID, @Area)" UpdateCommand="UPDATE [Location] SET [Location_Name] = @Location_Name, [Warehouse_ID] = @Warehouse_ID, [Area] = @Area WHERE [Location_ID] = @Location_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Location_ID" Type="Int16" />
             </DeleteParameters>
@@ -48,9 +47,11 @@
                      <asp:Button ID="btnaddInventory" runat="server" Text="Add" OnClick="btnaddInventory_Click"/>
                     <asp:GridView ID="gvInventory" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlLocation" AutoGenerateColumns="False" DataKeyNames="Location_ID">
                         <Columns>
+                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                             <asp:BoundField DataField="Location_ID" HeaderText="Location_ID" ReadOnly="True" SortExpression="Location_ID" InsertVisible="False" />
                             <asp:BoundField DataField="Location_Name" HeaderText="Location_Name" SortExpression="Location_Name" />
                             <asp:BoundField DataField="Warehouse_ID" HeaderText="Warehouse_ID" SortExpression="Warehouse_ID" />
+                             <asp:BoundField DataField="Warehouse_Name" HeaderText="Warehouse_Name" SortExpression="Warehouse_Name" />
                              <asp:BoundField DataField="Area" HeaderText="Area" SortExpression="Area" />
                         </Columns>
                         <EditRowStyle BackColor="Yellow"/>

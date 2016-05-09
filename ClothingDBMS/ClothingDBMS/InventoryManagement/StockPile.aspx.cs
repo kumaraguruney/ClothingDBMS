@@ -24,10 +24,15 @@ namespace ClothingDBMS.InventoryManagement
         protected void btnSaveStockPile_Click(object sender, EventArgs e)
         {
             if (rbStockPile.SelectedValue == "true")
+            {
+               
                 SqlData.SelectCommand = "SELECT Available_Quantity FROM FinishedProduct WHERE Batch_ID =" + BatchIDDropDownList.SelectedValue;
+            }
             else
+            {
+                
                 SqlData.SelectCommand = "SELECT Available_Quantity FROM ProcuredRawMaterial WHERE Batch_ID =" + BatchIDDropDownList.SelectedValue;
-
+            }
             DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
             DataView dvView = new DataView();
             string str = dvView.Count.ToString();

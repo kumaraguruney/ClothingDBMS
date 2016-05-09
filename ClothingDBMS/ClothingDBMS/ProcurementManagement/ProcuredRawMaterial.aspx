@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Supplier_Quotation.aspx.cs" Inherits="ClothingDBMS.ProcurementManagement.Supplier_Quotation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProcuredRawMaterial.aspx.cs" Inherits="ClothingDBMS.InventoryManagement.ProcuredRawMaterial" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Supplier_Quotation Details</title>
-            <meta charset="utf-8" />
+    <title>Procured Raw Material</title>
+                   <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -33,6 +34,7 @@
     <![endif]-->
 </head>
 <body>
+
          <form id="form1" runat="server">
             <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -61,36 +63,22 @@
         </div>
     </div>
 
-
-
-        <asp:SqlDataSource ID="SqlSupplier_Quotation" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT supplier_quotation.quotation_id, supplier_quotation.Supplier_id, Supplier.Name FROM supplier_quotation INNER JOIN Supplier ON supplier_quotation.Supplier_id = Supplier.Supplier_id ORDER BY supplier_quotation.quotation_id" DeleteCommand="DELETE FROM [supplier_quotation] WHERE [quotation_id] = @quotation_id" InsertCommand="INSERT INTO [supplier_quotation] ([Supplier_id]) VALUES (@Supplier_id)" UpdateCommand="UPDATE [supplier_quotation] SET [Supplier_id] = @Supplier_id WHERE [quotation_id] = @quotation_id">
-            <DeleteParameters>
-                <asp:Parameter Name="quotation_id" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="Supplier_id" Type="Int16" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="Supplier_id" Type="Int16" />
-                <asp:Parameter Name="quotation_id" Type="Int32" />
-            </UpdateParameters>
+        <asp:SqlDataSource ID="SqlProcuredRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProcuredRawMaterial]">
         </asp:SqlDataSource>
-
-            <div  style="margin-top:200px;" align="center">
-        <asp:SqlDataSource ID="SqlSupplier" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Supplier] ORDER BY [Name]">
-        </asp:SqlDataSource>
-
+          <div  style="margin-top:200px;" align="center">
+        <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT RawMaterial.RawMaterial_ID, RawMaterial.RawMaterial_Name + ',' + Code.Code_Description + ', ' + RawMaterial.RawMaterial_Description AS RawMaterial_Name FROM RawMaterial LEFT OUTER JOIN Code ON Code.Code_ID = RawMaterial.RawMaterial_Color"></asp:SqlDataSource>
                 <br />
-                <asp:Label ID="lbSupplier_QuotationHeader" runat="server" Text="Supplier_Quotation Details" Font-Bold="True"></asp:Label> <br /> <br />
-                <asp:Button ID="btnaddSupplier_Quotation" runat="server" Text="Add" OnClick="btnaddSupplier_Quotation_Click"/>
-                <br /> <br />
-                <asp:Panel ID="PanelgvSupplier_Quotation" runat="server">
-                    <asp:GridView ID="gvSupplier_Quotation" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlSupplier_Quotation" AutoGenerateColumns="False" DataKeyNames="quotation_id"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
-                      <AlternatingRowStyle BackColor="#CCCCCC" />
-                          <Columns>
-                            <asp:BoundField DataField="quotation_id" HeaderText="quotation_id" ReadOnly="True" SortExpression="quotation_id" InsertVisible="False" />
-                            <asp:BoundField DataField="Supplier_id" HeaderText="Supplier_id" SortExpression="Supplier_id" />
-                            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:Label ID="lblProcuredRawMaterial" runat="server" Text="Procured Raw Material Details" Font-Bold="True"></asp:Label> <br />
+                <asp:Panel ID="PanelgvProcuredRawMaterial" runat="server" style="margin-top: 0px">
+                    <asp:Button ID="btnaddProcuredRawMaterial" runat="server" Text="Add" OnClick="btnaddProcuredRawMaterial_Click"/>
+                    <asp:GridView ID="gvProcuredRawMaterial" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProcuredRawMaterial" AutoGenerateColumns="False" DataKeyNames="Batch_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                        <Columns>
+                            <asp:BoundField DataField="Batch_ID" HeaderText="Batch_ID" ReadOnly="True" SortExpression="Batch_ID" InsertVisible="False" />
+                            <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
+                             <asp:BoundField DataField="Procured_Date" HeaderText="Procured_Date" SortExpression="Procured_Date" />
+                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                            <asp:BoundField DataField="Available_Quantity" HeaderText="Available_Quantity" SortExpression="Available_Quantity" />
+                            <asp:CheckBoxField DataField="Is_Stock_Piled" HeaderText="Is_Stock_Piled" SortExpression="Is_Stock_Piled" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -102,26 +90,40 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                         <EditRowStyle BackColor="Yellow"/>
+                        <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>
-                <asp:Panel ID="PaneladdSupplier_Quotation" Visible="false" runat="server">
-                <asp:Label ID="lbSupplier_QuotationaddTitle" Text="Add Supplier_Quotation into Database" runat="server" /><br /> <br />
-                    <br />
-                    <br />
-                    <asp:Label ID="lblSupplier_Name" runat="server" Text="Supplier_Name" Width="150px"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="DropDownSupplier_Name" runat="server" DataSourceID="SqlSupplier" DataTextField="Name" DataValueField="Supplier_id" Height="28px" Width="300px">
+
+                <asp:Panel ID="PaneladdProcuredRawMaterial" Visible="false" runat="server">
+                <asp:Label ID="lblFinishedProductDetails" Text="Enter Procured Raw Material Details" runat="server" /><br /> <br />
+                    <asp:Label ID="lblRawMaterialID" runat="server" Text="Raw Material:" Width="200px" />
+                    <asp:DropDownList ID="dropaddRawMaterial" Width="250px" AppendDataBoundItems="True" EnableViewState="False" runat="server" DataSourceID="SqlRawMaterial" DataTextField="RawMaterial_Name" DataValueField="RawMaterial_ID">
                     </asp:DropDownList>
+                        
+                    <br />
+                        
+                    <br />
+                    <asp:Label ID="lblQuantity" runat="server" Text="Quantity:" Width="200px" />
+                    <asp:TextBox ID="QuantityTextBox" runat="server" Width="199px"></asp:TextBox>
+                    
                     <br />
                     <br />
-                    <br />
-                    <br />
-                    <br />
-                    <asp:Button ID="btnSaveSupplier_Quotation" runat="server" Text="Save" OnClick="btnSaveSupplier_Quotation_Click" ValidationGroup="addSupplier_QuotationValidation"/>
-                    &nbsp;&nbsp;
-                    <asp:Button ID="btnCancelSupplier_Quotation" runat="server" OnClick="btnCancelSupplier_Quotation_Click" Text="Cancel" />
+                    <asp:Label ID="lblProcuredDate" runat="server" Text="Procured Date:" Width="200px" />
+                    <asp:TextBox ID="ProcuredDateTextBox" runat="server" Width="199px"></asp:TextBox>&nbsp;<asp:ImageButton ID="calimgProcuredDate" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calimgProcuredDate_Click" Width="25px" />
+                    <asp:Panel ID="calpanel" runat="server" Visible="false">
+                        <asp:Calendar ID="calProcuredDate" OnSelectionChanged="calProcuredDate_SelectionChanged" runat="server"></asp:Calendar>
+                        <br />
                     </asp:Panel>
-        </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <asp:Button ID="btnMoveProcuredRawMaterial" ValidationGroup="addAllocatesValidation" runat="server" Text="Move" OnClick="btnMoveProcuredRawMaterial_Click"/> &nbsp;&nbsp;
+                    <asp:Button ID="btnCancelProcuredRawMaterial" runat="server" Text="Cancel" OnClick="btnCancelProcuredRawMaterial_Click"/>
+                   
+                    </asp:Panel>
+    
+    </div>
     </form>
 </body>
 </html>

@@ -11,16 +11,13 @@
             <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../Index.aspx">Home</a></li>
+         <li><a href="../Index.aspx">Home</a></li>
         <li><a href="Default.aspx">Inventory Management - Home</a></li>
         <li><a href="Warehouse.aspx">Warehouse Details</a></li>
-          <li><a href="Inventory.aspx">Inventory Details</a></li>
-          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
-          <li><a href="RMInventory.aspx">RMInventory</a></li>
-          <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
-          <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
-          <
+        <li><a href="Location.aspx">Location Details</a></li>
+        <li><a href="StockPile.aspx">Inventory</a></li>
+        <li><a href="StockMovement.aspx">Stock Movement</a></li>
+        <li><a href="StockReconciliation.aspx">Stock Reconcile</a></li>
           
       </ul>
     </div>

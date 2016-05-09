@@ -30,13 +30,13 @@ namespace ClothingDBMS.ProcurementManagement
         {
             SqlUpdate.InsertParameters["Receipt_ID"].DefaultValue = DropDownReceipt_ID.SelectedValue;
             SqlUpdate.InsertParameters["Entry_ID"].DefaultValue = DropDownEntry_ID.SelectedValue;
-            SqlUpdate.InsertParameters["Required_Qty"].DefaultValue = txtRequired_Qty.Text.ToUpper().Trim();
+            SqlUpdate.InsertParameters["Received_Qty"].DefaultValue = txtReceived_Qty.Text.ToUpper().Trim();
             SqlUpdate.InsertParameters["Remaining_Qty"].DefaultValue = txtRemaining_Qty.Text.ToUpper().Trim();
             SqlUpdate.Insert();
             gvUpdates.DataBind();
             PaneladdUpdates.Visible = false;
             PanelgvUpdates.Visible = true;
-            txtRequired_Qty.Text = string.Empty;
+            txtReceived_Qty.Text = string.Empty;
             txtRemaining_Qty.Text = string.Empty;
             DropDownReceipt_ID.SelectedIndex = -1;
             DropDownEntry_ID.SelectedIndex = -1;

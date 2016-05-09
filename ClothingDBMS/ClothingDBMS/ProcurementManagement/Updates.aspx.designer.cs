@@ -13,13 +13,13 @@ namespace ClothingDBMS.ProcurementManagement {
     public partial class Updates {
         
         /// <summary>
-        /// form2 control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// SqlUpdate control.
@@ -139,22 +139,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.DropDownList DropDownEntry_ID;
         
         /// <summary>
-        /// lblRequired_Qty control.
+        /// lblReceived_Qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRequired_Qty;
+        protected global::System.Web.UI.WebControls.Label lblReceived_Qty;
         
         /// <summary>
-        /// txtRequired_Qty control.
+        /// txtReceived_Qty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRequired_Qty;
+        protected global::System.Web.UI.WebControls.TextBox txtReceived_Qty;
         
         /// <summary>
         /// lbRemaining_Qty control.
