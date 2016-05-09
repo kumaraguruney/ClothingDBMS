@@ -94,12 +94,12 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.Button btnProcuredRawMaterial;
         
         /// <summary>
-        /// Workorder control.
+        /// btnWorkorder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Workorder;
+        protected global::System.Web.UI.WebControls.Button btnWorkorder;
     }
 }

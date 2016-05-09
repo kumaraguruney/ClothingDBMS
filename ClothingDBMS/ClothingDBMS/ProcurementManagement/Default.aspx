@@ -55,7 +55,7 @@
                     <li><a class="page-scroll" href="Goods_Receipt.aspx">Goods Receipts</a> </li>
                     <li><a class="page-scroll" href="Updates.aspx">Updates</a> </li>
                     <li><a class="page-scroll" href="ProcuredRawMaterial.aspx">Procured Raw Material</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">Workorder</a> </li>
+                    
                     
                    
                 </ul>
@@ -109,9 +109,12 @@
           -&nbsp-&nbsp>&nbsp;
       
 
-             <asp:Button ID="Workorder" runat="server" CssClass="btn btn-primary btn-lg" Text="Procured Raw Material" Height="100" Width="160" OnClick="Workorder_Click" />
+             <asp:Button ID="btnWorkorder" runat="server" CssClass="btn btn-primary btn-lg" Text="Workorder" Height="100" Width="160" OnClick="Workorder_Click" />
+                     
+      
 
-
+             
+             
              <br /> <br /> <br />
 
 
