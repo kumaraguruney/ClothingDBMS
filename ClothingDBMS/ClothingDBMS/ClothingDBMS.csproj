@@ -186,12 +186,14 @@
     <Content Include="Index.aspx" />
     <Content Include="InventoryManagement\FinishedProduct.aspx" />
     <Content Include="InventoryManagement\Location.aspx" />
+    <Content Include="InventoryManagement\ProcuredRawMaterial.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
     <Content Include="InventoryManagement\ProductStockUpdate.aspx" />
     <Content Include="InventoryManagement\RMInventory.aspx" />
     <Content Include="InventoryManagement\RMStockUpdate.aspx" />
     <Content Include="InventoryManagement\stockmovement.aspx" />
     <Content Include="InventoryManagement\StockPile.aspx" />
+    <Content Include="InventoryManagement\StockReconciliation.aspx" />
     <Content Include="InventoryManagement\Warehouse.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -250,13 +252,17 @@
     <Content Include="ProductionManagement\Require.aspx" />
     <Content Include="ProductionManagement\Workorder.aspx" />
     <Content Include="ProductionManagement\Workschedule.aspx" />
+    <Content Include="SalesManagement\Contains.aspx" />
     <Content Include="SalesManagement\Customer.aspx" />
     <Content Include="SalesManagement\Default.aspx" />
     <Content Include="SalesManagement\Invoice.aspx" />
+    <Content Include="SalesManagement\ListingPrice.aspx" />
     <Content Include="SalesManagement\Payment.aspx" />
     <Content Include="SalesManagement\Quotation.aspx" />
+    <Content Include="SalesManagement\Quotes.aspx" />
     <Content Include="SalesManagement\SalesOrder.aspx" />
     <Content Include="SalesManagement\Shipment.aspx" />
+    <Content Include="SalesManagement\Ships.aspx" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Web.config" />
@@ -289,6 +295,13 @@
     </Compile>
     <Compile Include="InventoryManagement\Location.aspx.designer.cs">
       <DependentUpon>Location.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\ProcuredRawMaterial.aspx.cs">
+      <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\ProcuredRawMaterial.aspx.designer.cs">
+      <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\ProductInventory.aspx.cs">
       <DependentUpon>ProductInventory.aspx</DependentUpon>
@@ -331,6 +344,13 @@
     </Compile>
     <Compile Include="InventoryManagement\StockPile.aspx.designer.cs">
       <DependentUpon>StockPile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryManagement\StockReconciliation.aspx.cs">
+      <DependentUpon>StockReconciliation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryManagement\StockReconciliation.aspx.designer.cs">
+      <DependentUpon>StockReconciliation.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\Warehouse.aspx.cs">
       <DependentUpon>Warehouse.aspx</DependentUpon>
@@ -480,6 +500,13 @@
       <DependentUpon>Workschedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalesManagement\Contains.aspx.cs">
+      <DependentUpon>Contains.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Contains.aspx.designer.cs">
+      <DependentUpon>Contains.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\Customer.aspx.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -501,6 +528,13 @@
     <Compile Include="SalesManagement\Invoice.aspx.designer.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SalesManagement\ListingPrice.aspx.cs">
+      <DependentUpon>ListingPrice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\ListingPrice.aspx.designer.cs">
+      <DependentUpon>ListingPrice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -515,6 +549,13 @@
     <Compile Include="SalesManagement\Quotation.aspx.designer.cs">
       <DependentUpon>Quotation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SalesManagement\Quotes.aspx.cs">
+      <DependentUpon>Quotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Quotes.aspx.designer.cs">
+      <DependentUpon>Quotes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SalesManagement\SalesOrder.aspx.cs">
       <DependentUpon>SalesOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -528,6 +569,13 @@
     </Compile>
     <Compile Include="SalesManagement\Shipment.aspx.designer.cs">
       <DependentUpon>Shipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SalesManagement\Ships.aspx.cs">
+      <DependentUpon>Ships.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesManagement\Ships.aspx.designer.cs">
+      <DependentUpon>Ships.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

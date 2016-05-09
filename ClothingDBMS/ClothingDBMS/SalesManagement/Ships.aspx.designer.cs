@@ -10,7 +10,7 @@
 namespace ClothingDBMS.SalesManagement {
     
     
-    public partial class Quotes {
+    public partial class Ships {
         
         /// <summary>
         /// form1 control.
@@ -22,40 +22,22 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// SqlQotes control.
+        /// SqlShipments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlQotes;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlShipments;
         
         /// <summary>
-        /// SqlDataSourceProduct control.
+        /// SqlProductInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProduct;
-        
-        /// <summary>
-        /// SqlDataSourceQuotation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceQuotation;
-        
-        /// <summary>
-        /// SqlProduct control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlProduct;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProductInventory;
         
         /// <summary>
         /// lblQuotation control.
@@ -85,31 +67,22 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.Button btnAdd;
         
         /// <summary>
-        /// GridViewQuotation control.
+        /// SqlShips control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewQuotation;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlShips;
         
         /// <summary>
-        /// lblAmount control.
+        /// GridViewShips control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAmount;
-        
-        /// <summary>
-        /// lblTotalAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalAmount;
+        protected global::System.Web.UI.WebControls.GridView GridViewShips;
         
         /// <summary>
         /// panelAddQuotation control.
@@ -128,6 +101,33 @@ namespace ClothingDBMS.SalesManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblQuotationTitle;
+        
+        /// <summary>
+        /// lblCustomerId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerId;
+        
+        /// <summary>
+        /// dropShipmentID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropShipmentID;
+        
+        /// <summary>
+        /// rfvAllocatesTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAllocatesTime;
         
         /// <summary>
         /// lblProductId control.
@@ -175,13 +175,13 @@ namespace ClothingDBMS.SalesManagement {
         protected global::System.Web.UI.WebControls.TextBox Quantity;
         
         /// <summary>
-        /// rfvAllocatesTime control.
+        /// rfvCustomerId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAllocatesTime;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCustomerId;
         
         /// <summary>
         /// revAllocatesTime control.
@@ -191,15 +191,6 @@ namespace ClothingDBMS.SalesManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revAllocatesTime;
-        
-        /// <summary>
-        /// calpanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel calpanel;
         
         /// <summary>
         /// btnSave control.

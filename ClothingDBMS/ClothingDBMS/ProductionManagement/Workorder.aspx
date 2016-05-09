@@ -80,6 +80,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlProduct" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT Product.Product_ID, Design.Design_Name + ', ' + code_2.code_description + ', ' + Code.Code_Description + ', ' + code_1.Code_Description + ', ' + ISNULL(Product.Product_Description, ' ') AS Name FROM Product LEFT OUTER JOIN Design ON Design.Design_ID = Product.Design_ID LEFT OUTER JOIN Code ON Code.Code_ID = Product.Size LEFT OUTER JOIN Code AS code_1 ON code_1.Code_ID = Product.Color LEFT OUTER JOIN Code AS code_2 ON code_2.code_id = Design.Design_Section"></asp:SqlDataSource>
+<asp:SqlDataSource ID="SqlData" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [WorkOrder] ORDER BY [WorkOrder_ID]"></asp:SqlDataSource>
 <div style="margin-top:100px;" align="center">
                 <br />
                 <asp:Label ID="lbWorkOrderHeader" runat="server" Text="Work Order - Management" Font-Bold="true"></asp:Label> <br /> <br />
@@ -105,6 +106,13 @@
                             <asp:BoundField DataField="CreatedDate" DataFormatString="{0:MM/dd/yyyy}" HeaderText="CreatedDate" SortExpression="CreatedDate" />
                             <asp:BoundField DataField="DueDate" HeaderText="DueDate" SortExpression="DueDate" />
                             <asp:BoundField DataField="Submitted_By" HeaderText="Submitted_By" SortExpression="Submitted_By" />
+                            <asp:TemplateField HeaderText="RM Required"  ShowHeader="False">
+                                 <ItemTemplate>
+                                     <asp:LinkButton ID="lnkRequireds" runat="server" CausesValidation="False" ToolTip=" click to check the Raw Material Required for this Product" OnClick="lnkRequireds_Click"  Text="RM"></asp:LinkButton>
+                                 </ItemTemplate>
+                                
+                            </asp:TemplateField>
+                            
                             <asp:TemplateField HeaderText="Delete" ShowHeader="False">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkDelete" runat="server" CausesValidation="False" CommandName="Delete" OnClientClick="return confirm('Do you really want to delete?');" Text="Delete"></asp:LinkButton>

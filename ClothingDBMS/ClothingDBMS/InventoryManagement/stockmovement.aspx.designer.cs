@@ -40,6 +40,33 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlWarehouse;
         
         /// <summary>
+        /// SqlProductStockPile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProductStockPile;
+        
+        /// <summary>
+        /// SqlProductRMDropDownStockPile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlProductRMDropDownStockPile;
+        
+        /// <summary>
+        /// SqlRMStockPile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlRMStockPile;
+        
+        /// <summary>
         /// SqlFromWarehouse control.
         /// </summary>
         /// <remarks>
@@ -130,13 +157,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Panel PaneladdStockMovement;
         
         /// <summary>
-        /// rbIs_Product control.
+        /// rbStockMovement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rbIs_Product;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbStockMovement;
         
         /// <summary>
         /// lblAllocatesWarehouseDetails control.
@@ -157,13 +184,13 @@ namespace ClothingDBMS.InventoryManagement {
         protected global::System.Web.UI.WebControls.Label lblProduct;
         
         /// <summary>
-        /// ProductDropDownList control.
+        /// ProductRMDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ProductDropDownList;
+        protected global::System.Web.UI.WebControls.DropDownList ProductRMDownList;
         
         /// <summary>
         /// lblWarehouse control.
@@ -281,6 +308,15 @@ namespace ClothingDBMS.InventoryManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ToQuantityTextBox;
+        
+        /// <summary>
+        /// QuantityValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator QuantityValidator;
         
         /// <summary>
         /// btnMoveStockMovement control.
