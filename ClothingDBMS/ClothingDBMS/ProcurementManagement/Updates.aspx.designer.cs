@@ -121,22 +121,22 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.DropDownList DropDownReceipt_ID;
         
         /// <summary>
-        /// lbIEntry_ID control.
+        /// lbIDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbIEntry_ID;
+        protected global::System.Web.UI.WebControls.Label lbIDate;
         
         /// <summary>
-        /// DropDownEntry_ID control.
+        /// txtDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownEntry_ID;
+        protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
         /// lblReceived_Qty control.

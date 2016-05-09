@@ -63,7 +63,25 @@
         </div>
     </div>
 
-        <asp:SqlDataSource ID="SqlProcuredRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProcuredRawMaterial]">
+        <asp:SqlDataSource ID="SqlProcuredRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProcuredRawMaterial]" DeleteCommand="DELETE FROM [ProcuredRawMaterial] WHERE [Batch_ID] = @Batch_ID" InsertCommand="INSERT INTO [ProcuredRawMaterial] ([RawMaterial_ID], [Procured_Date], [Quantity], [Available_Quantity], [Is_Stock_Piled]) VALUES (@RawMaterial_ID, @Procured_Date, @Quantity, @Available_Quantity, @Is_Stock_Piled)" UpdateCommand="UPDATE [ProcuredRawMaterial] SET [RawMaterial_ID] = @RawMaterial_ID, [Procured_Date] = @Procured_Date, [Quantity] = @Quantity, [Available_Quantity] = @Available_Quantity, [Is_Stock_Piled] = @Is_Stock_Piled WHERE [Batch_ID] = @Batch_ID">
+            <DeleteParameters>
+                <asp:Parameter Name="Batch_ID" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="Procured_Date" Type="String" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Available_Quantity" Type="Int32" />
+                <asp:Parameter Name="Is_Stock_Piled" Type="Boolean" />
+            </InsertParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
+                <asp:Parameter Name="Procured_Date" Type="String" />
+                <asp:Parameter Name="Quantity" Type="Int32" />
+                <asp:Parameter Name="Available_Quantity" Type="Int32" />
+                <asp:Parameter Name="Is_Stock_Piled" Type="Boolean" />
+                <asp:Parameter Name="Batch_ID" Type="Int32" />
+            </UpdateParameters>
         </asp:SqlDataSource>
           <div  style="margin-top:200px;" align="center">
         <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT RawMaterial.RawMaterial_ID, RawMaterial.RawMaterial_Name + ',' + Code.Code_Description + ', ' + RawMaterial.RawMaterial_Description AS RawMaterial_Name FROM RawMaterial LEFT OUTER JOIN Code ON Code.Code_ID = RawMaterial.RawMaterial_Color"></asp:SqlDataSource>
