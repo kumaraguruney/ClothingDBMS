@@ -24,15 +24,14 @@ namespace ClothingDBMS.SalesManagement
 
             SqlQotes.InsertParameters["QOquantity"].DefaultValue = Quantity.Text;
             SqlQotes.InsertParameters["Product_Id"].DefaultValue = dropProductId.SelectedValue;
-            SqlQotes.InsertParameters["Quotation_Number"].DefaultValue = dropQotationNum.SelectedValue;
-
+            SqlQotes.InsertParameters["Quotation_Number"].DefaultValue = (string)Session["Quotation_number"];
+            SqlQotes.InsertParameters["SOquantity"].DefaultValue = Quantity.Text;
             SqlQotes.Insert();
             GridViewQuotation.DataBind();
             panelAddQuotation.Visible = false;
             panelSaveQuotation.Visible = true;
             Quantity.Text = string.Empty;
-            dropProductId.SelectedIndex = 0;
-            dropQotationNum.SelectedIndex = 0;
+            dropProductId.SelectedIndex = -1;
 
         }
 
@@ -43,8 +42,7 @@ namespace ClothingDBMS.SalesManagement
             panelAddQuotation.Visible = false;
             panelSaveQuotation.Visible = true;
             Quantity.Text = string.Empty;
-            dropProductId.SelectedIndex = 0;
-            dropQotationNum.SelectedIndex = 0;
+            dropProductId.SelectedIndex = -1;
         }
 
         int total = 0;

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SalesManagement.Sales
+namespace ClothingDBMS.SalesManagement
 {
     public partial class SalesOrder : System.Web.UI.Page
     {
@@ -13,54 +13,17 @@ namespace SalesManagement.Sales
         {
 
         }
-        protected void btnAdd_Click(object sender, EventArgs e)
+       
+        protected void btnOpenQuotation_Click(object sender, EventArgs e)
         {
-            panelAddSalesOrder.Visible = true;
-            panelSaveSalesOrder.Visible = false;
-        }
-
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
-            SqlDataSourceSalesOrder.InsertParameters["Quotation_Number"].DefaultValue = dropQuotationNumber.SelectedValue;
-            SqlDataSourceSalesOrder.InsertParameters["Sorder_Date"].DefaultValue = txtSODate.Text.Trim();
-            SqlDataSourceSalesOrder.InsertParameters["Due_Date"].DefaultValue = txtSODueDate.Text.Trim();
-           
-            SqlDataSourceSalesOrder.InsertParameters["Late_Fee"].DefaultValue = LateFee.Text.Trim();
-            SqlDataSourceSalesOrder.Insert();
-            GridViewSalesOrder.DataBind();
-            panelAddSalesOrder.Visible = false;
-            panelSaveSalesOrder.Visible = true;
-            dropQuotationNumber.SelectedIndex = 0;
-         
-
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            panelAddSalesOrder.Visible = false;
-            panelSaveSalesOrder.Visible = true;
-        }
-        protected void calSODueDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtSODueDate.Text = calDueDate.SelectedDate.ToShortDateString();
-            calpanel.Visible = false;
-        }
-
-        protected void calingSODueDate_Click(object sender, ImageClickEventArgs e)
-        {
-            calpanel.Visible = true;
-        }
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string pk = GridViewSalesOrder.DataKeys[row.RowIndex].Values[0].ToString();
+            Session["Quotation_number"] = pk;
 
 
-        protected void calSODate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtSODate.Text = calSODate.SelectedDate.ToShortDateString();
-            calpanel1.Visible = false;
-        }
+            Response.Redirect("contains.aspx");
 
-        protected void calingSODate_Click(object sender, ImageClickEventArgs e)
-        {
-            calpanel1.Visible = true;
         }
     }
 }

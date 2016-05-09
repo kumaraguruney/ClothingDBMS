@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
-namespace SalesManagement.Sales
+namespace ClothingDBMS.SalesManagement
 {
     public partial class Shipment : System.Web.UI.Page
     {
@@ -14,58 +15,40 @@ namespace SalesManagement.Sales
 
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
+        protected void btnUpdateInv_Click(object sender, EventArgs e)
         {
-            panelAddShipment.Visible = true;
-            panelSaveShipment.Visible = false;
-        }
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string pk = GridViewSalesOrder.DataKeys[row.RowIndex].Values[0].ToString();
+            Session["Quotation_number"] = pk;
+            Response.Redirect("ships.aspx");
 
-        protected void btnSave_Click(object sender, EventArgs e)
-        {
-            
-            SqlDataSourceShipment.InsertParameters["Customer_Id"].DefaultValue = dropCustomerId.SelectedValue;
-            SqlDataSourceShipment.InsertParameters["Inventory_Id"].DefaultValue = dropInventoryId.SelectedValue;
-            SqlDataSourceShipment.InsertParameters["Sorder_Number"].DefaultValue = dropSalesOrderNo.SelectedValue;
-            SqlDataSourceShipment.InsertParameters["Shipment_Date"].DefaultValue = txtShip.Text.Trim();
-            SqlDataSourceShipment.InsertParameters["Due_Date"].DefaultValue = txtDue.Text.Trim();
-            SqlDataSourceShipment.Insert();
-            GridViewShipment.DataBind();
-            panelAddShipment.Visible = false;
-            panelSaveShipment.Visible = true;
-            dropCustomerId.SelectedIndex = 0;
-            dropInventoryId.SelectedIndex = 0;
-            dropSalesOrderNo.SelectedIndex = 0;
 
         }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void btnUpdateShip_Click(object sender, EventArgs e)
         {
-            panelAddShipment.Visible = false;
-            panelSaveShipment.Visible = true;
-        }
+            LinkButton btn = sender as LinkButton;
+            GridViewRow row = btn.NamingContainer as GridViewRow;
+            string pk = GridViewSalesOrder.DataKeys[row.RowIndex].Values[0].ToString();
+            Session["Quotation_number"] = pk;
+
+            SqlData.SelectCommand = "SELECT Quotes_ID From Quotes where ISNULL(Is_InventoryUpd,0) = 'false' and Quotes.Quotation_Number='"+ pk + "'";
+            DataSourceSelectArguments dsArguments = new DataSourceSelectArguments();
+            DataView dvView = new DataView();
+            dvView = (DataView)SqlData.Select(dsArguments);
+            int count = dvView.Count;
+            if (count == 0)
+            {
+                SqlQuotationUpdate.UpdateParameters["Is_Shipped"].DefaultValue = "TRUE";
+                SqlQuotationUpdate.UpdateParameters["Quotation_Number"].DefaultValue = pk;
+                SqlQuotationUpdate.Update();
+                GridViewSalesOrder.DataBind();
+            }
+            else
+                Response.Redirect("Ships.aspx");
 
 
 
-        protected void calShipDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtShip.Text = calShip.SelectedDate.ToShortDateString();
-            calpanel.Visible = false;
-        }
-
-        protected void calingShip_Click(object sender, ImageClickEventArgs e)
-        {
-            calpanel.Visible = true;
-        }
-
-        protected void calDueDate_SelectionChanged(object sender, EventArgs e)
-        {
-            txtDue.Text = calDue.SelectedDate.ToShortDateString();
-            calpanel1.Visible = false;
-        }
-
-        protected void calingDue_Click(object sender, ImageClickEventArgs e)
-        {
-            calpanel1.Visible = true;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ClothingDBMS.ProductionManagement
+namespace ClothingDBMS.InventoryManagement
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -14,44 +14,31 @@ namespace ClothingDBMS.ProductionManagement
 
         }
 
-        protected void btnRawMaterial_Click(object sender, EventArgs e)
+        protected void btnWarehouse_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Rawmaterial.aspx");
+            Response.Redirect("Warehouse.aspx");
         }
 
-        protected void btnMachinery_Click(object sender, EventArgs e)
+        protected void btnLocation_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Machinery.aspx");
+            Response.Redirect("Location.aspx");
         }
 
-        protected void btnProduct_Click(object sender, EventArgs e)
+        protected void btnInventory_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Product.aspx");
+            Response.Redirect("StockPile.aspx");
         }
 
-        protected void btnWorkOrder_Click(object sender, EventArgs e)
+        protected void btnStock_Movement_Click(object sender, EventArgs e)
         {
-            Response.Redirect("WorkOrder.aspx");
+            Response.Redirect("Stockmovement.aspx");
         }
 
-        protected void btnWorkSchedule_Click(object sender, EventArgs e)
+        protected void btnStock_Reconciliation_Click(object sender, EventArgs e)
         {
-            Response.Redirect("workschedule.aspx");
+            Response.Redirect("StockReconciliation.aspx");
         }
 
-        protected void btnFinishedProduct_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("FinishedProduct.aspx");
-        }
 
-        protected void btnDesign_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Design.aspx");
-        }
-
-        protected void btnEmployee_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Employee.aspx");
-        }
     }
 }
