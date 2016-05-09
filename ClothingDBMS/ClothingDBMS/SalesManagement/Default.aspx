@@ -50,10 +50,14 @@
           <li><a class="page-scroll" href="Default.aspx">Sales Managment - Home</a></li>
           <li><a class="page-scroll" href="Customer.aspx">Customer</a></li>
           <li><a class="page-scroll" href="Quotation.aspx">Quotation</a></li>
+          <li><a class="page-scroll" href="Quotes.aspx">Quotes</a></li>          
           <li><a class="page-scroll" href="SalesOrder.aspx">Sales Order</a></li>
+          <li><a class="page-scroll" href="Contains.aspx">Contains</a></li>
           <li><a class="page-scroll" href="Shipment.aspx">Shipment</a></li>
+                    <li><a class="page-scroll" href="Ships.aspx">Ships</a></li>
           <li><a class="page-scroll" href="Invoice.aspx">Invoice</a></li>
           <li><a class="page-scroll" href="Payment.aspx">Payment</a></li>
+          <li><a class="page-scroll" href="ListingPrice.aspx">Listing Price</a></li> 
                 </ul>
             </div>
         </div>

@@ -4,60 +4,92 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Procured Raw Material</title>
+                   <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Kumaraguru" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../css/the-big-picture.css" rel="stylesheet" />
+    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- ============ Google fonts ============ -->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
+        type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
+        rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <form id="form2" runat="server">
-            <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Inventory Management - Home</a></li>
-        <li><a href="Warehouse.aspx">Warehouse Details</a></li>
-          <li><a href="Inventory.aspx">Inventory Details</a></li>
-          <li><a href="ProductInventory.aspx">ProductInventory</a></li>
-          <li><a href="RMInventory.aspx">RMInventory</a></li>
-            <li><a href="StockMovement.aspx">Stock Movement</a></li>
-          <li><a href="ProductStockUpdate.aspx">Product Stock Update</a></li>
-          <li><a href="RMStockUpdate.aspx">RM Stock Update</a></li>
-        
-          
-      </ul>
+
+         <form id="form1" runat="server">
+            <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="Default.aspx">Procurement Management - Home</a> </li>
+                    <li><a class="page-scroll" href="Supplier.aspx">Supplier</a> </li>
+                    <li><a class="page-scroll" href="Supplier_Quotation.aspx">Supplier Quotation</a> </li>
+                    <li><a class="page-scroll" href="provides.aspx">Provides</a> </li>
+                    <li><a class="page-scroll" href="Orders.aspx">Orders</a> </li>
+                    <li><a class="page-scroll" href="Purchase_Order.aspx">Purchase Order</a> </li>
+                    <li><a class="page-scroll" href="Goods_Receipt.aspx">Goods Receipts</a> </li>
+                    <li><a class="page-scroll" href="Updates.aspx">Updates</a> </li>
+                    <li><a class="page-scroll" href="ProcuredRawMaterial.aspx">Procured Raw Material</a> </li>
+                    
+                   
+                </ul>
+            </div>
+        </div>
     </div>
-  </nav>
-        <asp:SqlDataSource ID="SqlProcuredRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT ProcuredRawMaterial.RM_Batch_ID, ProcuredRawMaterial.RawMaterial_ID, ProcuredRawMaterial.Procured_Date, ProcuredRawMaterial.Quantity, ProcuredRawMaterial.Is_Stock_Piled, RawMaterial.RawMaterial_Name + ', ' + RawMaterial.RawMaterial_Description AS RawMaterialName FROM ProcuredRawMaterial LEFT OUTER JOIN RawMaterial ON RawMaterial.RawMaterial_ID = ProcuredRawMaterial.RawMaterial_ID ORDER BY ProcuredRawMaterial.RM_Batch_ID" DeleteCommand="DELETE FROM [ProcuredRawMaterial] WHERE [RM_Batch_ID] = @RM_Batch_ID" InsertCommand="INSERT INTO [ProcuredRawMaterial] ([RawMaterial_ID], [Procured_Date], [Quantity], [Is_Stock_Piled]) VALUES (@RawMaterial_ID, @Procured_Date, @Quantity, @Is_Stock_Piled)" UpdateCommand="UPDATE [ProcuredRawMaterial] SET [RawMaterial_ID] = @RawMaterial_ID, [Procured_Date] = @Procured_Date, [Quantity] = @Quantity, [Is_Stock_Piled] = @Is_Stock_Piled WHERE [RM_Batch_ID] = @RM_Batch_ID">
-            <DeleteParameters>
-                <asp:Parameter Name="RM_Batch_ID" Type="Int32" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
-                <asp:Parameter Name="Procured_Date" Type="String" />
-                <asp:Parameter Name="Quantity" Type="Int32" />
-                <asp:Parameter Name="Is_Stock_Piled" Type="Boolean" />
-            </InsertParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
-                <asp:Parameter Name="Procured_Date" Type="String" />
-                <asp:Parameter Name="Quantity" Type="Int32" />
-                <asp:Parameter Name="Is_Stock_Piled" Type="Boolean" />
-                <asp:Parameter Name="RM_Batch_ID" Type="Int32" />
-            </UpdateParameters>
+
+        <asp:SqlDataSource ID="SqlProcuredRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [ProcuredRawMaterial]">
         </asp:SqlDataSource>
-          <div align="center">
+          <div  style="margin-top:200px;" align="center">
         <asp:SqlDataSource ID="SqlRawMaterial" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT RawMaterial.RawMaterial_ID, RawMaterial.RawMaterial_Name + ',' + Code.Code_Description + ', ' + RawMaterial.RawMaterial_Description AS RawMaterial_Name FROM RawMaterial LEFT OUTER JOIN Code ON Code.Code_ID = RawMaterial.RawMaterial_Color"></asp:SqlDataSource>
                 <br />
                 <asp:Label ID="lblProcuredRawMaterial" runat="server" Text="Procured Raw Material Details" Font-Bold="True"></asp:Label> <br />
                 <asp:Panel ID="PanelgvProcuredRawMaterial" runat="server" style="margin-top: 0px">
                     <asp:Button ID="btnaddProcuredRawMaterial" runat="server" Text="Add" OnClick="btnaddProcuredRawMaterial_Click"/>
-                    <asp:GridView ID="gvProcuredRawMaterial" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProcuredRawMaterial" AutoGenerateColumns="False" DataKeyNames="RM_Batch_ID">
+                    <asp:GridView ID="gvProcuredRawMaterial" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlProcuredRawMaterial" AutoGenerateColumns="False" DataKeyNames="Batch_ID" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
                         <Columns>
-                            <asp:CommandField ShowEditButton="True" />
-                            <asp:BoundField DataField="RM_Batch_ID" HeaderText="RM_Batch_ID" ReadOnly="True" SortExpression="RM_Batch_ID" InsertVisible="False" />
+                            <asp:BoundField DataField="Batch_ID" HeaderText="Batch_ID" ReadOnly="True" SortExpression="Batch_ID" InsertVisible="False" />
                             <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
-                             <asp:BoundField DataField="RawMaterialName" HeaderText="RawMaterialName" ReadOnly="True" SortExpression="RawMaterialName" />
                              <asp:BoundField DataField="Procured_Date" HeaderText="Procured_Date" SortExpression="Procured_Date" />
-                            <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                            <asp:BoundField DataField="Available_Quantity" HeaderText="Available_Quantity" SortExpression="Available_Quantity" />
+                            <asp:CheckBoxField DataField="Is_Stock_Piled" HeaderText="Is_Stock_Piled" SortExpression="Is_Stock_Piled" />
                         </Columns>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <EditRowStyle BackColor="Yellow"/>
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
+                        <EditRowStyle BackColor="Yellow"/>
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>

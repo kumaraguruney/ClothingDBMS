@@ -4,21 +4,66 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Orders</title>
+                <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Kumaraguru" />
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="../css/the-big-picture.css" rel="stylesheet" />
+    <link href="../css/font-icon.css" rel="stylesheet" type="text/css" />
+    <link href="../css/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+    <link href="../css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.min.css" rel="stylesheet" type="text/css" />
+    <!-- ============ Google fonts ============ -->
+    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
+        type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
+        rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-    <form id="form2" runat="server">
-        <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="../Index.aspx">Home</a></li>
-        <li><a href="Default.aspx">Procurement Management - Home</a></li>
-        <li><a href="Supplier.aspx">Supplier</a></li>
-          <li><a href="Supplier_Quotation.aspx">Supplier Quotation</a></li>
-          
-      </ul>
+
+        <form id="form1" runat="server">
+            <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="../Index.aspx">NTL</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                        class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="page-scroll" href="Default.aspx">Procurement Management - Home</a> </li>
+                    <li><a class="page-scroll" href="Supplier.aspx">Supplier</a> </li>
+                    <li><a class="page-scroll" href="Supplier_Quotation.aspx">Supplier Quotation</a> </li>
+                    <li><a class="page-scroll" href="provides.aspx">Provides</a> </li>
+                    <li><a class="page-scroll" href="Orders.aspx">Orders</a> </li>
+                    <li><a class="page-scroll" href="Purchase_Order.aspx">Purchase Order</a> </li>
+                    <li><a class="page-scroll" href="Goods_Receipt.aspx">Goods Receipts</a> </li>
+                    <li><a class="page-scroll" href="Updates.aspx">Updates</a> </li>
+                    <li><a class="page-scroll" href="ProcuredRawMaterial.aspx">Procured Raw Material</a> </li>
+                    
+                   
+                </ul>
+            </div>
+        </div>
     </div>
-  </nav>
+
+
         <asp:SqlDataSource ID="SqlOrders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [Order_ID]" DeleteCommand="DELETE FROM [Orders] WHERE [Order_ID] = @Order_ID" InsertCommand="INSERT INTO [Orders] ([RawMaterial_ID], [purchase_order_ID], [Quantity], [Unit_Price], [Entry_ID]) VALUES (@RawMaterial_ID, @purchase_order_ID, @Quantity, @Unit_Price, @Entry_ID)" UpdateCommand="UPDATE [Orders] SET [RawMaterial_ID] = @RawMaterial_ID, [purchase_order_ID] = @purchase_order_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price, [Entry_ID] = @Entry_ID WHERE [Order_ID] = @Order_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Order_ID" Type="Int16" />
@@ -40,7 +85,7 @@
             </UpdateParameters>
         </asp:SqlDataSource>
 
-            <div align="center">
+            <div style="margin-top:200px;" align="center">
         <asp:SqlDataSource ID="SqlPurchaseOrder" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [purchase_order] ORDER BY [purchase_order_id]">
         </asp:SqlDataSource>
 
@@ -77,6 +122,7 @@
                 <asp:Panel ID="PanelgvOrders" runat="server">
                     
                     <asp:GridView ID="gvOrders" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlOrders" AutoGenerateColumns="False" DataKeyNames="Order_ID">
+                        <AlternatingRowStyle BackColor="#CCCCCC" />
                         <Columns>
                             <asp:BoundField DataField="Order_ID" HeaderText="Order_ID" SortExpression="Order_ID" InsertVisible="False" ReadOnly="True" />
                             <asp:BoundField DataField="RawMaterial_ID" HeaderText="RawMaterial_ID" SortExpression="RawMaterial_ID" />
@@ -85,6 +131,15 @@
                             <asp:BoundField DataField="Unit_Price" HeaderText="Unit_Price" SortExpression="Unit_Price" />
                             <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" SortExpression="Entry_ID" />
                         </Columns>
+                        <FooterStyle BackColor="#CCCCCC" />
+                        <EditRowStyle BackColor="Yellow"/>
+                        <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                        <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                        <SortedAscendingHeaderStyle BackColor="#808080" />
+                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                        <SortedDescendingHeaderStyle BackColor="#383838" />
                         <EditRowStyle BackColor="Yellow"/>
                     </asp:GridView>
                    </asp:Panel>

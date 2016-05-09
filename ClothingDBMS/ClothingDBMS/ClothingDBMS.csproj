@@ -187,6 +187,7 @@
     <Content Include="InventoryManagement\Default.aspx" />
     <Content Include="InventoryManagement\FinishedProduct.aspx" />
     <Content Include="InventoryManagement\Location.aspx" />
+    <Content Include="ProcurementManagement\ProcuredRawMaterial.aspx" />
     <Content Include="InventoryManagement\ProductInventory.aspx" />
     <Content Include="InventoryManagement\ProductStockUpdate.aspx" />
     <Content Include="InventoryManagement\RMInventory.aspx" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="InventoryManagement\Location.aspx.designer.cs">
       <DependentUpon>Location.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProcurementManagement\ProcuredRawMaterial.aspx.cs">
+      <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProcurementManagement\ProcuredRawMaterial.aspx.designer.cs">
+      <DependentUpon>ProcuredRawMaterial.aspx</DependentUpon>
     </Compile>
     <Compile Include="InventoryManagement\ProductInventory.aspx.cs">
       <DependentUpon>ProductInventory.aspx</DependentUpon>
