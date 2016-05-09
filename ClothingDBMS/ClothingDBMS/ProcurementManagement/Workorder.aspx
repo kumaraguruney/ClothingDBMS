@@ -46,15 +46,7 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="Default.aspx">Production - Home</a> </li>
-                    <li><a class="page-scroll" href="Rawmaterial.aspx">Raw Material</a> </li>
-                    <li><a class="page-scroll" href="Product.aspx">Product</a> </li>
-                    <li><a class="page-scroll" href="Design.aspx">Design</a> </li>
-                    <li><a class="page-scroll" href="Workorder.aspx">Work Order</a> </li>
-                    <li><a class="page-scroll" href="WorkSchedule.aspx">Work Schedule</a> </li>
-                    <li><a class="page-scroll" href="FinishedProduct.aspx">Finished Products</a> </li>
-                    <li><a class="page-scroll" href="Machinery.aspx">Machinery</a> </li>
-                    <li><a class="page-scroll" href="Employee.aspx">Employee</a> </li>
+                    <li><a class="page-scroll" href="Default.aspx">Procurement - Home</a> </li>
                 </ul>
             </div>
         </div>

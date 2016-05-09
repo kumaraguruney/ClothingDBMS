@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductionManagement.ProductionManagement {
+namespace ProcurementManagement.ProcurementManagement {
     
     
     public partial class Workorder {

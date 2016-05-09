@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Workorder.aspx.cs" Inherits="ProductionManagement.ProductionManagement.Workorder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Workorder.aspx.cs" Inherits="ProcurementManagement.ProcurementManagement.Workorder" %>
 
 <!DOCTYPE html>
 
