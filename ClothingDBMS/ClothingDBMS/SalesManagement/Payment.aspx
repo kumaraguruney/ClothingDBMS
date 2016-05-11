@@ -64,7 +64,7 @@
     </div>
         <asp:SqlDataSource ID="SqlDataSourceInvoice" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [QUOTATION] ORDER BY [Quotation_Number]"></asp:SqlDataSource>
        
-         <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Payment_Date], [Acct_Id], [Status_Info], [Invoice_Number]) VALUES (@Payment_Date, @Acct_Id, @Status_Info, @Invoice_Number)" UpdateCommand="UPDATE [PAYMENT] SET [Payment_Date] = @Payment_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info, [Invoice_Number] = @Invoice_Number WHERE [Payment_Id] = @Payment_Id">
+         <asp:SqlDataSource ID="SqlDataSourcePayment" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [PAYMENT]" DeleteCommand="DELETE FROM [PAYMENT] WHERE [Payment_Id] = @Payment_Id" InsertCommand="INSERT INTO [PAYMENT] ([Payment_Date], [Acct_Id], [Status_Info], [Quotation_Number]) VALUES (@Payment_Date, @Acct_Id, @Status_Info, @Quotation_Number)" UpdateCommand="UPDATE [PAYMENT] SET [Payment_Date] = @Payment_Date, [Acct_Id] = @Acct_Id, [Status_Info] = @Status_Info, [Quotation_Number] = @Quotation_Number WHERE [Payment_Id] = @Payment_Id">
              <DeleteParameters>
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
              </DeleteParameters>
@@ -72,13 +72,13 @@
                  <asp:Parameter Name="Payment_Date" Type="String" />
                  <asp:Parameter Name="Acct_Id" Type="Int32" />
                  <asp:Parameter Name="Status_Info" Type="String" />
-                 <asp:Parameter Name="Invoice_Number" Type="Int32" />
+                 <asp:Parameter Name="Quotation_Number" Type="Int32" />
              </InsertParameters>
              <UpdateParameters>
                  <asp:Parameter Name="Payment_Date" Type="String" />
                  <asp:Parameter Name="Acct_Id" Type="Int32" />
                  <asp:Parameter Name="Status_Info" Type="String" />
-                 <asp:Parameter Name="Invoice_Number" Type="Int32" />
+                 <asp:Parameter Name="Quotation_Number" Type="Int32" />
                  <asp:Parameter Name="Payment_Id" Type="Int32" />
              </UpdateParameters>
          </asp:SqlDataSource>
@@ -90,23 +90,15 @@
             <asp:GridView ID="GridViewPayment" runat="server" AutoGenerateColumns="False" DataKeyNames="Payment_Id" DataSourceID="SqlDataSourcePayment" AllowSorting="True"  BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
             <Columns>
               
-                <asp:BoundField DataField="Payment_Id" HeaderText="Payment Id" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
+                <asp:BoundField DataField="Payment_Id" HeaderText="Payment_Id" ReadOnly="True" SortExpression="Payment_Id" InsertVisible="False" />
 
-                <asp:BoundField DataField="Payment_Date" HeaderText="Payment Date" SortExpression="Payment_Date" />
+                <asp:BoundField DataField="Payment_Date" HeaderText="Payment_Date" SortExpression="Payment_Date" />
 
-                <asp:BoundField DataField="Acct_Id" HeaderText="Account Number" SortExpression="Acct_Id" />
+                <asp:BoundField DataField="Acct_Id" HeaderText="Acct_Id" SortExpression="Acct_Id" />
 
-                <asp:BoundField DataField="Status_Info" HeaderText="Status Info" SortExpression="Status_Info" />
+                <asp:BoundField DataField="Status_Info" HeaderText="Status_Info" SortExpression="Status_Info" />
                  
-                               <asp:TemplateField HeaderText="Invoice Number" SortExpression="Invoice_Number">
-                                <EditItemTemplate>
-                                    <asp:DropDownList ID="dropInvoiceId" runat="server" DataSourceID="SqlDataSourceInvoice" DataTextField="Invoice_Number" DataValueField="Invoice_Number" SelectedValue='<%# Bind("Invoice_Number") %>'>
-                                    </asp:DropDownList>
-                                </EditItemTemplate>
-                                <ItemTemplate>
-                                    <asp:Label ID="lblInvoiceNumber" runat="server" Text='<%# Bind("Invoice_Number") %>'></asp:Label>
-                                </ItemTemplate>
-                            </asp:TemplateField>
+                               <asp:BoundField DataField="Quotation_Number" HeaderText="Invoice #" SortExpression="Quotation_Number" />
             </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>

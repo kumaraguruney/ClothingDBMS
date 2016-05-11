@@ -24,7 +24,7 @@ namespace SalesManagement.Sales
             SqlDataSourcePayment.InsertParameters["Acct_Id"].DefaultValue = Acct_Id.Text;
             SqlDataSourcePayment.InsertParameters["Status_Info"].DefaultValue = PaymentStatus.SelectedValue;
             SqlDataSourcePayment.InsertParameters["Payment_Date"].DefaultValue = txtPayment.Text.Trim();
-            SqlDataSourcePayment.InsertParameters["Invoice_Number"].DefaultValue = DropDownInvoice.SelectedValue;
+            SqlDataSourcePayment.InsertParameters["Quotation_Number"].DefaultValue = DropDownInvoice.SelectedValue;
 
             SqlDataSourcePayment.Insert();
             GridViewPayment.DataBind();
