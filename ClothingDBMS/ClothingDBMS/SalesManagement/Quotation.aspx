@@ -138,6 +138,9 @@
               <br />
               <asp:Label ID="lblQuotationDate" runat="server" Text="Quotation Date: " Width="150" />
               <asp:TextBox ID="txtQuotation" runat="server" ReadOnly="false" Width="230"></asp:TextBox>
+              <br />
+              <asp:RequiredFieldValidator ID="rfvQuotationDate" runat="server" ControlToValidate="txtQuotation" ErrorMessage="(*) Quotation Date should be selected" ForeColor="Red" ValidationGroup="addQuotationValidation"></asp:RequiredFieldValidator>
+              
               &nbsp;<asp:ImageButton ID="calingQuotation" runat="server" height="30px" ImageUrl="~/img/calender.png" OnClick="calingQuotation_Click" Width="25px" />
               <asp:Panel ID="calpanel" runat="server" Visible="false">
                   <asp:Calendar ID="calQuotation" runat="server" OnSelectionChanged="calQuotation_SelectionChanged"></asp:Calendar>

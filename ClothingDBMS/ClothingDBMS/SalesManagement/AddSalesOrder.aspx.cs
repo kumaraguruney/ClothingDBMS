@@ -33,6 +33,7 @@ namespace SalesManagement.Sales
         {
             txtSODueDate.Text = string.Empty;
             LateFee.Text = string.Empty;
+            Response.Redirect("SalesOrder.aspx");
 
         }
         protected void calSODueDate_SelectionChanged(object sender, EventArgs e)
