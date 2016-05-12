@@ -153,10 +153,7 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        <asp:Label ID="lblEntry_ID" runat="server" Text="Entry_ID: " Width="150px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="Entry_IDDropDownList" runat="server" DataSourceID="SqlStockPile" DataTextField="Entry_ID" DataValueField="Entry_ID" Height="29px" Width="151px">
-                        </asp:DropDownList>
                         <br />
                         <br />
                         <asp:Label ID="lblPurchase_Order_ID" runat="server" Text="Purchase_Order_ID: " Width="150px" />

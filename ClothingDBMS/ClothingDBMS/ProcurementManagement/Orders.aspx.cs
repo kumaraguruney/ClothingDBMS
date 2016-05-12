@@ -30,7 +30,7 @@ namespace ClothingDBMS.ProcurementManagement
         {
             SqlOrders.InsertParameters["PurchaseOrder_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
             SqlOrders.InsertParameters["RawMaterial_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
-            SqlOrders.InsertParameters["Entry_ID"].DefaultValue = Entry_IDDropDownList.SelectedValue;
+           
 
             SqlOrders.Insert();
             gvOrders.DataBind();
@@ -38,8 +38,7 @@ namespace ClothingDBMS.ProcurementManagement
             PanelgvOrders.Visible = true;
             RawMaterial_IDDropDownList.SelectedIndex = -1;
             PurchaseOrder_IDDropDownList.SelectedIndex = -1;
-            Entry_IDDropDownList.SelectedIndex = -1;
-
+           
         }
     }
 

@@ -130,24 +130,6 @@ namespace ClothingDBMS.ProcurementManagement {
         protected global::System.Web.UI.WebControls.DropDownList RawMaterial_IDDropDownList;
         
         /// <summary>
-        /// lblEntry_ID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEntry_ID;
-        
-        /// <summary>
-        /// Entry_IDDropDownList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Entry_IDDropDownList;
-        
-        /// <summary>
         /// lblPurchase_Order_ID control.
         /// </summary>
         /// <remarks>
