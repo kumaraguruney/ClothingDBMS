@@ -148,6 +148,15 @@ namespace SalesManagement.Sales {
         protected global::System.Web.UI.WebControls.TextBox txtQuotation;
         
         /// <summary>
+        /// rfvQuotationDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuotationDate;
+        
+        /// <summary>
         /// calingQuotation control.
         /// </summary>
         /// <remarks>
