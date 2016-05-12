@@ -64,7 +64,7 @@
     </div>
 
 
-        <asp:SqlDataSource ID="SqlOrders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [Order_ID]" DeleteCommand="DELETE FROM [Orders] WHERE [Order_ID] = @Order_ID" InsertCommand="INSERT INTO [Orders] ([RawMaterial_ID], [purchase_order_ID], [Quantity], [Unit_Price], [Entry_ID]) VALUES (@RawMaterial_ID, @purchase_order_ID, @Quantity, @Unit_Price, @Entry_ID)" UpdateCommand="UPDATE [Orders] SET [RawMaterial_ID] = @RawMaterial_ID, [purchase_order_ID] = @purchase_order_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price, [Entry_ID] = @Entry_ID WHERE [Order_ID] = @Order_ID">
+        <asp:SqlDataSource ID="SqlOrders" runat="server" ConnectionString="<%$ ConnectionStrings:clothingDBMSConnectionString %>" SelectCommand="SELECT * FROM [Orders] ORDER BY [Order_ID]" DeleteCommand="DELETE FROM [Orders] WHERE [Order_ID] = @Order_ID" InsertCommand="INSERT INTO [Orders] ([RawMaterial_ID], [purchase_order_ID], [Quantity], [Unit_Price], [Total_Price]) VALUES (@RawMaterial_ID, @purchase_order_ID, @Quantity, @Unit_Price, @Total_Price)" UpdateCommand="UPDATE [Orders] SET [RawMaterial_ID] = @RawMaterial_ID, [purchase_order_ID] = @purchase_order_ID, [Quantity] = @Quantity, [Unit_Price] = @Unit_Price, [Total_Price] = @Total_Price WHERE [Order_ID] = @Order_ID">
             <DeleteParameters>
                 <asp:Parameter Name="Order_ID" Type="Int16" />
             </DeleteParameters>
@@ -73,14 +73,14 @@
                 <asp:Parameter Name="purchase_order_ID" Type="Int32" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Unit_Price" Type="Int32" />
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
+                <asp:Parameter Name="Total_Price" Type="Int32" />
             </InsertParameters>
             <UpdateParameters>
                 <asp:Parameter Name="RawMaterial_ID" Type="Int16" />
                 <asp:Parameter Name="purchase_order_ID" Type="Int32" />
                 <asp:Parameter Name="Quantity" Type="Int32" />
                 <asp:Parameter Name="Unit_Price" Type="Int32" />
-                <asp:Parameter Name="Entry_ID" Type="Int32" />
+                <asp:Parameter Name="Total_Price" Type="Int32" />
                 <asp:Parameter Name="Order_ID" Type="Int16" />
             </UpdateParameters>
         </asp:SqlDataSource>
@@ -129,7 +129,7 @@
                             <asp:BoundField DataField="purchase_order_ID" HeaderText="purchase_order_ID" SortExpression="purchase_order_ID" />
                             <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                             <asp:BoundField DataField="Unit_Price" HeaderText="Unit_Price" SortExpression="Unit_Price" />
-                            <asp:BoundField DataField="Entry_ID" HeaderText="Entry_ID" SortExpression="Entry_ID" />
+                            <asp:BoundField DataField="Total_Price" HeaderText="Total_Price" SortExpression="Total_Price" />
                         </Columns>
                         <FooterStyle BackColor="#CCCCCC" />
                         <EditRowStyle BackColor="Yellow"/>
@@ -153,13 +153,20 @@
                         </asp:DropDownList>
                         <br />
                         <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <br />
-                        <br />
-                        <asp:Label ID="lblPurchase_Order_ID" runat="server" Text="Purchase_Order_ID: " Width="150px" />
+                        &nbsp;<asp:Label ID="lblPurchase_Order_ID" runat="server" Text="Purchase_Order_ID: " Width="150px" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:DropDownList ID="PurchaseOrder_IDDropDownList" runat="server" Height="29px" Width="151px" DataSourceID="SqlPurchaseOrder" DataTextField="Purchase_Order_ID" DataValueField="Purchase_Order_ID">
                         </asp:DropDownList>
+                        <br />
+                        <br />
+                        <asp:Label ID="lblUnit_Price" runat="server" Text="Unit Price: " Width="150px"></asp:Label>
+                        <asp:TextBox ID="txtUnitPrice" runat="server" Height="33px" Width="300px"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lblQuantity" runat="server" Text="Quantity: " Width="150px"></asp:Label>
+                        <asp:TextBox ID="txtQuantity" runat="server" Height="33px" Width="300px"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="lblTotal" runat="server" Text="Total: " Width="150px"></asp:Label>
+                        <asp:TextBox ID="txtTotal" runat="server" Height="33px" Width="300px"></asp:TextBox>
                         <br />
                         <br />
                         <br />

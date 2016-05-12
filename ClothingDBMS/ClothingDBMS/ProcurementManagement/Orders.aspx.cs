@@ -28,9 +28,11 @@ namespace ClothingDBMS.ProcurementManagement
 
         protected void btnSaveOrders_Click(object sender, EventArgs e)
         {
-            SqlOrders.InsertParameters["PurchaseOrder_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
+            SqlOrders.InsertParameters["Purchase_Order_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
             SqlOrders.InsertParameters["RawMaterial_ID"].DefaultValue = PurchaseOrder_IDDropDownList.SelectedValue;
-           
+            SqlOrders.InsertParameters["Unit_Price"].DefaultValue = txtUnitPrice.Text.ToUpper().Trim();
+            SqlOrders.InsertParameters["Quantity"].DefaultValue = txtQuantity.Text.ToUpper().Trim();
+            SqlOrders.InsertParameters["Total_price"].DefaultValue = txtTotal.Text.ToUpper().Trim();
 
             SqlOrders.Insert();
             gvOrders.DataBind();
@@ -38,7 +40,10 @@ namespace ClothingDBMS.ProcurementManagement
             PanelgvOrders.Visible = true;
             RawMaterial_IDDropDownList.SelectedIndex = -1;
             PurchaseOrder_IDDropDownList.SelectedIndex = -1;
-           
+            txtUnitPrice.Text = string.Empty;
+            txtQuantity.Text = string.Empty;
+            txtTotal.Text = string.Empty;
+
         }
     }
 
